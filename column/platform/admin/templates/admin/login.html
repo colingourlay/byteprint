@@ -1,31 +1,39 @@
 {% extends 'admin/_.html' %}
 
-{% block header %}{% endblock %}
+{% block header %}
+<div id="header">
+    <a class="small" href="{% url core_homepage %}">← Back to {{ blog_title }}</a>
+</div>
+{% endblock %}
 
 {% block content %}
-<div class="y">
-    <div class="x13">&nbsp;</div>
-    <div class="x13">
-        {% if user.is_authenticated %}
-        <h1>Already Logged In</h1>
-        <p>You're logged in as {{ user }}. <a href="{% url logout %}">Logout</a>.</p>
-        {% else %}
-        <h1>Login</h1>
-        {% if form.errors %}
-        <p class="error">Sorry, that's not a valid username or
-        password</p>
-        {% endif %}
-        <p>Please login with your username and password:</p>
-        <form action='.' method='post'>
-            <label for="username">User name:</label>
-            <input type="text" name="username" value="" id="username">
-            <label for="password">Password:</label>
-            <input type="password" name="password" value=""
-            id="password">
-            <input type="submit" value="login" />
-            <input type="hidden" name="next" value="{{ next|escape }}"/>
+<div class="login">
+    {% if user.is_authenticated %}
+    <p>You're logged in as {{ user.username }}. <a href="{% url logout %}">Log Out</a>.</p>
+    {% else %}
+    {% if form.errors %}
+    <p class="msg error">Sorry, that's not a valid username or
+    password</p>
+    {% endif %}
+    <div class="loginForm">
+        <form action='.' method='post' class="uniForm">
+            <fieldset>
+                <div class="ctrlHolder">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" value="" id="username">
+                </div>
+                <div class="ctrlHolder">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" value=""
+                    id="password">
+                </div>
+                <div class="buttonHolder">
+                    <button type="submit" class="primaryAction">Login</button>
+                </div>    
+                <input type="hidden" name="next" value="{{ next|escape }}"/>
+            </fieldset>
         </form>
     </div>
-    <div class="x13">&nbsp;</div>
-{% endif %}
+    {% endif %}
+</div>
 {% endblock %}

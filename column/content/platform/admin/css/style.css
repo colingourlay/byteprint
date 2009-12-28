@@ -1,10 +1,100 @@
-/* FLOATS */
+/* COMMON ELEMENTS */
+h1,h2,h3,h4,.serif{font-family :"Georgia", "Times New Roman", serif;}
 .left{float:left;}
 .right{float:right;}
 .center{text-align:center;}
 .clear{clear:both;}
+.big{font-size:22px;}
+.small{font-size:11px;}
+.msg{font-size:11px;border:1px solid #E5E5E5;padding:6px 8px;background-color:#FFB;}
+.msg.error {background-color:#FBB;}
+.msg.success {background-color:#BFB;}
+/* GLOBAL */
+body {
+    font-family :"Lucida Grande", Verdana, Arial, "Bitstream Vera Sans", sans-serif;
+}
 
-/* CONTAINER */
-.container{margin:0 auto;width:1000px;}
+button:hover {
+    cursor: pointer;
+}
 
-#header {padding: 10px;background-color:#EEE;}
+/* PAGE SECTIONS */
+#header {
+    padding: 7px 15px 9px;
+    background-color: #444;
+    color: #AAA;
+}
+
+    #header a {
+        color: #CCC;
+        text-decoration: none;
+    }
+    
+    #header a:hover {
+        color: #FFF;
+    }
+    
+    #header #sitetitle .title {
+        color: #FFF;
+        line-height: 30px;
+        margin-right: 10px;
+    }
+        
+        #header #sitetitle a:hover .title {
+            text-decoration: underline;
+        }
+    
+    #header #userinfo {
+        line-height: 30px;
+    }
+    
+        #header #userinfo a:hover {
+            text-decoration: underline;
+        }
+
+#menu {
+    background-color: #444;
+    color: #FFF;
+    margin: 0 10px;
+}
+
+
+/* LOGIN-SPECIFIC */
+.login {
+    margin: 100px auto 0;
+    padding-top: 70px;
+    width: 296px;
+    background-image: url("../img/logo_280x60.png");
+    background-repeat: no-repeat;
+    background-position: 8px 0;
+}
+
+.loginForm {
+    -webkit-box-shadow: #C8C8C8 0px 4px 18px;
+    background: white;
+    border: 1px solid #E5E5E5;
+    border-bottom-left-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    padding: 8px;
+}
+    
+    .loginForm .ctrlHolder {
+        border: 0 none;
+    }
+
+        .loginForm .ctrlHolder label {
+            color: #777;
+        }
+        
+        .loginForm .ctrlHolder input {
+            font-size: 24px;
+            padding: 3px 2px;
+            color: #555;
+            width: 256px;
+        }
+        
+    .loginForm .buttonHolder {
+        margin: 6px 4px 6px 0;
+    }
