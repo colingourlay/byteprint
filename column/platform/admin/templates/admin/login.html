@@ -1,0 +1,31 @@
+{% extends 'admin/_.html' %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<div class="y">
+    <div class="x13">&nbsp;</div>
+    <div class="x13">
+        {% if user.is_authenticated %}
+        <h1>Already Logged In</h1>
+        <p>You're logged in as {{ user }}. <a href="{% url logout %}">Logout</a>.</p>
+        {% else %}
+        <h1>Login</h1>
+        {% if form.errors %}
+        <p class="error">Sorry, that's not a valid username or
+        password</p>
+        {% endif %}
+        <p>Please login with your username and password:</p>
+        <form action='.' method='post'>
+            <label for="username">User name:</label>
+            <input type="text" name="username" value="" id="username">
+            <label for="password">Password:</label>
+            <input type="password" name="password" value=""
+            id="password">
+            <input type="submit" value="login" />
+            <input type="hidden" name="next" value="{{ next|escape }}"/>
+        </form>
+    </div>
+    <div class="x13">&nbsp;</div>
+{% endif %}
+{% endblock %}

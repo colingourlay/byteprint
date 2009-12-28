@@ -1,0 +1,6 @@
+DATABASE_ENGINE = 'sqlite3'
+DATABASE_NAME = '/Users/colin/code/django/column/django-column/column/db.sqlite'
+DATABASE_USER = ''
+DATABASE_PASSWORD = ''
+DATABASE_HOST = ''
+DATABASE_PORT = ''

@@ -1,0 +1,17 @@
+<html>
+<head>
+{% block head %}
+<title>{% block title %}{{ blog_title }}{% endblock %}</title>
+{% block head_css %}
+<link rel='stylesheet' type='text/css' href='{{ content }}css/style.css'/>
+{% endblock %}
+{% block head_js %}{% endblock %}
+{% endblock %}
+</head>
+<body>
+{% include 'default/header.html' %}
+{% block content %}{% endblock %}
+{% include 'default/footer.html' %}
+{% block body_js %}{% endblock %}
+</body>
+</html>

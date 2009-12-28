@@ -1,0 +1,15 @@
+<html>
+<head>
+{% block head %}
+<title>{% block title %}{( blog_title }}{% endblock %}</title>
+{% block head_css %}{% endblock %}
+{% block head_js %}{% endblock %}
+{% endblock %}
+</head>
+<body>
+{% block body %}
+{% block content %}{% endblock %}
+{% block body_js %}{% endblock %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'installation/_.html' %}
+
+{% block body %}
+<h1>Column Setup</h1>
+<form action='.' method='post'>
+	<ul>
+		{{ form.as_ul }}
+	</ul>
+	<input type='submit' value='Complete Setup'/>
+</form>
+{% endblock %}
