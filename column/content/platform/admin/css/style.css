@@ -6,6 +6,7 @@ h1,h2,h3,h4,.serif{font-family :"Georgia", "Times New Roman", serif;}
 .clear{clear:both;}
 .big{font-size:22px;}
 .small{font-size:11px;}
+.btn{padding:2px;border:1px solid #777;}
 .msg{font-size:11px;border:1px solid #E5E5E5;padding:6px 8px;background-color:#FFB;}
 .msg.error {background-color:#FBB;}
 .msg.success {background-color:#BFB;}
@@ -38,6 +39,10 @@ button:hover {
         color: #FFF;
         line-height: 30px;
         margin-right: 10px;
+        background-image: url("../img/logo_32x32.png");
+        background-repeat: no-repeat;
+        background-position: 0 -2px;
+        padding-left: 40px;
     }
         
         #header #sitetitle a:hover .title {
@@ -66,17 +71,15 @@ button:hover {
     width: 296px;
     background-image: url("../img/logo_280x60.png");
     background-repeat: no-repeat;
-    background-position: 8px 0;
+    background-position: 10px 0;
 }
 
 .loginForm {
     -webkit-box-shadow: #C8C8C8 0px 4px 18px;
     background: white;
     border: 1px solid #E5E5E5;
-    border-bottom-left-radius: 5px 5px;
-    border-bottom-right-radius: 5px 5px;
-    border-top-left-radius: 5px 5px;
-    border-top-right-radius: 5px 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     padding: 8px;
 }
     
@@ -91,7 +94,6 @@ button:hover {
         .loginForm .ctrlHolder input {
             font-size: 24px;
             padding: 3px 2px;
-            color: #555;
             width: 256px;
         }
         
