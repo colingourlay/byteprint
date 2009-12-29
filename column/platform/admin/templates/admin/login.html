@@ -17,7 +17,7 @@
     {% endif %}
     <div class="loginForm">
         <form action='.' method='post' class="uniForm">
-            <fieldset>
+            <fieldset class="blockLabels">
                 <div class="ctrlHolder">
                     <label for="username">Username</label>
                     <input type="text" name="username" value="" id="username">
@@ -26,12 +26,12 @@
                     <label for="password">Password</label>
                     <input type="password" name="password" value=""
                     id="password">
-                </div>
-                <div class="buttonHolder">
-                    <button type="submit" class="primaryAction">Login</button>
-                </div>    
+                </div>  
                 <input type="hidden" name="next" value="{{ next|escape }}"/>
             </fieldset>
+            <div class="buttonHolder">
+                <button type="submit" class="primaryAction">Login</button>
+            </div>
         </form>
     </div>
     {% endif %}

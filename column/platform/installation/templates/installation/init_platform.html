@@ -1,11 +1,53 @@
 {% extends 'installation/_.html' %}
 
-{% block body %}
-<h1>Column Setup</h1>
-<form action='.' method='post'>
-	<ul>
-		{{ form.as_ul }}
-	</ul>
-	<input type='submit' value='Complete Setup'/>
-</form>
+{% block content %}
+<div class="installation">
+    <div class="paneHeader">
+       <h1>Blog &amp; User Configuration</h1>
+    </div>
+    <div class="paneBody">
+        <form action='.' method='post'class="uniForm">
+            {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+            <p class="errorField">{{ error }}</p>
+            {% endfor %}
+            {% endif %}
+            <fieldset class="blockLabels long">
+                <div class="ctrlHolder{% if form.blog_title.errors %} error{% endif %}">
+                    {% if form.blog_title.errors %}
+                    <p id="{{ form.blog_title.name }}_errors" class="errorField">{{ form.blog_title.errors.0 }}</p>
+                    {% endif %}
+                    {{ form.blog_title.label_tag }}{{ form.blog_title }}<p class="formHint">{{ form.blog_title.help_text }}</p>
+                </div>
+                <div class="ctrlHolder{% if form.username.errors %} error{% endif %}">
+                    {% if form.username.errors %}
+                    <p id="{{ form.username.name }}_errors" class="errorField">{{ form.username.errors.0 }}</p>
+                    {% endif %}
+                    {{ form.username.label_tag }}{{ form.username }}<p class="formHint">{{ form.username.help_text }}</p>
+                </div>
+                <div class="ctrlHolder{% if form.password.errors %} error{% endif %}">
+                    {% if form.password.errors %}
+                    <p id="{{ form.password.name}}_errors" class="errorField">{{ form.password.errors.0 }}</p>
+                    {% endif %}
+                    {{ form.password.label_tag }}{{ form.password }}<p class="formHint">{{ form.blog_title.password }}</p>
+                </div>
+                <div class="ctrlHolder{% if form.password_confirm.errors %} error{% endif %}">
+                    {% if form.password_confirm.errors %}
+                    <p id="{{ form.password_confirm.name}}_errors" class="errorField">{{ form.password_confirm.errors.0 }}</p>
+                    {% endif %}
+                    {{ form.password_confirm.label_tag }}{{ form.password_confirm }}<p class="formHint">{{ form.password_confirm.help_text }}</p>
+                </div>
+                <div class="ctrlHolder{% if form.email.errors %} error{% endif %}">
+                    {% if form.email.errors %}
+                    <p id="{{ form.email.name}}_errors" class="errorField">{{ form.email.errors.0 }}</p>
+                    {% endif %}
+                    {{ form.email.label_tag }}{{ form.email }}<p class="formHint">{{ form.email.help_text }}</p>
+                </div>
+            </fieldset> 
+            <div class="buttonHolder">
+                <button type="submit" class="primaryAction">Complete Installation</button>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}

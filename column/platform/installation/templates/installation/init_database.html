@@ -1,30 +1,40 @@
 {% extends 'installation/_.html' %}
 
-{% block body %}
-<h1>Column Setup</h1>
-<p><strong>Database Settings</strong></p>
-
-{% if error_msg %}
-<p>There was an error in the database settinge you provided:</p>
-<ul><li>{{ error_msg }}</li></ul>
-<p>Please correct your database settings, then you can <a href=".">Continue Setup</a></p>
-{% else %}
-<p>Before you can start using Column you need to provide your database settings:</p>
-<ol>
-    <li>Open <code>column/platform/database.py</code></li>
-    <li>Complete each of the fields with your database settings:
-        <ul>
-            <li><code>DATABASE_ENGINE</code> : Enter either <code>mysql</code> or <code>postgresql</code></li>
-            <li><code>DATABASE_NAME</code> : Enter the name of your database, i.e. <code>column_database</code></li>
-            <li><code>DATABASE_USER</code>: Enter the name of the user that has full read/write access to the database</li>
-            <li><code>DATABASE_PASSWORD</code> : Enter the password used by the above user</li>
-            <li><code>DATABASE_HOST</code> : If your database is running on another host, enter the address here, otherwise, leave blank</li>
-            <li><code>DATABASE_PORT</code> : If your database is running on another host, enter the port number here; otherwise, leave blank</li>
-        </ul>
-    </li>
-    <li>Save and close <code>column/platform/database.py</code></li>
-    <li>Restart your server to load the new database settings</li>
-</ol>
-<p>Once you have followed the steps above, you can <a href=".">Continue Setup</a></p>
+{% block content %}
+<div class="installation">
+    <div class="paneHeader">
+        <h1>Provide Your Database Settings</h1>
+    </div>
+    <div class="paneBody">
+        {% if error_msg %}
+        <p>There was an error in the database settings you provided:</p>
+        <ul><li>{{ error_msg }}</li></ul>
+        <p>Please correct your database settings and restart your server. Once you have done this, you can <a href=".">continue with the installation</a>.</p>
+        {% else %}
+        <p>Before you can install Column you need to provide your database settings:</p>
+        <ol>
+            <li>Open <code>column/platform/database.py</code></li>
+            <li>Complete each of the fields with your database settings:
+                <dl>
+                    <dt><code>DATABASE_ENGINE</code></dt>
+                    <dd>&rarr; Enter either <code>mysql</code> or <code>postgresql</code></dd>
+                    <dt><code>DATABASE_NAME</code></dt>
+                    <dd>&rarr; Enter the name of your database, i.e. <code>column_database</code></dd>
+                    <dt><code>DATABASE_USER</code></dt>
+                    <dd>&rarr; Enter the name of the user that has full read/write access to the database</dd>
+                    <dt><code>DATABASE_PASSWORD</code></dt>
+                    <dd>&rarr; Enter the password used by the above user</dd>
+                    <dt><code>DATABASE_HOST</code></dt>
+                    <dd>&rarr; If your database is running on another host, enter the address here, otherwise, leave blank</dd>
+                    <dt><code>DATABASE_PORT</code></dt>
+                    <dd>&rarr; If your database is running on another host, enter the port number here; otherwise, leave blank</dd>
+                </dl>
+            </li>
+            <li>Save and close <code>column/platform/database.py</code></li>
+            <li>Restart your server to load the new database settings</li>
+        </ol>
+        <p>Once you have followed the steps above, you can <a href=".">continue installing Column</a>.</p>
+    </div>
+</div>
 {% endif %}
 {% endblock %}

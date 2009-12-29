@@ -43,9 +43,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
-#if DEBUG:
-#    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
-
 ROOT_URLCONF = 'platform.urls'
 
 INSTALLED_APPS = (
@@ -56,9 +53,6 @@ INSTALLED_APPS = (
     'platform.blocks',
     'platform.core',
 )
-
-#if DEBUG:
-#    INSTALLED_APPS += ('debug_toolbar',)
 
 try:
     from database import *
@@ -73,3 +67,5 @@ SECRET_KEY = 'vk%spllo^0y$iskqrr%6mpo_*7826_(!&x+gt#&^kjfw*1m2d_'
 
 LOGIN_URL = '/admin/login/'
 LOGIN_REDIRECT_URL ='/admin/'
+
+VERSION = '0.1'

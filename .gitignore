@@ -1,3 +1,5 @@
 django-column.tmproj
 *.pyc
 *.sqlite
+.DS_Store
+apache

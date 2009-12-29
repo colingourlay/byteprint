@@ -15,11 +15,11 @@ class InstallationMiddleware(object):
                 except Exception, e:
                     return init_database(request, e)
                 else:
-                    # TODO: fix for admin user only
+                    # TODO fix for admin user only
                     if len(User.objects.filter(is_superuser=True)) > 0:
                         return
             except:
                 return init_database(request)
             else:
                 return init_platform(request)
-        return init_platform(request)
+        return init_database(request)

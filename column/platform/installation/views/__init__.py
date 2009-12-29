@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
@@ -9,7 +10,7 @@ from platform.installation.forms import InstallationForm
 
 def init_database(request, error_msg=None):
     return render_to_response('installation/init_database.html', RequestContext(request, {
-        'error_msg': error_msg,
+        'error_msg': error_msg, 'version': settings.VERSION,
     }))
 
 def init_platform(request):
@@ -44,5 +45,5 @@ def init_platform(request):
         installation_form = InstallationForm()
 
     return render_to_response('installation/init_platform.html', RequestContext(request, {
-        'form': installation_form,
+        'form': installation_form, 'version': settings.VERSION,
     }))

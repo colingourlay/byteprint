@@ -1,9 +1,11 @@
-<html>
-<head>
-<title>Column Installation</title>
-</head>
-<body>
-{% block body %}
+{% extends 'admin/_.html' %}
+
+{% block title %}Column Installation{% endblock title %}
+
+{% block header %}
+<div id="header">
+    <span class="left">Column Installation</span>
+    <span class="right">v{{ version }}</span>
+    <div class="clear"></div>
+</div>
 {% endblock %}
-</body>
-</html>
