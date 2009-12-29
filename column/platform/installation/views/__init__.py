@@ -38,7 +38,7 @@ def init_platform(request):
             blog_subtitle_definition = Definition.objects.add_templatable('blog_subtitle', 'Just another Column weblog')
                         
             # Redirect the user to their public homepage
-            return HttpResponseRedirect(reverse('core_homepage'))
+            return HttpResponseRedirect(reverse('admin'))
             
     else:
         
