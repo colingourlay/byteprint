@@ -40,5 +40,5 @@ def general(request):
             msg = "Your settings were updated"
             
     return render_to_response('admin/settings.html', RequestContext(request, {
-        'form': general_settings_form, 'notification': msg, 'menu_current': 'settings_general',
+        'form': general_settings_form, 'msg': msg, 'menu_current': 'settings_general',
     }))

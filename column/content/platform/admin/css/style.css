@@ -9,7 +9,7 @@ h1,h2,h3,h4,.serif{font-family :"Georgia", "Times New Roman", serif;}
 .btn{padding:2px;border:1px solid #777;}
 .msg{font-size:11px;border:1px solid #E5E5E5;padding:6px 8px;background-color:#FFB;}
 .msg.error {background-color:#FBB;}
-.msg.success {background-color:#BFB;}
+.msg .close{padding:4px;cursor:pointer;color:#777;}
 /* GLOBAL */
 html {
     background-color: #F5F5F5;
@@ -81,10 +81,14 @@ fieldset.extralong input {
         #header #userinfo a:hover {
             text-decoration: underline;
         }
+        
+#portal {
+    margin: 0 10px;
+}
 
 #menu {
     color: #FFF;
-    margin: 0 10px 10px 10px;
+    margin: 0 10px 10px 0;
 }
 
     #menu ul,
@@ -161,7 +165,7 @@ fieldset.extralong input {
     #menu dt a {
         padding-left: 35px;
         color: #F5F5F5;
-        width: 92px;
+        width: 102px;
     }
     
     #menu dt a#menu_posts {
@@ -190,8 +194,8 @@ fieldset.extralong input {
 
     #menu dd a {
         padding-left: 14px;
-        color: #555;
-        width: 145px;
+        color: #444;
+        width: 155px;
     }
 
     #menu dd ul li:hover {
