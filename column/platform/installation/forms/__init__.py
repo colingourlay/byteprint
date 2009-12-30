@@ -1,6 +1,4 @@
 from django import forms
-from django.contrib.auth.models import User
-from django.forms.util import ErrorList
 from django.utils.translation import ugettext_lazy as _
 
 class InstallationForm(forms.Form):
@@ -28,7 +26,7 @@ class InstallationForm(forms.Form):
     )
     email = forms.EmailField(
         label='Email',
-        help_text="You email address is needed if you ever need to reset your password.",
+        help_text="You email address is used for admin purposes.",
     )
     
     def clean(self):

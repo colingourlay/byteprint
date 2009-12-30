@@ -32,11 +32,23 @@ button:hover {
     cursor: pointer;
 }
 
+/* FORMS */
+fieldset.long input {
+    width: 240px;
+    min-width: 240px;
+}
+
+fieldset.extralong input {
+    width: 294px;
+    min-width: 294px;
+}
+
 /* PAGE SECTIONS */
 #header {
     padding: 7px 15px 9px;
     background-color: #444;
     color: #AAA;
+    margin-bottom: 10px;
 }
 
     #header a {
@@ -72,7 +84,7 @@ button:hover {
 
 #menu {
     color: #FFF;
-    margin: 10px;
+    margin: 0 10px 10px 10px;
     font-size: 11px;
 }
     
@@ -163,11 +175,6 @@ button:hover {
             margin: 0 0 4px 16px;
         }
     
-    .installation fieldset.long input {
-        width: 240px;
-        min-width: 240px;
-    }
-    
     .installation .paneHeader.db {
         background-image: url("../img/icon_db.png");
         background-repeat: no-repeat;
@@ -222,3 +229,8 @@ button:hover {
     .loginForm .buttonHolder {
         padding: 4px 4px 2px 0;
     }
+
+/* SETTINGS-PAGE-SPECIFIC */
+.settingsPage {
+    width: 600px;
+}

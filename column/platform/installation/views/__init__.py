@@ -23,11 +23,11 @@ def init_platform(request):
 
             # Initialise the superuser account
             username = installation_form.cleaned_data['username']
-            email = installation_form.cleaned_data['email']
             password = installation_form.cleaned_data['password']
+            email = installation_form.cleaned_data['email']
             all_users = User.objects.all()
             all_users.delete()
-            super_user = User.objects.create_superuser(username, email, password)
+            admin_user = User.objects.create_superuser(username, email, password)
             
             # Initialise the starting definitions
             all_definitions = Definition.objects.all()

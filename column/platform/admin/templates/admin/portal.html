@@ -3,51 +3,40 @@
 {% block content %}
 <div class="l180">
     <div class="m">
+        {% block main %}
         <h1>Portal</h1>
         <hr/>
         <p>Content goes here</p>
+        {% endblock %}
     </div>
     <div class="s">
         <div id="menu">
             <ul id="mainmenu" class="menu noaccordion">
                 <li>
-                    <a href="#">Category A</a>
+                    <a href="#">Posts</a>
                     <ul>
-                        <li><a href="#">Item 1</a></li>
-                        <li><a href="#">Item 2</a></li>
-                        <li><a href="#">Item 3</a></li>
-                        <li><a href="#">Item 4</a></li>
-                        <li><a href="#">Item 5</a></li>
+                        <li><a href="#">Add New</a></li>
+                        <li><a href="#">Edit</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Category B</a>
+                    <a href="#">Appearance</a>
                     <ul>
-                        <li><a href="#">Item 1</a></li>
-                        <li><a href="#">Item 2</a></li>
-                        <li><a href="#">Item 3</a></li>
-                        <li><a href="#">Item 4</a></li>
-                        <li><a href="#">Item 5</a></li>
+                        <li><a href="#">Themes</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Category C</a>
+                    <a href="#">Widgets</a>
                     <ul>
-                        <li><a href="#">Item 1</a></li>
-                        <li><a href="#">Item 2</a></li>
-                        <li><a href="#">Item 3</a></li>
-                        <li><a href="#">Item 4</a></li>
-                        <li><a href="#">Item 5</a></li>
+                        <li><a href="#">Add New</a></li>
+                        <li><a href="#">Edit</a></li>
+                        <li><a href="#">Rearrange</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Category D</a>
+                    <a href="#">Settings</a>
                     <ul>
-                        <li><a href="#">Item 1</a></li>
-                        <li><a href="#">Item 2</a></li>
-                        <li><a href="#">Item 3</a></li>
-                        <li><a href="#">Item 4</a></li>
-                        <li><a href="#">Item 5</a></li>
+                        <li><a href="{% url admin_settings_general %}">General</a></li>
                     </ul>
                 </li>
             </ul>
