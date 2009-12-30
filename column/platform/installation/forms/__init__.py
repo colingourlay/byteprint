@@ -17,6 +17,7 @@ class InstallationForm(forms.Form):
     password = forms.CharField(
         max_length=128,
         label='Password',
+        help_text="Try to use a mixture of upper/lower case letters and numbers.",
         widget=forms.PasswordInput,
     )
     password_confirm = forms.CharField(
@@ -27,6 +28,7 @@ class InstallationForm(forms.Form):
     )
     email = forms.EmailField(
         label='Email',
+        help_text="You email address is needed if you ever need to reset your password.",
     )
     
     def clean(self):

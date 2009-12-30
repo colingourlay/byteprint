@@ -155,9 +155,31 @@ button:hover {
     width: 520px;
 }
 
+    .installation dl {
+        margin: 8px 0 4px;
+    }
+    
+        .installation dl dd {
+            margin: 0 0 4px 16px;
+        }
+    
     .installation fieldset.long input {
         width: 240px;
         min-width: 240px;
+    }
+    
+    .installation .paneHeader.db {
+        background-image: url("../img/icon_db.png");
+        background-repeat: no-repeat;
+        background-position: 12px 4px;
+        padding-left: 50px;
+    }
+    
+    .installation .paneHeader.conf {
+        background-image: url("../img/icon_bloguserconf.png");
+        background-repeat: no-repeat;
+        background-position: 3px 3px;
+        padding-left: 50px;
     }
 
 /* LOGIN-SPECIFIC */

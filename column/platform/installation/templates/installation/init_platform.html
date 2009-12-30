@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="installation">
-    <div class="paneHeader">
+    <div class="paneHeader conf">
        <h1>Blog &amp; User Configuration</h1>
     </div>
     <div class="paneBody">
@@ -29,7 +29,7 @@
                     {% if form.password.errors %}
                     <p id="{{ form.password.name}}_errors" class="errorField">{{ form.password.errors.0 }}</p>
                     {% endif %}
-                    {{ form.password.label_tag }}{{ form.password }}<p class="formHint">{{ form.blog_title.password }}</p>
+                    {{ form.password.label_tag }}{{ form.password }}<p class="formHint">{{ form.password.help_text }}</p>
                 </div>
                 <div class="ctrlHolder{% if form.password_confirm.errors %} error{% endif %}">
                     {% if form.password_confirm.errors %}
