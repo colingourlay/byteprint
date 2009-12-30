@@ -85,58 +85,140 @@ fieldset.extralong input {
 #menu {
     color: #FFF;
     margin: 0 10px 10px 10px;
-    font-size: 11px;
 }
-    
+
     #menu ul,
-    #menu li {
+    #menu li,
+    #menu dl,
+    #menu dt,
+    #menu dd {
         margin: 0;
         padding: 0;
         list-style-type:none;
     } 
-    
-    #menu ul li {
-        background-color: #555;
-        line-height: 23px;
-        margin-bottom: 4px;
+
+    #menu dl {
+        margin-top: -10px;    
     }
     
-    #menu ul li ul li {
+    #menu dt {
+        font-family :"Georgia", "Times New Roman", serif;
+        background-color: #444;
+        padding: 3px 0;
+        margin-top: 10px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+    }
+    
+    #menu dt:hover {
+        background-color: #4A4A4A;
+    }
+
+    #menu dt.closed {
+        -moz-border-radius-bottomleft: 5px;
+        -moz-border-radius-bottomright: 5px;
+        -webkit-border-bottom-left-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+    }
+    
+        #menu dt span.toggle {
+            display: none;
+            float: right;
+            padding: 6px 8px;
+            margin-top: -3px;
+            border-left: 1px solid #555;
+            cursor: default;
+        }
+        
+        #menu dt.closed span.toggle {
+            visibility: hidden;
+        }
+        
+        #menu dt.closed:hover span.toggle {
+            visibility: visible;
+        }
+
+    #menu dd {
+        font-size: 11px;
         background-color: #FFF;
-        border-left: 1px solid #555;
-        border-right: 1px solid #555;
-        border-bottom: 1px solid #555;
-        margin-bottom: 0;
+        border-left: 1px solid #444;
+        border-right: 1px solid #444;
+        border-bottom: 1px solid #444;
     }
-    
-    #menu ul li ul li:hover {
-        background: #B5B5B5;
-    }
-    
+
     #menu a {
-        width: 178px;
-        min-width: 178px;
-        padding: 4px 8px;
+        line-height: 23px;
         text-decoration: none;
+        display: inline-block;
     }
-    
+
     #menu a:hover {
         text-decoration: none;
     }
-    
-    #menu ul li a {
-        color: #E5E5E5;
+
+    #menu dt a {
+        padding-left: 35px;
+        color: #F5F5F5;
+        width: 92px;
     }
     
-    #menu ul li ul li a {
+    #menu dt a#menu_posts {
+        background-image: url("../img/icon_menu_posts.png");
+        background-repeat: no-repeat;
+        background-position: 7px 1px;
+    }
+    
+    #menu dt a#menu_appearance {
+        background-image: url("../img/icon_menu_appearance.png");
+        background-repeat: no-repeat;
+        background-position: 7px 1px;
+    }
+    
+    #menu dt a#menu_widgets {
+        background-image: url("../img/icon_menu_widgets.png");
+        background-repeat: no-repeat;
+        background-position: 7px 1px;
+    }
+    
+    #menu dt a#menu_settings {
+        background-image: url("../img/icon_menu_settings.png");
+        background-repeat: no-repeat;
+        background-position: 7px 1px;
+    }
+
+    #menu dd a {
+        padding-left: 14px;
         color: #555;
+        width: 145px;
     }
+
+    #menu dd ul li:hover {
+        background-color: #F5F5F5;
+    }
+    
+    #menu dd ul li.current {
+        background-color: #E5E5E5;
+        background-image: url("../img/icon_menu_current.png");
+        background-repeat: no-repeat;
+        background-position: 0 3px;
+    }
+    
+        #menu dd ul li:hover a,
+        #menu dd ul li.current a {
+            color: #000;
+        }
+        
+        #menu dd ul li.current a {
+            font-weight: bold;
+        }
 
 .paneHeader,
 .paneBody {
     padding: 8px;
 }
-    
+
 .paneHeader {
     background-color: #BBB;
     -moz-border-radius-topleft: 5px;

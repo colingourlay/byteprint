@@ -1,0 +1,43 @@
+<div id="menu">
+    <dl id="mainmenu">
+        <dt>
+            <a id="menu_posts" href="#">Posts</a>
+            <span class="toggle">▼</span>
+        </dt>
+        <dd>
+            <ul>
+                <li class="{% ifequal menu_current "posts_add" %}current{% endifequal %}"><a href="#">Add New</a></li>
+                <li class="{% ifequal menu_current "posts_edit" %}current{% endifequal %}"><a href="#">Edit</a></li>
+            </ul>
+        </dd>
+        <dt>
+            <a id="menu_appearance" href="#">Appearance</a>
+            <span class="toggle">▼</span>
+        </dt>
+        <dd>
+            <ul>
+                <li class="{% ifequal menu_current "appearance_themes" %}current{% endifequal %}"><a href="#">Themes</a></li>
+            </ul>
+        </dd>
+        <dt>
+            <a id="menu_widgets" href="#">Widgets</a>
+            <span class="toggle">▼</span>
+        </dt>
+        <dd>
+            <ul>
+                <li class="{% ifequal menu_current "widgets_add" %}current{% endifequal %}"><a href="#">Add New</a></li>
+                <li class="{% ifequal menu_current "widgets_edit" %}current{% endifequal %}"><a href="#">Edit</a></li>
+                <li class="{% ifequal menu_current "widgets_rearrange" %}current{% endifequal %}"><a href="#">Rearrange</a></li>
+            </ul>
+        </dd>
+        <dt>
+            <a id="menu_settings" href="{% url admin_settings_general %}">Settings</a>
+            <span class="toggle">▼</span>
+        </dt>
+        <dd>
+            <ul>
+                <li class="{% ifequal menu_current "settings_general" %}current{% endifequal %}"><a href="{% url admin_settings_general %}">General</a></li>
+            </ul>
+        </dd>
+    </dl>
+</div>

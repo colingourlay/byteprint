@@ -10,37 +10,7 @@
         {% endblock %}
     </div>
     <div class="s">
-        <div id="menu">
-            <ul id="mainmenu" class="menu noaccordion">
-                <li>
-                    <a href="#">Posts</a>
-                    <ul>
-                        <li><a href="#">Add New</a></li>
-                        <li><a href="#">Edit</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Appearance</a>
-                    <ul>
-                        <li><a href="#">Themes</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Widgets</a>
-                    <ul>
-                        <li><a href="#">Add New</a></li>
-                        <li><a href="#">Edit</a></li>
-                        <li><a href="#">Rearrange</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Settings</a>
-                    <ul>
-                        <li><a href="{% url admin_settings_general %}">General</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+        {% include "admin/includes/menu.html" %}
     </div>
 </div>
 {% endblock %}

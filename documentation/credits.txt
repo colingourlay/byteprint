@@ -7,3 +7,5 @@ Image Credits:
     Installation > Database Settings Icon
     Installation > Blog & User Configuration Icon
 
+* Tango Icon Library [http://tango.freedesktop.org/Tango_Icon_Library]
+    Admin > Menu Icons
