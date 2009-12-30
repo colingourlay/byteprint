@@ -171,15 +171,19 @@ button:hover {
     .installation .paneHeader.db {
         background-image: url("../img/icon_db.png");
         background-repeat: no-repeat;
-        background-position: 12px 4px;
-        padding-left: 50px;
+        background-position: 13px 5px;
+        padding-left: 72px;
+        font-size: 24px;
+        line-height: 40px;
     }
     
     .installation .paneHeader.conf {
         background-image: url("../img/icon_bloguserconf.png");
         background-repeat: no-repeat;
-        background-position: 3px 3px;
-        padding-left: 50px;
+        background-position: 13px 5px;
+        padding-left: 72px;
+        font-size: 22px;
+        line-height: 40px;
     }
 
 /* LOGIN-SPECIFIC */
