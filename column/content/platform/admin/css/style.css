@@ -9,7 +9,7 @@ h1,h2,h3,h4,.serif{font-family :"Georgia", "Times New Roman", serif;}
 .btn{padding:2px;border:1px solid #777;}
 .msg{font-size:11px;border:1px solid #E5E5E5;padding:6px 8px;background-color:#FFB;}
 .msg.error {background-color:#FBB;}
-.msg .close{padding:4px;cursor:pointer;color:#777;}
+.msg .close{cursor:pointer;color:#777;}
 /* GLOBAL */
 html {
     background-color: #F5F5F5;
@@ -48,7 +48,7 @@ fieldset.extralong input {
     padding: 7px 15px 9px;
     background-color: #444;
     color: #AAA;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
     #header a {
@@ -83,12 +83,12 @@ fieldset.extralong input {
         }
         
 #portal {
-    margin: 0 10px;
+    margin: 0 15px 0 0;
 }
 
 #menu {
     color: #FFF;
-    margin: 0 10px 10px 0;
+    margin: 0 15px 15px 15px;
 }
 
     #menu ul,
@@ -165,7 +165,7 @@ fieldset.extralong input {
     #menu dt a {
         padding-left: 35px;
         color: #F5F5F5;
-        width: 102px;
+        width: 82px;
     }
     
     #menu dt a#menu_posts {
@@ -249,7 +249,7 @@ fieldset.extralong input {
     
 /* INSTALLATION-SPECIFIC */
 .installation {
-    margin: 20px auto 0;
+    margin: 15px auto 0;
     width: 520px;
 }
 
@@ -281,7 +281,7 @@ fieldset.extralong input {
 
 /* LOGIN-SPECIFIC */
 .login {
-    margin: 100px auto 0;
+    margin: 95px auto 0;
     padding-top: 70px;
     width: 296px;
     background-image: url("../img/logo_280x60.png");
