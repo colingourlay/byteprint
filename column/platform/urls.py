@@ -2,7 +2,6 @@ from django.conf import settings
 from django.conf.urls.defaults import *
 
 urlpatterns = patterns('',
-#    (r'^blocks/', include('platform.blocks.urls')),
     (r'^admin/', include('platform.admin.urls')),
     (r'^', include('platform.core.urls')),
 )

@@ -50,8 +50,8 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
 	'django.contrib.sessions',
     'platform.admin',
-    'platform.blocks',
     'platform.core',
+    'platform.widgets',
 )
 
 try:

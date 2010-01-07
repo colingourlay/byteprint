@@ -1,0 +1,14 @@
+{% extends 'admin/portal.html' %}
+
+{% block main %}
+<div class="paneHeader">
+   <h1>Blueprints</h1>
+</div>
+<div class="paneBody">
+    <ul>
+        {% for blueprint in blueprints %}
+        <li>{{ blueprint }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
