@@ -3,7 +3,7 @@
 {% block content %}
 <p>Use this page to manage your blog widgets.</p>
 <h2>Build a Widget</h2>
-<div class="form600">
+<div class="form400">
     <form action='{% url admin_widgets_build %}' method='post' class="uniForm">
         <fieldset class="blockLabels">
             <div class="ctrlHolder">
@@ -15,4 +15,14 @@
         </div>
     </form>
 </div>
+    <h2>Installed Widgets</h2>
+    {% if widgets %}
+    <ul>
+        {% for widget in widgets %}
+        <li>{{ widget.blueprint_name }} <span class="small">(<a href="{% url admin_widgets_delete widget_id=widget.id %}">delete</a>)</span></li>    
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>None</p>
+    {% endif %}
 {% endblock %}

@@ -352,6 +352,9 @@ fieldset.extralong input {
     }
 
 /* PRESET FORM WIDTHS */
+.form400 {
+    width: 400px;
+}
 .form600 {
     width: 600px;
 }
