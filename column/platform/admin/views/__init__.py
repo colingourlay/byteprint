@@ -3,5 +3,6 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 
 @login_required
-def portal(request):
-    return render_to_response('admin/portal.html', RequestContext(request))
+def dashboard(request):
+    return render_to_response('admin/dashboard.html', {'h1': 'Dashboard'},
+        RequestContext(request))

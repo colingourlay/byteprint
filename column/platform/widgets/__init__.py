@@ -19,7 +19,6 @@ class Blueprint(object):
     """
     __metaclass__ = BlueprintInventory
 
-
 class TextBlueprint(Blueprint):
 
     name = 'text'

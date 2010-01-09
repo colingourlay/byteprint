@@ -1,0 +1,18 @@
+{% extends 'admin/main.html' %}
+
+{% block content %}
+<p>Use this page to manage your blog widgets.</p>
+<h2>Build a Widget</h2>
+<div class="form600">
+    <form action='{% url admin_widgets_build %}' method='post' class="uniForm">
+        <fieldset class="blockLabels">
+            <div class="ctrlHolder">
+                {{ form.blueprint_name.label_tag }}{{ form.blueprint_name }}<p class="formHint">{{ form.blueprint_name.help_text }}</p>
+            </div>
+        </fieldset> 
+        <div class="buttonHolder">
+            <button type="submit" class="primaryAction">Build</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

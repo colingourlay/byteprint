@@ -8,7 +8,7 @@ from platform.admin.forms.settings import GeneralSettingsForm
 from platform.core.models import Definition
 
 @login_required
-def general(request):
+def general(request, template_name='admin/settings/edit.html'):
     msg = None
     
     blog_title_definition = Definition.objects.get(name='blog_title')
@@ -39,6 +39,7 @@ def general(request):
             # Set success notification
             msg = "Your settings were updated"
             
-    return render_to_response('admin/settings.html', RequestContext(request, {
-        'form': general_settings_form, 'msg': msg, 'menu_current': 'settings_general',
+    return render_to_response(template_name, RequestContext(request, {
+        'h1': 'General Settings', 'form': general_settings_form,
+        'msg': msg, 'menu_current': 'settings_general',
     }))

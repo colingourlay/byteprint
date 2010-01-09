@@ -1,6 +1,15 @@
 from platform.widgets import Blueprint
 from platform.widgets.models import Widget
 
+def get_blueprints(two_tuple=False):
+    blueprints = []
+    for blueprint in Blueprint.inventory:
+        if two_tuple:
+            blueprints.append((blueprint.name, blueprint.name))
+        else:
+            blueprints.append(blueprint.name)
+    return blueprints
+
 def get_blueprint(blueprint_name):
     for blueprint in Blueprint.inventory:
         if blueprint.name == blueprint_name:

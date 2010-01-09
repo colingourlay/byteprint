@@ -1,19 +1,23 @@
 {% extends 'admin/_.html' %}
 
-{% block content %}
-<div id="portal">
+{% block main %}
+<div id="main">
     <div class="l180">
         <div class="m">
             {% include "admin/includes/msg.html" %}
-            {% block main %}
-            <h1>Portal</h1>
-            <hr/>
-            <p>Content goes here</p>
+            {% block h1 %}
+            <h1>{{ h1 }}</h1>
+            {% endblock %}
+            {% block content %}
+            {# CONTENT #}
             {% endblock %}
         </div>
         <div class="s">
+            {% block menu %}
             {% include "admin/includes/menu.html" %}
+            {% endblock %}
         </div>
     </div>
+    <div class="clear"></div>
 </div>
 {% endblock %}

@@ -19,8 +19,15 @@ body {
     font-family :"Lucida Grande", Verdana, Arial, "Bitstream Vera Sans", sans-serif;
 }
 
+h1 {
+    border-bottom: 1px solid #AAA;
+    margin-top: 0;
+    font-size: 22px;
+    line-height: 22px;
+}
+
 a {
-    color: #55A;
+    color: #33B;
     text-decoration: none;
 }
 
@@ -45,7 +52,7 @@ fieldset.extralong input {
 
 /* PAGE SECTIONS */
 #header {
-    padding: 7px 15px 9px;
+    padding: 5px 15px 7px;
     background-color: #444;
     color: #AAA;
     margin-bottom: 15px;
@@ -66,7 +73,7 @@ fieldset.extralong input {
         margin-right: 10px;
         background-image: url("../img/logo_32x32.png");
         background-repeat: no-repeat;
-        background-position: 0 -2px;
+        background-position: 0 -3px;
         padding-left: 40px;
     }
         
@@ -82,7 +89,7 @@ fieldset.extralong input {
             text-decoration: underline;
         }
         
-#portal {
+#main {
     margin: 0 15px 0 0;
 }
 
@@ -99,12 +106,9 @@ fieldset.extralong input {
         margin: 0;
         padding: 0;
         list-style-type:none;
-    } 
-
-    #menu dl {
-        margin-top: -10px;    
     }
     
+    #menu #root,
     #menu dt {
         font-family :"Georgia", "Times New Roman", serif;
         background-color: #444;
@@ -116,10 +120,16 @@ fieldset.extralong input {
         -webkit-border-top-right-radius: 5px;
     }
     
+    #menu #root {
+        margin: 0;
+    }
+    
+    #menu #root:hover,
     #menu dt:hover {
         background-color: #4A4A4A;
     }
 
+    #menu #root,
     #menu dt.closed {
         -moz-border-radius-bottomleft: 5px;
         -moz-border-radius-bottomright: 5px;
@@ -162,34 +172,45 @@ fieldset.extralong input {
         text-decoration: none;
     }
 
+    #menu #root a {
+        padding-left: 35px;
+        color: #F5F5F5;
+        width: 100%;
+    }
+    
     #menu dt a {
         padding-left: 35px;
         color: #F5F5F5;
         width: 82px;
     }
     
-    #menu dt a#menu_posts {
-        background-image: url("../img/icon_menu_posts.png");
+    #menu #root a#menu_dashboard,
+    #menu dt a#menu_posts,
+    #menu dt a#menu_themes,
+    #menu dt a#menu_widgets,
+    #menu dt a#menu_settings {
         background-repeat: no-repeat;
         background-position: 7px 1px;
     }
     
-    #menu dt a#menu_appearance {
-        background-image: url("../img/icon_menu_appearance.png");
-        background-repeat: no-repeat;
-        background-position: 7px 1px;
+    #menu #root a#menu_dashboard {
+        background-image: url("../img/icon_menu_dashboard.png");
+    }
+    
+    #menu dt a#menu_posts {
+        background-image: url("../img/icon_menu_posts.png");
+    }
+    
+    #menu dt a#menu_themes {
+        background-image: url("../img/icon_menu_themes.png");
     }
     
     #menu dt a#menu_widgets {
         background-image: url("../img/icon_menu_widgets.png");
-        background-repeat: no-repeat;
-        background-position: 7px 1px;
     }
     
     #menu dt a#menu_settings {
         background-image: url("../img/icon_menu_settings.png");
-        background-repeat: no-repeat;
-        background-position: 7px 1px;
     }
 
     #menu dd a {
@@ -217,6 +238,14 @@ fieldset.extralong input {
         #menu dd ul li.current a {
             font-weight: bold;
         }
+        
+#footer {
+    border-top: 1px solid #AAA;
+    color: #AAA;
+    margin: 0 15px;
+    padding-top: 5px;
+    font-size: 10px;
+}
 
 .paneHeader,
 .paneBody {
@@ -252,6 +281,12 @@ fieldset.extralong input {
     margin: 15px auto 0;
     width: 520px;
 }
+
+    .installation h1 {
+        border: 0 none;
+        font-size: 26px;
+        line-height: 40px;
+    }
 
     .installation dl {
         margin: 8px 0 4px;
@@ -316,7 +351,7 @@ fieldset.extralong input {
         padding: 4px 4px 2px 0;
     }
 
-/* SETTINGS-PAGE-SPECIFIC */
-.settingsPage {
+/* PRESET FORM WIDTHS */
+.form600 {
     width: 600px;
 }

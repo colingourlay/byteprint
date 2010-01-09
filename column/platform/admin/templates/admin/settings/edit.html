@@ -1,0 +1,27 @@
+{% extends 'admin/main.html' %}
+
+{% block content %}
+<div class="form600">
+    <form action='.' method='post' class="uniForm settingsForm">
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <p class="errorField">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
+        <fieldset class="inlineLabels extralong">
+            {% for field in form %}
+            <div class="ctrlHolder{% if field.errors %} error{% endif %}">
+                {% if field.errors %}
+                <p id="{{ field.name }}_errors" class="errorField">{{ field.errors.0 }}</p>
+                {% endif %}
+                {{ field.label_tag }}{{ field }}<p class="formHint">{{ field.help_text }}</p>
+            </div>
+            {% endfor %}
+            <div class="buttonHolder">
+                <button type="reset" class="resetButton">Reset</button>
+                <button type="submit" class="primaryAction">Save Changes</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+{% endblock %}
