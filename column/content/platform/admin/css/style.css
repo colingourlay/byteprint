@@ -7,9 +7,10 @@ h1,h2,h3,h4,.serif{font-family :"Georgia", "Times New Roman", serif;}
 .big{font-size:22px;}
 .small{font-size:11px;}
 .btn{padding:2px;border:1px solid #777;}
-.msg{font-size:11px;border:1px solid #E5E5E5;padding:6px 8px;background-color:#FFB;}
+.msg{font-size:11px;border:1px solid #E5E5E5;padding:6px 8px;background-color: #fefddc;}
 .msg.error {background-color:#FBB;}
 .msg .close{cursor:pointer;color:#777;}
+
 /* GLOBAL */
 html {
     background-color: #F5F5F5;
@@ -27,7 +28,7 @@ h1 {
 }
 
 a {
-    color: #33B;
+    color: #6e8d61;
     text-decoration: none;
 }
 
@@ -111,7 +112,7 @@ fieldset.extralong input {
     #menu #root,
     #menu dt {
         font-family :"Georgia", "Times New Roman", serif;
-        background-color: #444;
+        background-color: #777;
         padding: 3px 0;
         margin-top: 10px;
         -moz-border-radius-topleft: 5px;
@@ -126,7 +127,7 @@ fieldset.extralong input {
     
     #menu #root:hover,
     #menu dt:hover {
-        background-color: #4A4A4A;
+        background-color: #7C7C7C;
     }
 
     #menu #root,
@@ -142,11 +143,11 @@ fieldset.extralong input {
             float: right;
             padding: 7px 8px 5px;
             margin-top: -3px;
-            background-color: #555;
             -moz-border-radius-topright: 5px;
             -webkit-border-top-right-radius: 5px;
-            border-left: 1px solid #444;
+            border-left: 1px solid #606060;
             cursor: default;
+        	background-color: #6a6a6a;
         }
         
         #menu dt.closed span.toggle {
@@ -162,9 +163,9 @@ fieldset.extralong input {
     #menu dd {
         font-size: 11px;
         background-color: #FFF;
-        border-left: 1px solid #444;
-        border-right: 1px solid #444;
-        border-bottom: 1px solid #444;
+        border-left: 1px solid #777;
+        border-right: 1px solid #777;
+        border-bottom: 1px solid #777;
     }
 
     #menu a {
@@ -221,18 +222,18 @@ fieldset.extralong input {
     #menu dd a {
         padding-left: 14px;
         color: #444;
-        width: 155px;
+    	width: 135px;
     }
 
     #menu dd ul li:hover {
-        background-color: #F5F5F5;
+        background-color: #cbdabf;
     }
     
     #menu dd ul li.current {
-        background-color: #E5E5E5;
-        background-image: url("../img/icon_menu_current.png");
+        background-color: #cbdabf;
+        background-image: url(../img/icon_menu_current.png);
         background-repeat: no-repeat;
-        background-position: 0 3px;
+        background-position: 0 4px;
     }
     
         #menu dd ul li:hover a,
