@@ -140,9 +140,12 @@ fieldset.extralong input {
         #menu dt span.toggle {
             display: none;
             float: right;
-            padding: 6px 8px;
+            padding: 7px 8px 5px;
             margin-top: -3px;
-            border-left: 1px solid #555;
+            background-color: #555;
+            -moz-border-radius-topright: 5px;
+            -webkit-border-top-right-radius: 5px;
+            border-left: 1px solid #444;
             cursor: default;
         }
         
@@ -152,6 +155,8 @@ fieldset.extralong input {
         
         #menu dt.closed:hover span.toggle {
             visibility: visible;
+            -moz-border-radius-bottomright: 5px;
+            -webkit-border-bottom-right-radius: 5px;
         }
 
     #menu dd {

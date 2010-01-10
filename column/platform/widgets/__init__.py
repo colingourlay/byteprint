@@ -24,7 +24,7 @@ class TextBlueprint(Blueprint):
     name = 'text'
 
     def render(self):
-        print 'rendering text widget...'
+        return 'rendering text widget...'
 
 
 class ImageBlueprint(Blueprint):
@@ -32,4 +32,11 @@ class ImageBlueprint(Blueprint):
     name = 'image'
 
     def render(self):
-        print 'rendering image widget...'
+        return 'rendering image widget...'
+
+class ImageBlueprint(Blueprint):
+
+    name = 'video'
+
+    def render(self):
+        print 'rendering video widget...'
