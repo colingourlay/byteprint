@@ -84,14 +84,36 @@ fieldset.extralong input {
     
     #header #userinfo {
         line-height: 30px;
+        font-size: 12px;
     }
     
         #header #userinfo a:hover {
             text-decoration: underline;
         }
-        
+
+/* PAGE LAYOUT */
 #main {
     margin: 0 15px 0 0;
+    min-width: 320px;
+    padding-left: 160px;
+}
+
+.main {
+	float: left;
+	position: relative;
+	width: 100%;
+}
+
+.sidebar {
+	width: 160px;
+	float: left;
+	position: relative;
+	right: 160px;
+	margin-left: -100%;
+}
+
+* html .sidebar {
+    left: 0;
 }
 
 #menu {
@@ -108,7 +130,7 @@ fieldset.extralong input {
         padding: 0;
         list-style-type:none;
     }
-    
+
     #menu #root,
     #menu dt {
         font-family :"Georgia", "Times New Roman", serif;
@@ -140,7 +162,6 @@ fieldset.extralong input {
     
         #menu dt span.toggle {
             display: none;
-            float: right;
             padding: 7px 8px 5px;
             margin-top: -3px;
             -moz-border-radius-topright: 5px;
@@ -148,6 +169,8 @@ fieldset.extralong input {
             border-left: 1px solid #606060;
             cursor: default;
         	background-color: #6a6a6a;
+        	position: absolute;
+        	right: 15px;
         }
         
         #menu dt.closed span.toggle {
@@ -187,7 +210,7 @@ fieldset.extralong input {
     #menu dt a {
         padding-left: 35px;
         color: #F5F5F5;
-        width: 82px;
+        width: 62px;
     }
     
     #menu #root a#menu_dashboard,
@@ -222,7 +245,7 @@ fieldset.extralong input {
     #menu dd a {
         padding-left: 14px;
         color: #444;
-    	width: 135px;
+    	width: 115px;
     }
 
     #menu dd ul li:hover {

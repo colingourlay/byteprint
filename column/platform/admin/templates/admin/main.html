@@ -2,8 +2,8 @@
 
 {% block main %}
 <div id="main">
-    <div class="l180">
-        <div class="m">
+    <div class="layout">
+        <div class="main">
             {% include "admin/includes/msg.html" %}
             {% block h1 %}
             <h1>{{ h1 }}</h1>
@@ -12,12 +12,12 @@
             {# CONTENT #}
             {% endblock %}
         </div>
-        <div class="s">
+        <div class="sidebar">
             {% block menu %}
             {% include "admin/includes/menu.html" %}
             {% endblock %}
         </div>
-    </div>
+    </div>    
     <div class="clear"></div>
 </div>
 {% endblock %}
