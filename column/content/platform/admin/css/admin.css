@@ -16,6 +16,7 @@ html {
     background-color: #F5F5F5;
     color: #222;
     min-height: 100%;
+    min-width: 800px;
 }
 body {
     font-family :"Lucida Grande", Verdana, Arial, "Bitstream Vera Sans", sans-serif;
