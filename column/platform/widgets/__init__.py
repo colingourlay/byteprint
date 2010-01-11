@@ -24,7 +24,7 @@ class TextBlueprint(Blueprint):
     name = 'text'
 
     def render(self, widget_data):
-        return 'rendering text widget...'
+        return '<p>I am some text</p>'
 
 
 class ImageBlueprint(Blueprint):
@@ -32,11 +32,11 @@ class ImageBlueprint(Blueprint):
     name = 'image'
 
     def render(self, widget_data):
-        return 'rendering image widget...'
+        return '<img src="http://www.collider.com/uploads/imageGallery/A_Team/the_a-team_logo.jpg"/>'
 
-class ImageBlueprint(Blueprint):
+class VideoBlueprint(Blueprint):
 
     name = 'video'
 
     def render(self, widget_data):
-        return 'rendering video widget...'
+        return '<object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/mh0bLHnmG4M&hl=en_US&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/mh0bLHnmG4M&hl=en_US&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>'
