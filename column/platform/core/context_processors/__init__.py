@@ -22,7 +22,7 @@ def request(request):
         page_widgets = ""
         widgets = Widget.objects.all()
         for widget in widgets:
-            page_widgets += render_widget(widget)
+            page_widgets += "<div class=\"widget\">" + render_widget(widget) + "</div>"
         extra_context['page_widgets'] = page_widgets
     except:
         pass

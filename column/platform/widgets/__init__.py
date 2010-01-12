@@ -40,6 +40,21 @@ class ImageBlueprint(Blueprint):
     def render(self, widget_data):
         output = "<img src=\"" + widget_data['url'] + "\" alt=\"" + widget_data['alt'] + "\" title=\"" + widget_data['title'] + "\"/>"
         return output
+
+class CodeBlueprint(Blueprint):
+
+    name = 'code'
+    fields = { 'code': forms.CharField(
+            widget=forms.Textarea,
+            label="Code",
+            help_text="Enter the code you want to appear within the widget",
+            initial="print \"Hello World\";"
+        )
+    }
+
+    def render(self, widget_data):
+        output = "<code>" + widget_data['code'] + "</code>"
+        return output
         
 # class HTMLBlueprint(Blueprint):
 # 

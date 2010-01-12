@@ -1,17 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-{% block head %}
-<title>{% block title %}{{ blog_title }}{% endblock %}</title>
-{% block head_css %}
-<link rel='stylesheet' type='text/css' href='{{ content }}css/style.css'/>
-{% endblock %}
-{% block head_js %}{% endblock %}
-{% endblock %}
+    {% block head %}
+    <title>{% block title %}{{ blog_title }}{% endblock %}</title>
+    {% block head_css %}
+    <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
+    <link rel='stylesheet' type='text/css' href='{{ content }}css/style.css'/>
+    {% endblock %}
+    {% block head_js %}
+    {% endblock %}
+    {% endblock %}
 </head>
 <body>
-{% include 'default/header.html' %}
-{% block content %}{% endblock %}
-{% include 'default/footer.html' %}
-{% block body_js %}{% endblock %}
+    <div id="doc2" class="yui-t5">
+        <div id="hd">
+            {% include 'default/header.html' %}
+        </div>
+        <div id="bd">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div id="ft">
+            {% include 'default/footer.html' %}
+        </div>
+        {% block body_js %}
+        {% endblock %}
+    </div>
 </body>
 </html>
