@@ -24,7 +24,15 @@ class Blueprint(object):
 class HTMLBlueprint(Blueprint):
 
     name = 'html'
-    fields = { 'html': forms.CharField(widget=forms.Textarea, label="HTML", help_text="Enter the HTML you want to appear within the widget. Anything is permitted at this stage, including &lt;script&gt; tags", initial="<p>Replace this with your HTML</p>") }
+    fields = {
+        'html': forms.CharField(
+            widget = forms.Textarea,
+            label = "HTML",
+            help_text = "Enter the HTML you want to appear within the widget. \
+                Any valid HTML is permitted, including <script> tags",
+            initial="<p>Replace this with your HTML</p>"
+        )
+    }
 
     def render(self, widget_data):
         output = widget_data['html']
@@ -33,39 +41,48 @@ class HTMLBlueprint(Blueprint):
 class ImageBlueprint(Blueprint):
 
     name = 'image'
-    fields = { 'url': forms.CharField(required=False, label="Image URL", help_text="Enter the URL of an image resource. This will be built into an image tag and placed inside the widget."),
-        'alt': forms.CharField(required=False, label="Image 'alt' Attribute", help_text="The image's alternative text. This appears instead of the image when your visitors cannot view images." ),
-        'title': forms.CharField(required=False, label="Image Title", help_text="The image's title. This appears as a tooltip when visitors hover over your image." ) }
-
-    def render(self, widget_data):
-        output = "<img src=\"" + widget_data['url'] + "\" alt=\"" + widget_data['alt'] + "\" title=\"" + widget_data['title'] + "\"/>"
-        return output
-
-class CodeBlueprint(Blueprint):
-
-    name = 'code'
-    fields = { 'code': forms.CharField(
-            widget=forms.Textarea,
-            label="Code",
-            help_text="Enter the code you want to appear within the widget",
-            initial="print \"Hello World\";"
+    fields = {
+        'url': forms.CharField(
+            required = False,
+            label = "Image URL",
+            help_text = "Enter the URL of an image resource. This will be \
+                built into an image tag and placed inside the widget."
+        ),
+        'alt': forms.CharField(
+            required = False,
+            label = "Image Alternative Text",
+            help_text = "This appears instead of the image when your visitors \
+                cannot view images."
+        ),
+        'title': forms.CharField(
+            required = False,
+            label = "Image Title",
+            help_text = "The image's title. This appears as a tooltip when \
+                visitors hover over your image."
         )
     }
 
     def render(self, widget_data):
-        output = "<code>" + widget_data['code'] + "</code>"
+        output = "<img src=\"" + widget_data['url'] + "\" alt=\"" + \
+            widget_data['alt'] + "\" title=\"" + widget_data['title'] + "\"/>"
         return output
-        
-# class HTMLBlueprint(Blueprint):
-# 
-#     name = 'html'
-#     fields = { 'title': forms.CharField(max_length=40, initial="HTML Widget"),
-#         'html': forms.CharField(widget=forms.Textarea, initial="<p>Replace this with your content</p>"),
-#         'show_title': forms.BooleanField(required=False, initial=True)}
-# 
-#     def render(self, widget_data):
-#         output = ""
-#         if widget_data['show_title']:
-#             output += "<h4>" + widget_data['title'] + "</h4>"
-#         output += widget_data['html']
-#         return output
+
+class SyntaxBlueprint(Blueprint):
+    
+    name = 'syntax'
+    fields = {
+        'syntax': forms.CharField(
+            widget = forms.Textarea(
+                attrs = {
+                    'class':'syntax'
+                }
+            ),
+            label = "Syntax",
+            help_text = "Enter the syntax you want to appear within the widget",
+            initial = "print \"Hello World\";"
+        )
+    }
+
+    def render(self, widget_data):
+        output = "<pre><code>" + widget_data['syntax'] + "</code></pre>"
+        return output

@@ -1,5 +1,5 @@
 DATABASE_ENGINE = 'sqlite3'
-DATABASE_NAME = '/Users/colin/db/column.sqlite'
+DATABASE_NAME = '/Users/colin/db/amanda.sqlite'
 DATABASE_USER = ''
 DATABASE_PASSWORD = ''
 DATABASE_HOST = ''
