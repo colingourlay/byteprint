@@ -74,7 +74,7 @@ class SyntaxBlueprint(Blueprint):
         'syntax': forms.CharField(
             widget = forms.Textarea(
                 attrs = {
-                    'class':'syntax'
+                    'id':'syntax_editor'
                 }
             ),
             label = "Syntax",

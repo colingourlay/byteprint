@@ -42,9 +42,17 @@
       .uniForm .blockLabels select{ width: 53.5%; /* <- Required property */ }
       .uniForm textarea,
       .uniForm .blockLabels textarea{ width: 53%; /* <- Required property */ height: 12em; }
+      
+      .uniForm .blockLabels textarea{ width: 100%; /* <- Required property */ height: 12em; }
 
       .uniForm .formHint,
       .uniForm .blockLabels .formHint{ width: 45%; /* <- Required property */ font-size: .9em; color: #777; position: relative; top: -.5em; }
+      
+      .uniForm .blockLabels textarea+.formHint,
+      .uniForm .blockLabels div.CodeMirror-wrapping+.formHint {
+          width: 100%;
+          top: 0.5em;
+      }
       
       .uniForm .multiField,
       .uniForm .blockLabels .multiField{ width: 53%; }
@@ -118,4 +126,17 @@ YOU CAN VERY EASILY REVERT TO A GENERIC STYLE OF UNI-FORM. BEST OF LUCK...
 
 .uniForm .buttonHolder {
     padding:10px 0 0 0;
+}
+
+/* PRESET FORM WIDTHS */
+.form400 {
+    width: 400px;
+}
+.form600 {
+    width: 600px;
+}
+
+/* CodeMirror EDITOR */
+.CodeMirror-wrapping {
+    border: 1px solid #444;
 }
