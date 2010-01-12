@@ -3,7 +3,7 @@ from django.db import models
 class Widget(models.Model):
     blueprint_name = models.CharField(max_length=30)
     is_active = models.BooleanField(default=False)
-    data = models.TextField(blank=True)
+    data = models.TextField()
     is_published = models.BooleanField(default=False)
 
     class Meta:

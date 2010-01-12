@@ -19,7 +19,7 @@
     {% if widgets %}
     <ul>
         {% for widget in widgets %}
-        <li>{{ widget.blueprint_name }} <span class="small">(<a href="{% url admin_widgets_delete widget_id=widget.id %}">delete</a>)</span></li>    
+        <li>{{ widget.blueprint_name }} <span class="small">(<a href="{% url admin_widgets_edit widget_id=widget.id %}">edit</a> | <a href="{% url admin_widgets_delete widget_id=widget.id %}">delete</a>)</span></li>    
         {% endfor %}
     </ul>
     {% else %}

@@ -1,5 +1,8 @@
 {% extends 'admin/main.html' %}
 
 {% block content %}
-<p>Widget: [id={{ widget.id }}] [blueprint={{ widget.blueprint_name }}]</p>
+<form action="." method='post'>
+    {{ form.as_p }}
+    <input type="submit" value="Save Changes" />
+</form>
 {% endblock %}

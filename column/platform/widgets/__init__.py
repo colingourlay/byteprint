@@ -1,3 +1,5 @@
+from django import forms
+
 class BlueprintInventory(type):
     def __init__(cls, name, bases, attrs):
         if not hasattr(cls, 'inventory'):
@@ -15,28 +17,38 @@ class BlueprintInventory(type):
 class Blueprint(object):
     """
     Blueprints extending this class will be used for creating Widget models,
-    as well as correctly rendering their content.
+    as well as rendering their content.
     """
     __metaclass__ = BlueprintInventory
 
-class TextBlueprint(Blueprint):
+class HTMLBlueprint(Blueprint):
 
-    name = 'text'
+    name = 'html'
+    fields = { 'html': forms.CharField(widget=forms.Textarea, initial="<p>Replace this with your HTML</p>") }
 
     def render(self, widget_data):
-        return '<p>I am some text</p>'
-
+        output = widget_data['html']
+        return output
 
 class ImageBlueprint(Blueprint):
 
     name = 'image'
+    fields = { 'url': forms.CharField(required=False) }
 
     def render(self, widget_data):
-        return '<img src="http://www.collider.com/uploads/imageGallery/A_Team/the_a-team_logo.jpg"/>'
-
-class VideoBlueprint(Blueprint):
-
-    name = 'video'
-
-    def render(self, widget_data):
-        return '<object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/mh0bLHnmG4M&hl=en_US&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/mh0bLHnmG4M&hl=en_US&fs=1&rel=0&color1=0x3a3a3a&color2=0x999999" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>'
+        output = "<img src=\"" + widget_data['url'] + "\" />"
+        return output
+        
+# class HTMLBlueprint(Blueprint):
+# 
+#     name = 'html'
+#     fields = { 'title': forms.CharField(max_length=40, initial="HTML Widget"),
+#         'html': forms.CharField(widget=forms.Textarea, initial="<p>Replace this with your content</p>"),
+#         'show_title': forms.BooleanField(required=False, initial=True)}
+# 
+#     def render(self, widget_data):
+#         output = ""
+#         if widget_data['show_title']:
+#             output += "<h4>" + widget_data['title'] + "</h4>"
+#         output += widget_data['html']
+#         return output

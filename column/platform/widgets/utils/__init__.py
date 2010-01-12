@@ -1,3 +1,5 @@
+import pickle
+from django import forms
 from platform.widgets import Blueprint
 from platform.widgets.models import Widget
 
@@ -20,22 +22,29 @@ def build_widget(blueprint_name):
     try:
         blueprint = get_blueprint(blueprint_name)
         try:
-            widget = Widget(blueprint_name=blueprint_name)
+            widget_data = {}
+            for key, value in blueprint.fields.items():
+                widget_data[key] = value.initial or ""
+            pickled_widget_data = pickle.dumps(widget_data)
+            widget = Widget(blueprint_name=blueprint_name, data=pickled_widget_data)
             widget.save()
-            return widget, "built widget from blueprint \"" + blueprint_name + "\""
+            return widget
         except:
-            return None, "failed to build widget from blueprint \"" + blueprint_name + "\""
+            return None
     except:
-        return None, "the blueprint \"" + blueprint_name + "\" does not exist"
-    
+        return None
+
+def get_edit_widget_form(widget):
+    blueprint = get_blueprint(widget.blueprint_name)
+    return type('EditWidgetForm', (forms.BaseForm,), { 'base_fields': blueprint.fields})
+
+def get_edit_widget_form_instance(widget):
+    edit_widget_form_class = get_edit_widget_form(widget)
+    widget_data = pickle.loads(str(widget.data))
+    return edit_widget_form_class(widget_data)
+
 def render_widget(widget):
     blueprint = get_blueprint(widget.blueprint_name)
     if blueprint:
-        rendered_widget = "<div class=\"widget\">"
-        rendered_widget += "<div class=\"widget_header\"><h4>" + widget.blueprint_name + "</h4></div>"
-        rendered_widget += "<div class=\"widget_body\">"
-        rendered_widget += blueprint().render(widget.data)
-        rendered_widget += "</div>"
-        rendered_widget += "</div>"
-        return rendered_widget
+        return blueprint().render(pickle.loads(str(widget.data)))
     return ""
