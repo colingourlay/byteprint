@@ -24,7 +24,7 @@ class Blueprint(object):
 class HTMLBlueprint(Blueprint):
 
     name = 'html'
-    fields = { 'html': forms.CharField(widget=forms.Textarea, initial="<p>Replace this with your HTML</p>") }
+    fields = { 'html': forms.CharField(widget=forms.Textarea, label="HTML", help_text="Enter the HTML you want to appear within the widget. Anything is permitted at this stage, including &lt;script&gt; tags", initial="<p>Replace this with your HTML</p>") }
 
     def render(self, widget_data):
         output = widget_data['html']
@@ -33,10 +33,12 @@ class HTMLBlueprint(Blueprint):
 class ImageBlueprint(Blueprint):
 
     name = 'image'
-    fields = { 'url': forms.CharField(required=False) }
+    fields = { 'url': forms.CharField(required=False, label="Image URL", help_text="Enter the URL of an image resource. This will be built into an image tag and placed inside the widget."),
+        'alt': forms.CharField(required=False, label="Image 'alt' Attribute", help_text="The image's alternative text. This appears instead of the image when your visitors cannot view images." ),
+        'title': forms.CharField(required=False, label="Image Title", help_text="The image's title. This appears as a tooltip when visitors hover over your image." ) }
 
     def render(self, widget_data):
-        output = "<img src=\"" + widget_data['url'] + "\" />"
+        output = "<img src=\"" + widget_data['url'] + "\" alt=\"" + widget_data['alt'] + "\" title=\"" + widget_data['title'] + "\"/>"
         return output
         
 # class HTMLBlueprint(Blueprint):
