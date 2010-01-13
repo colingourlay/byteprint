@@ -49,7 +49,7 @@
       .uniForm .blockLabels .formHint{ width: 45%; /* <- Required property */ font-size: .9em; color: #777; position: relative; top: -.5em; }
       
       .uniForm .blockLabels textarea+.formHint,
-      .uniForm .blockLabels div.CodeMirror-wrapping+.formHint {
+      .uniForm .blockLabels iframe+.formHint {
           width: 100%;
           top: 0.5em;
       }
