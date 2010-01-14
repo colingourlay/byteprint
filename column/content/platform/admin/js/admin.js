@@ -17,14 +17,38 @@ function init_collapsible_menu() {
 }
 
 function init_msg_close_buttons() {
-    $('.msg .close').click(function(){
-        $(this).parent().slideUp('fast', function() {
-            $(this).remove();
-        });
+    $('.msg').click(function() {
+        $(this).slideUp('fast');
     });
 }
 
-$(document).ready(function(){
-    init_collapsible_menu();
-    init_msg_close_buttons();
-});
+function init_keyboard_shortcuts() {
+    $(document).bind('keydown', 'ctrl+s', function() {
+        $('.primaryAction').click();
+    });
+}
+
+function init_code_editor() {
+    if ($('#code_editor').html() != "") {
+        language = ($('#id_language').val())
+        editAreaLoader.init({
+            id: "code_editor",
+            start_highlight: true,
+            min_height: 300,
+            allow_resize: "no",
+            allow_toggle: false,
+            replace_tab_by_spaces: 4,
+            word_wrap: true,
+            language: "en",
+            syntax: language,
+            toolbar: "select_font, word_wrap, fullscreen"
+        });
+        $('#id_language').change(function () {
+           editAreaLoader.execCommand(
+               'code_editor',
+               'change_syntax',
+               $('#id_language').val()
+           );
+        });
+    }
+}

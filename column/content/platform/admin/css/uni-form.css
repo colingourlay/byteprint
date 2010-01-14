@@ -40,9 +40,7 @@
       .uniForm select,
       .uniForm .blockLabels .selectInput,
       .uniForm .blockLabels select{ width: 53.5%; /* <- Required property */ }
-      .uniForm textarea,
-      .uniForm .blockLabels textarea{ width: 53%; /* <- Required property */ height: 12em; }
-      
+      .uniForm textarea{ width: 53%; /* <- Required property */ height: 12em; }    
       .uniForm .blockLabels textarea{ width: 100%; /* <- Required property */ height: 12em; }
 
       .uniForm .formHint,
@@ -52,6 +50,7 @@
       .uniForm .blockLabels iframe+.formHint {
           width: 100%;
           top: 0.5em;
+          padding-bottom: 11px;
       }
       
       .uniForm .multiField,

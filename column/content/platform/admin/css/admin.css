@@ -9,7 +9,10 @@ h1,h2,h3,h4,.serif{font-family :"Georgia", "Times New Roman", serif;}
 .btn{padding:2px;border:1px solid #777;}
 .msg{font-size:11px;border:1px solid #E5E5E5;padding:6px 8px;background-color: #fefddc;}
 .msg.error {background-color:#FBB;}
-.msg .close{cursor:pointer;color:#777;}
+.positive{color:green;}
+.neutral{color:blue;}
+.negative{color:red;}
+.disabled{color:#999;}
 
 /* GLOBAL */
 html {

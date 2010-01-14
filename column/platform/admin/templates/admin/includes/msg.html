@@ -1,5 +1,3 @@
 {% if msg %}
-<p class="msg">
-   {{ msg }} <span class="close right">close</span>
-</p>
+<p class="msg {{ msg_class }}">{{ msg }}</p>
 {% endif %}

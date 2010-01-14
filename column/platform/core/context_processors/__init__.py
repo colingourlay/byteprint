@@ -20,7 +20,7 @@ def request(request):
         # TODO Change this to use a custom global filter once widgets have a manager. 
         # TODO It should return the pre-rendered content, so that a minumum amount of work is to be done in the template
         page_widgets = ""
-        widgets = Widget.objects.all()
+        widgets = Widget.objects.filter(is_enabled=True)
         for widget in widgets:
             page_widgets += "<div class=\"widget\">" + render_widget(widget) + "</div>"
         extra_context['page_widgets'] = page_widgets

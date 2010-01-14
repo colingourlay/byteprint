@@ -1,26 +1,13 @@
 <script type="text/javascript" src="{{ MEDIA_URL }}platform/admin/js/jquery-1.3.2.min.js"></script>
 <script src="{{ MEDIA_URL }}platform/admin/js/uni-form.jquery.js" type="text/javascript"></script>
 <script src="{{ MEDIA_URL }}platform/admin/js/jquery.hotkeys-0.7.9.min.js" type="text/javascript"></script>
-<script src="{{ MEDIA_URL }}platform/admin/js/admin.js" type="text/javascript"></script>
 <script language="Javascript" type="text/javascript" src="{{ MEDIA_URL }}platform/admin/edit_area/edit_area_full.js"></script>
+<script src="{{ MEDIA_URL }}platform/admin/js/admin.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-    $(document).bind('keydown', 'ctrl+s', function() {
-        $('.primaryAction').click();
-    }).bind('keydown', 'command+s', function() {
-        $('.primaryAction').click();
-    });
-    editAreaLoader.init({
-        id: "syntax_editor",
-        start_highlight: true,
-        min_height: 300,
-        allow_resize: "no",
-        allow_toggle: false,
-        replace_tab_by_spaces: 4,
-        word_wrap: true,
-        language: "en",
-        syntax: "js",
-        toolbar: "fullscreen, |, syntax_selection"
-    });
+    init_collapsible_menu();
+    init_msg_close_buttons();
+    init_keyboard_shortcuts();
+    init_code_editor();
 });
 </script>

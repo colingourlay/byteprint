@@ -19,7 +19,7 @@
     {% if widgets %}
     <ul>
         {% for widget in widgets %}
-        <li>{{ widget.blueprint_name }} <span class="small">(<a href="{% url admin_widgets_edit widget_id=widget.id %}">edit</a> | <a href="{% url admin_widgets_delete widget_id=widget.id %}">delete</a>)</span></li>    
+        <li><span{% if not widget.is_enabled %} class="disabled"{% endif %}>{{ widget.blueprint_name }}</span> <span class="small">[ {% if widget.is_enabled %}<a href="{% url admin_widgets_disable widget_id=widget.id %}">disable</a>{% else %}<a href="{% url admin_widgets_enable widget_id=widget.id %}">enable</a>{% endif %} | <a class="neutral" href="{% url admin_widgets_edit widget_id=widget.id %}">edit</a> | <a class="negative" href="{% url admin_widgets_delete widget_id=widget.id %}">delete</a> ]</span> <span class="small">Container: {% if widget.is_in_any_container %}<a class="disabled" href="{% url admin_widgets_move widget_id=widget.id %}">None</a>{% else %}<strong>None</strong>{% endif %}{% for container in containers %} / {% ifequal widget.container container %}<strong>{{ container.name }}</strong>{% else %}<a class="disabled" href="{% url admin_widgets_move_to_container widget_id=widget.id container_id=container.id %}">{{ container.name }}</a>{% endifequal %}{% endfor %}</span></li>    
         {% endfor %}
     </ul>
     {% else %}
