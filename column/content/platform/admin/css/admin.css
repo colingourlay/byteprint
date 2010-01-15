@@ -41,6 +41,10 @@ a:hover {
     text-decoration: underline;
 }
 
+li {
+    margin-bottom: 4px;
+}
+
 button:hover {
     cursor: pointer;
 }
@@ -54,6 +58,45 @@ fieldset.long input {
 fieldset.extralong input {
     width: 294px;
     min-width: 294px;
+}
+
+/* PRESET CONTAINER WIDTHS */
+.w400 {
+    width: 400px;
+    margin-right: 20px;
+}
+.w600 {
+    width: 600px;
+    margin-right: 20px;
+}
+
+/* PANES */
+
+.paneHeader {
+    background-color: #BBB;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    padding: 4px 8px 2px;
+}
+
+    .paneHeader h1,
+    .paneHeader h2,
+    .paneHeader h3, 
+    .paneHeader h4 {
+        margin: 0;
+    }
+
+.paneBody {
+    border: 1px solid #BBB;
+    background-color: #FFF;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    padding: 4px 8px;
+    margin-bottom: 12px;
 }
 
 /* PAGE SECTIONS */
@@ -279,35 +322,6 @@ fieldset.extralong input {
     margin: 0 15px;
     padding-top: 5px;
     font-size: 10px;
-}
-
-.paneHeader,
-.paneBody {
-    padding: 8px;
-}
-
-.paneHeader {
-    background-color: #BBB;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-}
-
-    .paneHeader h1,
-    .paneHeader h2,
-    .paneHeader h3, 
-    .paneHeader h4 {
-        margin: 0;
-    }
-
-.paneBody {
-    border: 1px solid #BBB;
-    background-color: #FFF;
-    -moz-border-radius-bottomleft: 5px;
-    -moz-border-radius-bottomright: 5px;
-    -webkit-border-bottom-left-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;
 }
     
 /* INSTALLATION-SPECIFIC */

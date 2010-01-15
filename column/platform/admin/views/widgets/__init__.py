@@ -8,21 +8,24 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template import RequestContext
 from django.utils.text import capfirst
-from platform.widgets.forms import BuildWidgetForm
-from platform.widgets.models import Container, Widget
+from platform.widgets.forms import BuildWidgetForm, CreateGroupForm
+from platform.widgets.models import Group, Widget
 from platform.widgets.utils import build_widget, get_blueprint, get_edit_widget_form, get_edit_widget_form_instance, move_widget
 
 @login_required
 def manage(request):
-    containers = Container.objects.all()
+    groups = Group.objects.all()
     widgets = Widget.objects.all()
     ungrouped_widgets= Widget.objects.ungrouped()
     build_widget_form = BuildWidgetForm()
+    create_group_form = CreateGroupForm()
     return render_to_response(
         'admin/widgets/manage.html', {
             'menu_current': 'widgets_manage', 'h1': 'Manage Widgets',
-            'containers': containers, 'widgets': widgets,
-            'ungrouped_widgets': ungrouped_widgets, 'form': build_widget_form},
+            'groups': groups, 'widgets': widgets,
+            'ungrouped_widgets': ungrouped_widgets,
+            'build_widget_form': build_widget_form,
+            'create_group_form': create_group_form},
         RequestContext(request))
 
 @login_required
@@ -32,7 +35,8 @@ def build(request):
         if build_widget_form.is_valid():
             blueprint_name = build_widget_form.cleaned_data['blueprint_name']
             widget = build_widget(blueprint_name)
-    return HttpResponseRedirect(reverse('admin_widgets_edit', kwargs={'widget_id':widget.id}))
+    return HttpResponseRedirect(reverse('admin_widgets_manage'))
+    #return HttpResponseRedirect(reverse('admin_widgets_edit', kwargs={'widget_id':widget.id}))
 
 @login_required
 def edit(request, widget_id):
@@ -57,6 +61,22 @@ def delete(request, widget_id):
     widget = get_object_or_404(Widget, id=widget_id)
     widget.delete()
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
+    
+@login_required
+def add_group(request):
+    if request.method == 'POST':
+        create_group_form = CreateGroupForm(request.POST)
+        if create_group_form.is_valid():
+            name = create_group_form.cleaned_data['name']
+            group = Group(name=name)
+            group.save()
+    return HttpResponseRedirect(reverse('admin_widgets_manage'))
+
+@login_required
+def delete_group(request, group_id):
+    group = get_object_or_404(Group, id=group_id)
+    group.delete()
+    return HttpResponseRedirect(reverse('admin_widgets_manage'))
 
 @login_required
 def toggle(request, widget_id, status):
@@ -66,6 +86,6 @@ def toggle(request, widget_id, status):
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
 
 @login_required
-def move(request, widget_id, container_id=None):
-    move_widget(widget_id, container_id)
+def move(request, widget_id, group_id=None):
+    move_widget(widget_id, group_id)
     return HttpResponseRedirect(reverse('admin_widgets_manage'))

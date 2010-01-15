@@ -33,9 +33,9 @@ class Widget(models.Model):
         return self.blueprint_name
     
     def group(self):
-        matching_containers = Container.objects.filter(widgets__id=self.id)
-        if matching_containers.count() > 0:
-            return matching_containers[0]
+        matching_groups = Group.objects.filter(widgets__id=self.id)
+        if matching_groups.count() > 0:
+            return matching_groups[0]
         return False
     
     def is_grouped(self):
@@ -43,8 +43,8 @@ class Widget(models.Model):
             return True
         return False
 
-class Container(models.Model):
-    name = models.CharField(max_length=30)
+class Group(models.Model):
+    name = models.CharField(max_length=30, unique=True)
     widgets = models.ManyToManyField(Widget)
     
     def __unicode__(self):

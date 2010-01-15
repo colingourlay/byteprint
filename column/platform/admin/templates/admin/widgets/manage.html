@@ -1,41 +1,61 @@
 {% extends 'admin/main.html' %}
 
 {% block content %}
-<p>Use this page to manage your blog widgets.</p>
-<h2>Build a Widget</h2>
-<div class="form400">
+<div class="w400 left">
+    <h2>Your Groups &amp; Widgets</h2>
+    <div class="paneHeader">
+        <strong>Ungrouped</strong>
+    </div>
+    <div class="paneBody">
+        {% if ungrouped_widgets %}
+        <ul class="widget_list">
+            {% for widget in ungrouped_widgets %}
+            {% include "admin/widgets/group_list_item.html" %}
+            {% endfor %}
+        </ul>
+        {% else %}
+        <span>None</span>
+        {% endif %}
+    </div>
+    {% for group in groups %}
+    <div class="paneHeader">
+        <strong>{{ group.name }}<span class="right"><a class="disabled" href="{% url admin_widgets_delete_group group_id=group.id %}">X</a></span></strong>
+    </div>
+    <div class="paneBody">
+        {% if group.get_widgets %}
+        <ul class="widget_list">
+            {% for widget in group.get_widgets %}
+            {% include "admin/widgets/group_list_item.html" %}   
+            {% endfor %}
+        </ul>
+        {% else %}
+        <span>None</span>
+        {% endif %}    
+    </div>
+    {% endfor %}
+</div>
+<div class="w400 left">
+    <h2>Build a Widget</h2>
     <form action='{% url admin_widgets_build %}' method='post' class="uniForm">
         <fieldset class="blockLabels">
             <div class="ctrlHolder">
-                {{ form.blueprint_name.label_tag }}{{ form.blueprint_name }}<p class="formHint">{{ form.blueprint_name.help_text }}</p>
+                {{ build_widget_form.blueprint_name.label_tag }}{{ build_widget_form.blueprint_name }}<p class="formHint">{{ build_widget_form.blueprint_name.help_text }}</p>
             </div>
         </fieldset> 
         <div class="buttonHolder">
             <button type="submit" class="primaryAction">Build</button>
         </div>
     </form>
+    <h2>Create a Group</h2>
+    <form action='{% url admin_widgets_add_group %}' method='post' class="uniForm">
+        <fieldset class="blockLabels">
+            <div class="ctrlHolder">
+                {{ create_group_form.name.label_tag }}{{ create_group_form.name }}<p class="formHint">{{ create_group_form.name.help_text }}</p>
+            </div>
+        </fieldset> 
+        <div class="buttonHolder">
+            <button type="submit" class="primaryAction">Create</button>
+        </div>
+    </form>
 </div>
-    <h2>Installed Widgets</h2>
-    <h3>Ungrouped</h3>
-    {% if ungrouped_widgets %}
-    <ul class="widget_list">
-        {% for widget in ungrouped_widgets %}
-        {% include "admin/widgets/container_list_item.html" %}
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>Empty</p>
-    {% endif %}
-    {% for container in containers %}
-    <h3>{{ container.name }}</h3>
-    {% if container.get_widgets %}
-    <ul class="widget_list">
-        {% for widget in container.get_widgets %}
-        {% include "admin/widgets/container_list_item.html" %}   
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>Empty</p>
-    {% endif %}    
-    {% endfor %}
 {% endblock %}

@@ -2,7 +2,7 @@ import pickle
 from django import forms
 from django.shortcuts import get_object_or_404
 from platform.widgets import Blueprint
-from platform.widgets.models import Container, Widget
+from platform.widgets.models import Group, Widget
 
 def get_blueprints(two_tuple=False):
     blueprints = []
@@ -50,15 +50,15 @@ def render_widget(widget):
         return blueprint().render(pickle.loads(str(widget.data)))
     return ""
 
-def move_widget(widget_id, container_id):
+def move_widget(widget_id, group_id):
     widget = get_object_or_404(Widget, id=widget_id)
-    container_to_move_to = None
-    if container_id:
-        container_to_move_to = get_object_or_404(Container, id=container_id)
-    all_containers = Container.objects.filter(widgets__id=widget.id)
-    for other_container in all_containers:
-        other_container.widgets.remove(widget)
-    if container_to_move_to:
-        container_to_move_to.widgets.add(widget)
-        container_to_move_to.save()
+    group_to_move_to = None
+    if group_id:
+        group_to_move_to = get_object_or_404(Group, id=group_id)
+    all_groups = Group.objects.filter(widgets__id=widget.id)
+    for other_group in all_groups:
+        other_group.widgets.remove(widget)
+    if group_to_move_to:
+        group_to_move_to.widgets.add(widget)
+        group_to_move_to.save()
     

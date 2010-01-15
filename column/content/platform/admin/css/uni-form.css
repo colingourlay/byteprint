@@ -127,14 +127,6 @@ YOU CAN VERY EASILY REVERT TO A GENERIC STYLE OF UNI-FORM. BEST OF LUCK...
     padding:10px 0 0 0;
 }
 
-/* PRESET FORM WIDTHS */
-.form400 {
-    width: 400px;
-}
-.form600 {
-    width: 600px;
-}
-
 /* CodeMirror EDITOR */
 .CodeMirror-wrapping {
     border: 1px solid #444;
