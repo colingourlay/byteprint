@@ -16,11 +16,14 @@ from platform.widgets.utils import build_widget, get_blueprint, get_edit_widget_
 def manage(request):
     containers = Container.objects.all()
     widgets = Widget.objects.all()
+    ungrouped_widgets= Widget.objects.ungrouped()
     build_widget_form = BuildWidgetForm()
-    return render_to_response('admin/widgets/manage.html', {
-        'menu_current': 'widgets_manage', 'h1': 'Manage Widgets',
-        'containers': containers, 'widgets': widgets,
-        'form': build_widget_form}, RequestContext(request))
+    return render_to_response(
+        'admin/widgets/manage.html', {
+            'menu_current': 'widgets_manage', 'h1': 'Manage Widgets',
+            'containers': containers, 'widgets': widgets,
+            'ungrouped_widgets': ungrouped_widgets, 'form': build_widget_form},
+        RequestContext(request))
 
 @login_required
 def build(request):
@@ -63,6 +66,6 @@ def toggle(request, widget_id, status):
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
 
 @login_required
-def move_to_container(request, widget_id, container_id=None):
+def move(request, widget_id, container_id=None):
     move_widget(widget_id, container_id)
     return HttpResponseRedirect(reverse('admin_widgets_manage'))

@@ -384,3 +384,11 @@ fieldset.extralong input {
     .loginForm .buttonHolder {
         padding: 4px 4px 2px 0;
     }
+
+/* WIDGET MANAGER */
+ul.widget_list {
+    margin: 0;
+}
+ul.widget_list li {
+    list-style: none outside none;
+}

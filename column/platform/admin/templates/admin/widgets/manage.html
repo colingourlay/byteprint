@@ -16,13 +16,26 @@
     </form>
 </div>
     <h2>Installed Widgets</h2>
-    {% if widgets %}
-    <ul>
-        {% for widget in widgets %}
-        <li><span{% if not widget.is_enabled %} class="disabled"{% endif %}>{{ widget.blueprint_name }}</span> <span class="small">[ {% if widget.is_enabled %}<a href="{% url admin_widgets_disable widget_id=widget.id %}">disable</a>{% else %}<a href="{% url admin_widgets_enable widget_id=widget.id %}">enable</a>{% endif %} | <a class="neutral" href="{% url admin_widgets_edit widget_id=widget.id %}">edit</a> | <a class="negative" href="{% url admin_widgets_delete widget_id=widget.id %}">delete</a> ]</span> <span class="small">Container: {% if widget.is_in_any_container %}<a class="disabled" href="{% url admin_widgets_move widget_id=widget.id %}">None</a>{% else %}<strong>None</strong>{% endif %}{% for container in containers %} / {% ifequal widget.container container %}<strong>{{ container.name }}</strong>{% else %}<a class="disabled" href="{% url admin_widgets_move_to_container widget_id=widget.id container_id=container.id %}">{{ container.name }}</a>{% endifequal %}{% endfor %}</span></li>    
+    <h3>Ungrouped</h3>
+    {% if ungrouped_widgets %}
+    <ul class="widget_list">
+        {% for widget in ungrouped_widgets %}
+        {% include "admin/widgets/container_list_item.html" %}
         {% endfor %}
     </ul>
     {% else %}
-    <p>None</p>
+    <p>Empty</p>
     {% endif %}
+    {% for container in containers %}
+    <h3>{{ container.name }}</h3>
+    {% if container.get_widgets %}
+    <ul class="widget_list">
+        {% for widget in container.get_widgets %}
+        {% include "admin/widgets/container_list_item.html" %}   
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Empty</p>
+    {% endif %}    
+    {% endfor %}
 {% endblock %}
