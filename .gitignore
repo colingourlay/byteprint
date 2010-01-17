@@ -1,4 +1,5 @@
 django-column.tmproj
+django-column.esproj
 *.pyc
 *.sqlite
 .DS_Store
