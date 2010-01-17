@@ -44,6 +44,13 @@ def get_edit_widget_form_instance(widget):
     widget_data = pickle.loads(str(widget.data))
     return edit_widget_form_class(widget_data)
 
+def widget_has_preview(widget):
+    blueprint = get_blueprint(widget.blueprint_name)
+    try:
+        return blueprint.preview
+    except:
+        return False
+
 def render_widget(widget):
     blueprint = get_blueprint(widget.blueprint_name)
     if blueprint:

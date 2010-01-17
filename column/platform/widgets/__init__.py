@@ -1,4 +1,5 @@
 from django import forms
+from django.template import add_to_builtins
 
 class BlueprintInventory(type):
     def __init__(cls, name, bases, attrs):
@@ -24,6 +25,7 @@ class Blueprint(object):
 class HTMLBlueprint(Blueprint):
 
     name = 'html'
+    preview = True
     fields = {
         'html': forms.CharField(
             widget = forms.Textarea,
@@ -41,6 +43,7 @@ class HTMLBlueprint(Blueprint):
 class ImageBlueprint(Blueprint):
 
     name = 'image'
+    preview = True
     fields = {
         'url': forms.CharField(
             required = False,
@@ -111,3 +114,6 @@ class CodeBlueprint(Blueprint):
         output = "<pre><code class=\"" + widget_data['language'] + \
             "\">" + widget_data['code'] + "</code></pre>"
         return output
+
+# ADD TEMPLATE TAGS TO BUILTINS TO SAVE USING 'LOAD' IN TEMPLATES
+add_to_builtins('platform.widgets.templatetags.widgets')

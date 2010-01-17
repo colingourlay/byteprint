@@ -20,7 +20,7 @@ class WidgetManager(models.Manager):
 class Widget(models.Model):
     blueprint_name = models.CharField(max_length=30)
     data = models.TextField()
-    is_enabled = models.BooleanField(default=True)
+    is_enabled = models.BooleanField(default=False)
     
     class Meta:
         app_label = 'widgets'

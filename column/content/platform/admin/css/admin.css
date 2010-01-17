@@ -405,4 +405,48 @@ ul.widget_list {
 }
 ul.widget_list li {
     list-style: none outside none;
+    clear: both;
+}
+
+ul.widget_list li .group_list {
+    text-align: right;
+}
+
+ul.widget_list li .group_list ul {
+    margin: 0;
+    max-height: 0;
+    position: absolute;
+    overflow: hidden;
+    text-align:left;
+    background-color: #FFF;
+}
+
+ul.widget_list li .group_list:hover ul {
+    overflow: visible;
+    max-height: 1000px;
+    z-index: 100;
+}
+
+ul.widget_list li .group_list ul li {
+    border-top: 1px solid #AAA;
+    border-left: 1px solid #AAA;
+    border-right: 1px solid #AAA;
+    padding: 4px;
+    margin: 0;
+}
+
+ul.widget_list li .group_list ul li.list_bottom {
+    height: 0;
+    border-top: 1px solid #AAA;
+    padding: 0;
+}
+
+div.widget_preview {
+    margin-top: 15px;
+}
+
+div.widget_preview .widget {
+    background-color: #FFF;
+    border: 1px solid #AAA;
+    padding: 10px;
 }

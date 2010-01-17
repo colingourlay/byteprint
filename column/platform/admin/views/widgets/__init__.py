@@ -10,7 +10,7 @@ from django.template import RequestContext
 from django.utils.text import capfirst
 from platform.widgets.forms import BuildWidgetForm, CreateGroupForm
 from platform.widgets.models import Group, Widget
-from platform.widgets.utils import build_widget, get_blueprint, get_edit_widget_form, get_edit_widget_form_instance, move_widget
+from platform.widgets.utils import build_widget, get_blueprint, get_edit_widget_form, get_edit_widget_form_instance, move_widget, widget_has_preview
 
 @login_required
 def manage(request):
@@ -41,6 +41,7 @@ def build(request):
 @login_required
 def edit(request, widget_id):
     widget = get_object_or_404(Widget, id=widget_id)
+    show_preview = widget_has_preview(widget)
     h1 = "Editing " + capfirst(widget.blueprint_name) + " Widget"
     msg = None
     if request.method == 'POST':
@@ -54,7 +55,8 @@ def edit(request, widget_id):
         edit_widget_form = get_edit_widget_form_instance(widget)
     return render_to_response('admin/widgets/edit.html', {
         'menu_current': 'widgets_manage', 'h1': h1,
-        'widget': widget, 'form': edit_widget_form, 'msg': msg}, RequestContext(request))
+        'widget': widget, 'show_preview': show_preview,
+        'form': edit_widget_form, 'msg': msg}, RequestContext(request))
 
 @login_required
 def delete(request, widget_id):
