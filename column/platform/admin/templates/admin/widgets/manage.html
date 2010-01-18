@@ -1,7 +1,7 @@
 {% extends 'admin/main.html' %}
 
 {% block content %}
-<div class="w400 left">
+<div class="w400 left groups_and_widgets">
     <h2>Your Groups &amp; Widgets</h2>
     <div class="paneHeader">
         <strong>Ungrouped</strong>
@@ -13,13 +13,11 @@
             {% include "admin/widgets/group_list_item.html" %}
             {% endfor %}
         </ul>
-        {% else %}
-        <span>None</span>
         {% endif %}
     </div>
     {% for group in groups %}
     <div class="paneHeader">
-        <strong>{{ group.name }}<span class="right"><a class="disabled" href="{% url admin_widgets_delete_group group_id=group.id %}">X</a></span></strong>
+        <strong>{{ group.name }}<span class="right"><a class="icon groupDelete" title="delete group" href="{% url admin_widgets_delete_group group_id=group.id %}"></a></span></strong>
     </div>
     <div class="paneBody">
         {% if group.widgets %}
@@ -28,8 +26,6 @@
             {% include "admin/widgets/group_list_item.html" %}   
             {% endfor %}
         </ul>
-        {% else %}
-        <span>None</span>
         {% endif %}    
     </div>
     {% endfor %}
@@ -43,7 +39,7 @@
             </div>
         </fieldset> 
         <div class="buttonHolder">
-            <button type="submit" class="primaryAction">Build</button>
+            <button type="submit" class="primaryAction">Build&nbsp;<span class="icon widgetAdd"></span></button>
         </div>
     </form>
     <h2>Create a Group</h2>
@@ -54,7 +50,7 @@
             </div>
         </fieldset> 
         <div class="buttonHolder">
-            <button type="submit" class="primaryAction">Create</button>
+            <button type="submit" class="primaryAction">Create&nbsp;<span class="icon groupAdd"></span></button>
         </div>
     </form>
 </div>
