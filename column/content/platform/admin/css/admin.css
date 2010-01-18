@@ -41,6 +41,10 @@ a:hover {
     text-decoration: underline;
 }
 
+a.icon:hover {
+    text-decoration: none;
+}
+
 li {
     margin-bottom: 4px;
 }
@@ -404,6 +408,30 @@ textarea#code_editor {
     }
 
 /* WIDGET MANAGER */
+
+.widget_reposition .position {
+    background-repeat: no-repeat;
+    padding: 0 12px 0 0;
+    width: 16px;
+}
+
+.widget_reposition .position.up {
+    background-image: url('../img/icon_arrow_up_faded.png');
+}
+
+.widget_reposition .position.up:hover {
+    background-image: url('../img/icon_arrow_up.png');
+}
+
+.widget_reposition .position.down {
+    background-image: url('../img/icon_arrow_down_faded.png');
+}
+
+.widget_reposition a.position.down:hover {
+    background-image: url('../img/icon_arrow_down.png');
+}
+
+
 ul.widget_list {
     margin: 0;
 }
