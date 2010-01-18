@@ -98,6 +98,10 @@ textarea#code_editor {
     -webkit-border-bottom-right-radius: 3px;
 }
 
+button .icon:hover {
+    background-color: transparent;
+}
+
 .paneHeader .icon:hover {
     background-color: #999;
 }
