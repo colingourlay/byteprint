@@ -60,6 +60,10 @@ fieldset.extralong input {
     min-width: 294px;
 }
 
+textarea#code_editor {
+    font-family: monospace;
+}
+
 /* PRESET CONTAINER WIDTHS */
 .w400 {
     width: 400px;

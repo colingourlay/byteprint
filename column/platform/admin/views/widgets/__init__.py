@@ -10,7 +10,7 @@ from django.template import RequestContext
 from django.utils.text import capfirst
 from platform.widgets.forms import BuildWidgetForm, CreateGroupForm
 from platform.widgets.models import Group, Widget
-from platform.widgets.utils import build_widget, get_blueprint, get_edit_widget_form, get_edit_widget_form_instance, move_widget, widget_has_preview
+from platform.widgets.utils import build_widget, get_blueprint, get_edit_widget_form, get_edit_widget_form_instance, regroup_widget, widget_has_preview
 
 @login_required
 def manage(request):
@@ -77,6 +77,10 @@ def add_group(request):
 @login_required
 def delete_group(request, group_id):
     group = get_object_or_404(Group, id=group_id)
+    widgets = group.widgets()
+    for widget in widgets:
+        widget.group = None
+        widget.save()
     group.delete()
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
 
@@ -88,6 +92,6 @@ def toggle(request, widget_id, status):
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
 
 @login_required
-def move(request, widget_id, group_id=None):
-    move_widget(widget_id, group_id)
+def regroup(request, widget_id, group_id=None):
+    regroup_widget(widget_id, group_id)
     return HttpResponseRedirect(reverse('admin_widgets_manage'))

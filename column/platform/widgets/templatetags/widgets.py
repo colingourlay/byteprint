@@ -9,7 +9,7 @@ def group_widgets(group_name):
     output = ""
     try:
         group = Group.objects.get(name=group_name)
-        widgets = Widget.objects.in_group(group)
+        widgets = Widget.objects.in_group(group).filter(is_enabled=True)
         if widgets:
             for widget in widgets:
                 output += "<div class=\"widget\">" + render_widget(widget) + "</div>"

@@ -22,9 +22,9 @@
         <strong>{{ group.name }}<span class="right"><a class="disabled" href="{% url admin_widgets_delete_group group_id=group.id %}">X</a></span></strong>
     </div>
     <div class="paneBody">
-        {% if group.get_widgets %}
+        {% if group.widgets %}
         <ul class="widget_list">
-            {% for widget in group.get_widgets %}
+            {% for widget in group.widgets %}
             {% include "admin/widgets/group_list_item.html" %}   
             {% endfor %}
         </ul>

@@ -36,12 +36,12 @@ urlpatterns = patterns('platform.admin.views',
         'widgets.delete',
         name='admin_widgets_delete'
     ),
-    url(r'^widgets/(?P<widget_id>\d+)/move/to/group/(?P<group_id>\d+)/$',
-        'widgets.move',
-        name='admin_widgets_move_to_group'
+    url(r'^widgets/(?P<widget_id>\d+)/regroup/(?P<group_id>\d+)/$',
+        'widgets.regroup',
+        name='admin_widgets_regroup'
     ),
     url(r'^widgets/(?P<widget_id>\d+)/ungroup/$',
-        'widgets.move',
+        'widgets.regroup',
         name='admin_widgets_ungroup'
     ),
     url(r'^widgets/(?P<widget_id>\d+)/disable/$',

@@ -57,15 +57,11 @@ def render_widget(widget):
         return blueprint().render(pickle.loads(str(widget.data)))
     return ""
 
-def move_widget(widget_id, group_id):
+def regroup_widget(widget_id, group_id):
     widget = get_object_or_404(Widget, id=widget_id)
     group_to_move_to = None
     if group_id:
         group_to_move_to = get_object_or_404(Group, id=group_id)
-    all_groups = Group.objects.filter(widgets__id=widget.id)
-    for other_group in all_groups:
-        other_group.widgets.remove(widget)
-    if group_to_move_to:
-        group_to_move_to.widgets.add(widget)
-        group_to_move_to.save()
+    widget.group = group_to_move_to
+    widget.save()
     
