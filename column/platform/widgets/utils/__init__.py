@@ -62,6 +62,36 @@ def regroup_widget(widget_id, group_id):
     group_to_move_to = None
     if group_id:
         group_to_move_to = get_object_or_404(Group, id=group_id)
+    if widget.group:
+        for grouped_widget in widget.group.widgets():
+            if grouped_widget.group_position > widget.group_position:
+                grouped_widget.group_position -= 1
+                grouped_widget.save()
+    if group_to_move_to:
+        widget.group_position = group_to_move_to.largest_widget_position() + 1
+    else:
+        widget.group_position = 0
     widget.group = group_to_move_to
     widget.save()
-    
+
+def reposition_widget(widget_id, position):
+    widget = get_object_or_404(Widget, id=widget_id)
+    position_to_move_to = int(position)
+    if widget.group:
+        largest_position = widget.group.largest_widget_position()
+        if largest_position < position_to_move_to:
+            position_to_move_to = largest_position
+        if position_to_move_to > widget.group_position:
+            for grouped_widget in widget.group.widgets():
+                if grouped_widget.group_position > widget.group_position:
+                    if grouped_widget.group_position <= position_to_move_to:
+                        grouped_widget.group_position -= 1
+                        grouped_widget.save()
+        if position_to_move_to < widget.group_position:
+            for grouped_widget in widget.group.widgets():
+                if grouped_widget.group_position < widget.group_position:
+                    if grouped_widget.group_position >= position_to_move_to:
+                        grouped_widget.group_position += 1
+                        grouped_widget.save()
+        widget.group_position = position_to_move_to
+        widget.save()

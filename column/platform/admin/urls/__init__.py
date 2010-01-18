@@ -36,6 +36,10 @@ urlpatterns = patterns('platform.admin.views',
         'widgets.delete',
         name='admin_widgets_delete'
     ),
+    url(r'^widgets/(?P<widget_id>\d+)/reposition/(?P<position>\d+)/$',
+        'widgets.reposition',
+        name='admin_widgets_reposition'
+    ),
     url(r'^widgets/(?P<widget_id>\d+)/regroup/(?P<group_id>\d+)/$',
         'widgets.regroup',
         name='admin_widgets_regroup'

@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Max, Min
 
 class WidgetManager(models.Manager):
     def ungrouped(self):
@@ -25,6 +26,14 @@ class Widget(models.Model):
     
     def __unicode__(self):
         return self.blueprint_name
+    
+    def prev_group_position(self):
+        if self.group_position == 0:
+            return 0
+        return self.group_position - 1
+
+    def next_group_position(self):
+        return self.group_position + 1
 
 class Group(models.Model):
     name = models.CharField(max_length=30, unique=True)
@@ -36,7 +45,11 @@ class Group(models.Model):
         return Widget.objects.in_group(self)
     
     def largest_widget_position(self):
-        return self.widgets.aggregate(Max('position')) or 0
+        if not self.widgets():
+            return -1
+        return self.widgets().aggregate(Max('group_position'))['group_position__max']
 
-    def smallest_widget_position(self):
-        return self.widgets.aggregate(Min('position')) or 0
+    def smallest_widget_position(self):   
+        if not self.widgets():
+            return -1
+        return self.widgets().aggregate(Min('group_position'))['group_position__min']
