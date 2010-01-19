@@ -16,15 +16,15 @@
     <span class="right">
         {% if widget.group %}
         <span class="widget_reposition">
-            {% if forloop.first %}
-            <span class="iconSpacer"></span>
-            {% else %}
-            <a class="icon up" title="move widget position up" href="{% url admin_widgets_reposition widget_id=widget.id position=widget.prev_group_position %}"></a>
-            {% endif %}
             {% if forloop.last %}
             <span class="iconSpacer"></span>
             {% else %}
             <a class="icon down" title="move widget position down" href="{% url admin_widgets_reposition widget_id=widget.id position=widget.next_group_position %}"></a>
+            {% endif %}
+            {% if forloop.first %}
+            <span class="iconSpacer"></span>
+            {% else %}
+            <a class="icon up" title="move widget position up" href="{% url admin_widgets_reposition widget_id=widget.id position=widget.prev_group_position %}"></a>
             {% endif %}
         </span>
         {% else %}
@@ -42,7 +42,6 @@
                 <li><a href="{% url admin_widgets_regroup widget_id=widget.id group_id=group.id %}">{{ group.name }}</a></li>
                 {% endifequal %}
                 {% endfor %}
-                <li class="list_bottom">&nbsp;</li>
             </ul>
         </span>
     </span>

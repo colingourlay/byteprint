@@ -7,7 +7,7 @@ h1,h2,h3,h4,.serif{font-family :"Georgia", "Times New Roman", serif;}
 .big{font-size:22px;}
 .small{font-size:11px;}
 .btn{padding:2px;border:1px solid #777;}
-.msg{font-size:11px;border:1px solid #E5E5E5;padding:6px 8px;background-color: #fefddc;}
+.msg{font-size:11px;border:1px solid #E5E5E5;padding:6px 8px;background-color:#fefddc;}
 .msg.error {background-color:#FBB;}
 .positive{color:green;}
 .neutral{color:blue;}
@@ -98,8 +98,10 @@ textarea#code_editor {
     -webkit-border-bottom-right-radius: 3px;
 }
 
-button .icon:hover {
+button .icon:hover,
+.msg .icon:hover {
     background-color: transparent;
+    cursor: pointer;
 }
 
 .paneHeader .icon:hover {
@@ -183,6 +185,7 @@ a.icon:hover {
     -moz-border-radius-topright: 5px;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
+    -webkit-box-shadow: #BBB 0px 4px;
     padding: 4px 7px 2px;
 }
 
@@ -200,6 +203,7 @@ a.icon:hover {
     -moz-border-radius-bottomright: 5px;
     -webkit-border-bottom-left-radius: 5px;
     -webkit-border-bottom-right-radius: 5px;
+    -webkit-box-shadow: #BBB 0px 4px 18px;
     padding: 4px 8px;
     margin-bottom: 12px;
 }
@@ -210,6 +214,7 @@ a.icon:hover {
     background-color: #444;
     color: #AAA;
     margin-bottom: 15px;
+    -webkit-box-shadow: #777 0px 0px 15px;
 }
 
     #header a {
@@ -269,6 +274,8 @@ a.icon:hover {
     left: 0;
 }
 
+/* MENU */
+
 #menu {
     color: #FFF;
     margin: 0 15px 15px 15px;
@@ -294,6 +301,7 @@ a.icon:hover {
         -moz-border-radius-topright: 5px;
         -webkit-border-top-left-radius: 5px;
         -webkit-border-top-right-radius: 5px;
+        -webkit-box-shadow: #BBB 0px 4px 8px;
     }
     
     #menu #root {
@@ -311,6 +319,7 @@ a.icon:hover {
         -moz-border-radius-bottomright: 5px;
         -webkit-border-bottom-left-radius: 5px;
         -webkit-border-bottom-right-radius: 5px;
+        -webkit-box-shadow: #BBB 0px 4px 8px;
     }
     
         #menu dt span.toggle {
@@ -320,7 +329,7 @@ a.icon:hover {
             -moz-border-radius-topright: 5px;
             -webkit-border-top-right-radius: 5px;
             border-left: 1px solid #606060;
-            cursor: default;
+            cursor: pointer;
         	background-color: #6a6a6a;
         	position: absolute;
         	right: 15px;
@@ -342,6 +351,7 @@ a.icon:hover {
         border-left: 1px solid #777;
         border-right: 1px solid #777;
         border-bottom: 1px solid #777;
+        -webkit-box-shadow: #BBB 0px 4px 8px;
     }
 
     #menu a {
@@ -354,16 +364,11 @@ a.icon:hover {
         text-decoration: none;
     }
 
-    #menu #root a {
-        padding-left: 35px;
-        color: #F5F5F5;
-        width: 95px;
-    }
-    
+    #menu #root a,
     #menu dt a {
         padding-left: 35px;
         color: #F5F5F5;
-        width: 62px;
+        width: 95px;
     }
     
     #menu #root a#menu_dashboard,
@@ -549,20 +554,22 @@ ul.widget_list li.widget_list_item .group_list ul {
 
 ul.widget_list li.widget_list_item .group_list:hover ul {
     overflow: visible;
+    border: 1px solid #AAA;
     max-height: 1000px;
     z-index: 100;
+    padding: 4px 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -webkit-box-shadow: #BBB 0px 3px 18px;
 }
 
 ul.widget_list li.widget_list_item .group_list ul li {
-    border-top: 1px solid #AAA;
-    border-left: 1px solid #AAA;
-    border-right: 1px solid #AAA;
     list-style: none outside none;
     margin: 0;
 }
 
 ul.widget_list li.widget_list_item .group_list ul li a {
-    width: 70px;
+    width: 72px;
     padding: 4px;
     display: inline-block;
 }
@@ -574,7 +581,6 @@ ul.widget_list li.widget_list_item .group_list ul li a:hover {
 
 ul.widget_list li.widget_list_item .group_list ul li.list_bottom {
     height: 0;
-    border-top: 1px solid #AAA;
     padding: 0;
 }
 

@@ -14,6 +14,7 @@ function init_collapsible_menu() {
             });
         }
     });
+    $('#menu dt a').css('width', '62px');
 }
 
 function init_msg_close_buttons() {
@@ -51,4 +52,8 @@ function init_code_editor() {
            );
         });
     }
+}
+
+function add_icon_to_msg() {
+    $('.msg .icon').addClass('delete');
 }
