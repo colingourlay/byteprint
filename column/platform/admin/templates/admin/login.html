@@ -17,6 +17,7 @@
     {% endif %}
     <div class="loginForm">
         <form action='.' method='post' class="uniForm">
+            {% csrf_token %}
             <fieldset class="blockLabels">
                 <div class="ctrlHolder">
                     <label for="username">Username</label>

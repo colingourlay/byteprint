@@ -9,8 +9,8 @@
         </dt>
         <dd>
             <ul>
-                <li class="{% ifequal menu_current "posts_add" %}current{% endifequal %}"><a href="#">Create</a></li>
-                <li class="{% ifequal menu_current "posts_manage" %}current{% endifequal %}"><a href="#">Manage</a></li>
+                <li class="{% if menu_current == 'posts_add' %}current{% endif %}"><a href="#">Create</a></li>
+                <li class="{% if menu_current == 'posts_manage' %}current{% endif %}"><a href="#">Manage</a></li>
             </ul>
         </dd>
         <dt>
@@ -19,10 +19,10 @@
         </dt>
         <dd>
             <ul>
-                <li class="{% ifequal menu_current "themes_install" %}current{% endifequal %}"><a href="#">Install</a></li>
+                <li class="{% if menu_current == 'themes_install' %}current{% endif %}"><a href="#">Install</a></li>
             </ul>
             <ul>
-                <li class="{% ifequal menu_current "themes_manage" %}current{% endifequal %}"><a href="#">Manage</a></li>
+                <li class="{% if menu_current == 'themes_manage' %}current{% endif %}"><a href="#">Manage</a></li>
             </ul>
         </dd>
         <dt>
@@ -31,7 +31,7 @@
         </dt>
         <dd>
             <ul>
-                <li class="{% ifequal menu_current "widgets_manage" %}current{% endifequal %}"><a href="{% url admin_widgets_manage %}">Manage</a></li>
+                <li class="{% if menu_current == 'widgets_manage' %}current{% endif %}"><a href="{% url admin_widgets_manage %}">Manage</a></li>
             </ul>
         </dd>
         <dt>
@@ -40,7 +40,7 @@
         </dt>
         <dd>
             <ul>
-                <li class="{% ifequal menu_current "settings_general" %}current{% endifequal %}"><a href="{% url admin_settings_general %}">General</a></li>
+                <li class="{% if menu_current == 'settings_general' %}current{% endif %}"><a href="{% url admin_settings_general %}">General</a></li>
             </ul>
         </dd>
     </dl>

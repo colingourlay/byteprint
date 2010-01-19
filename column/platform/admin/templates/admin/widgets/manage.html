@@ -33,6 +33,7 @@
 <div class="w400 left">
     <h2>Build a Widget</h2>
     <form action='{% url admin_widgets_build %}' method='post' class="uniForm">
+        {% csrf_token %}
         <fieldset class="blockLabels">
             <div class="ctrlHolder">
                 {{ build_widget_form.blueprint_name.label_tag }}{{ build_widget_form.blueprint_name }}<p class="formHint">{{ build_widget_form.blueprint_name.help_text }}</p>
@@ -44,6 +45,7 @@
     </form>
     <h2>Create a Group</h2>
     <form action='{% url admin_widgets_add_group %}' method='post' class="uniForm">
+        {% csrf_token %}
         <fieldset class="blockLabels">
             <div class="ctrlHolder">
                 {{ create_group_form.name.label_tag }}{{ create_group_form.name }}<p class="formHint">{{ create_group_form.name.help_text }}</p>

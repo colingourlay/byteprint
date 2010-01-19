@@ -31,18 +31,20 @@
         <span class="iconSpacer"></span>
         <span class="iconSpacer"></span>
         {% endif %}
+        {% if groups %}
         <span class="group_list icon groupMove" title="move widget to another group">
             <ul class="small">
                 {% if widget.group %}
                 <li><a href="{% url admin_widgets_ungroup widget_id=widget.id %}">Ungrouped</a></li>
                 {% endif %}
                 {% for group in groups %}
-                {% ifequal widget.group group %}
+                {% if widget.group == group %}
                 {% else %}
                 <li><a href="{% url admin_widgets_regroup widget_id=widget.id group_id=group.id %}">{{ group.name }}</a></li>
-                {% endifequal %}
+                {% endif %}
                 {% endfor %}
             </ul>
         </span>
+        {% endif %}
     </span>
 </li>

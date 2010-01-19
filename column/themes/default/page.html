@@ -7,12 +7,12 @@
 {% block content %}
 <div id="yui-main">
     <div class="yui-b">
-        <div class="yui-g">
+        <div id="mn" class="yui-g">
             {% group_widgets "Main" %}
         </div>
     </div>
 </div>
-<div class="yui-b">
+<div id="sb" class="yui-b">
     {% include "default/sidebar.html" %}
 </div>
 {% endblock %}

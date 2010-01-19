@@ -1,25 +1,18 @@
-from django.conf import settings
-from django.contrib.auth.models import User
-from django.core.exceptions import ImproperlyConfigured
 from django.core.management.commands import syncdb
-from platform.installation.views import init_database, init_platform
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
+from platform.installation import is_installed
+from platform.installation.views import init_platform
 
 class InstallationMiddleware(object):
 
     def process_request(self, request):
-        if settings.DATABASE_ENGINE != 'dummy':
-            try:
-                try:
-                    syncdb_command = syncdb.Command()
-                    syncdb_command.handle_noargs()
-                except Exception, e:
-                    return init_database(request, e)
-                else:
-                    # TODO fix for admin user only
-                    if len(User.objects.filter(is_superuser=True)) > 0:
-                        return
-            except:
-                return init_database(request)
-            else:
-                return init_platform(request)
-        return init_database(request)
+        syncdb_command = syncdb.Command()
+        syncdb_command.handle_noargs()
+        if request.path[:9] == '/content/':
+            return None
+        if request.path == reverse('installation_init_platform'):
+            return None     
+        if is_installed():
+            return None
+        return HttpResponseRedirect(reverse('installation_init_platform'))

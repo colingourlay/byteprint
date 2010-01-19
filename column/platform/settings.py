@@ -38,6 +38,7 @@ if DEBUG:
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'platform.installation.middleware.InstallationMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -59,7 +60,6 @@ try:
 except ImportError:
     pass
 
-DATABASE_OPTIONS = {}
 TIME_ZONE = 'Australia/Brisbane'
 LANGUAGE_CODE = 'en'
 ADMINS = ()
