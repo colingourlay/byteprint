@@ -1,15 +1,17 @@
 <li class="widget_list_item{% if not widget.is_enabled %} milked{% endif %}">
-    {% if not widget.is_enabled %}
-    <del class="disabled">{{ widget.blueprint_name }}</del>
+    {% if widget.is_enabled %}
+    <a class="icon visible" title="disable widget" href="{% url admin_widgets_disable widget_id=widget.id %}"></a>
     {% else %}
-    <span>{{ widget.blueprint_name }}</span>
+    <a class="icon hidden" title="enable widget" href="{% url admin_widgets_enable widget_id=widget.id %}"></a>
     {% endif %}
+    <span class="widget_name">
+    {% if widget.is_enabled %}
+    {{ widget.blueprint_name }}
+    {% else %}
+    <del class="disabled">{{ widget.blueprint_name }}</del>
+    {% endif %}
+    </span>
     <span class="widget_options">
-        {% if widget.is_enabled %}
-        <a class="icon visible" title="disable widget" href="{% url admin_widgets_disable widget_id=widget.id %}"></a>
-        {% else %}
-        <a class="icon hidden" title="enable widget" href="{% url admin_widgets_enable widget_id=widget.id %}"></a>
-        {% endif %}
         <a class="icon widgetEdit" title="edit widget" href="{% url admin_widgets_edit widget_id=widget.id %}"></a>
         <a class="icon widgetDelete" title="delete widget" href="{% url admin_widgets_delete widget_id=widget.id %}"></a>
     </span>

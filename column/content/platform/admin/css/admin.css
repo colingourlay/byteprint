@@ -532,6 +532,9 @@ ul.widget_list li.widget_list_item:hover {
     background-color: #F5F5F5;
 }
 
+ul.widget_list li.widget_list_item .widget_name {
+    margin-left: 4px;
+}
 
 ul.widget_list li.widget_list_item .widget_options .icon {
     margin: 0 0 0 2px;
