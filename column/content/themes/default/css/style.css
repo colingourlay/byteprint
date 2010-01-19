@@ -1,3 +1,7 @@
 .widget {
     margin-bottom: 10px;
 }
+
+.twitter_timeline dd {
+    font-size: 90%;
+}
