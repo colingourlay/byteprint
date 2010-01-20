@@ -5,15 +5,11 @@
     <a class="icon hidden" title="enable widget" href="{% url admin_widgets_enable widget_id=widget.id %}"></a>
     {% endif %}
     <span class="widget_name">
-    {% if widget.is_enabled %}
-    {{ widget.blueprint_display_name }}
-    {% else %}
-    <span class="disabled">{{ widget.blueprint_display_name }}</span>
-    {% endif %}
-    </span>
-    <span class="widget_options">
-        <a class="icon widgetEdit" title="edit widget" href="{% url admin_widgets_edit widget_id=widget.id %}"></a>
-        <a class="icon widgetDelete" title="delete widget" href="{% url admin_widgets_delete widget_id=widget.id %}"></a>
+        {% if widget.is_enabled %}
+        {{ widget.blueprint_display_name }}
+        {% else %}
+        <span class="disabled">{{ widget.blueprint_display_name }}</span>
+        {% endif %}
     </span>
     <span class="right">
         {% if widget.group %}
@@ -33,11 +29,15 @@
         <span class="iconSpacer"></span>
         <span class="iconSpacer"></span>
         {% endif %}
+        <span class="widget_options">
+            <a class="icon widgetEdit" title="edit widget" href="{% url admin_widgets_edit widget_id=widget.id %}"></a>
+            <a class="icon widgetDelete" title="delete widget" href="{% url admin_widgets_delete widget_id=widget.id %}"></a>
+        </span>
         {% if groups %}
         <span class="group_list icon groupMove" title="move widget to another group">
             <ul class="small">
                 {% if widget.group %}
-                <li><a href="{% url admin_widgets_ungroup widget_id=widget.id %}">Ungrouped</a></li>
+                <li class="ungrouped"><a href="{% url admin_widgets_ungroup widget_id=widget.id %}">Ungrouped</a></li>
                 {% endif %}
                 {% for group in groups %}
                 {% if widget.group == group %}
@@ -47,6 +47,8 @@
                 {% endfor %}
             </ul>
         </span>
+        {% else %}
+        <span class="iconSpacer"></span>
         {% endif %}
     </span>
 </li>

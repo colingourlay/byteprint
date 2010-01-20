@@ -14,7 +14,7 @@ from platform.widgets.utils import build_widget, get_blueprint, get_edit_widget_
 
 @login_required
 def manage(request):
-    groups = Group.objects.all()
+    groups = Group.objects.standalone()
     widgets = Widget.objects.all()
     ungrouped_widgets= Widget.objects.ungrouped()
     build_widget_form = BuildWidgetForm()
@@ -70,7 +70,7 @@ def add_group(request):
         create_group_form = CreateGroupForm(request.POST)
         if create_group_form.is_valid():
             name = create_group_form.cleaned_data['name']
-            group = Group(name=name)
+            group = Group(name=name,is_standalone=True)
             group.save()
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
 

@@ -8,7 +8,7 @@ register = template.Library()
 def group_widgets(group_name):
     output = ""
     try:
-        group = Group.objects.get(name=group_name)
+        group = Group.objects.get(name=group_name,is_standalone=True)
         widgets = Widget.objects.in_group(group).filter(is_enabled=True)
         if widgets:
             for widget in widgets:
@@ -23,7 +23,7 @@ def group_widgets(group_name):
 def groups():
     output = ""
     try:
-        groups = Group.objects.all()
+        groups = Group.objects.standalone()
         if groups:
             for group in groups:
                 output += "<p class=\"group\">" + group.name + "</p>"

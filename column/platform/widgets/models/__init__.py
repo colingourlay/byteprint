@@ -41,8 +41,16 @@ class Widget(models.Model):
     def next_group_position(self):
         return self.group_position + 1
 
+class GroupManager(models.Manager):
+    def standalone(self):
+        return self.filter(is_standalone=True)
+
+
 class Group(models.Model):
     name = models.CharField(max_length=30, unique=True)
+    is_standalone = models.BooleanField(blank=False, default=True)
+    
+    objects = GroupManager()
     
     def __unicode__(self):
         return self.name

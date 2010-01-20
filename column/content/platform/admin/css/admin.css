@@ -87,7 +87,7 @@ textarea#code_editor {
 }
 
 .icon:hover {
-    background-color: #cbdabf;
+    background-color: #F5F5F5;
     -moz-border-radius-topleft: 3px;
     -moz-border-radius-topright: 3px;
     -webkit-border-top-left-radius: 3px;
@@ -102,10 +102,6 @@ button .icon:hover,
 .msg .icon:hover {
     background-color: transparent;
     cursor: pointer;
-}
-
-.paneHeader .icon:hover {
-    background-color: #999;
 }
 
 a.icon:hover {
@@ -196,7 +192,7 @@ a.icon:hover {
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
     -webkit-box-shadow: #E5E5E5 0px 4px;
-    padding: 4px 7px 2px;
+    padding: 4px 7px;
 }
 
     .paneHeader h1,
@@ -207,7 +203,9 @@ a.icon:hover {
     }
 
 .paneBody {
-    border: 1px solid #E5E5E5;
+    border-left: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5;
     background-color: #FFF;
     -moz-border-radius-bottomleft: 5px;
     -moz-border-radius-bottomright: 5px;
@@ -505,7 +503,7 @@ ul.widget_list li.widget_list_item {
 }
 
 ul.widget_list li.widget_list_item:hover {
-    background-color: #F5F5F5;
+    background-color: #CBDABF;
 }
 
 ul.widget_list li.widget_list_item .widget_name {
@@ -518,14 +516,14 @@ ul.widget_list li.widget_list_item .widget_options .icon {
 
 
 ul.widget_list li.widget_list_item .group_list {
-    margin-left: 4px;
+    margin-left: 2px;
 }
 
 ul.widget_list li.widget_list_item .group_list ul {
     margin: 0;
     max-height: 0;
-    width: 80px;
-    min-width: 80px;
+    width: 104px;
+    min-width: 104px;
     position: absolute;
     overflow: hidden;
     background-color: #FFF;
@@ -536,7 +534,7 @@ ul.widget_list li.widget_list_item .group_list:hover ul {
     border: 1px solid #E5E5E5;
     max-height: 1000px;
     z-index: 100;
-    padding: 4px 0;
+    padding: 3px 0;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     -webkit-box-shadow: #E5E5E5 0px 3px 18px;
@@ -548,14 +546,19 @@ ul.widget_list li.widget_list_item .group_list ul li {
 }
 
 ul.widget_list li.widget_list_item .group_list ul li a {
-    width: 72px;
-    padding: 4px;
+    width: 96px;
+    color: #222;
+    padding: 5px;
     display: inline-block;
 }
 
 ul.widget_list li.widget_list_item .group_list ul li a:hover {
     text-decoration: none;
     background-color: #CBDABF;
+}
+
+ul.widget_list li.widget_list_item .group_list ul li.ungrouped a {
+    color: #BBB;
 }
 
 ul.widget_list li.widget_list_item .group_list ul li.list_bottom {
