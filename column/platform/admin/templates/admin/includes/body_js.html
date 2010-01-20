@@ -6,9 +6,8 @@
 <script type="text/javascript">
 $(document).ready(function() {
     init_collapsible_menu();
-    init_msg_close_buttons();
     init_keyboard_shortcuts();
     init_code_editor();
-    add_icon_to_msg();
+    {% if msg %}init_msg();{% endif %}
 });
 </script>

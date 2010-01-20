@@ -12,16 +12,16 @@ DATABASES = {
 
 # DATABASES = {           #
 #     'default': {        # 
-#         'NAME': '',     # The name of your database, or a path if using sqlite
-#         'ENGINE': '',   # One of django.db.backends that connects to your DB
-#         'USER': '',     # Database user username 
-#         'PASSWORD': '', # Database user password
-#         'HOST': '',     # Remote host of database (defaults to localhost)
-#         'PORT': '',     # Port of remote host for database access
-#         'OPTIONS': {},  # Special options to be interpreted by the database
+#         'NAME': '',     # - The name of your database, or a path to sqlite DB
+#         'ENGINE': '',   # - django.db.backends.* that connects to your DB
+#         'USER': '',     # - DB username 
+#         'PASSWORD': '', # - DB password
+#         'HOST': '',     # - DB remote host (defaults to localhost)
+#         'PORT': '',     # - Remote host port for DB access
+#         'OPTIONS': {},  # - Special options to be interpreted by the DB
 #     }                   #
 # }                       #
-#                         # == HELP ==
+#                         # == HELP ============================================
 #                         # If you are using sqlite, only NAME and ENGINE are
 #                         # required. For other local databases, you also need
 #                         # to complete the USER & PASSWORD fields. If the
@@ -29,3 +29,4 @@ DATABASES = {
 #                         # HOST and PORT details. OPTIONS is reserved for
 #                         # special commands that may need to be run against the
 #                         # database. This can be left blank.
+#                         # ====================================================

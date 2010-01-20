@@ -17,12 +17,6 @@ function init_collapsible_menu() {
     $('#menu dt a').css('width', '62px');
 }
 
-function init_msg_close_buttons() {
-    $('.msg').click(function() {
-        $(this).slideUp('fast');
-    });
-}
-
 function init_keyboard_shortcuts() {
     $(document).bind('keydown', 'ctrl+s', function() {
         $('.primaryAction').click();
@@ -54,6 +48,9 @@ function init_code_editor() {
     }
 }
 
-function add_icon_to_msg() {
+function init_msg() {
     $('.msg .icon').addClass('delete');
+    $('.msg').click(function() {
+        $(this).slideUp('fast');
+    });
 }

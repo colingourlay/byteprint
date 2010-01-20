@@ -2,17 +2,19 @@
 
 {% block main %}
 <div class="installation">
-    <div class="paneHeader conf">
-       <h1>Blog &amp; User Configuration</h1>
-    </div>
-    <div class="paneBody">
-        <form action='.' method='post' class="uniForm">
-            {% csrf_token %}
-            {% if form.non_field_errors %}
-            {% for error in form.non_field_errors %}
-            <p class="errorField">{{ error }}</p>
-            {% endfor %}
-            {% endif %}
+    <h1>Column Installation</h1>
+    <p>Please complete the fields below, and click the <strong>Complete Installation</strong> button.</p>
+    <form action='.' method='post' class="uniForm">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <p class="errorField">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
+        <div class="paneHeader">
+           <strong>Blog Details</strong>
+        </div>
+        <div class="paneBody">
             <fieldset class="blockLabels long">
                 <div class="ctrlHolder{% if form.blog_title.errors %} error{% endif %}">
                     {% if form.blog_title.errors %}
@@ -20,6 +22,13 @@
                     {% endif %}
                     {{ form.blog_title.label_tag }}{{ form.blog_title }}<p class="formHint">{{ form.blog_title.help_text }}</p>
                 </div>
+            </fieldset>
+        </div>
+        <div class="paneHeader">
+           <strong>Admin User Details</strong>
+        </div>
+        <div class="paneBody">
+            <fieldset class="blockLabels long">
                 <div class="ctrlHolder{% if form.username.errors %} error{% endif %}">
                     {% if form.username.errors %}
                     <p id="{{ form.username.name }}_errors" class="errorField">{{ form.username.errors.0 }}</p>
@@ -44,11 +53,13 @@
                     {% endif %}
                     {{ form.email.label_tag }}{{ form.email }}<p class="formHint">{{ form.email.help_text }}</p>
                 </div>
-            </fieldset> 
+            </fieldset>
+        </div>
+        <fieldset class="blockLabels long">
             <div class="buttonHolder">
-                <button type="submit" class="primaryAction">Complete Installation</button>
+                <button type="submit" class="primaryAction">Complete Installation&nbsp;<span class="icon commit"></span></button>
             </div>
-        </form>
-    </div>
+        </fieldset>
+    </form>
 </div>
 {% endblock %}

@@ -180,12 +180,12 @@ a.icon:hover {
 /* PANES */
 
 .paneHeader {
-    background-color: #BBB;
+    background-color: #DDD;
     -moz-border-radius-topleft: 5px;
     -moz-border-radius-topright: 5px;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
-    -webkit-box-shadow: #BBB 0px 4px;
+    -webkit-box-shadow: #E5E5E5 0px 4px;
     padding: 4px 7px 2px;
 }
 
@@ -197,13 +197,13 @@ a.icon:hover {
     }
 
 .paneBody {
-    border: 1px solid #BBB;
+    border: 1px solid #E5E5E5;
     background-color: #FFF;
     -moz-border-radius-bottomleft: 5px;
     -moz-border-radius-bottomright: 5px;
     -webkit-border-bottom-left-radius: 5px;
     -webkit-border-bottom-right-radius: 5px;
-    -webkit-box-shadow: #BBB 0px 4px 18px;
+    -webkit-box-shadow: #E5E5E5 0px 4px 18px;
     padding: 4px 8px;
     margin-bottom: 12px;
 }
@@ -301,7 +301,7 @@ a.icon:hover {
         -moz-border-radius-topright: 5px;
         -webkit-border-top-left-radius: 5px;
         -webkit-border-top-right-radius: 5px;
-        -webkit-box-shadow: #BBB 0px 4px 8px;
+        -webkit-box-shadow: #E5E5E5 0px 4px 8px;
     }
     
     #menu #root {
@@ -319,7 +319,6 @@ a.icon:hover {
         -moz-border-radius-bottomright: 5px;
         -webkit-border-bottom-left-radius: 5px;
         -webkit-border-bottom-right-radius: 5px;
-        -webkit-box-shadow: #BBB 0px 4px 8px;
     }
     
         #menu dt span.toggle {
@@ -348,10 +347,10 @@ a.icon:hover {
     #menu dd {
         font-size: 11px;
         background-color: #FFF;
-        border-left: 1px solid #777;
-        border-right: 1px solid #777;
-        border-bottom: 1px solid #777;
-        -webkit-box-shadow: #BBB 0px 4px 8px;
+        border-left: 1px solid #BBB;
+        border-right: 1px solid #BBB;
+        border-bottom: 1px solid #BBB;
+        -webkit-box-shadow: #E5E5E5 0px 4px 8px;
     }
 
     #menu a {
@@ -439,39 +438,6 @@ a.icon:hover {
     margin: 15px auto 0;
     width: 520px;
 }
-
-    .installation h1 {
-        border: 0 none;
-        font-size: 26px;
-        line-height: 40px;
-    }
-
-    .installation dl {
-        margin: 8px 0 4px;
-    }
-    
-        .installation dl dd {
-            margin: 0 0 4px 16px;
-        }
-    
-    .installation .paneHeader.db {
-        background-image: url("../img/icon_db.png");
-        background-repeat: no-repeat;
-        background-position: 13px 5px;
-        padding-left: 72px;
-        font-size: 24px;
-        line-height: 40px;
-    }
-    
-    .installation .paneHeader.conf {
-        background-image: url("../img/icon_bloguserconf.png");
-        background-repeat: no-repeat;
-        background-position: 13px 5px;
-        padding-left: 72px;
-        font-size: 22px;
-        line-height: 40px;
-    }
-
 /* LOGIN-SPECIFIC */
 .login {
     margin: 95px auto 0;
@@ -557,13 +523,13 @@ ul.widget_list li.widget_list_item .group_list ul {
 
 ul.widget_list li.widget_list_item .group_list:hover ul {
     overflow: visible;
-    border: 1px solid #AAA;
+    border: 1px solid #E5E5E5;
     max-height: 1000px;
     z-index: 100;
     padding: 4px 0;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
-    -webkit-box-shadow: #BBB 0px 3px 18px;
+    -webkit-box-shadow: #E5E5E5 0px 3px 18px;
 }
 
 ul.widget_list li.widget_list_item .group_list ul li {

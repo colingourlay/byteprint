@@ -26,7 +26,7 @@ class InstallationForm(forms.Form):
     )
     email = forms.EmailField(
         label='Email',
-        help_text="You email address is used for admin purposes.",
+        help_text="You email address is used for admin notifications, or if you forget your login details.",
     )
     
     def clean(self):

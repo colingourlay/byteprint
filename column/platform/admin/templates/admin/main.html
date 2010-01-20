@@ -4,10 +4,10 @@
 <div id="main">
     <div class="layout">
         <div class="main">
-            {% include "admin/includes/msg.html" %}
             {% block h1 %}
             <h1>{{ h1 }}</h1>
             {% endblock %}
+            {% include "admin/includes/msg.html" %}
             {% block content %}
             {# CONTENT #}
             {% endblock %}
