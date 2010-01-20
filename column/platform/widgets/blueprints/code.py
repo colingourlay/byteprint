@@ -4,6 +4,7 @@ from platform.widgets import Blueprint
 class CodeExample(Blueprint):
     
     name = 'code-example'
+    display_name = 'Code Example'
     fields = {
         'code': forms.CharField(
             widget = forms.Textarea(

@@ -6,6 +6,7 @@ from platform.widgets import Blueprint
 # class TwitterBlueprint(Blueprint):
 # 
 #     name = 'twitter'
+#     display_name = 'Twitter Timeline'
 #     preview = True
 #     fields = {
 #         'username': forms.CharField(

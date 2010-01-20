@@ -20,11 +20,17 @@ class Widget(models.Model):
         verbose_name = 'widget'
         verbose_name_plural = 'widgets'
         ordering = ('group_position',)
-        #unique_together = ("group", "group_position")
     
     objects = WidgetManager()
     
     def __unicode__(self):
+        return self.blueprint_name
+    
+    def blueprint_display_name(self):
+        from platform.widgets import Blueprint
+        for blueprint in Blueprint.inventory:
+            if blueprint.name == self.blueprint_name:
+                return blueprint.display_name
         return self.blueprint_name
     
     def prev_group_position(self):

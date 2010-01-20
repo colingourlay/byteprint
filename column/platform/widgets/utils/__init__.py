@@ -8,7 +8,7 @@ def get_blueprints(two_tuple=False):
     blueprints = []
     for blueprint in Blueprint.inventory:
         if two_tuple:
-            blueprints.append((blueprint.name, blueprint.name))
+            blueprints.append((blueprint.name, blueprint.display_name))
         else:
             blueprints.append(blueprint.name)
     return blueprints

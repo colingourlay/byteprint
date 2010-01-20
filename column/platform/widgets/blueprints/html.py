@@ -4,6 +4,7 @@ from platform.widgets import Blueprint
 class BareHTML(Blueprint):
 
     name = 'bare-html'
+    display_name = 'HTML'
     preview = True
     fields = {
         'html': forms.CharField(

@@ -4,6 +4,7 @@ from platform.widgets import Blueprint
 class ImageFromURL(Blueprint):
 
     name = 'image-from-url'
+    display_name = 'Image (from URL)'
     preview = True
     fields = {
         'url': forms.CharField(
