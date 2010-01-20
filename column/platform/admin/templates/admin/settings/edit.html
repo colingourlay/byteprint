@@ -9,7 +9,7 @@
         <p class="errorField">{{ error }}</p>
         {% endfor %}
         {% endif %}
-        <fieldset class="inlineLabels extralong">
+        <fieldset class="blockLabels extralong">
             {% for field in form %}
             <div class="ctrlHolder{% if field.errors %} error{% endif %}">
                 {% if field.errors %}
