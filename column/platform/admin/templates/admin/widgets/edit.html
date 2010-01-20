@@ -27,7 +27,9 @@
     {% if show_preview %}
     <div class="widget_preview">
         <h2>Preview (save changes to update)</h2>
-        {% widget_preview widget.id %}
+        <div class="pane">
+            {% widget_preview widget.id %}
+        </div>
     </div>
     {% endif %}
 </div>

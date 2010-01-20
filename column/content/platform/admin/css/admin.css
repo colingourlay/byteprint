@@ -179,6 +179,16 @@ a.icon:hover {
 
 /* PANES */
 
+.pane {
+    border: 1px solid #E5E5E5;
+    background-color: #FFF;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -webkit-box-shadow: #E5E5E5 0px 4px 18px;
+    padding: 4px 8px;
+    margin-bottom: 12px;
+}
+
 .paneHeader {
     background-color: #DDD;
     -moz-border-radius-topleft: 5px;
@@ -551,14 +561,4 @@ ul.widget_list li.widget_list_item .group_list ul li a:hover {
 ul.widget_list li.widget_list_item .group_list ul li.list_bottom {
     height: 0;
     padding: 0;
-}
-
-div.widget_preview {
-    margin-top: 15px;
-}
-
-div.widget_preview .widget {
-    background-color: #FFF;
-    border: 1px solid #AAA;
-    padding: 10px;
 }

@@ -38,7 +38,7 @@ def widget_preview(widget_id):
     output = ""
     try:
         widget = Widget.objects.get(id=widget_id)
-        output += "<div class=\"widget\">" + render_widget(widget) + "</div>"
+        output += render_widget(widget)
     except:
         output = "<!-- Widget not found -->"
     return output
