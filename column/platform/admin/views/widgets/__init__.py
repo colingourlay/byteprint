@@ -42,7 +42,7 @@ def build(request):
 def edit(request, widget_id):
     widget = get_object_or_404(Widget, id=widget_id)
     show_preview = widget_has_preview(widget)
-    h1 = "Editing " + capfirst(widget.blueprint_name) + " Widget"
+    h1 = "Editing " + widget.blueprint_display_name() + " Widget"
     msg = None
     if request.method == 'POST':
         edit_widget_form = get_edit_widget_form(widget)
