@@ -500,6 +500,7 @@ ul.widget_list li.widget_list_item {
     width: 386px;
     padding: 4px 6px;
     margin: 0;
+    cursor: default;
 }
 
 ul.widget_list li.widget_list_item:hover {
