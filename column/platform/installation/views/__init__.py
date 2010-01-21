@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from platform.core.models import Definition
+from platform.core.settings.models import Setting
 from platform.installation import is_installed
 from platform.installation.forms import InstallationForm
 
@@ -24,12 +24,12 @@ def init_platform(request):
             all_users.delete()
             admin_user = User.objects.create_superuser(username, email, password)
             # Initialise the starting definitions
-            all_definitions = Definition.objects.all()
-            all_definitions.delete()
-            theme_definition = Definition.objects.add_templatable('theme', 'default')
+            all_settings = Setting.objects.all()
+            all_settings.delete()
+            theme_setting = Setting.objects.add_templatable('theme', 'default')
             blog_title = installation_form.cleaned_data['blog_title']
-            blog_title_definition = Definition.objects.add_templatable('blog_title', blog_title)
-            blog_subtitle_definition = Definition.objects.add_templatable('blog_subtitle', 'Just another Column weblog')
+            blog_title_setting = Setting.objects.add_templatable('blog_title', blog_title)
+            blog_subtitle_setting = Setting.objects.add_templatable('blog_subtitle', 'Just another Column weblog')
             # Redirect the user to the admin interface
             return HttpResponseRedirect(reverse('admin'))  
     else:
