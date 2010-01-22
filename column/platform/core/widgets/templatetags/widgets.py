@@ -16,7 +16,7 @@ def group_widgets(group_name):
             for widget in widgets:
                 rendered_widget, was_successful = widget_render(widget)
                 if was_successful:
-                    output += "<div class=\"" + widget_div_class + "\">" + rendered_widget + "</div>"
+                    output += "<div class=\"" + widget.blueprint_name + " " + widget_div_class + "\">" + rendered_widget + "</div>"
                 else:
                     output += rendered_widget
         else:
