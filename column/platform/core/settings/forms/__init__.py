@@ -16,3 +16,12 @@ class GeneralSettingsForm(forms.Form):
         help_text='You email address is used for admin notifications, or if \
             you forget your login details.',
     )
+
+class WidgetsSettingsForm(forms.Form):
+    widget_div_class = forms.CharField(
+        max_length=40,
+        label='Widget <div> Class',
+        help_text='Widgets are each rendered inside a <div> with a css class \
+            which allows you to add general styling to them. This field \
+            defines the class that is attributed to all of your widgets.',
+    )

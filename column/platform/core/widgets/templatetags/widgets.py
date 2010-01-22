@@ -1,6 +1,7 @@
 from django import template
+from platform.core.settings.models import Setting
 from platform.core.widgets.models import Group, Widget
-from platform.core.widgets.utils import render_widget
+from platform.core.widgets.utils import widget_render
 
 register = template.Library()
 
@@ -8,11 +9,16 @@ register = template.Library()
 def group_widgets(group_name):
     output = ""
     try:
+        widget_div_class = Setting.objects.get_value('widget_div_class')
         group = Group.objects.get(name=group_name,is_standalone=True)
         widgets = Widget.objects.in_group(group).filter(is_enabled=True)
         if widgets:
             for widget in widgets:
-                output += "<div class=\"widget\">" + render_widget(widget) + "</div>"
+                rendered_widget, was_successful = widget_render(widget)
+                if was_successful:
+                    output += "<div class=\"" + widget_div_class + "\">" + rendered_widget + "</div>"
+                else:
+                    output += rendered_widget
         else:
             output = "<!-- Widget Group '" + group_name + "' is empty -->"
     except:
@@ -34,15 +40,16 @@ def groups():
     return output
 
 @register.simple_tag
-def widget_preview(widget_id):
+def widget(widget_id):
     output = ""
     try:
         widget = Widget.objects.get(id=widget_id)
-        output += render_widget(widget)
+        rendered_widget, was_successful = widget_render(widget) 
+        output += rendered_widget
     except:
         output = "<!-- Widget not found -->"
     return output
 
 register.simple_tag(group_widgets)
 register.simple_tag(groups)
-register.simple_tag(widget_preview)
+register.simple_tag(widget)

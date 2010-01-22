@@ -17,7 +17,7 @@
     </div>
     {% for group in groups %}
     <div class="paneHeader">
-        <strong>{{ group.name }}<span class="right"><a class="icon groupDelete" title="delete group" href="{% url admin_widgets_delete_group group_id=group.id %}"></a></span></strong>
+        <strong>{{ group.name }}<span class="right"><a class="icon groupDelete" title="delete group" href="{% url admin_widgets_group_delete group_id=group.id %}"></a></span></strong>
     </div>
     <div class="paneBody">
         {% if group.widgets %}
@@ -31,20 +31,20 @@
     {% endfor %}
 </div>
 <div class="w400 left">
-    <h2>Build a Widget</h2>
-    <form action='{% url admin_widgets_build %}' method='post' class="uniForm">
+    <h2>Create a Widget</h2>
+    <form action='{% url admin_widgets_widget_create %}' method='post' class="uniForm">
         {% csrf_token %}
         <fieldset class="blockLabels">
             <div class="ctrlHolder">
-                {{ build_widget_form.blueprint_name.label_tag }}{{ build_widget_form.blueprint_name }}<p class="formHint">{{ build_widget_form.blueprint_name.help_text }}</p>
+                {{ create_widget_form.blueprint_name.label_tag }}{{ create_widget_form.blueprint_name }}<p class="formHint">{{ create_widget_form.blueprint_name.help_text }}</p>
             </div>
         </fieldset> 
         <div class="buttonHolder">
-            <button type="submit" class="primaryAction">Build Widget&nbsp;<span class="icon widgetAdd"></span></button>
+            <button type="submit" class="primaryAction">Create Widget&nbsp;<span class="icon widgetAdd"></span></button>
         </div>
     </form>
     <h2>Create a Group</h2>
-    <form action='{% url admin_widgets_add_group %}' method='post' class="uniForm">
+    <form action='{% url admin_widgets_group_create %}' method='post' class="uniForm">
         {% csrf_token %}
         <fieldset class="blockLabels">
             <div class="ctrlHolder">

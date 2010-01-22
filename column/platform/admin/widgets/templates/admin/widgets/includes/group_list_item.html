@@ -1,8 +1,8 @@
 <li class="widget_list_item{% if not widget.is_enabled %} milked{% endif %}">
     {% if widget.is_enabled %}
-    <a class="icon visible" title="disable widget" href="{% url admin_widgets_disable widget_id=widget.id %}"></a>
+    <a class="icon visible" title="disable widget" href="{% url admin_widgets_widget_disable widget_id=widget.id %}"></a>
     {% else %}
-    <a class="icon hidden" title="enable widget" href="{% url admin_widgets_enable widget_id=widget.id %}"></a>
+    <a class="icon hidden" title="enable widget" href="{% url admin_widgets_widget_enable widget_id=widget.id %}"></a>
     {% endif %}
     <span class="widget_name">
         {% if widget.is_enabled %}
@@ -17,12 +17,12 @@
             {% if forloop.last %}
             <span class="iconSpacer"></span>
             {% else %}
-            <a class="icon down" title="move widget position down" href="{% url admin_widgets_reposition widget_id=widget.id position=widget.next_group_position %}"></a>
+            <a class="icon down" title="move widget position down" href="{% url admin_widgets_widget_reposition widget_id=widget.id position=widget.next_group_position %}"></a>
             {% endif %}
             {% if forloop.first %}
             <span class="iconSpacer"></span>
             {% else %}
-            <a class="icon up" title="move widget position up" href="{% url admin_widgets_reposition widget_id=widget.id position=widget.prev_group_position %}"></a>
+            <a class="icon up" title="move widget position up" href="{% url admin_widgets_widget_reposition widget_id=widget.id position=widget.prev_group_position %}"></a>
             {% endif %}
         </span>
         {% else %}
@@ -30,19 +30,19 @@
         <span class="iconSpacer"></span>
         {% endif %}
         <span class="widget_options">
-            <a class="icon widgetEdit" title="edit widget" href="{% url admin_widgets_edit widget_id=widget.id %}"></a>
-            <a class="icon widgetDelete" title="delete widget" href="{% url admin_widgets_delete widget_id=widget.id %}"></a>
+            <a class="icon widgetEdit" title="edit widget" href="{% url admin_widgets_widget_edit widget_id=widget.id %}"></a>
+            <a class="icon widgetDelete" title="delete widget" href="{% url admin_widgets_widget_delete widget_id=widget.id %}"></a>
         </span>
         {% if groups %}
         <span class="group_list icon groupMove" title="move widget to another group">
             <ul class="small">
                 {% if widget.group %}
-                <li class="ungrouped"><a href="{% url admin_widgets_ungroup widget_id=widget.id %}">Ungrouped</a></li>
+                <li class="ungrouped"><a href="{% url admin_widgets_widget_ungroup widget_id=widget.id %}">Ungrouped</a></li>
                 {% endif %}
                 {% for group in groups %}
                 {% if widget.group == group %}
                 {% else %}
-                <li><a href="{% url admin_widgets_regroup widget_id=widget.id group_id=group.id %}">{{ group.name }}</a></li>
+                <li><a href="{% url admin_widgets_widget_regroup widget_id=widget.id group_id=group.id %}">{{ group.name }}</a></li>
                 {% endif %}
                 {% endfor %}
             </ul>

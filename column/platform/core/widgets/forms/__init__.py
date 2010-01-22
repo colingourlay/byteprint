@@ -4,7 +4,7 @@ from platform.core.widgets.utils import get_blueprints
 
 BLUEPRINT_CHOICES = get_blueprints(two_tuple=True)
 
-class BuildWidgetForm(forms.Form):
+class CreateWidgetForm(forms.Form):
     blueprint_name = forms.ChoiceField(
         choices=BLUEPRINT_CHOICES,
         label='Widget Blueprint',

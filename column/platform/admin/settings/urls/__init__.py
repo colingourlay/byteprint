@@ -5,4 +5,8 @@ urlpatterns = patterns('platform.admin.settings.views',
         'general',
         name='admin_settings_general'
     ),
+    url(r'^widgets/$',
+        'widgets',
+        name='admin_settings_widgets'
+    ),
 )

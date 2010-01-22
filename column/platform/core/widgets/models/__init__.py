@@ -1,3 +1,4 @@
+import pickle
 from django.db import models
 from django.db.models import Max, Min
 from platform.core.widgets import Blueprint
@@ -25,6 +26,12 @@ class Widget(models.Model):
     
     def __unicode__(self):
         return self.blueprint_name
+    
+    def data_load(self):
+        return pickle.loads(str(self.data))
+    
+    def data_dump(self, data):
+        self.data = pickle.dumps(data)
     
     def blueprint_display_name(self):
         for blueprint in Blueprint.inventory:
