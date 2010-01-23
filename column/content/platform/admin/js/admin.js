@@ -48,6 +48,13 @@ function init_code_editor() {
     }
 }
 
+function init_wysiwyg_editor() {
+    new nicEditor({
+        iconsPath : '/content/platform/admin/nic_edit/nicEditorIcons.gif',
+        buttonList : ['bold','italic','underline','strikeThrough','left','center','right','justify','link','unlink','ol','ul','indent','outdent','subscript','superscript','removeformat','xhtml']
+    }).panelInstance('wysiwyg_editor');
+}
+
 function init_msg() {
     $('.msg .icon').addClass('delete');
     $('.msg').click(function() {
