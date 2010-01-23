@@ -20,8 +20,8 @@ class GeneralSettingsForm(forms.Form):
 class WidgetsSettingsForm(forms.Form):
     widget_div_class = forms.CharField(
         max_length=40,
-        label='Widget <div> Class',
-        help_text='Widgets are each rendered inside a <div> with a css class \
-            which allows you to add general styling to them. This field \
-            defines the class that is attributed to all of your widgets.',
+        label='Widget <div> Element Classes',
+        help_text='Each widget on your site is rendered inside a <div> element.\
+            Enter the css classes you would like to appear on these elements \
+            to aid your page styling.',
     )
