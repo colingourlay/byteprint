@@ -22,7 +22,7 @@ def manage(request):
     create_group_form = CreateGroupForm()
     return render_to_response(
         'admin/widgets/manage.html', {
-            'menu_current': 'widgets_manage', 'h1': 'Manage Widgets',
+            'menu_current': 'design_widgets', 'h1': 'Manage Widgets',
             'groups': groups, 'widgets': widgets,
             'ungrouped_widgets': ungrouped_widgets,
             'create_widget_form': create_widget_form,
@@ -69,7 +69,7 @@ def widget_edit(request, widget_id):
     h1 = "Editing " + widget.blueprint_display_name() + " Widget"
     show_preview = utils.widget_has_preview(widget)
     return render_to_response('admin/widgets/edit.html', {
-        'menu_current': 'widgets_manage', 'h1': h1,
+        'menu_current': 'design_widgets', 'h1': h1,
         'widget': widget, 'show_preview': show_preview,
         'form': widget_edit_form, 'msg': msg}, RequestContext(request))
 

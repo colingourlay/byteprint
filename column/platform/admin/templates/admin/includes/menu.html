@@ -4,34 +4,25 @@
     </div>
     <dl>
         <dt>
-            <a id="menu_posts" href="#">Posts</a>
+            <a id="menu_content" href="#">Content</a>
             <span class="toggle">▼</span>
         </dt>
         <dd>
             <ul>
-                <li class="{% if menu_current == 'posts_add' %}current{% endif %}"><a href="#">Create New</a></li>
-                <li class="{% if menu_current == 'posts_manage' %}current{% endif %}"><a href="#">Manage</a></li>
+                <li class="{% if menu_current == 'content_posts' %}current{% endif %}"><a id="menu_content_posts" href="#">Posts</a></li>
+                <li class="{% if menu_current == 'content_pages' %}current{% endif %}"><a id="menu_content_pages" href="#">Pages</a></li>
+                <li class="{% if menu_current == 'content_comments' %}current{% endif %}"><a id="menu_content_comments" href="#">Comments</a></li>
+                <li class="{% if menu_current == 'content_media' %}current{% endif %}"><a id="menu_content_media" href="#">Media</a></li>
             </ul>
         </dd>
         <dt>
-            <a id="menu_themes" href="#">Themes</a>
+            <a id="menu_design" href="#">Design</a>
             <span class="toggle">▼</span>
         </dt>
         <dd>
             <ul>
-                <li class="{% if menu_current == 'themes_add' %}current{% endif %}"><a href="#">Install New</a></li>
-            </ul>
-            <ul>
-                <li class="{% if menu_current == 'themes_manage' %}current{% endif %}"><a href="#">Manage</a></li>
-            </ul>
-        </dd>
-        <dt>
-            <a id="menu_widgets" href="{% url admin_widgets_manage %}">Widgets</a>
-            <span class="toggle">▼</span>
-        </dt>
-        <dd>
-            <ul>
-                <li class="{% if menu_current == 'widgets_manage' %}current{% endif %}"><a href="{% url admin_widgets_manage %}">Manage</a></li>
+                <li class="{% if menu_current == 'design_themes' %}current{% endif %}"><a id="menu_design_themes" href="#">Themes</a></li>
+                <li class="{% if menu_current == 'design_widgets' %}current{% endif %}"><a id="menu_design_widgets" href="{% url admin_widgets_manage %}">Widgets</a></li>
             </ul>
         </dd>
         <dt>
@@ -40,8 +31,8 @@
         </dt>
         <dd>
             <ul>
-                <li class="{% if menu_current == 'settings_general' %}current{% endif %}"><a href="{% url admin_settings_general %}">General</a></li>
-                    <li class="{% if menu_current == 'settings_widgets' %}current{% endif %}"><a href="{% url admin_settings_widgets %}">Widgets</a></li>
+                <li class="{% if menu_current == 'settings_general' %}current{% endif %}"><a id="menu_settings_general" href="{% url admin_settings_general %}">General</a></li>
+                    <li class="{% if menu_current == 'settings_widgets' %}current{% endif %}"><a id="menu_settings_widgets" href="{% url admin_settings_widgets %}">Widgets</a></li>
             </ul>
         </dd>
     </dl>

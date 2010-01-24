@@ -379,10 +379,7 @@ a.icon:hover {
     }
     
     #menu #root a#menu_dashboard,
-    #menu dt a#menu_posts,
-    #menu dt a#menu_themes,
-    #menu dt a#menu_widgets,
-    #menu dt a#menu_settings {
+    #menu dt a {
         background-repeat: no-repeat;
         background-position: 7px 1px;
     }
@@ -391,16 +388,12 @@ a.icon:hover {
         background-image: url("../img/icon_menu_dashboard.png");
     }
     
-    #menu dt a#menu_posts {
-        background-image: url("../img/icon_menu_posts.png");
+    #menu dt a#menu_content {
+        background-image: url("../img/icon_menu_content.png");
     }
     
-    #menu dt a#menu_themes {
-        background-image: url("../img/icon_menu_themes.png");
-    }
-    
-    #menu dt a#menu_widgets {
-        background-image: url("../img/icon_menu_widgets.png");
+    #menu dt a#menu_design {
+        background-image: url("../img/icon_menu_design.png");
     }
     
     #menu dt a#menu_settings {
@@ -408,11 +401,56 @@ a.icon:hover {
     }
 
     #menu dd a {
-        padding-left: 14px;
+        padding-left: 34px;
         color: #444;
-    	width: 115px;
+    	width: 95px;
+    	line-height: 24px;
+    }
+    
+    #menu dd a#menu_content_posts,
+    #menu dd a#menu_content_pages,
+    #menu dd a#menu_content_comments,
+    #menu dd a#menu_content_media,
+    #menu dd a#menu_design_themes,
+    #menu dd a#menu_design_widgets,
+    #menu dd a#menu_settings_general,
+    #menu dd a#menu_settings_widgets {
+        background-repeat: no-repeat;
+        background-position: 10px 4px;
+    }
+    
+    #menu dd a#menu_content_posts {
+        background-image: url("../img/icon_post.png");
+    }
+    
+    #menu dd a#menu_content_pages {
+        background-image: url("../img/icon_page.png");
+    }
+    
+    #menu dd a#menu_content_comments {
+        background-image: url("../img/icon_comment.png");
+    }
+    
+    #menu dd a#menu_content_media {
+        background-image: url("../img/icon_media.png");
+    }
+            
+    #menu dd a#menu_design_themes {
+        background-image: url("../img/icon_theme.png");
     }
 
+    #menu dd a#menu_design_widgets {
+        background-image: url("../img/icon_widget.png");
+    }
+    
+    #menu dd a#menu_settings_general {
+        background-image: url("../img/icon_setting.png");
+    }
+    
+    #menu dd a#menu_settings_widgets {
+        background-image: url("../img/icon_widget.png");
+    }
+    
     #menu dd ul li:hover {
         background-color: #cbdabf;
     }
@@ -421,7 +459,7 @@ a.icon:hover {
         background-color: #cbdabf;
         background-image: url('../img/icon_menu_current.png');
         background-repeat: no-repeat;
-        background-position: 0 4px;
+        background-position: 0 5px;
     }
     
         #menu dd ul li:hover a,
