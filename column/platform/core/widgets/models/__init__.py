@@ -53,7 +53,7 @@ class GroupManager(models.Manager):
 
 
 class Group(models.Model):
-    name = models.CharField(max_length=30, unique=True)
+    name = models.CharField(max_length=30)
     is_standalone = models.BooleanField(blank=False, default=True)
     
     objects = GroupManager()

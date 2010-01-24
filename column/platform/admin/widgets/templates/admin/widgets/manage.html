@@ -15,24 +15,29 @@
         </ul>
         {% endif %}
     </div>
-    {% for group in groups %}
-    <div class="paneHeader">
-        <strong>{{ group.name }}<span class="right"><a class="icon groupDelete" title="delete group" href="{% url admin_widgets_group_delete group_id=group.id %}"></a></span></strong>
-    </div>
-    <div class="paneBody">
-        {% if group.widgets %}
-        <ul class="widget_list">
-            {% for widget in group.widgets %}
-            {% include "admin/widgets/includes/group_list_item.html" %}   
-            {% endfor %}
-        </ul>
-        {% endif %}    
-    </div>
-    {% endfor %}
+    <form action="{% url admin_widgets_groups_rename %}" method="post">
+        {% csrf_token %}
+        {% for group in groups %}
+        <div class="paneHeader">
+            <strong><input title="click to edit" class="merge" type="text" id="id_{{ group.id }}-name" name="{{ group.id }}-name" value="{{ group.name }}" /><span class="right"><a class="icon groupDelete" title="delete group" href="{% url admin_widgets_group_delete group_id=group.id %}"></a></span></strong>
+        </div>
+        <div class="paneBody">
+            {% if group.widgets %}
+            <ul class="widget_list">
+                {% for widget in group.widgets %}
+                {% include "admin/widgets/includes/group_list_item.html" %}   
+                {% endfor %}
+            </ul>
+            {% endif %}    
+        </div>
+        <input type="hidden" id="id_{{ group.id }}-id" name="{{ group.id }}-id" value="{{ group.id }}" />
+        {% endfor %}
+        <span class="display-none"><input type="submit" value="Save Updated Group Names" /></span>
+    </form>
 </div>
 <div class="w400 left">
     <h2>Create a Widget</h2>
-    <form action='{% url admin_widgets_widget_create %}' method='post' class="uniForm">
+    <form action="{% url admin_widgets_widget_create_httppost %}" method="post" class="uniForm">
         {% csrf_token %}
         <fieldset class="blockLabels">
             <div class="ctrlHolder">
@@ -44,7 +49,7 @@
         </div>
     </form>
     <h2>Create a Group</h2>
-    <form action='{% url admin_widgets_group_create %}' method='post' class="uniForm">
+    <form action="{% url admin_widgets_group_create %}" method="post" class="uniForm">
         {% csrf_token %}
         <fieldset class="blockLabels">
             <div class="ctrlHolder">

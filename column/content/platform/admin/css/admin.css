@@ -13,6 +13,7 @@ h1,h2,h3,h4,.serif{font-family :"Georgia", "Times New Roman", serif;}
 .neutral{color:blue;}
 .negative{color:red;}
 .disabled{color:#BBB;}
+.display-none{display:none;}
 
 /* GLOBAL */
 html {
@@ -62,6 +63,15 @@ fieldset.long input {
 fieldset.extralong input {
     width: 294px;
     min-width: 294px;
+}
+    
+input.merge {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    font: inherit;
+    color: inherit;
 }
 
 textarea#code_editor {

@@ -17,3 +17,12 @@ class CreateGroupForm(forms.Form):
         help_text="The group name is used in your templates to render all of the widgets it contains.",
         max_length=30,
     )
+
+class RenameGroupForm(forms.Form):
+    id = forms.CharField(
+        max_length=4,
+        widget=forms.HiddenInput,
+    )
+    name = forms.CharField(
+        max_length=30,
+    )

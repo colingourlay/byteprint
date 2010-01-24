@@ -9,9 +9,8 @@ from django.shortcuts import get_object_or_404, render_to_response
 from django.template import RequestContext
 from django.utils.text import capfirst
 from platform.core.widgets import utils
-from platform.core.widgets.forms import CreateWidgetForm, CreateGroupForm
+from platform.core.widgets.forms import CreateWidgetForm, CreateGroupForm, RenameGroupForm
 from platform.core.widgets.models import Group, Widget
-from platform.core.widgets.utils import get_blueprint
 
 @login_required
 def manage(request):
@@ -45,13 +44,34 @@ def group_delete(request, group_id):
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
 
 @login_required
-def widget_create(request):
+def groups_rename(request):
     if request.method == 'POST':
-        create_widget_form = CreateWidgetForm(request.POST)
-        if create_widget_form.is_valid():
-            blueprint_name = create_widget_form.cleaned_data['blueprint_name']
-            widget = utils.widget_create(blueprint_name)
-            #return HttpResponseRedirect(reverse('admin_widgets_edit', kwargs={'widget_id':widget.id}))
+        groups = Group.objects.standalone()
+        group_ids = []
+        for group in groups:
+            group_ids.append(str(group.id))
+        rename_group_forms = [RenameGroupForm(request.POST, prefix=id) for id in group_ids]
+        if all([form.is_valid() for form in rename_group_forms]):
+            for form in rename_group_forms:
+                group = utils.group_get(form.cleaned_data['id'])
+                if group.name != form.cleaned_data['name']:
+                    group.name = form.cleaned_data['name']
+                    group.save()
+    return HttpResponseRedirect(reverse('admin_widgets_manage'))
+
+@login_required
+def widget_create(request, blueprint_name=None):
+    if blueprint_name:
+        print 'rest'
+        widget = utils.widget_create(blueprint_name)
+    else:
+        if request.method == 'POST':
+            print 'post'
+            create_widget_form = CreateWidgetForm(request.POST)
+            if create_widget_form.is_valid():
+                blueprint_name = create_widget_form.cleaned_data['blueprint_name']
+                widget = utils.widget_create(blueprint_name)
+                #return HttpResponseRedirect(reverse('admin_widgets_edit', kwargs={'widget_id':widget.id}))
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
 
 @login_required

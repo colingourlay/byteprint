@@ -9,9 +9,17 @@ urlpatterns = patterns('platform.admin.widgets.views',
         'group_delete',
         name='admin_widgets_group_delete'
     ),
-    url(r'^create/$',
+    url(r'^groups/rename/$',
+        'groups_rename',
+        name='admin_widgets_groups_rename'
+    ),
+    url(r'^create/(?P<blueprint_name>([\w-])+)/$',
         'widget_create',
         name='admin_widgets_widget_create'
+    ),
+    url(r'^create/$',
+        'widget_create',
+        name='admin_widgets_widget_create_httppost'
     ),
     url(r'^(?P<widget_id>\d+)/delete/$',
         'widget_delete',
