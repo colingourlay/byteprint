@@ -5,6 +5,9 @@ class TwitterBlueprint(Blueprint):
 
     name = 'twitter'
     display_name = 'Twitter'
+    description = 'This Twitter widget uses the official API javascript \
+        interfece and will display a predetermined number of posts for any \
+        specified user, provided they are in the Twitter pblic timeline.'
     preview = True
     fields = {
         'username': forms.CharField(

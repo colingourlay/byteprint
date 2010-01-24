@@ -5,6 +5,8 @@ class BareHTML(Blueprint):
 
     name = 'bare-html'
     display_name = 'HTML'
+    description = 'This widget allows you to write bare HTML, which will \
+        appear on your site just as you made it.'
     preview = True
     fields = {
         'html': forms.CharField(
@@ -24,6 +26,8 @@ class WYSIWYGHTML(Blueprint):
 
     name = 'wysiwyg-html'
     display_name = 'WYSIWYG HTML'
+    description = 'This widget enables a What-You-See-Is-What-You-Get editor \
+        for writing HTML as you intend it to look on your site.'
     preview = False
     fields = {
         'html': forms.CharField(

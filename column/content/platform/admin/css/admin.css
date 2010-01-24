@@ -451,7 +451,7 @@ a.icon:hover {
     }
     
     #menu dd a#menu_design_blueprints {
-        background-image: url("../img/icon_widget.png");
+        background-image: url("../img/icon_blueprint.png");
     }
     
     #menu dd a#menu_design_themes {
@@ -538,15 +538,18 @@ a.icon:hover {
 
 /* WIDGET MANAGER */
 
-.groups_and_widgets .paneBody {
-    padding: 0 0 4px 0;
+.groups_and_widgets .paneBody,
+.blueprints .pane {
+    padding:  4px 0;
 }
 
-ul.widget_list {
+ul.widget_list,
+ul.blueprints_list {
     margin: 0;
 }
 
-ul.widget_list li.widget_list_item {
+ul.widget_list li.widget_list_item,
+ul.blueprints_list li.blueprints_list_item {
     list-style: none outside none;
     clear: both;
     display: inline-block;
@@ -556,8 +559,21 @@ ul.widget_list li.widget_list_item {
     cursor: default;
 }
 
-ul.widget_list li.widget_list_item:hover {
+ul.blueprints_list li.blueprints_list_item {
+    width: 586px;
+}
+
+ul.widget_list li.widget_list_item:hover,
+ul.blueprints_list li.blueprints_list_item:hover {
     background-color: #CBDABF;
+}
+
+ul.blueprints_list li.blueprints_list_item span.create {
+    margin: 1px 0 0 0
+}
+
+ul.blueprints_list li.blueprints_list_item p.description {
+    margin: 4px 0 0 12px;
 }
 
 ul.widget_list li.widget_list_item .widget_name {

@@ -5,6 +5,8 @@ class CodeExample(Blueprint):
     
     name = 'code-example'
     display_name = 'Code Example'
+    description = 'This widget allows you to write HTML preformatted <code> \
+        elements in a syntax-highlighted text editor.'
     fields = {
         'code': forms.CharField(
             widget = forms.Textarea(

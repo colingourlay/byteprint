@@ -1,12 +1,19 @@
 {% extends 'admin/main.html' %}
 
 {% block content %}
-<div class="w600">
+<div class="w600 blueprints">
     <div class="pane">
         {% if blueprints %}
-        <ul>
+        <ul class="blueprints_list">
             {% for blueprint in blueprints %}
-            <li>{{ blueprint.display_name }} <a class="small right" href="{% url admin_widgets_widget_create blueprint_name=blueprint.name  %}">Create a {{ blueprint.display_name }} Widget &raquo;</a></li>
+            <li class="blueprints_list_item">
+                <span class="left"><strong>{{ blueprint.display_name }}</strong></span>
+                <span class="right small create"><a href="{% url admin_widgets_widget_create blueprint_name=blueprint.name  %}">Create a Widget</a></span>
+                <div class="clear"></div>
+                {% if blueprint.description %}
+                <p class="small description">{{ blueprint.description }}</p>
+                {% endif %}
+            </li>
             {% endfor %}
         </ul>
         {% endif %}
