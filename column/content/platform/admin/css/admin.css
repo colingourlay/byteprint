@@ -421,8 +421,9 @@ a.icon:hover {
     #menu dd a#menu_content_pages,
     #menu dd a#menu_content_comments,
     #menu dd a#menu_content_media,
-    #menu dd a#menu_design_themes,
     #menu dd a#menu_design_widgets,
+    #menu dd a#menu_design_blueprints,
+    #menu dd a#menu_design_themes,
     #menu dd a#menu_settings_general,
     #menu dd a#menu_settings_widgets {
         background-repeat: no-repeat;
@@ -444,13 +445,17 @@ a.icon:hover {
     #menu dd a#menu_content_media {
         background-image: url("../img/icon_media.png");
     }
-            
-    #menu dd a#menu_design_themes {
-        background-image: url("../img/icon_theme.png");
-    }
-
+     
     #menu dd a#menu_design_widgets {
         background-image: url("../img/icon_widget.png");
+    }
+    
+    #menu dd a#menu_design_blueprints {
+        background-image: url("../img/icon_widget.png");
+    }
+    
+    #menu dd a#menu_design_themes {
+        background-image: url("../img/icon_theme.png");
     }
     
     #menu dd a#menu_settings_general {

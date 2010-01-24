@@ -1,0 +1,15 @@
+{% extends 'admin/main.html' %}
+
+{% block content %}
+<div class="w600">
+    <div class="pane">
+        {% if blueprints %}
+        <ul>
+            {% for blueprint in blueprints %}
+            <li>{{ blueprint.display_name }} <a class="small right" href="{% url admin_widgets_widget_create blueprint_name=blueprint.name  %}">Create a {{ blueprint.display_name }} Widget &raquo;</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

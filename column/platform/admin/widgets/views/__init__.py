@@ -13,6 +13,18 @@ from platform.core.widgets.forms import CreateWidgetForm, CreateGroupForm, Renam
 from platform.core.widgets.models import Group, Widget
 
 @login_required
+def blueprints(request):
+    blueprint_names = utils.get_blueprints()
+    blueprints = []
+    for name in blueprint_names:
+        blueprints.append(utils.get_blueprint(name))
+    return render_to_response(
+        'admin/widgets/blueprints.html', {
+            'menu_current': 'design_blueprints', 'h1': 'Widget Blueprints',
+            'blueprints': blueprints},
+        RequestContext(request))
+        
+@login_required
 def manage(request):
     groups = Group.objects.standalone()
     widgets = Widget.objects.all()

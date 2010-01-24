@@ -16,13 +16,14 @@
             </ul>
         </dd>
         <dt>
-            <a id="menu_design" href="#">Design</a>
+            <a id="menu_design" href="{% url admin_widgets_manage %}">Design</a>
             <span class="toggle">▼</span>
         </dt>
         <dd>
             <ul>
-                <li class="{% if menu_current == 'design_themes' %}current{% endif %}"><a id="menu_design_themes" href="#">Themes</a></li>
                 <li class="{% if menu_current == 'design_widgets' %}current{% endif %}"><a id="menu_design_widgets" href="{% url admin_widgets_manage %}">Widgets</a></li>
+                <li class="{% if menu_current == 'design_blueprints' %}current{% endif %}"><a id="menu_design_blueprints" href="{% url admin_widgets_blueprints %}">Blueprints</a></li>
+                <li class="{% if menu_current == 'design_themes' %}current{% endif %}"><a id="menu_design_themes" href="#">Themes</a></li>
             </ul>
         </dd>
         <dt>

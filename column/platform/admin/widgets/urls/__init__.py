@@ -1,6 +1,10 @@
 from django.conf.urls.defaults import *
 
 urlpatterns = patterns('platform.admin.widgets.views',
+    url(r'^blueprints/$',
+        'blueprints',
+        name='admin_widgets_blueprints'
+    ),
     url(r'^groups/create/$',
         'group_create',
         name='admin_widgets_group_create'
