@@ -15,11 +15,16 @@
         </ul>
         {% endif %}
     </div>
-    <form action="{% url admin_widgets_groups_rename %}" method="post">
-        {% csrf_token %}
+    
         {% for group in groups %}
         <div class="paneHeader">
-            <strong><input title="click to edit the group name. press enter to save your changes" class="merge" type="text" id="id_{{ group.id }}-name" name="{{ group.id }}-name" value="{{ group.name }}" /><span class="right"><a class="icon groupDelete" title="delete group" href="{% url admin_widgets_group_delete group_id=group.id %}"></a></span></strong>
+            <form class="left" action="{% url admin_widgets_group_rename group_id=group.id %}" method="post">
+                {% csrf_token %}
+                <strong><input title="click to edit the group name. press enter to save your changes" class="merge" type="text" id="id_{{ group.id }}-name" name="{{ group.id }}-name" value="{{ group.name }}" /></strong>
+                <span class="display-none"><input type="submit" value="Rename Group" /></span>
+            </form>
+            <span class="right"><a class="icon groupDelete" title="delete group" href="{% url admin_widgets_group_delete group_id=group.id %}"></a></span>
+            <div class="clear"></div>
         </div>
         <div class="paneBody">
             {% if group.widgets %}
@@ -30,9 +35,7 @@
             </ul>
             {% endif %}    
         </div>
-        <input type="hidden" id="id_{{ group.id }}-id" name="{{ group.id }}-id" value="{{ group.id }}" />
         {% endfor %}
-        <span class="display-none"><input type="submit" value="Save Updated Group Names" /></span>
     </form>
 </div>
 <div class="w400 left">

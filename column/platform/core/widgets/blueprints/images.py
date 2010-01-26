@@ -7,7 +7,7 @@ class ImageFromURL(Blueprint):
     display_name = 'Image (from URL)'
     description = "This widget allows you to insert an image from anywhere on \
         the internet, referenced by a URI. It also allows you to specify the \
-        imag\e's alt and title attributes."
+        image's alt and title attributes."
     preview = True
     fields = {
         'url': forms.CharField(

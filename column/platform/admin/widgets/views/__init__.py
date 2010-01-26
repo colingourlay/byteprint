@@ -56,19 +56,14 @@ def group_delete(request, group_id):
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
 
 @login_required
-def groups_rename(request):
+def group_rename(request, group_id):
+    group = utils.group_get(group_id)
     if request.method == 'POST':
-        groups = Group.objects.standalone()
-        group_ids = []
-        for group in groups:
-            group_ids.append(str(group.id))
-        rename_group_forms = [RenameGroupForm(request.POST, prefix=id) for id in group_ids]
-        if all([form.is_valid() for form in rename_group_forms]):
-            for form in rename_group_forms:
-                group = utils.group_get(form.cleaned_data['id'])
-                if group.name != form.cleaned_data['name']:
-                    group.name = form.cleaned_data['name']
-                    group.save()
+        rename_group_form = RenameGroupForm(request.POST, prefix=group.id)
+        if rename_group_form.is_valid():
+            if group.name != rename_group_form.cleaned_data['name']:
+                group.name = rename_group_form.cleaned_data['name']
+                group.save()
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
 
 @login_required

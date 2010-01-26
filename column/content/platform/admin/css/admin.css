@@ -538,9 +538,12 @@ a.icon:hover {
 
 /* WIDGET MANAGER */
 
-.groups_and_widgets .paneBody,
 .blueprints .pane {
     padding:  4px 0;
+}
+
+.groups_and_widgets .paneBody {
+    padding:  0 0 4px 0;
 }
 
 ul.widget_list,

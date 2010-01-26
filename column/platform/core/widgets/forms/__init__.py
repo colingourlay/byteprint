@@ -19,10 +19,6 @@ class CreateGroupForm(forms.Form):
     )
 
 class RenameGroupForm(forms.Form):
-    id = forms.CharField(
-        max_length=4,
-        widget=forms.HiddenInput,
-    )
     name = forms.CharField(
         max_length=30,
     )

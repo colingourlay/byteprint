@@ -13,9 +13,9 @@ urlpatterns = patterns('platform.admin.widgets.views',
         'group_delete',
         name='admin_widgets_group_delete'
     ),
-    url(r'^groups/rename/$',
-        'groups_rename',
-        name='admin_widgets_groups_rename'
+    url(r'^groups/(?P<group_id>\d+)/rename/$',
+        'group_rename',
+        name='admin_widgets_group_rename'
     ),
     url(r'^create/(?P<blueprint_name>([\w-])+)/$',
         'widget_create',
