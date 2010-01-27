@@ -8,7 +8,6 @@ class CreateWidgetForm(forms.Form):
     blueprint_name = forms.ChoiceField(
         choices=BLUEPRINT_CHOICES,
         label='Widget Blueprint',
-        help_text="Pick a blueprint from the list and click the Build button",
     )
 
 class CreateGroupForm(forms.Form):
