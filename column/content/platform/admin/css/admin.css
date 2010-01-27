@@ -91,7 +91,8 @@ textarea#code_editor {
 /* ICONS */
 .icon, .iconSpacer {
     width: 20px;
-    padding: 2px 0 2px 20px;
+    line-height: 16px;
+    padding: 2px 10px 2px 10px;
     background-repeat: no-repeat;
     background-position: 2px 2px;
 }
@@ -549,6 +550,7 @@ a.icon:hover {
 ul.widget_list,
 ul.blueprints_list {
     margin: 0;
+    position: relative;
 }
 
 ul.widget_list li.widget_list_item,
@@ -556,8 +558,8 @@ ul.blueprints_list li.blueprints_list_item {
     list-style: none outside none;
     clear: both;
     display: inline-block;
-    width: 386px;
-    padding: 4px 6px;
+    width: 391px;
+    padding: 4px 1px 4px 6px;
     margin: 0;
     cursor: default;
 }
@@ -583,12 +585,18 @@ ul.widget_list li.widget_list_item .widget_name {
     margin-left: 4px;
 }
 
+ul.widget_list li.widget_list_item .group_list {
+    position: relative;
+}
+
 ul.widget_list li.widget_list_item .group_list ul {
     margin: 0;
     max-height: 0;
     width: 99px;
     min-width: 99px;
     position: absolute;
+    top: 0;
+    right: 0;
     overflow: hidden;
     background-color: #FFF;
 }
@@ -598,6 +606,7 @@ ul.widget_list li.widget_list_item .group_list:hover ul {
     border: 1px solid #E5E5E5;
     max-height: 1000px;
     z-index: 100;
+    margin-top: 18px;
     padding: 3px 0;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
