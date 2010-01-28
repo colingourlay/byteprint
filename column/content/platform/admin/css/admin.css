@@ -559,9 +559,13 @@ ul.blueprints_list li.blueprints_list_item {
     clear: both;
     display: inline-block;
     width: 391px;
-    padding: 4px 1px 4px 6px;
+    padding: 4px 6px 4px 6px;
     margin: 0;
     cursor: default;
+}
+
+ul.widget_list li.widget_list_item {
+    padding: 4px 1px 4px 6px;
 }
 
 ul.blueprints_list li.blueprints_list_item {
@@ -611,6 +615,7 @@ ul.widget_list li.widget_list_item .group_list:hover ul {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     -webkit-box-shadow: #E5E5E5 0px 3px 18px;
+
 }
 
 ul.widget_list li.widget_list_item .group_list ul li {

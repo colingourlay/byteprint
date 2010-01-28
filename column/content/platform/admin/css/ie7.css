@@ -1,0 +1,13 @@
+/* ICONS */
+.icon, .iconSpacer {
+    height: 20px;
+    padding: 0;
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+ul.widget_list li.widget_list_item .widget_name {
+    position: relative;
+    top: 2px;
+    line-height: 13px;
+}
