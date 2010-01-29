@@ -38,8 +38,7 @@
                 <li class="ungrouped"><a href="{% url admin_widgets_widget_ungroup widget_id=widget.id %}">Ungrouped</a></li>
                 {% endif %}
                 {% for group in groups %}
-                {% if widget.group == group %}
-                {% else %}
+                {% if widget.group != group %}
                 <li><a href="{% url admin_widgets_widget_regroup widget_id=widget.id group_id=group.id %}">{{ group.name }}</a></li>
                 {% endif %}
                 {% endfor %}

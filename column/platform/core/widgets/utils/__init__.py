@@ -64,6 +64,7 @@ def widget_edit_form_instance(widget):
 
 def widget_delete(widget_id):
     widget = get_object_or_404(Widget, id=widget_id)
+    widget_regroup(widget_id, None)
     widget.delete()
 
 def widget_has_preview(widget):

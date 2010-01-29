@@ -103,11 +103,22 @@ def widget_edit(request, widget_id):
 @login_required
 def widget_delete(request, widget_id):
     utils.widget_delete(widget_id)
+    # if request.is_ajax():
+    #     pass
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
 
 @login_required
 def widget_toggle(request, widget_id, status):
     utils.widget_toggle(widget_id, status)
+    # if request.is_ajax():
+    #     widget = utils.widget_get(widget_id)
+    #     groups = Group.objects.standalone()
+    #     return render_to_response(
+    #         'admin/widgets/includes/group_list_item.html', {
+    #             'widget': widget,
+    #             'groups': groups,
+    #         }
+    #     )
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
 
 @login_required
