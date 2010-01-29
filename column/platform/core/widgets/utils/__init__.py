@@ -1,5 +1,8 @@
 from django import forms
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+from django.template import Context
+from django.template.loader import get_template
 from platform.core.widgets import Blueprint
 from platform.core.widgets.models import Group, Widget
 
@@ -126,3 +129,25 @@ def widget_reposition(widget_id, position):
                         grouped_widget.save()
         widget.group_position = position_to_move_to
         widget.save()
+
+def asyncGroupRefresh(widget_id):
+    widget = widget_get(widget_id)
+    groups = Group.objects.standalone()
+    response = ''
+    if widget.group:
+        group_widgets = widget.group.widgets()
+    else:
+        group_widgets = Widget.objects.ungrouped()
+    group_widgets_len = len(group_widgets)
+    for i, item in enumerate(group_widgets):
+        forloop = {}
+        forloop['first'] = (i == 0)
+        forloop['last'] = (i == group_widgets_len - 1)
+        response += get_template(
+            'admin/widgets/includes/group_list_item.html'
+        ).render(Context({
+            'widget': item, 
+            'groups': groups,
+            'forloop': forloop
+        }))
+    return HttpResponse(response)
