@@ -1,21 +1,23 @@
-// $('a.icon.visible').click(function() {
-//     var li = $(this).parent().parent();
-//     $.post($(this).attr('href'), function(updated_li) {
-//         li.replaceWith(updated_li);
-//     });
-//     return false;
+function async(trigger) {
+    var group = trigger.parent().parent().parent();
+    $.post(trigger.attr('href'), function(refreshed_group) {
+        group.html(refreshed_group);
+    });
+    return false;
+}
+
+$('a.icon.visible').live('click', function() {
+    return async($(this));
+});
+
+$('a.icon.hidden').live('click', function() {
+    return async($(this));
+});
+
+// $('a.icon.down').live('click', function() {
+//     return async($(this));
 // });
-// $('a.icon.hidden').click(function() {
-//     var li = $(this).parent().parent();
-//     $.post($(this).attr('href'), function(updated_li) {
-//         li.replaceWith(updated_li);
-//     });
-//     return false;
-// });
-// $('a.icon.widgetDelete').click(function() {
-//     var li = $(this).parent().parent();
-//     $.post($(this).attr('href'), function() {
-//         li.remove();
-//     });
-//     return false;
+// 
+// $('a.icon.up').live('click', function() {
+//     return async($(this));
 // });

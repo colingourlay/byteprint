@@ -6,7 +6,8 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
-from django.template import RequestContext
+from django.template import Context, RequestContext
+from django.template.loader import get_template
 from django.utils.text import capfirst
 from platform.core.widgets import utils
 from platform.core.widgets.forms import CreateWidgetForm, CreateGroupForm, RenameGroupForm
@@ -103,22 +104,32 @@ def widget_edit(request, widget_id):
 @login_required
 def widget_delete(request, widget_id):
     utils.widget_delete(widget_id)
-    # if request.is_ajax():
-    #     pass
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
 
 @login_required
 def widget_toggle(request, widget_id, status):
     utils.widget_toggle(widget_id, status)
-    # if request.is_ajax():
-    #     widget = utils.widget_get(widget_id)
-    #     groups = Group.objects.standalone()
-    #     return render_to_response(
-    #         'admin/widgets/includes/group_list_item.html', {
-    #             'widget': widget,
-    #             'groups': groups,
-    #         }
-    #     )
+    if request.is_ajax():
+        widget = utils.widget_get(widget_id)
+        groups = Group.objects.standalone()
+        response = ''
+        if widget.group:
+            group_widgets = widget.group.widgets()
+        else:
+            group_widgets = Widget.objects.ungrouped()
+        group_widgets_len = len(group_widgets)
+        for i, item in enumerate(group_widgets):
+            forloop = {}
+            forloop['first'] = (i == 0)
+            forloop['last'] = (i == group_widgets_len - 1)
+            response += get_template(
+                'admin/widgets/includes/group_list_item.html'
+            ).render(Context({
+                'widget': item, 
+                'groups': groups,
+                'forloop': forloop
+            }))
+        return HttpResponse(response)
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
 
 @login_required
