@@ -130,7 +130,7 @@ def widget_reposition(widget_id, position):
         widget.group_position = position_to_move_to
         widget.save()
 
-def asyncGroupRefresh(widget_id):
+def asyncGroupBodyRefresh(widget_id):
     widget = widget_get(widget_id)
     groups = Group.objects.standalone()
     response = ''

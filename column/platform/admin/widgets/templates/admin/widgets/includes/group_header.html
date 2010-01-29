@@ -1,0 +1,9 @@
+<div class="paneHeader">
+    <form class="left groupRenameForm" action="{% url admin_widgets_group_rename group_id=group.id %}" method="post">
+        {% csrf_token %}
+        <strong><input title="click to edit the group name. press enter to save your changes" class="merge" type="text" id="id_{{ group.id }}-name" name="{{ group.id }}-name" value="{{ group.name }}" /></strong>
+        <span class="display-none"><input type="submit" value="Rename Group" /></span>
+    </form>
+    <span class="right"><a class="icon groupDelete" title="delete group" href="{% url admin_widgets_group_delete group_id=group.id %}"><!--icon--></a></span>
+    <div class="clear"></div>
+</div>

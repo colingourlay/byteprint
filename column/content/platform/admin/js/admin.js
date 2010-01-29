@@ -59,7 +59,7 @@ function init_wysiwyg_editor() {
 
 function init_msg() {
     $('.msg .icon').addClass('delete');
-    $('.msg').click(function() {
+    $('.msg').live('click', function() {
         $(this).slideUp('fast');
     });
 }
