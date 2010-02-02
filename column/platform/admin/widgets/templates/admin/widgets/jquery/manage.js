@@ -1,4 +1,4 @@
-function asyncGroupAction(trigger) {
+function asyncGroupToggle(trigger) {
     var group_header = trigger.parent().parent();
     $.post(trigger.attr('href'), function(refreshed_group_header) {
         group_header.replaceWith(refreshed_group_header);
@@ -7,11 +7,11 @@ function asyncGroupAction(trigger) {
 }
 
 $('.group_header a.icon.visible').live('click', function() {
-    return asyncGroupAction($(this));
+    return asyncGroupToggle($(this));
 });
 
 $('.group_header a.icon.hidden').live('click', function() {
-    return asyncGroupAction($(this));
+    return asyncGroupToggle($(this));
 });
 
 function asyncWidgetRepositionOrToggle(trigger) {

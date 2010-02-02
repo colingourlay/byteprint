@@ -160,13 +160,11 @@ def asyncGroupBodyRefresh(widget_id):
 
 def asyncGroupHeaderRefresh(group_id):
     group = group_get(group_id)
-    response = '<ul class="widget_list">'
-    response += get_template(
+    response = get_template(
         'admin/widgets/includes/group_header.html'
     ).render(Context({
         'group': group
     }))
-    response += '</ul>'
     return HttpResponse(response)
 
 def asyncAllGroupsRefresh():
