@@ -74,6 +74,10 @@ input.merge {
     color: inherit;
 }
 
+input.merge.disabled {
+    color: #BBB;
+}
+
 textarea#code_editor {
     font-family: monospace;
 }
@@ -203,7 +207,7 @@ a.icon:hover {
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
     -webkit-box-shadow: #E5E5E5 0px 4px;
-    padding: 4px 6px;
+    padding: 4px 6px 4px 7px;
 }
 
     .paneHeader h1,
@@ -541,6 +545,10 @@ a.icon:hover {
 
 .blueprints .pane {
     padding:  4px 0;
+}
+
+.groups_and_widgets .paneHeader form {
+    padding:  0 0 0 3px;
 }
 
 .groups_and_widgets .paneBody {

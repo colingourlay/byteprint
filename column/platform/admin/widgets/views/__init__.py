@@ -55,11 +55,21 @@ def group_create(request):
             name = create_group_form.cleaned_data['name']
             group = Group(name=name,is_standalone=True)
             group.save()
+            if request.is_ajax():
+                return utils.asyncAllGroupsRefresh()
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
 
 @login_required
 def group_delete(request, group_id):
     utils.group_delete(group_id)
+    if request.is_ajax():
+        return utils.asyncAllGroupsRefresh()
+    return HttpResponseRedirect(reverse('admin_widgets_manage'))
+    
+def group_toggle(request, group_id, status):
+    utils.group_toggle(group_id, status)
+    if request.is_ajax():
+        return utils.asyncGroupHeaderRefresh(group_id)
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
 
 @login_required
@@ -74,7 +84,7 @@ def group_rename(request, group_id):
                 group.save()
                 if request.is_ajax():
                     msg = 'The widget group <strong>' + old_group_name \
-                        + '</strong> has been renamed as <strong>' \
+                        + '</strong> has been renamed to <strong>' \
                         + group.name + '</strong>. Please check your template \
                         tags to ensure they match.'
                     data = {'name': group.name,'msg': msg}
@@ -128,6 +138,8 @@ def widget_edit(request, widget_id):
 @login_required
 def widget_delete(request, widget_id):
     utils.widget_delete(widget_id)
+    if request.is_ajax():
+        return utils.asyncAllGroupsRefresh()
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
 
 @login_required
@@ -140,6 +152,8 @@ def widget_toggle(request, widget_id, status):
 @login_required
 def widget_regroup(request, widget_id, group_id=None):
     utils.widget_regroup(widget_id, group_id)
+    if request.is_ajax():
+        return utils.asyncAllGroupsRefresh()
     return HttpResponseRedirect(reverse('admin_widgets_manage'))
     
 @login_required

@@ -32,7 +32,12 @@ def group_delete(group_id):
         widget.group_position = 0
         widget.save()
     group.delete()
-
+    
+def group_toggle(group_id, status):
+    group = get_object_or_404(Group, id=group_id, is_standalone=True)
+    group.is_enabled = status
+    group.save()
+        
 def widget_create(blueprint_name):
     try:
         blueprint = get_blueprint(blueprint_name)
@@ -133,7 +138,7 @@ def widget_reposition(widget_id, position):
 def asyncGroupBodyRefresh(widget_id):
     widget = widget_get(widget_id)
     groups = Group.objects.standalone()
-    response = ''
+    response = '<ul class="widget_list">'
     if widget.group:
         group_widgets = widget.group.widgets()
     else:
@@ -150,4 +155,27 @@ def asyncGroupBodyRefresh(widget_id):
             'groups': groups,
             'forloop': forloop
         }))
+    response += '</ul>'
+    return HttpResponse(response)
+
+def asyncGroupHeaderRefresh(group_id):
+    group = group_get(group_id)
+    response = '<ul class="widget_list">'
+    response += get_template(
+        'admin/widgets/includes/group_header.html'
+    ).render(Context({
+        'group': group
+    }))
+    response += '</ul>'
+    return HttpResponse(response)
+
+def asyncAllGroupsRefresh():
+    groups = Group.objects.standalone()
+    ungrouped_widgets = Widget.objects.ungrouped()
+    response = get_template(
+        'admin/widgets/includes/all_groups.html'
+    ).render(Context({
+        'groups': groups,
+        'ungrouped_widgets': ungrouped_widgets
+    }))
     return HttpResponse(response)

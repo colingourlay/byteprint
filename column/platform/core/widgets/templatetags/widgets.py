@@ -13,16 +13,19 @@ def group_widgets(group_name):
         groups = Group.objects.filter(name=group_name,is_standalone=True)
         if groups:
             for group in groups:
-                widgets = Widget.objects.in_group(group).filter(is_enabled=True)
-                if widgets:
-                    for widget in widgets:
-                        rendered_widget, was_successful = widget_render(widget)
-                        if was_successful:
-                            output += "<div class=\"" + widget.blueprint_name + " " + widget_div_class + "\">" + rendered_widget + "</div>"
-                        else:
-                            output += rendered_widget
+                if group.is_enabled:
+                    widgets = Widget.objects.in_group(group).filter(is_enabled=True)
+                    if widgets:
+                        for widget in widgets:
+                            rendered_widget, was_successful = widget_render(widget)
+                            if was_successful:
+                                output += "<div class=\"" + widget.blueprint_name + " " + widget_div_class + "\">" + rendered_widget + "</div>"
+                            else:
+                                output += rendered_widget
+                    else:
+                        output += "<!-- Widget Group '" + group_name + "' is empty -->"
                 else:
-                    output += "<!-- Widget Group '" + group_name + "' is empty -->"
+                    output += "<!-- Widget Group '" + group_name + "' is not enabled -->"
         else:
             output = "<!-- Widget Group '" + group_name + "' was not found -->"
         return output

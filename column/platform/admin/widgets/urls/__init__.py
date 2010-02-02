@@ -13,6 +13,16 @@ urlpatterns = patterns('platform.admin.widgets.views',
         'group_delete',
         name='admin_widgets_group_delete'
     ),
+    url(r'^groups/(?P<group_id>\d+)/disable/$',
+        'group_toggle',
+        {'status': False},
+        name='admin_widgets_group_disable'
+    ),
+    url(r'^groups/(?P<group_id>\d+)/enable/$',
+        'group_toggle',
+        {'status': True},
+        name='admin_widgets_group_enable'
+    ),
     url(r'^groups/(?P<group_id>\d+)/rename/$',
         'group_rename',
         name='admin_widgets_group_rename'

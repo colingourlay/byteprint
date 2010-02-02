@@ -35,11 +35,11 @@
         <span class="group_list icon groupMove" title="move widget to another group">
             <ul class="small">
                 {% if widget.group %}
-                <li class="ungrouped"><a href="{% url admin_widgets_widget_ungroup widget_id=widget.id %}">Ungrouped</a></li>
+                <li class="ungrouped"><a class="widget_regroup" href="{% url admin_widgets_widget_ungroup widget_id=widget.id %}">Ungrouped</a></li>
                 {% endif %}
                 {% for group in groups %}
                 {% if widget.group != group %}
-                <li><a href="{% url admin_widgets_widget_regroup widget_id=widget.id group_id=group.id %}">{{ group.name }}</a></li>
+                <li><a class="widget_regroup" href="{% url admin_widgets_widget_regroup widget_id=widget.id group_id=group.id %}">{{ group.name }}</a></li>
                 {% endif %}
                 {% endfor %}
             </ul>

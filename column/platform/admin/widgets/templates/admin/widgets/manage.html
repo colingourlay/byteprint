@@ -3,30 +3,9 @@
 {% block content %}
 <div class="w400 left groups_and_widgets">
     <h2>Your Groups &amp; Widgets</h2>
-    <div class="paneHeader">
-        <strong>Ungrouped</strong>
+    <div id="all_groups">
+        {% include "admin/widgets/includes/all_groups.html" %}
     </div>
-    <div class="paneBody">
-        {% if ungrouped_widgets %}
-        <ul class="widget_list">
-            {% for widget in ungrouped_widgets %}
-            {% include "admin/widgets/includes/group_list_item.html" %}
-            {% endfor %}
-        </ul>
-        {% endif %}
-    </div>   
-    {% for group in groups %}
-    {% include 'admin/widgets/includes/group_header.html' %}
-    <div class="paneBody">
-        {% if group.widgets %}
-        <ul class="widget_list">
-            {% for widget in group.widgets %}
-            {% include "admin/widgets/includes/group_list_item.html" %}   
-            {% endfor %}
-        </ul>
-        {% endif %}    
-    </div>
-    {% endfor %}
 </div>
 <div class="w400 left">
     <h2>Create a Widget</h2>
