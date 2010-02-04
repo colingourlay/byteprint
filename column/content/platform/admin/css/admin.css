@@ -98,19 +98,12 @@ textarea#code_editor {
     line-height: 16px;
     padding: 2px 10px 2px 10px;
     background: no-repeat 2px 2px;
-
 }
 
 .icon:hover {
     background-color: #F5F5F5;
-    -moz-border-radius-topleft: 3px;
-    -moz-border-radius-topright: 3px;
+    -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
-
-    -moz-border-radius-bottomleft: 3px;
-    -moz-border-radius-bottomright: 3px;
-
-
 }
 
 button .icon:hover,
@@ -171,7 +164,6 @@ a.icon:hover {
     background-image: url('../img/icon_group_add.png');
 }
 
-
 .icon.groupDelete {
     background-image: url('../img/icon_group_delete.png');
 }
@@ -179,7 +171,6 @@ a.icon:hover {
 .icon.groupMove {
     background-image: url('../img/icon_group_move.png');
 }
-
 
 /* PANES */
 
@@ -247,8 +238,6 @@ a.icon:hover {
         line-height: 30px;
         margin-right: 10px;
         background: url("../img/logo_32x32.png") no-repeat 0 -3px;
-
-
         padding-left: 40px;
     }
         
@@ -273,17 +262,17 @@ a.icon:hover {
 }
 
 .main {
-	float: left;
-	position: relative;
-	width: 100%;
+    float: left;
+    position: relative;
+    width: 100%;
 }
 
 .sidebar {
-	width: 160px;
-	float: left;
-	position: relative;
-	right: 160px;
-	margin-left: -100%;
+    width: 160px;
+    float: left;
+    position: relative;
+    right: 160px;
+    margin-left: -100%;
 }
 
 * html .sidebar {
@@ -345,9 +334,9 @@ a.icon:hover {
             -webkit-border-top-right-radius: 5px;
             border-left: 1px solid #606060;
             cursor: pointer;
-        	background-color: #6a6a6a;
-        	position: absolute;
-        	right: 15px;
+            background-color: #6a6a6a;
+            position: absolute;
+            right: 15px;
         }
         
         #menu dt.closed span.toggle {
@@ -389,7 +378,6 @@ a.icon:hover {
     #menu #root a#menu_dashboard,
     #menu dt a {
         background: no-repeat 7px 1px;
-
     }
     
     #menu #root a#menu_dashboard {
@@ -425,7 +413,6 @@ a.icon:hover {
     #menu dd a#menu_settings_general,
     #menu dd a#menu_settings_widgets {
         background: no-repeat 10px 4px;
-
     }
     
     #menu dd a#menu_content_posts {
@@ -470,9 +457,6 @@ a.icon:hover {
     
     #menu dd ul li.current {
         background: #cbdabf url('../img/icon_menu_current.png') no-repeat 0 5px;
-
-
-
     }
     
         #menu dd ul li:hover a,
@@ -616,7 +600,6 @@ ul.widget_list li.widget_list_item .group_list:hover ul {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     -webkit-box-shadow: #E5E5E5 0px 3px 18px;
-
 }
 
 ul.widget_list li.widget_list_item .group_list ul li {
