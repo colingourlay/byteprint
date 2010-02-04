@@ -90,8 +90,8 @@ $('form.groupRenameForm').live('submit', function() {
         function(data) {
             $('p.msg').remove();
             group_name.val(data.name);
-            var msg = '<p class="msg">' + data.msg + '<span class="right">'
-            msg += '<span class="icon delete"></span></span></p>'
+            var msg = '<p class="msg">' + data.msg + '<span class="right">';
+            msg += '<span class="icon delete"></span></span></p>';
             $('h1:first').after(msg);
         },
         "json"

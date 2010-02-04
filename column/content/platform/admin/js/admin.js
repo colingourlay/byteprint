@@ -1,6 +1,6 @@
 function init_collapsible_menu() {
-    $('#menu dd').hide()
-    $('#menu dd ul li.current').parent().parent().show()
+    $('#menu dd').hide();
+    $('#menu dd ul li.current').parent().parent().show();
     $('#menu dt').addClass('closed');
     $('#menu dd ul li.current').parent().parent().prev().removeClass('closed');
     $('#menu dt .toggle').show();
@@ -25,7 +25,7 @@ function init_keyboard_shortcuts() {
 
 function init_code_editor() {
     if ($('#code_editor').html() != "") {
-        language = ($('#id_language').val())
+        language = $('#id_language').val();
         editAreaLoader.init({
             id: "code_editor",
             start_highlight: true,
