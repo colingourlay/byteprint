@@ -4,3 +4,4 @@ django-column.esproj
 *.sqlite
 .DS_Store
 apache
+.idea
