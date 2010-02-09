@@ -1,0 +1,52 @@
+<li class="scrap_list_item{% if not scrap.is_enabled %} milked{% endif %}">
+    <span class="left">
+        {% if scrap.is_enabled %}
+        <a class="icon visible" title="disable scrap" href="{% url admin_scraps_scrap_disable scrap_id=scrap.id %}"></a>
+        {% else %}
+        <a class="icon hidden" title="enable scrap" href="{% url admin_scraps_scrap_enable scrap_id=scrap.id %}"></a>
+        {% endif %}
+        <span class="scrap_name">
+            {% if scrap.is_enabled %}
+            {{ scrap.blueprint_display_name }}
+            {% else %}
+            <span class="disabled">{{ scrap.blueprint_display_name }}</span>
+            {% endif %}
+        </span>
+    </span>
+    <span class="right">
+        {% if scrap.pile %}
+        {% if forloop.last %}
+        <span class="iconSpacer"></span>
+        {% else %}
+        <a class="icon down" title="move scrap position down" href="{% url admin_scraps_scrap_reposition scrap_id=scrap.id position=scrap.next_pile_position %}"></a>
+        {% endif %}
+        {% if forloop.first %}
+        <span class="iconSpacer"></span>
+        {% else %}
+        <a class="icon up" title="move scrap position up" href="{% url admin_scraps_scrap_reposition scrap_id=scrap.id position=scrap.prev_pile_position %}"></a>
+        {% endif %}
+        {% else %}
+        <span class="iconSpacer"></span>
+        <span class="iconSpacer"></span>
+        {% endif %}
+        <a class="icon scrapEdit" title="edit scrap" href="{% url admin_scraps_scrap_edit scrap_id=scrap.id %}"></a>
+        <a class="icon scrapDelete" title="delete scrap" href="{% url admin_scraps_scrap_delete scrap_id=scrap.id %}"></a>
+        {% if piles %}
+        <span class="pile_list icon pileMove" title="move scrap to another pile">
+            <ul class="small">
+                {% if scrap.pile %}
+                <li class="unpiled"><a class="scrap_repile" href="{% url admin_scraps_scrap_unpile scrap_id=scrap.id %}">Unpiled</a></li>
+                {% endif %}
+                {% for pile in piles %}
+                {% if scrap.pile != pile %}
+                <li><a class="scrap_repile" href="{% url admin_scraps_scrap_repile scrap_id=scrap.id pile_id=pile.id %}">{{ pile.name }}</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </span>
+        {% else %}
+        <span class="iconSpacer"></span>
+        {% endif %}
+        &nbsp;
+    </span>
+</li>

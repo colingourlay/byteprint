@@ -148,28 +148,28 @@ a.icon:hover {
     background-image: url('../img/icon_hidden.png');
 }
 
-.icon.widgetAdd {
-    background-image: url('../img/icon_widget_add.png');
+.icon.scrapAdd {
+    background-image: url('../img/icon_scrap_add.png');
 }
 
-.icon.widgetEdit {
-    background-image: url('../img/icon_widget_edit.png');
+.icon.scrapEdit {
+    background-image: url('../img/icon_scrap_edit.png');
 }
 
-.icon.widgetDelete {
-    background-image: url('../img/icon_widget_delete.png');
+.icon.scrapDelete {
+    background-image: url('../img/icon_scrap_delete.png');
 }
 
-.icon.groupAdd {
-    background-image: url('../img/icon_group_add.png');
+.icon.pileAdd {
+    background-image: url('../img/icon_pile_add.png');
 }
 
-.icon.groupDelete {
-    background-image: url('../img/icon_group_delete.png');
+.icon.pileDelete {
+    background-image: url('../img/icon_pile_delete.png');
 }
 
-.icon.groupMove {
-    background-image: url('../img/icon_group_move.png');
+.icon.pileMove {
+    background-image: url('../img/icon_pile_move.png');
 }
 
 /* PANES */
@@ -407,11 +407,11 @@ a.icon:hover {
     #menu dd a#menu_content_pages,
     #menu dd a#menu_content_comments,
     #menu dd a#menu_content_media,
-    #menu dd a#menu_design_widgets,
+    #menu dd a#menu_design_scraps,
     #menu dd a#menu_design_blueprints,
     #menu dd a#menu_design_themes,
     #menu dd a#menu_settings_general,
-    #menu dd a#menu_settings_widgets {
+    #menu dd a#menu_settings_scraps {
         background: no-repeat 10px 4px;
     }
     
@@ -431,8 +431,8 @@ a.icon:hover {
         background-image: url("../img/icon_media.png");
     }
      
-    #menu dd a#menu_design_widgets {
-        background-image: url("../img/icon_widget.png");
+    #menu dd a#menu_design_scraps {
+        background-image: url("../img/icon_scrap.png");
     }
     
     #menu dd a#menu_design_blueprints {
@@ -447,8 +447,8 @@ a.icon:hover {
         background-image: url("../img/icon_setting.png");
     }
     
-    #menu dd a#menu_settings_widgets {
-        background-image: url("../img/icon_widget.png");
+    #menu dd a#menu_settings_scraps {
+        background-image: url("../img/icon_scrap.png");
     }
     
     #menu dd ul li:hover {
@@ -518,27 +518,27 @@ a.icon:hover {
         padding: 4px 4px 2px 0;
     }
 
-/* WIDGET MANAGER */
+/* scrap MANAGER */
 
 .blueprints .pane {
     padding:  4px 0;
 }
 
-.groups_and_widgets .paneHeader form {
+.piles_and_scraps .paneHeader form {
     padding:  0 0 0 3px;
 }
 
-.groups_and_widgets .paneBody {
+.piles_and_scraps .paneBody {
     padding:  0 0 4px 0;
 }
 
-ul.widget_list,
+ul.scrap_list,
 ul.blueprints_list {
     margin: 0;
     position: relative;
 }
 
-ul.widget_list li.widget_list_item,
+ul.scrap_list li.scrap_list_item,
 ul.blueprints_list li.blueprints_list_item {
     list-style: none outside none;
     clear: both;
@@ -549,7 +549,7 @@ ul.blueprints_list li.blueprints_list_item {
     cursor: default;
 }
 
-ul.widget_list li.widget_list_item {
+ul.scrap_list li.scrap_list_item {
     padding: 4px 1px 4px 6px;
 }
 
@@ -557,7 +557,7 @@ ul.blueprints_list li.blueprints_list_item {
     width: 586px;
 }
 
-ul.widget_list li.widget_list_item:hover,
+ul.scrap_list li.scrap_list_item:hover,
 ul.blueprints_list li.blueprints_list_item:hover {
     background-color: #CBDABF;
 }
@@ -570,15 +570,15 @@ ul.blueprints_list li.blueprints_list_item p.description {
     margin: 4px 0 0 12px;
 }
 
-ul.widget_list li.widget_list_item .widget_name {
+ul.scrap_list li.scrap_list_item .scrap_name {
     margin-left: 4px;
 }
 
-ul.widget_list li.widget_list_item .group_list {
+ul.scrap_list li.scrap_list_item .pile_list {
     position: relative;
 }
 
-ul.widget_list li.widget_list_item .group_list ul {
+ul.scrap_list li.scrap_list_item .pile_list ul {
     margin: 0;
     max-height: 0;
     width: 99px;
@@ -590,7 +590,7 @@ ul.widget_list li.widget_list_item .group_list ul {
     background-color: #FFF;
 }
 
-ul.widget_list li.widget_list_item .group_list:hover ul {
+ul.scrap_list li.scrap_list_item .pile_list:hover ul {
     overflow: visible;
     border: 1px solid #E5E5E5;
     max-height: 1000px;
@@ -602,28 +602,28 @@ ul.widget_list li.widget_list_item .group_list:hover ul {
     -webkit-box-shadow: #E5E5E5 0px 3px 18px;
 }
 
-ul.widget_list li.widget_list_item .group_list ul li {
+ul.scrap_list li.scrap_list_item .pile_list ul li {
     list-style: none outside none;
     margin: 0;
 }
 
-ul.widget_list li.widget_list_item .group_list ul li a {
+ul.scrap_list li.scrap_list_item .pile_list ul li a {
     width: 85px;
     color: #222;
     padding: 4px 7px;
     display: inline-block;
 }
 
-ul.widget_list li.widget_list_item .group_list ul li a:hover {
+ul.scrap_list li.scrap_list_item .pile_list ul li a:hover {
     text-decoration: none;
     background-color: #CBDABF;
 }
 
-ul.widget_list li.widget_list_item .group_list ul li.ungrouped a {
+ul.scrap_list li.scrap_list_item .pile_list ul li.unpiled a {
     color: #BBB;
 }
 
-ul.widget_list li.widget_list_item .group_list ul li.list_bottom {
+ul.scrap_list li.scrap_list_item .pile_list ul li.list_bottom {
     height: 0;
     padding: 0;
 }

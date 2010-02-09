@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from platform.core.settings.forms import GeneralSettingsForm, WidgetsSettingsForm
+from platform.core.settings.forms import GeneralSettingsForm, ScrapsSettingsForm
 from platform.core.settings.models import Setting
 
 @login_required
@@ -45,27 +45,27 @@ def general(request, template_name='admin/settings/edit.html'):
     }))
 
 @login_required
-def widgets(request, template_name='admin/settings/edit.html'):
+def scraps(request, template_name='admin/settings/edit.html'):
     msg = None
 
-    widget_div_class_setting = Setting.objects.get(key='widget_div_class')
+    scrap_div_class_setting = Setting.objects.get(key='scrap_div_class')
 
-    data = {'widget_div_class': widget_div_class_setting.value}
+    data = {'scrap_div_class': scrap_div_class_setting.value}
 
-    widgets_settings_form = WidgetsSettingsForm(data)
+    scraps_settings_form = ScrapsSettingsForm(data)
 
     if request.method == 'POST':
-        widgets_settings_form = WidgetsSettingsForm(request.POST)
-        if widgets_settings_form.is_valid():
+        scraps_settings_form = ScrapsSettingsForm(request.POST)
+        if scraps_settings_form.is_valid():
 
             # Update settings
-            widget_div_class_setting.value = widgets_settings_form.cleaned_data['widget_div_class']
-            widget_div_class_setting.save()
+            scrap_div_class_setting.value = scraps_settings_form.cleaned_data['scrap_div_class']
+            scrap_div_class_setting.save()
 
             # Set success notification
             msg = "Your settings were updated"
 
     return render_to_response(template_name, RequestContext(request, {
-        'h1': 'Widgets Settings', 'form': widgets_settings_form,
-        'msg': msg, 'menu_current': 'settings_widgets',
+        'h1': 'Scraps Settings', 'form': scraps_settings_form,
+        'msg': msg, 'menu_current': 'settings_scraps',
     }))

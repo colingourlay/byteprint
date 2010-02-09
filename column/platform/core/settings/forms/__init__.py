@@ -17,11 +17,11 @@ class GeneralSettingsForm(forms.Form):
             you forget your login details.',
     )
 
-class WidgetsSettingsForm(forms.Form):
-    widget_div_class = forms.CharField(
+class ScrapsSettingsForm(forms.Form):
+    scrap_div_class = forms.CharField(
         max_length=40,
-        label='Widget <div> Element Classes',
-        help_text='Each widget on your site is rendered inside a <div> element.\
+        label='Scrap <div> Element Classes',
+        help_text='Each scrap on your site is rendered inside a <div> element.\
             Enter the css classes you would like to appear on these elements \
             to aid your page styling.',
     )

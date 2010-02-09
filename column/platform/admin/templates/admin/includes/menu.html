@@ -16,13 +16,13 @@
             </ul>
         </dd>
         <dt>
-            <a id="menu_design" href="{% url admin_widgets_manage %}">Design</a>
+            <a id="menu_design" href="{% url admin_scraps_manage %}">Design</a>
             <span class="toggle">▼</span>
         </dt>
         <dd>
             <ul>
-                <li class="{% if menu_current == 'design_widgets' %}current{% endif %}"><a id="menu_design_widgets" href="{% url admin_widgets_manage %}">Widgets</a></li>
-                <li class="{% if menu_current == 'design_blueprints' %}current{% endif %}"><a id="menu_design_blueprints" href="{% url admin_widgets_blueprints %}">Blueprints</a></li>
+                <li class="{% if menu_current == 'design_scraps' %}current{% endif %}"><a id="menu_design_scraps" href="{% url admin_scraps_manage %}">Scraps</a></li>
+                <li class="{% if menu_current == 'design_blueprints' %}current{% endif %}"><a id="menu_design_blueprints" href="{% url admin_scraps_blueprints %}">Blueprints</a></li>
                 <li class="{% if menu_current == 'design_themes' %}current{% endif %}"><a id="menu_design_themes" href="#">Themes</a></li>
             </ul>
         </dd>
@@ -33,7 +33,7 @@
         <dd>
             <ul>
                 <li class="{% if menu_current == 'settings_general' %}current{% endif %}"><a id="menu_settings_general" href="{% url admin_settings_general %}">General</a></li>
-                    <li class="{% if menu_current == 'settings_widgets' %}current{% endif %}"><a id="menu_settings_widgets" href="{% url admin_settings_widgets %}">Widgets</a></li>
+                    <li class="{% if menu_current == 'settings_scraps' %}current{% endif %}"><a id="menu_settings_scraps" href="{% url admin_settings_scraps %}">Scraps</a></li>
             </ul>
         </dd>
     </dl>

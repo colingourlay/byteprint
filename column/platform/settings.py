@@ -52,7 +52,7 @@ INSTALLED_APPS = (
 	'django.contrib.sessions',
     'platform.core.site',
     'platform.core.settings',
-    'platform.core.widgets',
+    'platform.core.scraps',
     'platform.admin',
 )
 

@@ -3,7 +3,7 @@ from django.contrib.auth.views import login, logout_then_login
 
 urlpatterns = patterns('platform.admin.views',
     (r'^settings/', include('platform.admin.settings.urls')),
-    (r'^widgets/', include('platform.admin.widgets.urls')),
+    (r'^scraps/', include('platform.admin.scraps.urls')),
     url(r'^$',
         'dashboard',
         name='admin'
