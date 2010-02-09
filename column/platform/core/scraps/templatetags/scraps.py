@@ -42,9 +42,9 @@ def piles_list():
             for pile in piles:
                 output += "<p class=\"pile\">" + pile.name + "</p>"
         else:
-            output = "<!-- No piles found -->"
+            output = "<!-- no piles found -->"
     except:
-        output = "<!-- Error loading piles -->"
+        output = "<!-- error loading piles -->"
     return output
 
 @register.simple_tag

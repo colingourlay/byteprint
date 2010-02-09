@@ -6,6 +6,7 @@ h1,h2,h3,h4,.serif{font-family :"Georgia", "Times New Roman", serif;}
 .clear{clear:both;}
 .big{font-size:22px;}
 .small{font-size:11px;}
+.nowrap{white-space:nowrap;}
 .btn{padding:2px;border:1px solid #777;}
 .msg{font-size:11px;border:1px solid #E5E5E5;padding:6px 8px;background-color:#fefddc;}
 .msg.error {background-color:#FBB;}

@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.template import Context
 from django.template.loader import get_template
+from django.utils.datastructures import SortedDict
 from platform.core.scraps import Blueprint
 from platform.core.scraps.models import Pile, Scrap
 
@@ -47,6 +48,7 @@ def scrap_create(blueprint_name):
                 scrap_data[key] = value.initial or ""
             scrap = Scrap(blueprint_name=blueprint_name, data="")
             scrap.data_dump(scrap_data)
+            scrap.title = blueprint.display_name or blueprint.name
             scrap.save()
             return scrap
         except:
@@ -58,17 +60,28 @@ def scrap_get(scrap_id):
     return get_object_or_404(Scrap, id=scrap_id)
 
 def scrap_update(scrap, data):
+    scrap.title = data['scrap_title_text']
     scrap.data_dump(data)
     scrap.save()
 
 def scrap_get_edit_form(scrap):
     blueprint = get_blueprint(scrap.blueprint_name)
-    return type('EditScrapForm', (forms.BaseForm,), { 'base_fields': blueprint.fields})
+    fields = SortedDict()
+    fields['scrap_title_text'] = forms.CharField(
+        label = "Scrap Title",
+        help_text = "The title you enter here will appear above the scrap. \
+            If you do not want a title to appear, leave this field blank.",
+        initial = scrap.title,
+        required = False,
+    )
+    for key, value in blueprint.fields.items():
+        fields[key] = value
+    return type('EditScrapForm', (forms.BaseForm,), { 'base_fields': fields})
 
 def scrap_edit_form_instance(scrap):
-    edit_scrap_form_class = scrap_get_edit_form(scrap)
-    scrap_data = scrap.data_load()
-    return edit_scrap_form_class(scrap_data)
+    ScrapEditForm = scrap_get_edit_form(scrap)
+    scrap_fields = dict({'scrap_title_text': scrap.title}.items() + scrap.data_load().items())
+    return ScrapEditForm(scrap_fields)
 
 def scrap_delete(scrap_id):
     scrap = get_object_or_404(Scrap, id=scrap_id)
@@ -86,7 +99,11 @@ def scrap_render(scrap):
     blueprint = get_blueprint(scrap.blueprint_name)
     if blueprint:
         try:
-            return blueprint().render(scrap.data_load()), True
+            scrap_output = ""
+            if scrap.title:
+                scrap_output += "<h3>" + scrap.title + "</h3>"
+            scrap_output += blueprint().render(scrap.data_load())
+            return scrap_output, True
         except:
             return "<!-- " + blueprint.display_name + " failed to render -->", False
     return "<!-- " + scrap.blueprint_name + " is not a blueprint -->", False

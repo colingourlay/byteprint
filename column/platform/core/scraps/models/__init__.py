@@ -11,7 +11,8 @@ class ScrapManager(models.Manager):
         return self.filter(pile=pile)
 
 class Scrap(models.Model):
-    blueprint_name = models.CharField(max_length=30)
+    blueprint_name = models.CharField(max_length=30, blank=True)
+    title = models.CharField(max_length=30)
     data = models.TextField()
     is_enabled = models.BooleanField(default=False)
     pile = models.ForeignKey('Pile', null=True)
@@ -25,7 +26,7 @@ class Scrap(models.Model):
     objects = ScrapManager()
     
     def __unicode__(self):
-        return self.blueprint_name
+        return self.name or self.blueprint_name
     
     def data_load(self):
         return pickle.loads(str(self.data))

@@ -7,10 +7,16 @@
         {% endif %}
         <span class="scrap_name">
             {% if scrap.is_enabled %}
-            {{ scrap.blueprint_display_name }}
+            <span>
             {% else %}
-            <span class="disabled">{{ scrap.blueprint_display_name }}</span>
+            <span class="disabled">
             {% endif %}
+            {% if scrap.title %}
+            {{ scrap.title }} <span class="small nowrap disabled">[{{ scrap.blueprint_display_name }}]</span>
+            {% else %}
+            [{{ scrap.blueprint_display_name }}]
+            {% endif %}
+            </span>
         </span>
     </span>
     <span class="right">
