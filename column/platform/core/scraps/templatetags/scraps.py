@@ -1,3 +1,4 @@
+import re
 from django import template
 from platform.core.settings.models import Setting
 from platform.core.scraps.models import Pile, Scrap
@@ -56,4 +57,11 @@ def scrap(scrap_id):
         output += rendered_scrap
     except:
         output = "<!-- scrap not found -->"
+    return output
+    
+@register.simple_tag
+def scrap_debug(scrap_id):
+    output = scrap(scrap_id)
+    output = re.sub('<!--', "<p class='negative'>", output)
+    output = re.sub('-->', "</p>", output)
     return output

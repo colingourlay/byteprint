@@ -1,11 +1,12 @@
 from django import forms
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
-from django.template import Context
+from django.template import Context, Template, TemplateSyntaxError
 from django.template.loader import get_template
 from django.utils.datastructures import SortedDict
 from platform.core.scraps import Blueprint
 from platform.core.scraps.models import Pile, Scrap
+from platform.core.site import utils as site_utils
 
 def get_blueprints(two_tuple=False):
     blueprints = []
@@ -99,11 +100,20 @@ def scrap_render(scrap):
     blueprint = get_blueprint(scrap.blueprint_name)
     if blueprint:
         try:
-            scrap_output = ""
+            scrap_template_text = ""
             if scrap.title:
-                scrap_output += "<h3>" + scrap.title + "</h3>"
-            scrap_output += blueprint().render(scrap.data_load())
-            return scrap_output, True
+                scrap_template_text += "<h3>" + scrap.title + "</h3>"
+            scrap_template_text += blueprint().render(scrap.data_load())
+            if '{' in scrap_template_text:
+                try:
+                    scrap_template = Template(scrap_template_text)
+                    site_context_dict = site_utils.get_site_context()
+                    scrap_output = scrap_template.render(Context(site_context_dict))
+                    return scrap_output, True
+                except TemplateSyntaxError, e:
+                    return "<!-- " + blueprint.display_name + " failed to render: --><!-- " + str(e) + " -->", False
+            else:
+                return scrap_template_text, True
         except:
             return "<!-- " + blueprint.display_name + " failed to render -->", False
     return "<!-- " + scrap.blueprint_name + " is not a blueprint -->", False
