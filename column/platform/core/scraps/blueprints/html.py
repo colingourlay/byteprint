@@ -1,6 +1,5 @@
 from django import forms
 from platform.core.scraps import Blueprint
-from platform.contrib.tinymce.widgets import TinyMCE
 
 class BareHTML(Blueprint):
 

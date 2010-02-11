@@ -70,8 +70,4 @@ SECRET_KEY = 'vk%spllo^0y$iskqrr%6mpo_*7826_(!&x+gt#&^kjfw*1m2d_'
 LOGIN_URL = '/admin/login/'
 LOGIN_REDIRECT_URL ='/admin/'
 
-TINYMCE_JS_URL = MEDIA_URL + 'platform/admin/tiny_mce/tiny_mce.js'
-TINYMCE_JS_ROOT = MEDIA_URL + 'platform/admin/tiny_mce'
-TINYMCE_DEFAULT_CONFIG = {'theme': 'advanced', 'skin':'o2k7'}
-
 VERSION = '0.1'
