@@ -1,5 +1,6 @@
 from django import forms
 from platform.core.scraps import Blueprint
+from platform.contrib.tinymce.widgets import TinyMCE
 
 class BareHTML(Blueprint):
 
@@ -22,27 +23,26 @@ class BareHTML(Blueprint):
         output = scrap_data['html']
         return output
 
-class WYSIWYGHTML(Blueprint):
+class TinyMCEHTML(Blueprint):
 
-    name = 'wysiwyg-html'
-    display_name = 'WYSIWYG HTML'
-    description = 'This scrap enables a What-You-See-Is-What-You-Get editor \
-        for writing HTML as you intend it to look on your site.'
+    name = 'tinymce-html'
+    display_name = 'HTML (TinyMCE)'
+    description = 'This scrap enables the TinyMCE WYSIWYG editor for writing \
+        HTML as you intend it to look on your site.'
     preview = False
     fields = {
-        'html': forms.CharField(
+        'content': forms.CharField(
             widget = forms.Textarea(
                 attrs = {
-                    'id':'wysiwyg_editor'
+                    'cols': 80,
+                    'rows': 40
                 }
             ),
-            label = "HTML",
-            help_text = "Edit the HTML as you want it to appear in   the scrap. \
-                Any valid HTML is permitted, including <script> tags",
-            initial = "<p>Replace this with your HTML</p>"
+            label = "Content",
+            required = False
         )
     }
 
     def render(self, scrap_data):
-        output = scrap_data['html']
+        output = scrap_data['content']
         return output

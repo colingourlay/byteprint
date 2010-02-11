@@ -24,7 +24,7 @@ function init_keyboard_shortcuts() {
 }
 
 function init_code_editor() {
-    if ($('#code_editor').html() != "") {
+    if ($('#code_editor').length != 0) {
         language = $('#id_language').val();
         editAreaLoader.init({
             id: "code_editor",
@@ -48,12 +48,19 @@ function init_code_editor() {
     }
 }
 
-function init_wysiwyg_editor() {
-    if ($('#wysiwyg_editor').html() != "") {
-        // new nicEditor({
-        //     iconsPath : '/content/platform/admin/nic_edit/nicEditorIcons.gif',
-        //     buttonList : ['bold','italic','underline','strikeThrough','left','center','right','justify','link','unlink','ol','ul','indent','outdent','subscript','superscript','removeformat','xhtml']
-        // }).panelInstance('wysiwyg_editor');
+function init_tinymce() {
+    if ($('#id_content').length != 0) {
+        tinyMCE.init({
+            "spellchecker_languages": "Arabic=ar,Bulgarian=bg,Bengali / Bosnian=bn,Catalan=ca,Czech=cs,Welsh=cy,Danish=da,German=de,Greek=el,+English=en,Spanish / Argentinean Spanish=es,Estonian=et,Basque=eu,Persian=fa,Finnish=fi,French=fr,Frisian=fy,Irish=ga,Galician=gl,Hebrew=he,Hindi=hi,Croatian=hr,Hungarian=hu,Icelandic=is,Italian=it,Japanese=ja,Georgian=ka,Khmer=km,Kannada=kn,Korean=ko,Lithuanian=lt,Latvian=lv,Macedonian=mk,Dutch=nl,Norwegian=no,Polish=pl,Portuguese / Brazilian Portuguese=pt,Romanian=ro,Russian=ru,Slovak=sk,Slovenian=sl,Albanian=sq,Serbian / Serbian Latin=sr,Swedish=sv,Tamil=ta,Telugu=te,Thai=th,Turkish=tr,Ukrainian=uk,Simplified Chinese / Traditional Chinese=zh",
+            "elements": "id_content",
+            "language": "en",
+            "directionality": "ltr",
+            "theme": "advanced",
+            "strict_loading_mode": 1,
+            "mode": "exact",
+            "skin": "o2k7",
+            "height": 350
+        })
     }
 }
 
