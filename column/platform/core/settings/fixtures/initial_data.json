@@ -1,0 +1,25 @@
+[{
+    "model": "settings.setting",
+    "pk": 1,
+    "fields": {
+        "key": "blog_subtitle",
+        "value": "Just another Column weblog",
+        "is_templatable": "True"
+    }
+},{
+    "model": "settings.setting",
+    "pk": 2,
+    "fields": {
+        "key": "theme",
+        "value": "default",
+        "is_templatable": "True"
+    }
+},{
+    "model": "settings.setting",
+    "pk": 3,
+    "fields": {
+        "key": "scrap_div_class",
+        "value": "scrap",
+        "is_templatable": "True"
+    }
+}]
