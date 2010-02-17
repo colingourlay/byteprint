@@ -3,12 +3,14 @@
 {% block main %}
 <div class="installation">
     <h1>Column Installation</h1>
-    {% if db_error_found %}
+    {% if db_error %}
     <div class="paneHeader">
-       <strong class="error">Database Error</strong>
+       <strong class="error">Database Connection Error</strong>
     </div>
     <div class="paneBody">
-        <p>There was a problem creating and/or connecting to your database. The most likely cause of this is when your database settings are incomplete or incorrect. Please check your database settings and restart your server.</p>
+        <blockquote><code class="big">{{ db_error }}</code></blockquote>
+        <p>There was a problem connecting to your database. The most likely cause of this is that your database settings are either incomplete or incorrect.</p>
+        <p>Please check your database settings (stored in <code>platform/database.py</code>),restart your server, and then refresh this page.</p>
     </div>
     {% else %}
     <p>Please complete the fields below, and click the <strong>Complete Installation</strong> button.</p>

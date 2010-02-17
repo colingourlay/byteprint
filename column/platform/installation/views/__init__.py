@@ -14,7 +14,7 @@ def init_platform(request):
     if is_installed():
         return HttpResponseRedirect(reverse('admin'))
     
-    db_error_found = False
+    db_error = ""
     
     if request.method == 'POST':
         installation_form = InstallationForm(request.POST)
@@ -23,8 +23,8 @@ def init_platform(request):
                 # Initialise the database
                 syncdb_command = syncdb.Command()
                 syncdb_command.handle_noargs()
-            except:    
-                db_error_found = True
+            except Exception, e:    
+                db_error = e
             else:    
                 # Initialise the admin account
                 username = installation_form.cleaned_data['username']
@@ -48,7 +48,7 @@ def init_platform(request):
             {
                 'form': installation_form,
                 'version': settings.VERSION,
-                'db_error_found': db_error_found,
+                'db_error': db_error,
             }
         )
     )
