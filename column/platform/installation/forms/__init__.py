@@ -6,6 +6,7 @@ class InstallationForm(forms.Form):
         max_length=140,
         label='Blog Title',
         help_text="The title of your published blog. You can change this later.",
+        initial="My Blog",
     )
     username = forms.CharField(
         max_length=30,

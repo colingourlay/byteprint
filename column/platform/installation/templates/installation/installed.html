@@ -1,0 +1,17 @@
+{% extends 'installation/_.html' %}
+
+{% block main %}
+<div class="installation">
+    <div class="paneHeader">
+       <strong>Installation Complete</strong>
+    </div>
+    <div class="paneBody">
+        <p class="big center pane">You're all set...</p>
+        <p class="center">
+            <a href="/"><button>visit your blog</button></a>
+            <a href="{% url admin %}"><button>log into the blog admin</button></a>
+        </p>
+    </div>
+
+</div>
+{% endblock %}
