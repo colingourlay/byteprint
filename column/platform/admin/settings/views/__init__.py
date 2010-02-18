@@ -13,11 +13,11 @@ def general(request, template_name='admin/settings/edit.html'):
     
     blog_title_setting = Setting.objects.get(key='blog_title')
     blog_subtitle_setting = Setting.objects.get(key='blog_subtitle')
-    admin_user = User.objects.get(id=request.user.id)
+    blog_email_setting = Setting.objects.get(key='blog_email')
     
     data = {'blog_title': blog_title_setting.value,
             'blog_subtitle': blog_subtitle_setting.value,
-            'admin_email': admin_user.email}
+            'blog_email': blog_email_setting.value}
             
     general_settings_form = GeneralSettingsForm(data)
                                 
@@ -31,10 +31,8 @@ def general(request, template_name='admin/settings/edit.html'):
             blog_title_setting.save()
             blog_subtitle_setting.value = general_settings_form.cleaned_data['blog_subtitle']
             blog_subtitle_setting.save()
-            
-            # Update User
-            admin_user.email = general_settings_form.cleaned_data['admin_email']
-            admin_user.save()
+            blog_email_setting.value = general_settings_form.cleaned_data['blog_email']
+            blog_email_setting.save()
             
             # Set success notification
             msg = "Your settings were updated"
