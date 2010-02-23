@@ -23,7 +23,7 @@
 
 DATABASES = {
     'default': {
-        'NAME': 'platform/testdb.sqlite',
+        'NAME': 'testdb.sqlite',
         'ENGINE': 'django.db.backends.sqlite3',
         'USER': '',
         'PASSWORD': '',

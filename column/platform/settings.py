@@ -54,7 +54,6 @@ INSTALLED_APPS = (
     'platform.core.settings',
     'platform.core.scraps',
     'platform.admin',
-    #'platform.contrib.filebrowser',
 )
 
 try:

@@ -50,17 +50,24 @@ function init_code_editor() {
 
 function init_tinymce() {
     if ($('#id_content').length != 0) {
-        tinyMCE.init({
-            "spellchecker_languages": "Arabic=ar,Bulgarian=bg,Bengali / Bosnian=bn,Catalan=ca,Czech=cs,Welsh=cy,Danish=da,German=de,Greek=el,+English=en,Spanish / Argentinean Spanish=es,Estonian=et,Basque=eu,Persian=fa,Finnish=fi,French=fr,Frisian=fy,Irish=ga,Galician=gl,Hebrew=he,Hindi=hi,Croatian=hr,Hungarian=hu,Icelandic=is,Italian=it,Japanese=ja,Georgian=ka,Khmer=km,Kannada=kn,Korean=ko,Lithuanian=lt,Latvian=lv,Macedonian=mk,Dutch=nl,Norwegian=no,Polish=pl,Portuguese / Brazilian Portuguese=pt,Romanian=ro,Russian=ru,Slovak=sk,Slovenian=sl,Albanian=sq,Serbian / Serbian Latin=sr,Swedish=sv,Tamil=ta,Telugu=te,Thai=th,Turkish=tr,Ukrainian=uk,Simplified Chinese / Traditional Chinese=zh",
-            "elements": "id_content",
-            "language": "en",
-            "directionality": "ltr",
-            "theme": "advanced",
-            "strict_loading_mode": 1,
-            "mode": "exact",
-            "skin": "o2k7",
-            "height": 350
-        })
+        $('#id_content').tinymce({
+            script_url : '/content/platform/admin/tiny_mce/tiny_mce.js',
+            theme : "advanced",
+            skin : "o2k7",
+            plugins : "style,advimage,inlinepopups,media,pdw,contextmenu,visualchars,xhtmlxtras",
+            theme_advanced_buttons1 : "bold,italic,strikethrough,|,justifyleft,justifycenter,justifyright,|,bullist,numlist,|,link,unlink,|,image,|,code,|,pdw_toggle",
+            theme_advanced_buttons2 : "underline,|,justifyfull,formatselect,forecolor,|,outdent,indent,|,media,charmap",
+            theme_advanced_buttons3 : "",
+            theme_advanced_buttons4 : "",
+            theme_advanced_toolbar_location : "top",
+            theme_advanced_toolbar_align : "left",
+            theme_advanced_statusbar_location : "bottom",
+            theme_advanced_resizing : true,
+            pdw_toggle_on : 1,
+            pdw_toggle_toolbars : "2,3,4",
+            height : '300',
+            width : '600',
+        });
     }
 }
 

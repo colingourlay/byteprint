@@ -1,5 +1,5 @@
 /* COMMON ELEMENTS */
-h1,h2,h3,h4,.serif{font-family :"Georgia", "Times New Roman", serif;}
+.serif{font-family :"Georgia", "Times New Roman", serif;}
 .left{float:left;}
 .right{float:right;}
 .center{text-align:center;}
@@ -24,7 +24,7 @@ html {
     min-width: 800px;
 }
 body {
-    font-family :"Lucida Grande", Verdana, Arial, "Bitstream Vera Sans", sans-serif;
+    font-family :"Lucida Grande", Tahoma, Arial, "Bitstream Vera Sans", sans-serif;
 }
 
 h1 {
@@ -51,10 +51,13 @@ li.milked {
     background-image: url('../img/milked.png');
 }
 
-button {
+button,
+a.button {
     border: 1px solid #BBB;
     color: #333;
     background-color: #DDD;
+    background-image: url('../img/button_bg.png');
+    background-repeat: repeat-x;
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
     -webkit-box-shadow: #E5E5E5 0px 4px 8px;
@@ -63,14 +66,18 @@ button {
     font-size: 12px;
     line-height: 24px;
     height: 24px;
-}
-
-button:hover {
-    background-image: url('../img/button_bg.png');
-    background-repeat: repeat-x;
     cursor: pointer;
 }
 
+a.button {
+    padding: 4px 8px 3px;
+}
+
+button:hover,
+a.button:hover {
+    background-image: url('../img/button_bg_hover.png');
+    text-decoration: none;
+}
 
 /* FORMS */
 fieldset.long input {
@@ -124,6 +131,10 @@ textarea#code_editor {
     -webkit-border-radius: 3px;
 }
 
+.iconSpacer {
+    padding: 2px 8px 2px 8px;
+}
+
 
 button .icon {
     padding: 4px 10px 0 10px;
@@ -133,6 +144,10 @@ button .icon:hover,
 .msg .icon:hover {
     background-color: transparent;
     cursor: pointer;
+}
+
+a.icon {
+    padding: 2px 8px 2px 8px;
 }
 
 a.icon:hover {
@@ -321,7 +336,7 @@ a.icon:hover {
 
     #menu #root,
     #menu dt {
-        font-family :"Georgia", "Times New Roman", serif;
+        /*font-family :"Georgia", "Times New Roman", serif;*/
         background-color: #777;
         padding: 3px 0;
         margin-top: 10px;
@@ -351,7 +366,7 @@ a.icon:hover {
     
         #menu dt span.toggle {
             display: none;
-            padding: 7px 8px 5px;
+            padding: 7px 8px 6px;
             margin-top: -3px;
             -moz-border-radius-topright: 5px;
             -webkit-border-top-right-radius: 5px;
@@ -510,8 +525,6 @@ a.icon:hover {
     padding-top: 70px;
     width: 296px;
     background: url("../img/logo_280x60.png") no-repeat 10px 0;
-
-
 }
 
 .loginForm {
@@ -541,10 +554,14 @@ a.icon:hover {
         padding: 4px 4px 2px 0;
     }
 
-/* scrap MANAGER */
+/* SCRAP MANAGER */
 
 .blueprints .pane {
     padding:  4px 0;
+}
+
+.piles_and_scraps .paneHeader {
+    overflow: auto;
 }
 
 .piles_and_scraps .paneHeader form {
@@ -595,6 +612,10 @@ ul.blueprints_list li.blueprints_list_item p.description {
 
 ul.scrap_list li.scrap_list_item .scrap_name {
     margin-left: 4px;
+}
+
+ul.scrap_list li.scrap_list_item .scrap_name span {
+    width: 200px;
 }
 
 ul.scrap_list li.scrap_list_item .pile_list {
