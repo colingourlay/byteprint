@@ -58,6 +58,7 @@ a.button {
     background-color: #DDD;
     background-image: url('../img/button_bg.png');
     background-repeat: repeat-x;
+    border-radius: 15px;
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
     -webkit-box-shadow: #E5E5E5 0px 4px 8px;
@@ -127,6 +128,7 @@ textarea#code_editor {
 
 .icon:hover {
     background-color: #F5F5F5;
+    border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
 }
@@ -213,8 +215,9 @@ a.icon:hover {
 /* PANES */
 
 .pane {
-    border: 1px solid #E5E5E5;
+    border: 1px solid #BBB;
     background-color: #FFF;
+    border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     -webkit-box-shadow: #E5E5E5 0px 4px 18px;
@@ -223,13 +226,18 @@ a.icon:hover {
 }
 
 .paneHeader {
+    border: 1px solid #BBB;
     background-color: #DDD;
+    background-image: url('../img/button_bg.png');
+    background-repeat: repeat-x;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     -moz-border-radius-topleft: 5px;
     -moz-border-radius-topright: 5px;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
     -webkit-box-shadow: #E5E5E5 0px 4px;
-    padding: 4px 6px 4px 7px;
+    padding: 4px 5px;
 }
 
     .paneHeader h1,
@@ -244,6 +252,8 @@ a.icon:hover {
     border-bottom: 1px solid #E5E5E5;
     border-right: 1px solid #E5E5E5;
     background-color: #FFF;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     -moz-border-radius-bottomleft: 5px;
     -moz-border-radius-bottomright: 5px;
     -webkit-border-bottom-left-radius: 5px;
@@ -336,10 +346,13 @@ a.icon:hover {
 
     #menu #root,
     #menu dt {
+        font-size: 12px;
         /*font-family :"Georgia", "Times New Roman", serif;*/
         background-color: #777;
         padding: 3px 0;
         margin-top: 10px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
         -moz-border-radius-topleft: 5px;
         -moz-border-radius-topright: 5px;
         -webkit-border-top-left-radius: 5px;
@@ -349,15 +362,18 @@ a.icon:hover {
     
     #menu #root {
         margin: 0;
+        background-color: #444;
     }
     
     #menu #root:hover,
     #menu dt:hover {
-        background-color: #7C7C7C;
+        /*background-color: #7C7C7C;*/
     }
 
     #menu #root,
     #menu dt.closed {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
         -moz-border-radius-bottomleft: 5px;
         -moz-border-radius-bottomright: 5px;
         -webkit-border-bottom-left-radius: 5px;
@@ -366,13 +382,16 @@ a.icon:hover {
     
         #menu dt span.toggle {
             display: none;
-            padding: 7px 8px 6px;
+            line-height: 29px;
+            padding: 0;
+            width: 23px;
             margin-top: -3px;
+            border-top-right-radius: 5px;
             -moz-border-radius-topright: 5px;
             -webkit-border-top-right-radius: 5px;
             border-left: 1px solid #606060;
             cursor: pointer;
-            background-color: #6a6a6a;
+            background: url("../img/icon_menu_show.png") no-repeat scroll 4px 9px #666;
             position: absolute;
             right: 15px;
         }
@@ -383,8 +402,12 @@ a.icon:hover {
         
         #menu dt.closed:hover span.toggle {
             visibility: visible;
+            border-bottom-right-radius: 5px;
             -moz-border-radius-bottomright: 5px;
             -webkit-border-bottom-right-radius: 5px;
+        }
+        
+        #menu dt.closed span.toggle:hover {
         }
 
     #menu dd {
@@ -531,6 +554,7 @@ a.icon:hover {
     -webkit-box-shadow: #E5E5E5 0px 4px 18px;
     background: white;
     border: 1px solid #E5E5E5;
+    border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     padding: 8px;
@@ -583,14 +607,14 @@ ul.blueprints_list li.blueprints_list_item {
     list-style: none outside none;
     clear: both;
     display: inline-block;
-    width: 391px;
+    width: 392px;
     padding: 4px 6px 4px 6px;
     margin: 0;
     cursor: default;
 }
 
 ul.scrap_list li.scrap_list_item {
-    padding: 4px 1px 4px 6px;
+    padding: 4px 1px 4px 5px;
 }
 
 ul.blueprints_list li.blueprints_list_item {
@@ -641,6 +665,7 @@ ul.scrap_list li.scrap_list_item .pile_list:hover ul {
     z-index: 100;
     margin-top: 18px;
     padding: 3px 0;
+    border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     -webkit-box-shadow: #E5E5E5 0px 3px 18px;
