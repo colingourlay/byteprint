@@ -4,7 +4,7 @@ from django.conf.urls.defaults import *
 urlpatterns = patterns('',
     (r'^installation/', include('platform.installation.urls')),
     (r'^admin/', include('platform.admin.urls')),
-    (r'^', include('platform.core.site.urls')),
+    (r'^', include('platform.public.urls')),
 )
 
 if settings.DEBUG:

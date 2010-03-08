@@ -348,6 +348,7 @@ a.icon:hover {
     #menu dt {
         font-size: 12px;
         /*font-family :"Georgia", "Times New Roman", serif;*/
+        font-weight: bold;
         background-color: #777;
         padding: 3px 0;
         margin-top: 10px;

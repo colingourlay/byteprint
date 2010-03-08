@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from platform.core.settings.models import Setting
+from platform.config.models import Setting
 from platform.installation import is_installed
 from platform.installation.forms import InstallationForm
 

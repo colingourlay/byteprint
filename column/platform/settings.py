@@ -30,7 +30,7 @@ TEMPLATE_LOADERS = (
 
 TEMPLATE_CONTEXT_PROCESSORS += (
     'django.core.context_processors.request',
-    'platform.core.site.context_processors.request',
+    'platform.public.context_processors.request',
 )
 
 if DEBUG:
@@ -50,10 +50,10 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
 	'django.contrib.sessions',
-    'platform.core.site',
-    'platform.core.settings',
-    'platform.core.scraps',
+    'platform.config',
+    'platform.scraps',
     'platform.admin',
+    'platform.public',
 )
 
 try:

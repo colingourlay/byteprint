@@ -2,8 +2,8 @@ from django.conf.urls.defaults import *
 from django.contrib.auth.views import login, logout_then_login
 
 urlpatterns = patterns('platform.admin.views',
-    (r'^settings/', include('platform.admin.settings.urls')),
-    (r'^scraps/', include('platform.admin.scraps.urls')),
+    (r'^settings/', include('platform.config.urls.admin')),
+    (r'^scraps/', include('platform.scraps.urls.admin')),
     url(r'^$',
         'dashboard',
         name='admin'
