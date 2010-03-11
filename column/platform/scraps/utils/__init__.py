@@ -1,3 +1,4 @@
+import re
 from django import forms
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
@@ -105,6 +106,7 @@ def scrap_render(scrap):
                 scrap_template_text += "<h3>" + scrap.title + "</h3>"
             scrap_template_text += blueprint().render(scrap.data_load())
             if '{' in scrap_template_text:
+                scrap_template_text = re.sub(r'{%\s*pile\s"[\w-]+"\s*%}', '<!-- pile recursion is not allowed -->', scrap_template_text)
                 try:
                     scrap_template = Template(scrap_template_text)
                     site_context_dict = public_utils.get_site_context()
