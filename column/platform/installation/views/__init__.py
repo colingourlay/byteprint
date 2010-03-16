@@ -45,9 +45,9 @@ def init_platform(request):
                 all_users.delete()
                 admin_user = User.objects.create_superuser(username, email, password)
                 # Initialise the basic set of site settings
-                blog_title = installation_form.cleaned_data['blog_title']
-                blog_title_setting = Setting.objects.add_templatable('blog_title', blog_title)
-                blog_email_setting = Setting.objects.add('blog_email', email)
+                site_title = installation_form.cleaned_data['site_title']
+                site_title_setting = Setting.objects.add_templatable('site_title', site_title)
+                site_email_setting = Setting.objects.add('site_email', email)
                 # Redirect the user to the admin interface
                 return installed(request)
     else:

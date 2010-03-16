@@ -265,7 +265,7 @@ a.icon:hover {
 
 /* PAGE SECTIONS */
 #header {
-    padding: 5px 15px 7px;
+    padding: 2px 15px;
     background-color: #444;
     color: #AAA;
     margin-bottom: 15px;
@@ -281,12 +281,17 @@ a.icon:hover {
         color: #FFF;
     }
     
+    #header a.root {
+        width: 32px;
+        height: 32px;
+        padding: 0 28px 16px 0;
+        background: url("../img/header_32x32.png") no-repeat 0 2px;
+        margin: 0 14px 0 0;
+    }
+    
     #header #sitetitle .title {
         color: #FFF;
-        line-height: 30px;
-        margin-right: 10px;
-        background: url("../img/logo_32x32.png") no-repeat 0 -3px;
-        padding-left: 40px;
+        line-height: 34px;
     }
         
         #header #sitetitle a:hover .title {
@@ -294,7 +299,7 @@ a.icon:hover {
         }
     
     #header #userinfo {
-        line-height: 30px;
+        line-height: 36px;
         font-size: 12px;
     }
     
@@ -548,7 +553,7 @@ a.icon:hover {
     margin: 95px auto 0;
     padding-top: 70px;
     width: 296px;
-    background: url("../img/logo_280x60.png") no-repeat 10px 0;
+    background: url("../img/login_280x60.png") no-repeat 8px 0;
 }
 
 .loginForm {

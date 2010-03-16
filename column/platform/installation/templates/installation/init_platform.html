@@ -2,7 +2,7 @@
 
 {% block main %}
 <div class="installation">
-    <h1>Column Installation</h1>
+    <h1>Byteprint Installation</h1>
     {% if db_error %}
     <div class="paneHeader">
        <strong>Database Connection Error</strong>
@@ -22,15 +22,15 @@
         {% endfor %}
         {% endif %}
         <div class="paneHeader">
-           <strong>Blog Details</strong>
+           <strong>Site Details</strong>
         </div>
         <div class="paneBody">
             <fieldset class="blockLabels long">
-                <div class="ctrlHolder{% if form.blog_title.errors %} error{% endif %}">
-                    {% if form.blog_title.errors %}
-                    <p id="{{ form.blog_title.name }}_errors" class="errorField">{{ form.blog_title.errors.0 }}</p>
+                <div class="ctrlHolder{% if form.site_title.errors %} error{% endif %}">
+                    {% if form.site_title.errors %}
+                    <p id="{{ form.site_title.name }}_errors" class="errorField">{{ form.site_title.errors.0 }}</p>
                     {% endif %}
-                    {{ form.blog_title.label_tag }}{{ form.blog_title }}<p class="formHint">{{ form.blog_title.help_text }}</p>
+                    {{ form.site_title.label_tag }}{{ form.site_title }}<p class="formHint">{{ form.site_title.help_text }}</p>
                 </div>
             </fieldset>
         </div>

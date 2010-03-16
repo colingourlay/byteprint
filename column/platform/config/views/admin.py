@@ -13,13 +13,13 @@ EDIT_TEMPLATE = 'config/admin/edit.html'
 def general(request, template_name=EDIT_TEMPLATE):
     msg = None
     
-    blog_title_setting = Setting.objects.get(key='blog_title')
-    blog_subtitle_setting = Setting.objects.get(key='blog_subtitle')
-    blog_email_setting = Setting.objects.get(key='blog_email')
+    site_title_setting = Setting.objects.get(key='site_title')
+    site_subtitle_setting = Setting.objects.get(key='site_subtitle')
+    site_email_setting = Setting.objects.get(key='site_email')
     
-    data = {'blog_title': blog_title_setting.value,
-            'blog_subtitle': blog_subtitle_setting.value,
-            'blog_email': blog_email_setting.value}
+    data = {'site_title': site_title_setting.value,
+            'site_subtitle': site_subtitle_setting.value,
+            'site_email': site_email_setting.value}
             
     general_settings_form = GeneralSettingsForm(data)
                                 
@@ -29,12 +29,12 @@ def general(request, template_name=EDIT_TEMPLATE):
 
             # Update settings
             
-            blog_title_setting.value = general_settings_form.cleaned_data['blog_title']
-            blog_title_setting.save()
-            blog_subtitle_setting.value = general_settings_form.cleaned_data['blog_subtitle']
-            blog_subtitle_setting.save()
-            blog_email_setting.value = general_settings_form.cleaned_data['blog_email']
-            blog_email_setting.save()
+            site_title_setting.value = general_settings_form.cleaned_data['site_title']
+            site_title_setting.save()
+            site_subtitle_setting.value = general_settings_form.cleaned_data['site_subtitle']
+            site_subtitle_setting.save()
+            site_email_setting.value = general_settings_form.cleaned_data['site_email']
+            site_email_setting.save()
             
             # Set success notification
             msg = "Your settings were updated"

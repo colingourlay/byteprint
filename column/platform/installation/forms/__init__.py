@@ -2,16 +2,16 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 
 class InstallationForm(forms.Form):
-    blog_title = forms.CharField(
+    site_title = forms.CharField(
         max_length=140,
-        label='Blog Title',
-        help_text="The title of your published blog. You can change this later.",
-        initial="My Blog",
+        label='Site Title',
+        help_text="The title of your published site. You can change this later.",
+        initial="My Site",
     )
     username = forms.CharField(
         max_length=30,
         label='Username',
-        help_text="You will use this to log into the Column admin site.",
+        help_text="You will use this to log into the byteprint admin site.",
     )
     password = forms.CharField(
         max_length=128,

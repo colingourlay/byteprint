@@ -2,8 +2,8 @@
     "model": "config.setting",
     "pk": 1,
     "fields": {
-        "key": "blog_subtitle",
-        "value": "Just another Column weblog",
+        "key": "site_subtitle",
+        "value": "A byteprint site",
         "is_templatable": "True"
     }
 },{
