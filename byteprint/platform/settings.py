@@ -13,7 +13,7 @@ USE_I18N = False
 
 MEDIA_URL = '/content/'
 
-CONTENT_DIR = os.path.join(PLATFORM_DIR, '../content')
+STATIC_DIR = os.path.join(PLATFORM_DIR, '../static')
 THEMES_DIR = (os.path.join(PLATFORM_DIR, '../themes'),)
 
 TEMPLATE_DIRS = ()

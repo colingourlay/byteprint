@@ -10,6 +10,6 @@ urlpatterns = patterns('',
 if settings.DEBUG:
     urlpatterns += patterns('',
         (r'^content/(?P<path>.*)$', 'django.views.static.serve',
-            {'document_root': settings.CONTENT_DIR, 'show_indexes':True}
+            {'document_root': settings.STATIC_DIR, 'show_indexes':True}
         ),
     )
