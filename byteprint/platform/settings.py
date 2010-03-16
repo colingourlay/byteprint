@@ -1,8 +1,16 @@
-from django.conf.global_settings import *
-
 import os
 
+from django.conf.global_settings import *
+
 PLATFORM_DIR = os.path.dirname(os.path.abspath(__file__))
+CORE_DIR = os.path.join(PLATFORM_DIR, 'core')
+THEMES_DIR = (os.path.join(PLATFORM_DIR, 'themes'),)
+PLUGINS_DIR = os.path.join(PLATFORM_DIR, 'plugins')
+STATIC_DIR = os.path.join(PLATFORM_DIR, '../static')
+STATIC_CORE_DIR = os.path.join(STATIC_DIR, 'core')
+STATIC_THEMES_DIR = os.path.join(STATIC_DIR, 'themes')
+STATIC_PLUGINS_DIR = os.path.join(STATIC_DIR, 'plugins')
+UPLOADS_DIR = os.path.join(STATIC_DIR, 'uploads')
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -11,10 +19,7 @@ SITE_ID = 1
 
 USE_I18N = False
 
-MEDIA_URL = '/content/'
-
-STATIC_DIR = os.path.join(PLATFORM_DIR, '../static')
-THEMES_DIR = (os.path.join(PLATFORM_DIR, '../themes'),)
+MEDIA_URL = '/static/'
 
 TEMPLATE_DIRS = ()
 for root, dirs, files in os.walk(PLATFORM_DIR):
@@ -30,7 +35,7 @@ TEMPLATE_LOADERS = (
 
 TEMPLATE_CONTEXT_PROCESSORS += (
     'django.core.context_processors.request',
-    'platform.public.context_processors.request',
+    'platform.core.public.context_processors.request',
 )
 
 if DEBUG:
@@ -39,7 +44,7 @@ if DEBUG:
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'platform.installation.middleware.InstallationMiddleware',
+    'platform.core.installation.middleware.InstallationMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
@@ -50,10 +55,10 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
 	'django.contrib.sessions',
-    'platform.config',
-    'platform.scraps',
-    'platform.admin',
-    'platform.public',
+    'platform.core.admin',
+    'platform.core.config',
+    'platform.core.public',
+    'platform.core.scraps',
 )
 
 try:
