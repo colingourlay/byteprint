@@ -1,5 +1,4 @@
-django-column.tmproj
-django-column.esproj
+django-byteprint.tmproj
 *.pyc
 *.sqlite
 .DS_Store
