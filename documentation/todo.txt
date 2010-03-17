@@ -1,0 +1,1 @@
+Use Uploadify [http://www.uploadify.com] for multiple file uploads? It's flash, but it's a pretty swish swf.

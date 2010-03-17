@@ -104,7 +104,7 @@
 
 /* Messages */
 .uniForm #errorMsg{ background: #ffdfdf; border: 1px solid #df7d7d; border-width: 1px 0; margin: 0 0 1.5em 0; padding: 7px; }
-.uniForm .error{ background: #ffdfdf; border: 1px solid #df7d7d; border-width: 1px 0; }
+.uniForm .error{ background: #ffdfdf; }
 
   .uniForm #errorMsg dt, .uniForm #errorMsg h3{ margin: 0 0 .5em 0; font-size: 100%; line-height: 100%; font-weight: bold; }
   .uniForm #errorMsg dd{ margin: 0; padding: 0; }

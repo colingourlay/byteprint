@@ -248,9 +248,8 @@ a.icon:hover {
     }
 
 .paneBody {
-    border-left: 1px solid #BBB;
-    border-bottom: 1px solid #BBB;
-    border-right: 1px solid #BBB;
+    border: solid #BBB;
+    border-width: 0 1px 1px 1px;
     background-color: #FFF;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -420,9 +419,8 @@ a.icon:hover {
     #menu dd {
         font-size: 11px;
         background-color: #FFF;
-        border-left: 1px solid #BBB;
-        border-right: 1px solid #BBB;
-        border-bottom: 1px solid #BBB;
+        border: solid #BBB;
+        border-width: 0 1px 1px 1px;
         -webkit-box-shadow: #E5E5E5 0px 4px 8px;
     }
 
