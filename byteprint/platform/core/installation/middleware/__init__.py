@@ -7,7 +7,7 @@ from platform.core.installation.views import init_platform
 class InstallationMiddleware(object):
 
     def process_request(self, request):
-        if request.path[:9] == '/static/':
+        if request.path.startswith('/static/'):
             return None
         if request.path == reverse('installation_init_platform'):
             return None
