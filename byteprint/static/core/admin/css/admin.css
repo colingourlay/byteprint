@@ -139,7 +139,7 @@ textarea#code_editor {
 
 
 button .icon {
-    padding: 4px 10px 0 10px;
+    padding: 3px 10px 0 10px;
 }
 
 button .icon:hover,
@@ -164,11 +164,11 @@ a.icon:hover {
 }
 
 .icon.commit {
-    background-image: url('../img/icon_commit.png');
+    background-image: url('../img/icons/16/tick.png');
 }
 
 .icon.revert {
-    background-image: url('../img/icon_revert.png');
+    background-image: url('../img/icons/16/cross.png');
 }
 
 .icon.up {
@@ -181,35 +181,35 @@ a.icon:hover {
 
 .icon.visible,
 .icon.hidden:hover {
-    background-image: url('../img/icon_visible.png');
+    background-image: url('../img/icons/16/eye.png');
 }
 
 .icon.hidden {
-    background-image: url('../img/icon_hidden.png');
+    background-image: url('../img/icons/16/eye_faded.png');
 }
 
 .icon.scrapAdd {
-    background-image: url('../img/icon_scrap_add.png');
+    background-image: url('../img/icons/16/note_add.png');
 }
 
 .icon.scrapEdit {
-    background-image: url('../img/icon_scrap_edit.png');
+    background-image: url('../img/icons/16/note_edit.png');
 }
 
 .icon.scrapDelete {
-    background-image: url('../img/icon_scrap_delete.png');
+    background-image: url('../img/icons/16/note_delete.png');
 }
 
 .icon.pileAdd {
-    background-image: url('../img/icon_pile_add.png');
+    background-image: url('../img/icons/16/application_add.png');
 }
 
 .icon.pileDelete {
-    background-image: url('../img/icon_pile_delete.png');
+    background-image: url('../img/icons/16/application_delete.png');
 }
 
 .icon.pileMove {
-    background-image: url('../img/icon_pile_move.png');
+    background-image: url('../img/icons/16/application_cascade.png');
 }
 
 /* PANES */
@@ -248,9 +248,9 @@ a.icon:hover {
     }
 
 .paneBody {
-    border-left: 1px solid #E5E5E5;
-    border-bottom: 1px solid #E5E5E5;
-    border-right: 1px solid #E5E5E5;
+    border-left: 1px solid #BBB;
+    border-bottom: 1px solid #BBB;
+    border-right: 1px solid #BBB;
     background-color: #FFF;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -265,8 +265,8 @@ a.icon:hover {
 
 /* PAGE SECTIONS */
 #header {
-    padding: 2px 15px;
-    background-color: #444;
+    padding: 2px 15px 2px 18px;
+    background-color: #586F4D;
     color: #AAA;
     margin-bottom: 15px;
     -webkit-box-shadow: #777 0px 0px 15px;
@@ -284,8 +284,8 @@ a.icon:hover {
     #header a.root {
         width: 32px;
         height: 32px;
-        padding: 0 28px 16px 0;
-        background: url("../img/header_32x32.png") no-repeat 0 2px;
+        padding: 0 28px 18px 0;
+        background: url("../img/icons/32/logo_header_alt.png") no-repeat 0 2px;
         margin: 0 14px 0 0;
     }
     
@@ -353,8 +353,8 @@ a.icon:hover {
     #menu dt {
         font-size: 12px;
         /*font-family :"Georgia", "Times New Roman", serif;*/
-        font-weight: bold;
-        background-color: #777;
+        /*font-weight: bold;*/
+        background-color: #444;
         padding: 3px 0;
         margin-top: 10px;
         border-top-left-radius: 5px;
@@ -368,7 +368,6 @@ a.icon:hover {
     
     #menu #root {
         margin: 0;
-        background-color: #444;
     }
     
     #menu #root:hover,
@@ -388,7 +387,7 @@ a.icon:hover {
     
         #menu dt span.toggle {
             display: none;
-            line-height: 29px;
+            line-height: 26px;
             padding: 0;
             width: 23px;
             margin-top: -3px;
@@ -397,13 +396,15 @@ a.icon:hover {
             -webkit-border-top-right-radius: 5px;
             border-left: 1px solid #606060;
             cursor: pointer;
-            background: url("../img/icon_menu_show.png") no-repeat scroll 4px 9px #666;
+            /*background: url("../img/icon_menu_show.png") no-repeat scroll 4px 7px #555;*/
+            background: url("../img/icons/16/toggle_minus.png") no-repeat scroll 3px 5px #555;
             position: absolute;
             right: 15px;
         }
         
         #menu dt.closed span.toggle {
             visibility: hidden;
+            background-image: url("../img/icons/16/toggle_plus.png");
         }
         
         #menu dt.closed:hover span.toggle {
@@ -426,7 +427,7 @@ a.icon:hover {
     }
 
     #menu a {
-        line-height: 23px;
+        line-height: 20px;
         text-decoration: none;
         display: inline-block;
     }
@@ -437,30 +438,30 @@ a.icon:hover {
 
     #menu #root a,
     #menu dt a {
-        padding-left: 35px;
+        padding-left: 43px;
         color: #F5F5F5;
-        width: 95px;
+        width: 87px;
     }
     
     #menu #root a#menu_dashboard,
     #menu dt a {
-        background: no-repeat 7px 1px;
+        background: no-repeat 6px 0;
     }
     
     #menu #root a#menu_dashboard {
-        background-image: url("../img/icon_menu_dashboard.png");
+        background-image: url("../img/icons/32/home_bw.png");
     }
     
     #menu dt a#menu_content {
-        background-image: url("../img/icon_menu_content.png");
+        background-image: url("../img/icons/32/content_bw.png");
     }
     
     #menu dt a#menu_design {
-        background-image: url("../img/icon_menu_design.png");
+        background-image: url("../img/icons/32/design_bw.png");
     }
     
     #menu dt a#menu_settings {
-        background-image: url("../img/icon_menu_settings.png");
+        background-image: url("../img/icons/32/settings_bw.png");
     }
 
     #menu dd a {
@@ -483,39 +484,39 @@ a.icon:hover {
     }
     
     #menu dd a#menu_content_posts {
-        background-image: url("../img/icon_post.png");
+        background-image: url("../img/icons/16/newspaper.png");
     }
     
     #menu dd a#menu_content_pages {
-        background-image: url("../img/icon_page.png");
+        background-image: url("../img/icons/16/page_white.png");
     }
     
     #menu dd a#menu_content_comments {
-        background-image: url("../img/icon_comment.png");
+        background-image: url("../img/icons/16/comments.png");
     }
     
     #menu dd a#menu_content_media {
-        background-image: url("../img/icon_media.png");
+        background-image: url("../img/icons/16/film.png");
     }
      
     #menu dd a#menu_design_scraps {
-        background-image: url("../img/icon_scrap.png");
+        background-image: url("../img/icons/16/note.png");
     }
     
     #menu dd a#menu_design_blueprints {
-        background-image: url("../img/icon_blueprint.png");
+        background-image: url("../img/icons/16/blueprint.png");
     }
     
     #menu dd a#menu_design_themes {
-        background-image: url("../img/icon_theme.png");
+        background-image: url("../img/icons/16/layout.png");
     }
     
     #menu dd a#menu_settings_general {
-        background-image: url("../img/icon_setting.png");
+        background-image: url("../img/icons/16/cog.png");
     }
     
     #menu dd a#menu_settings_scraps {
-        background-image: url("../img/icon_scrap.png");
+        background-image: url("../img/icons/16/note.png");
     }
     
     #menu dd ul li:hover {

@@ -9,3 +9,6 @@ Image Credits:
 
 * Tango Icon Library [http://tango.freedesktop.org/Tango_Icon_Library]
     Admin > Menu Icons
+
+* Farm Fresh Web Icons [http://www.fatcow.com/free-icons/]
+    Admin > Majority of icons across the site
