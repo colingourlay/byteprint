@@ -38,7 +38,6 @@ class Article(models.Model):
         return self.title
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
         if not self.id:
             self.enable_comments = are_comments_enabled_by_default()
         super(Article, self).save(*args, **kwargs)
