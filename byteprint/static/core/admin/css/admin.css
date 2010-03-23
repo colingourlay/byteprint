@@ -143,6 +143,7 @@ button .icon {
 }
 
 button .icon:hover,
+a.button .icon:hover,
 .msg .icon:hover {
     background-color: transparent;
     cursor: pointer;
@@ -212,6 +213,18 @@ a.icon:hover {
     background-image: url('../img/icons/16/application_cascade.png');
 }
 
+.icon.articleAdd {
+    background-image: url('../img/icons/16/newspaper_add.png');
+}
+
+.icon.articleEdit {
+    background-image: url('../img/icons/16/newspaper_edit.png');
+}
+
+.icon.articleDelete {
+    background-image: url('../img/icons/16/newspaper_delete.png');
+}
+
 /* PANES */
 
 .pane {
@@ -260,6 +273,14 @@ a.icon:hover {
     -webkit-box-shadow: #E5E5E5 0px 4px 18px;
     padding: 4px 8px;
     margin-bottom: 12px;
+}
+
+.pane.pane_list_container {
+    padding: 4px 0;
+}
+
+.paneBody.pane_list_container {
+    padding: 0 0 4px 0;
 }
 
 /* PAGE SECTIONS */
@@ -469,7 +490,7 @@ a.icon:hover {
     	line-height: 24px;
     }
     
-    #menu dd a#menu_content_posts,
+    #menu dd a#menu_content_articles,
     #menu dd a#menu_content_pages,
     #menu dd a#menu_content_comments,
     #menu dd a#menu_content_media,
@@ -481,7 +502,7 @@ a.icon:hover {
         background: no-repeat 10px 4px;
     }
     
-    #menu dd a#menu_content_posts {
+    #menu dd a#menu_content_articles {
         background-image: url("../img/icons/16/newspaper.png");
     }
     
@@ -583,32 +604,14 @@ a.icon:hover {
         padding: 4px 4px 2px 0;
     }
 
-/* SCRAP MANAGER */
+/* PANE LISTS */
 
-.blueprints .pane {
-    padding:  4px 0;
-}
-
-.piles_and_scraps .paneHeader {
-    overflow: auto;
-}
-
-.piles_and_scraps .paneHeader form {
-    padding:  0 0 0 3px;
-}
-
-.piles_and_scraps .paneBody {
-    padding:  0 0 4px 0;
-}
-
-ul.scrap_list,
-ul.blueprints_list {
+ul.pane_list{
     margin: 0;
     position: relative;
 }
 
-ul.scrap_list li.scrap_list_item,
-ul.blueprints_list li.blueprints_list_item {
+ul.pane_list li.pane_list_item {
     list-style: none outside none;
     clear: both;
     display: inline-block;
@@ -618,40 +621,49 @@ ul.blueprints_list li.blueprints_list_item {
     cursor: default;
 }
 
-ul.scrap_list li.scrap_list_item {
-    padding: 4px 1px 4px 5px;
-}
-
-ul.blueprints_list li.blueprints_list_item {
-    width: 586px;
-}
-
-ul.scrap_list li.scrap_list_item:hover,
-ul.blueprints_list li.blueprints_list_item:hover {
+ul.pane_list li.pane_list_item:hover {
     background-color: #CBDABF;
 }
 
-ul.blueprints_list li.blueprints_list_item span.create {
+/* SCRAPS APP PANE LISTS */
+
+.piles_and_scraps .paneHeader {
+    overflow: auto;
+}
+
+.piles_and_scraps .paneHeader form {
+    padding:  0 0 0 3px;
+}
+
+ul.scrap_list li.pane_list_item {
+    padding: 4px 1px 4px 5px;
+}
+
+ul.blueprint_list li.pane_list_item {
+    width: 586px;
+}
+
+ul.blueprint_list li.pane_list_item span.create {
     margin: 1px 0 0 0
 }
 
-ul.blueprints_list li.blueprints_list_item p.description {
+ul.blueprint_list li.pane_list_item p.description {
     margin: 4px 0 0 12px;
 }
 
-ul.scrap_list li.scrap_list_item .scrap_name {
+ul.scrap_list li.pane_list_item .scrap_name {
     margin-left: 4px;
 }
 
-ul.scrap_list li.scrap_list_item .scrap_name span {
+ul.scrap_list li.pane_list_item .scrap_name span {
     width: 200px;
 }
 
-ul.scrap_list li.scrap_list_item .pile_list {
+ul.pane_list li.pane_list_item .pile_list {
     position: relative;
 }
 
-ul.scrap_list li.scrap_list_item .pile_list ul {
+ul.scrap_list li.pane_list_item .pile_list ul {
     margin: 0;
     max-height: 0;
     width: 99px;
@@ -663,7 +675,7 @@ ul.scrap_list li.scrap_list_item .pile_list ul {
     background-color: #FFF;
 }
 
-ul.scrap_list li.scrap_list_item .pile_list:hover ul {
+ul.scrap_list li.pane_list_item .pile_list:hover ul {
     overflow: visible;
     border: 1px solid #E5E5E5;
     max-height: 1000px;
@@ -676,28 +688,60 @@ ul.scrap_list li.scrap_list_item .pile_list:hover ul {
     -webkit-box-shadow: #E5E5E5 0px 3px 18px;
 }
 
-ul.scrap_list li.scrap_list_item .pile_list ul li {
+ul.scrap_list li.pane_list_item .pile_list ul li {
     list-style: none outside none;
     margin: 0;
 }
 
-ul.scrap_list li.scrap_list_item .pile_list ul li a {
+ul.scrap_list li.pane_list_item .pile_list ul li a {
     width: 85px;
     color: #222;
     padding: 4px 7px;
     display: inline-block;
 }
 
-ul.scrap_list li.scrap_list_item .pile_list ul li a:hover {
+ul.scrap_list li.pane_list_item .pile_list ul li a:hover {
     text-decoration: none;
     background-color: #CBDABF;
 }
 
-ul.scrap_list li.scrap_list_item .pile_list ul li.unpiled a {
+ul.scrap_list li.pane_list_item .pile_list ul li.unpiled a {
     color: #BBB;
 }
 
-ul.scrap_list li.scrap_list_item .pile_list ul li.list_bottom {
+ul.scrap_list li.pane_list_item .pile_list ul li.list_bottom {
     height: 0;
     padding: 0;
+}
+
+/* ARTICLES APP PANE LIST */
+
+ul.article_list li.pane_list_item {
+    width: 586px;
+    border-bottom: 1px solid #BBB;
+}
+
+ul.article_list li.pane_list_item ul {
+    margin: 0;
+}
+
+ul.article_list li.pane_list_item ul li {
+    list-style: none;
+}
+
+.article_list_item_top {
+    margin: 0 0 6px 0;
+}
+
+.articleEditForm {
+    padding: 4px 8px 8px;
+    margin: 0 0 3px 0;
+}
+
+.article_list_item_bottom {
+    visibility: hidden;
+}
+
+ul.article_list li.pane_list_item:hover .article_list_item_bottom {
+    visibility: visible;
 }

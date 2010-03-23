@@ -4,6 +4,7 @@ from django.contrib.auth.views import login, logout_then_login
 urlpatterns = patterns('platform.core.admin.views',
     (r'^settings/', include('platform.core.config.urls.admin')),
     (r'^scraps/', include('platform.core.scraps.urls.admin')),
+    (r'^articles/', include('platform.core.articles.urls.admin')),
     url(r'^$',
         'dashboard',
         name='admin'

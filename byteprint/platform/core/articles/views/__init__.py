@@ -1,0 +1,26 @@
+from django.http import Http404
+from django.shortcuts import get_object_or_404, redirect
+from django.template import RequestContext
+
+from platform.core.articles import utils
+from platform.core.articles.models import Article
+from platform.core.public.shortcuts import render_using_theme
+
+def article_detail(request, article_id=None, year=None, month=None, slug=None):
+    if article_id:
+        article = utils.article_get(article_id)
+        return redirect('articles_public_article_detail', year=article.published.year, month=article.published.month, slug=article.slug)
+    print year, month, slug
+    article = get_object_or_404(Article, published__year=year, published__month=month, slug=slug)
+    if article.is_published:
+        return render_using_theme('article.html', RequestContext(request), {'article': article})
+    elif request.user == article.author:
+        article.title = "[PREVIEW] " + article.title
+        return render_using_theme('article.html', RequestContext(request), {'article': article})
+    else:
+        raise Http404
+
+def article_list(request):
+    articles = Article.objects.all()
+    #articles = Article.objects.are_published()
+    return render_using_theme('archive.html', RequestContext(request), {'articles': articles})

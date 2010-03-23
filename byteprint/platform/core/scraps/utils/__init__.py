@@ -169,7 +169,7 @@ def scrap_reposition(scrap_id, position):
 def asyncPileBodyRefresh(scrap_id):
     scrap = scrap_get(scrap_id)
     piles = Pile.objects.standalone()
-    response = '<ul class="scrap_list">'
+    response = '<ul class="pane_list scrap_list">'
     if scrap.pile:
         pile_scraps = scrap.pile.scraps()
     else:

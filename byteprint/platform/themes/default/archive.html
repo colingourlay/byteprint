@@ -1,0 +1,28 @@
+{% extends "default/base.html" %}
+
+{% if articles %}
+{% block title %}{{ block.super }}{% endblock %}
+{% endif %}
+
+{% block content %}
+<div id="yui-main">
+    <div class="yui-b">
+        <div id="mn" class="yui-g">
+            {% for article in articles %}
+            {% if forloop.first %}
+            <h1>{{ article.title }}</h1>
+            {% else %}
+            <h2>{{ article.title }}</h2>
+            {% endif %}
+            {{ article.body|truncatewords:50 }}
+            <p>Published on {{ article.published|date:"d M Y" }}</p>
+            {% empty %}
+            <p>None</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div id="sb" class="yui-b">
+    {% include "default/sidebar.html" %}
+</div>
+{% endblock %}

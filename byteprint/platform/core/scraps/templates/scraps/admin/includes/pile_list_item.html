@@ -1,4 +1,4 @@
-<li class="scrap_list_item{% if not scrap.is_enabled %} milked disabled{% endif %}">
+<li class="pane_list_item{% if not scrap.is_enabled %} milked disabled{% endif %}">
     <span class="left">
         {% if scrap.is_enabled %}
         <a class="icon visible" title="disable scrap" href="{% url scraps_admin_scrap_disable scrap_id=scrap.id %}">&nbsp;</a>

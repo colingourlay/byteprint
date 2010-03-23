@@ -1,0 +1,43 @@
+<div class="article_list_item_top">
+    <span class="left">{{ article }}</span>
+    <span class="right">icons</span>
+    <div class="clear"></div>
+</div>
+{% if article = quick_edit_article %}
+<div class="paneHeader small">
+    <strong>Quick Edit</strong>
+</div>
+<div class="articleEditForm paneBody">
+    <form action="{% url articles_admin_article_quickedit article_id=article.id %}" method="post" class="uniForm">
+        {% csrf_token %}
+        {% if quick_edit_article_form.non_field_errors %}
+        {% for error in quick_edit_article_form.non_field_errors %}
+        <p class="errorField">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
+        <fieldset class="inlineLabels long">
+            {% for field in quick_edit_article_form %}
+            <div class="ctrlHolder{% if field.errors %} error{% endif %}">
+                {% if field.errors %}
+                <p id="{{ field.name }}_errors" class="errorField">{{ field.errors.0 }}</p>
+                {% endif %}
+                {{ field.label_tag }}{{ field }}{# }<p class="formHint">{{ field.help_text|safe }}</p> #}
+            </div>
+            {% endfor %}
+            <div class="buttonHolder">
+                <button type="reset" class="resetButton">Reset&nbsp;<span class="icon revert"></span></button>
+                <button type="submit" class="primaryAction">Save Changes&nbsp;<span class="icon commit"></span></button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+{% else %}
+<div class="article_list_item_bottom">
+    <span class="left small">Permalink: <a href="{{ article.get_absolute_url }}">{{ article.get_absolute_url }}</a></span>
+    <span class="right small">
+        <a target="_blank" href="{% url articles_public_article_detail_id article_id=article.id %}">{% if not article.is_published %}pre{% endif %}view</a> | 
+        <a href="{% url articles_admin_article_quickedit article_id=article.id %}">quick edit</a>
+    </span>
+    <div class="clear"></div>
+</div>
+{% endif %}

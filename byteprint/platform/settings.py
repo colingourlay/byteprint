@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
 	'django.contrib.sessions',
     'platform.core.admin',
+    'platform.core.articles',
     'platform.core.config',
     'platform.core.public',
     'platform.core.scraps',

@@ -57,7 +57,6 @@ def pile_create(request):
             pile = Pile(name=name,is_standalone=True)
             pile.save()
             if request.is_ajax():
-                print 'ajax'
                 return utils.asyncAllPilesRefresh()
     return HttpResponseRedirect(reverse('scraps_admin_manage'))
 
@@ -65,14 +64,12 @@ def pile_create(request):
 def pile_delete(request, pile_id):
     utils.pile_delete(pile_id)
     if request.is_ajax():
-        print 'ajax'
         return utils.asyncAllPilesRefresh()
     return HttpResponseRedirect(reverse('scraps_admin_manage'))
     
 def pile_toggle(request, pile_id, status):
     utils.pile_toggle(pile_id, status)
     if request.is_ajax():
-        print 'ajax'
         return utils.asyncPileHeaderRefresh(pile_id)
     return HttpResponseRedirect(reverse('scraps_admin_manage'))
 
@@ -87,7 +84,6 @@ def pile_rename(request, pile_id):
                 pile.name = rename_pile_form.cleaned_data['name']
                 pile.save()
                 if request.is_ajax():
-                    print 'ajax'
                     msg = 'The scrap pile <strong>' + old_pile_name \
                         + '</strong> has been renamed to <strong>' \
                         + pile.name + '</strong>. Please check your template \
@@ -110,7 +106,6 @@ def scrap_create(request, blueprint_name=None):
                 blueprint_name = create_scrap_form.cleaned_data['blueprint_name']
                 scrap = utils.scrap_create(blueprint_name)
                 if request.is_ajax():
-                    print 'ajax'
                     return utils.asyncPileBodyRefresh(scrap.id)
     return HttpResponseRedirect(reverse('scraps_admin_manage'))
 
@@ -145,7 +140,6 @@ def scrap_edit(request, scrap_id):
 def scrap_delete(request, scrap_id):
     utils.scrap_delete(scrap_id)
     if request.is_ajax():
-        print 'ajax'
         return utils.asyncAllPilesRefresh()
     return HttpResponseRedirect(reverse('scraps_admin_manage'))
 
@@ -153,7 +147,6 @@ def scrap_delete(request, scrap_id):
 def scrap_toggle(request, scrap_id, status):
     utils.scrap_toggle(scrap_id, status)
     if request.is_ajax():
-        print 'ajax'
         return utils.asyncPileBodyRefresh(scrap_id)
     return HttpResponseRedirect(reverse('scraps_admin_manage'))
 
@@ -161,7 +154,6 @@ def scrap_toggle(request, scrap_id, status):
 def scrap_repile(request, scrap_id, pile_id=None):
     utils.scrap_repile(scrap_id, pile_id)
     if request.is_ajax():
-        print 'ajax'
         return utils.asyncAllPilesRefresh()
     return HttpResponseRedirect(reverse('scraps_admin_manage'))
     
@@ -169,6 +161,5 @@ def scrap_repile(request, scrap_id, pile_id=None):
 def scrap_reposition(request, scrap_id, position):
     utils.scrap_reposition(scrap_id, position)
     if request.is_ajax():
-        print 'ajax'
         return utils.asyncPileBodyRefresh(scrap_id)
     return HttpResponseRedirect(reverse('scraps_admin_manage'))

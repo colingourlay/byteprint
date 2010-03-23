@@ -20,6 +20,14 @@
     "fields": {
         "key": "scrap_div_class",
         "value": "scrap",
-        "is_templatable": "True"
+        "is_templatable": "False"
+    }
+},{
+    "model": "config.setting",
+    "pk": 4,
+    "fields": {
+        "key": "article_comments_enabled_by_default",
+        "value": "-",
+        "is_templatable": "False"
     }
 }]

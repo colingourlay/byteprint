@@ -1,9 +1,9 @@
 <div class="paneHeader" id="unpileed_header">
     <strong>Unpiled</strong>
 </div>
-<div class="paneBody" id="unpiled_body">
+<div class="paneBody pane_list_container" id="unpiled_body">
     {% if unpiled_scraps %}
-    <ul class="scrap_list">
+    <ul class="pane_list scrap_list">
         {% for scrap in unpiled_scraps %}
         {% include "scraps/admin/includes/pile_list_item.html" %}
         {% endfor %}
@@ -12,9 +12,9 @@
 </div>   
 {% for pile in piles %}
 {% include 'scraps/admin/includes/pile_header.html' %}
-<div class="paneBody pile_body">
+<div class="paneBody pane_list_container">
     {% if pile.scraps %}
-    <ul class="scrap_list">
+    <ul class="pane_list scrap_list">
         {% for scrap in pile.scraps %}
         {% include "scraps/admin/includes/pile_list_item.html" %}   
         {% endfor %}

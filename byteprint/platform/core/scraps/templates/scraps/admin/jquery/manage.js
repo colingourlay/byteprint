@@ -22,19 +22,19 @@ function asyncScrapRepositionOrToggle(trigger) {
     return false;
 }
 
-$('.scrap_list_item a.icon.visible').live('click', function() {
+$('.pane_list_item a.icon.visible').live('click', function() {
     return asyncScrapRepositionOrToggle($(this));
 });
 
-$('.scrap_list_item a.icon.hidden').live('click', function() {
+$('.pane_list_item a.icon.hidden').live('click', function() {
     return asyncScrapRepositionOrToggle($(this));
 });
 
-$('.scrap_list_item a.icon.down').live('click', function() {
+$('.pane_list_item a.icon.down').live('click', function() {
     return asyncScrapRepositionOrToggle($(this));
 });
 
-$('.scrap_list_item a.icon.up').live('click', function() {
+$('.pane_list_item a.icon.up').live('click', function() {
     return asyncScrapRepositionOrToggle($(this));
 });
 
@@ -50,11 +50,11 @@ $('.pile_header a.icon.pileDelete').live('click', function() {
     return asyncPileDeleteOrScrapRepileOrDelete($(this));
 });
 
-$('.scrap_list_item a.icon.scrapDelete').live('click', function() {
+$('.pane_list_item a.icon.scrapDelete').live('click', function() {
     return asyncPileDeleteOrScrapRepileOrDelete($(this));
 });
 
-$('.scrap_list_item a.scrap_repile').live('click', function() {
+$('.pane_list_item a.scrap_repile').live('click', function() {
     return asyncPileDeleteOrScrapRepileOrDelete($(this));
 });
 
