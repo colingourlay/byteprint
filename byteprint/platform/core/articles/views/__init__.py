@@ -10,9 +10,8 @@ def article_detail(request, article_id=None, year=None, month=None, slug=None):
     if article_id:
         article = utils.article_get(article_id)
         return redirect('articles_public_article_detail', year=article.published.year, month=article.published.month, slug=article.slug)
-    print year, month, slug
     article = get_object_or_404(Article, published__year=year, published__month=month, slug=slug)
-    if article.is_published:
+    if article.is_published():
         return render_using_theme('article.html', RequestContext(request), {'article': article})
     elif request.user == article.author:
         article.title = "[PREVIEW] " + article.title
