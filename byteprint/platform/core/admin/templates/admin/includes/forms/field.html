@@ -3,9 +3,9 @@
     <p id="{{ field.name }}_errors" class="errorField">{{ field.errors.0 }}</p>
     {% endif %}
     {% if field|field_type:"checkboxinput" %}
-    <label>{{ field }}&nbsp;{{ field.label }}</label>
+    <label>{{ field }}<span>{% if field.required %}<em>*</em>{% endif %}&nbsp;{{ field.label }}</span><span class="formHint">{{ field.help_text|safe }}</span></label>
     {% else %}
     {{ field.label_tag }}{{ field }}
-    {% endif %}
     <p class="formHint">{{ field.help_text|safe }}</p>
+    {% endif %}
 </div>

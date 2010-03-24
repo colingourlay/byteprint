@@ -14,7 +14,10 @@
             {% for field in quick_edit_article_form %}
             {% include "admin/includes/forms/field.html" %}
             {% endfor %}
-            {% include "admin/includes/forms/buttons.html" %}
+            <div class="buttonHolder">
+                <a class="button" href="{% url articles_admin_articles_manage %}">Cancel&nbsp;<span class="icon revert"></span></a>
+                <button type="submit" class="primaryAction">Save Changes&nbsp;<span class="icon commit"></span></button>
+            </div>
         </fieldset>
     </form>
 </div>

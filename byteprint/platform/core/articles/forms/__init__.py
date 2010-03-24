@@ -4,7 +4,7 @@ class CreateArticleForm(forms.Form):
     title = forms.CharField(
         max_length=140,
         label='',
-        help_text='Enter a title for your new article, and click the <strong>Create Article</strong> button to start editing it.'
+        help_text='Enter a title for your new article, and click the <strong>Create Article</strong> button to start editing.'
     )
     
 class QuickEditArticleForm(forms.Form):
@@ -19,7 +19,7 @@ class QuickEditArticleForm(forms.Form):
     )
     publish = forms.BooleanField(
         label='Publish',
-        help_text='Your article will be published if the <strong>Publication Date</strong> is not in the future.',
+        help_text='Your article will be published unless the <strong>Publication Date</strong> is in the future.',
         required=False
     )
     show_comments = forms.BooleanField(
