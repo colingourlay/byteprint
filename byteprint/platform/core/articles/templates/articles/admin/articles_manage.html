@@ -1,34 +1,23 @@
 {% extends 'admin/main.html' %}
 
 {% block content %}
-<div class="w600 left">
-    <div class="paneHeader">
-        <strong>New Article</strong>
-    </div>
-    <div class="paneBody">
-        <form action="{% url articles_admin_article_create %}" method="post">
-            {% csrf_token %}
-            <label>{{ create_article_form.title.label }}</label>
-            {{ create_article_form.title }}
-            <button class="right" type="submit">Create New Article&nbsp;<span class="icon articleAdd"></span></button>
-        </form>
-        <div class="clear"></div>
-    </div>
+<div class="w600">
+    {% include "articles/admin/includes/create_article.html" %}
+</div>
+<div class="w600">
     <div class="paneHeader">
         <strong>Articles</strong>
     </div>
     <div class="paneBody pane_list_container">
+        {% if articles %}
         <ul class="pane_list article_list">
-            {% if articles %}
             {% for article in articles %}
-            <li class="pane_list_item">
+            <li class="pane_list_item{% if not article.is_published %} milked{% endif %}">
                 {% include "articles/admin/includes/articles_list_item.html" %}
             </li>
             {% endfor %}
-            {% else %}
-            <li class="pane_list_item">None</li>
-            {% endif %}
         </ul>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

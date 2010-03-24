@@ -124,7 +124,7 @@ YOU CAN VERY EASILY REVERT TO A GENERIC STYLE OF UNI-FORM. BEST OF LUCK...
 /* ------------------------------------------------------------------------------ */
 
 .uniForm .buttonHolder {
-    padding:10px 0 0 0;
+    padding:10px 0 4px 0;
 }
 
 /* CodeMirror EDITOR */

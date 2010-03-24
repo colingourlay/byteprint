@@ -3,7 +3,8 @@ from django import forms
 class CreateArticleForm(forms.Form):
     title = forms.CharField(
         max_length=140,
-        label='Article Title'
+        label='',
+        help_text='Enter a title for your new article, and click the <strong>Create Article</strong> button to start editing it.'
     )
     
 class QuickEditArticleForm(forms.Form):

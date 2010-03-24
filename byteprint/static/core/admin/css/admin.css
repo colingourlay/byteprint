@@ -109,12 +109,20 @@ textarea#code_editor {
 }
 
 /* PRESET CONTAINER WIDTHS */
+.w200 {
+    width: 200px;
+    margin-right: 20px;
+}
 .w400 {
     width: 400px;
     margin-right: 20px;
 }
 .w600 {
     width: 600px;
+    margin-right: 20px;
+}
+.w800 {
+    width: 800px;
     margin-right: 20px;
 }
 
@@ -734,7 +742,7 @@ ul.article_list li.pane_list_item ul li {
 }
 
 .articleEditForm {
-    padding: 4px 8px 8px;
+    padding: 4px 8px 4px;
     margin: 0 0 3px 0;
 }
 

@@ -28,7 +28,7 @@ class TwitterBlueprint(Blueprint):
             required = True,
             label = "Output <ul id=\"?\">",
             help_text = "Tweets are written into your HTML as an unordered \
-                list (between <ul> tags) with a unique id. In order to display \
+                list (between &lt;ul&gt; tags) with a unique id. In order to display \
                 more than one scrap on a page, each will need a unique id.",
             initial = "twitter_update_list"
         )

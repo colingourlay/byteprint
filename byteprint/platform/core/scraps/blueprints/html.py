@@ -14,7 +14,7 @@ class BareHTML(Blueprint):
             widget = forms.Textarea,
             label = "HTML",
             help_text = "Enter the HTML you want to appear within the scrap. \
-                Any valid HTML is permitted, including <script> tags",
+                Any valid HTML is permitted, including &lt;script&gt; tags",
             initial = "<p>Replace this with your HTML</p>"
         )
     }

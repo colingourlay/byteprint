@@ -21,7 +21,7 @@ class ScrapsSettingsForm(forms.Form):
     scrap_div_class = forms.CharField(
         max_length=40,
         label='Scrap <div> Element Classes',
-        help_text='Each scrap on your site is rendered inside a <div> element.\
+        help_text='Each scrap on your site is rendered inside a &lt;div&gt; element.\
             Enter the css classes you would like to appear on these elements \
             to aid your page styling.',
     )

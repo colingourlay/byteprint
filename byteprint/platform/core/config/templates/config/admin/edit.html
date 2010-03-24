@@ -1,27 +1,15 @@
 {% extends 'admin/main.html' %}
 
 {% block content %}
-<div class="w600">
+<div class="w600 pane">
     <form action='.' method='post' class="uniForm settingsForm">
         {% csrf_token %}
-        {% if form.non_field_errors %}
-        {% for error in form.non_field_errors %}
-        <p class="errorField">{{ error }}</p>
-        {% endfor %}
-        {% endif %}
+        {% include "admin/includes/forms/non_field_errors.html" %}
         <fieldset class="blockLabels extralong">
             {% for field in form %}
-            <div class="ctrlHolder{% if field.errors %} error{% endif %}">
-                {% if field.errors %}
-                <p id="{{ field.name }}_errors" class="errorField">{{ field.errors.0 }}</p>
-                {% endif %}
-                {{ field.label_tag }}{{ field }}<p class="formHint">{{ field.help_text }}</p>
-            </div>
+            {% include "admin/includes/forms/field.html" %}
             {% endfor %}
-            <div class="buttonHolder">
-                <button type="reset" class="resetButton">Reset&nbsp;<span class="icon revert"></span></button>
-                <button type="submit" class="primaryAction">Save Changes&nbsp;<span class="icon commit"></span></button>
-            </div>
+            {% include "admin/includes/forms/buttons.html" %}
         </fieldset>
     </form>
 </div>

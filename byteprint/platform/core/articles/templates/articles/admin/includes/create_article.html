@@ -1,0 +1,12 @@
+<div class="pane">
+    <form action="{% url articles_admin_article_create %}" method="post" class="uniForm">
+    <h2><span class="left">Write A New Article</span><button type="submit" class="primaryAction right">Create Article&nbsp;<span class="icon articleAdd"></span></button><div class="clear"></div></h2>
+        {% csrf_token %}
+        <fieldset class="blockLabels extralong">
+            {% with create_article_form.title as field %}
+            {% include "admin/includes/forms/field.html" %}
+            {% endwith %}
+        </fieldset>
+    </form>
+    <div class="clear"></div>
+</div>

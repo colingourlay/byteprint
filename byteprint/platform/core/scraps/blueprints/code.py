@@ -6,7 +6,7 @@ class CodeExample(Blueprint):
     
     name = 'code-example'
     display_name = 'Code Example'
-    description = 'This scrap allows you to write HTML preformatted <code> \
+    description = 'This scrap allows you to write HTML preformatted &lt;code&gt; \
         elements in a syntax-highlighted text editor.'
     fields = {
         'code': forms.CharField(
@@ -23,7 +23,7 @@ class CodeExample(Blueprint):
         'language': forms.ChoiceField(
             label = "Language",
             help_text = "Enter the language your code is written in. This will \
-                be added to the <code> tag's class attribute, which can be \
+                be added to the &lt;code&gt; tag's class attribute, which can be \
                 used with various javascript code highlighting plugins.",
             initial = "python",
             choices = (

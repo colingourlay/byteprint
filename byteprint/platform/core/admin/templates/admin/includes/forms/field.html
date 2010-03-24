@@ -1,0 +1,11 @@
+<div class="ctrlHolder{% if field.errors %} error{% endif %}">
+    {% if field.errors %}
+    <p id="{{ field.name }}_errors" class="errorField">{{ field.errors.0 }}</p>
+    {% endif %}
+    {% if field|field_type:"checkboxinput" %}
+    <label>{{ field }}&nbsp;{{ field.label }}</label>
+    {% else %}
+    {{ field.label_tag }}{{ field }}
+    {% endif %}
+    <p class="formHint">{{ field.help_text|safe }}</p>
+</div>

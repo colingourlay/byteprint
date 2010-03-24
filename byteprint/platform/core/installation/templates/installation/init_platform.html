@@ -16,53 +16,34 @@
     <p>Please complete the fields below, and click the <strong>Complete Installation</strong> button.</p>
     <form action='.' method='post' class="uniForm">
         {% csrf_token %}
-        {% if form.non_field_errors %}
-        {% for error in form.non_field_errors %}
-        <p class="errorField">{{ error }}</p>
-        {% endfor %}
-        {% endif %}
+        {% include "admin/includes/forms/non_field_errors.html" %}
         <div class="paneHeader">
            <strong>Site Details</strong>
         </div>
         <div class="paneBody">
             <fieldset class="blockLabels long">
-                <div class="ctrlHolder{% if form.site_title.errors %} error{% endif %}">
-                    {% if form.site_title.errors %}
-                    <p id="{{ form.site_title.name }}_errors" class="errorField">{{ form.site_title.errors.0 }}</p>
-                    {% endif %}
-                    {{ form.site_title.label_tag }}{{ form.site_title }}<p class="formHint">{{ form.site_title.help_text }}</p>
-                </div>
+                {% with form.site_title as field %}
+                {% include "admin/includes/forms/field.html" %}
+                {% endwith %}
             </fieldset>
         </div>
         <div class="paneHeader">
            <strong>Admin User Details</strong>
         </div>
         <div class="paneBody">
-            <fieldset class="blockLabels long">
-                <div class="ctrlHolder{% if form.username.errors %} error{% endif %}">
-                    {% if form.username.errors %}
-                    <p id="{{ form.username.name }}_errors" class="errorField">{{ form.username.errors.0 }}</p>
-                    {% endif %}
-                    {{ form.username.label_tag }}{{ form.username }}<p class="formHint">{{ form.username.help_text }}</p>
-                </div>
-                <div class="ctrlHolder{% if form.password.errors %} error{% endif %}">
-                    {% if form.password.errors %}
-                    <p id="{{ form.password.name}}_errors" class="errorField">{{ form.password.errors.0 }}</p>
-                    {% endif %}
-                    {{ form.password.label_tag }}{{ form.password }}<p class="formHint">{{ form.password.help_text }}</p>
-                </div>
-                <div class="ctrlHolder{% if form.password_confirm.errors %} error{% endif %}">
-                    {% if form.password_confirm.errors %}
-                    <p id="{{ form.password_confirm.name}}_errors" class="errorField">{{ form.password_confirm.errors.0 }}</p>
-                    {% endif %}
-                    {{ form.password_confirm.label_tag }}{{ form.password_confirm }}<p class="formHint">{{ form.password_confirm.help_text }}</p>
-                </div>
-                <div class="ctrlHolder{% if form.email.errors %} error{% endif %}">
-                    {% if form.email.errors %}
-                    <p id="{{ form.email.name}}_errors" class="errorField">{{ form.email.errors.0 }}</p>
-                    {% endif %}
-                    {{ form.email.label_tag }}{{ form.email }}<p class="formHint">{{ form.email.help_text }}</p>
-                </div>
+            <fieldset class="blockLabels long">                
+                {% with form.username as field %}
+                {% include "admin/includes/forms/field.html" %}
+                {% endwith %}
+                {% with form.password as field %}
+                {% include "admin/includes/forms/field.html" %}
+                {% endwith %}
+                {% with form.password_confirm as field %}
+                {% include "admin/includes/forms/field.html" %}
+                {% endwith %}
+                {% with form.email as field %}
+                {% include "admin/includes/forms/field.html" %}
+                {% endwith %}
             </fieldset>
         </div>
         <fieldset class="blockLabels long">

@@ -11,7 +11,7 @@ ARTICLE_EDIT_TEMPLATE = 'articles/admin/article_edit.html'
 
 @login_required
 def articles_manage(request, article_id=None):
-    articles = Article.objects.all()
+    articles = Article.objects.all().order_by('-created')
     create_article_form = CreateArticleForm()
     quick_edit_article = None
     quick_edit_article_form = None
