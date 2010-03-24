@@ -4,10 +4,7 @@
     <div class="clear"></div>
 </div>
 {% if article = quick_edit_article %}
-<div class="paneHeader small">
-    <strong>Quick Edit</strong>
-</div>
-<div class="articleEditForm paneBody">
+<div class="articleEditForm pane">
     <form action="{% url articles_admin_article_quickedit article_id=article.id %}" method="post" class="uniForm">
         {% csrf_token %}
         {% if quick_edit_article_form.non_field_errors %}
@@ -15,13 +12,10 @@
         <p class="errorField">{{ error }}</p>
         {% endfor %}
         {% endif %}
-        <fieldset class="inlineLabels long">
+        <fieldset class="blockLabels long">
             {% for field in quick_edit_article_form %}
             <div class="ctrlHolder{% if field.errors %} error{% endif %}">
-                {% if field.errors %}
-                <p id="{{ field.name }}_errors" class="errorField">{{ field.errors.0 }}</p>
-                {% endif %}
-                {{ field.label_tag }}{{ field }}{# }<p class="formHint">{{ field.help_text|safe }}</p> #}
+                {% include "admin/includes/form_field.html" %}
             </div>
             {% endfor %}
             <div class="buttonHolder">

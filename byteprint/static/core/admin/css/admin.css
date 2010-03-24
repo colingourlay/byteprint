@@ -81,12 +81,12 @@ a.button:hover {
 }
 
 /* FORMS */
-fieldset.long input {
+fieldset.long input[type=text] {
     width: 240px;
     min-width: 240px;
 }
 
-fieldset.extralong input {
+fieldset.extralong input[type=text] {
     width: 294px;
     min-width: 294px;
 }

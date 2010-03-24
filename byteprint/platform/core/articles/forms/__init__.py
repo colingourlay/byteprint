@@ -22,10 +22,10 @@ class QuickEditArticleForm(forms.Form):
         required=False
     )
     show_comments = forms.BooleanField(
-        label='Show Comments',
+        label='Show Existing Comments',
         required=False
     )
     enable_comments = forms.BooleanField(
-        label='Show Comment Form',
+        label='Accept New Comments',
         required=False
     )
