@@ -8,13 +8,14 @@ BLUEPRINT_CHOICES = get_blueprints(two_tuple=True)
 class CreateScrapForm(forms.Form):
     blueprint_name = forms.ChoiceField(
         choices=BLUEPRINT_CHOICES,
-        label='Scrap Blueprint',
+        label='',
+        help_text="Select a blueprint and click the <strong>Create Scrap</strong> button.",
     )
 
 class CreatePileForm(forms.Form):
     name = forms.CharField(
-        label='Name',
-        help_text="The pile name is used in your templates to render all of the scraps it contains.",
+        label='',
+        help_text="Enter a name and click the <strong>Create Pile</strong> button.",
         max_length=30,
     )
 

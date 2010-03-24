@@ -9,32 +9,26 @@
 </div>
 <div class="w400 left">
     <div class="pane">
-        <h2>Create a Scrap</h2>
-        <p>Pick a Blueprint and click 'Create Scrap', or view the <a href="{% url scraps_admin_blueprints %}">Blueprints</a> page for more details.</p>
         <form id="createScrapForm" action="{% url scraps_admin_scrap_create_httppost %}" method="post" class="uniForm">
+            <h2><span class="left">Create a Scrap</span><button type="submit" class="primaryAction right">Create Scrap&nbsp;<span class="icon scrapAdd"></span></button><div class="clear"></div></h2>
             {% csrf_token %}
             <fieldset class="blockLabels">
                 {% with create_scrap_form.blueprint_name as field %}
                 {% include "admin/includes/forms/field.html" %}
                 {% endwith %}
-            </fieldset> 
-            <div class="buttonHolder">
-                <button type="submit" class="primaryAction">Create Scrap&nbsp;<span class="icon scrapAdd"></span></button>
-            </div>
+            </fieldset>
         </form>
+        <p class="small">Newly created scraps will appear in the <strong>Unpiled</strong> list on the left. View the <a href="{% url scraps_admin_blueprints %}">Blueprints</a> page for details about each of the blueprints.</p>
     </div>
     <div class="pane">
-        <h2>Create a Pile</h2>
         <form id="createPileForm" action="{% url scraps_admin_pile_create %}" method="post" class="uniForm">
+            <h2><span class="left">Create a Pile</span><button type="submit" class="primaryAction right">Create Pile&nbsp;<span class="icon pileAdd"></span></button><div class="clear"></div></h2>
             {% csrf_token %}
             <fieldset class="blockLabels">
                 {% with create_pile_form.name as field %}
                 {% include "admin/includes/forms/field.html" %}
                 {% endwith %}
-            </fieldset> 
-            <div class="buttonHolder">
-                <button type="submit" class="primaryAction">Create Pile&nbsp;<span class="icon pileAdd"></span></button>
-            </div>
+            </fieldset>
         </form>
     </div>
 </div>

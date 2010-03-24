@@ -3,6 +3,7 @@
 .left{float:left;}
 .right{float:right;}
 .center{text-align:center;}
+.justify{text-align:justify;}
 .clear{clear:both;}
 .big{font-size:22px;}
 .small{font-size:11px;}
@@ -81,12 +82,14 @@ a.button:hover {
 }
 
 /* FORMS */
-fieldset.long input[type=text] {
+fieldset.long input[type=text],
+fieldset.long input[type=password] {
     width: 240px;
     min-width: 240px;
 }
 
-fieldset.extralong input[type=text] {
+fieldset.extralong input[type=text],
+fieldset.extralong input[type=password] {
     width: 294px;
     min-width: 294px;
 }
