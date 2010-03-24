@@ -5,4 +5,4 @@ from platform.core.articles.views import article_list
 from platform.core.public.shortcuts import render_using_theme
 
 def homepage(request):
-    return article_list(request)
+    return article_list(request, add_doc_title=False)

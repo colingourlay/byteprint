@@ -1,15 +1,12 @@
 {% extends "default/base.html" %}
 
-{% if articles %}
-{% block title %}{{ block.super }}{% endblock %}
-{% endif %}
-
 {% block content %}
 <div id="yui-main">
     <div class="yui-b">
         <div id="mn" class="yui-g">
+            {% if doc_title %}<h1>{{ doc_title }}</h1>{% endif %}
             {% for article in articles %}
-            {% if forloop.first %}
+            {% if forloop.first and not doc_title %}
             <h1>{{ article.title }}</h1>
             {% else %}
             <h2>{{ article.title }}</h2>

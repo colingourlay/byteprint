@@ -15,11 +15,27 @@ def article_detail(request, article_id=None, year=None, month=None, slug=None):
         return render_using_theme('article.html', RequestContext(request), {'article': article})
     elif request.user == article.author:
         article.title = "[PREVIEW] " + article.title
-        return render_using_theme('article.html', RequestContext(request), {'article': article})
+        return render_using_theme(
+            'article.html',
+            RequestContext(request),
+            {
+                'doc_title': article.title,
+                'article': article
+            }
+        )
     else:
         raise Http404
 
-def article_list(request):
-    articles = Article.objects.all()
-    #articles = Article.objects.are_published()
-    return render_using_theme('archive.html', RequestContext(request), {'articles': articles})
+def article_list(request, add_doc_title=True):
+    articles = Article.objects.are_published()
+    doc_title = None
+    if add_doc_title:
+        doc_title = "Archive"
+    return render_using_theme(
+        'archive.html',
+        RequestContext(request),
+        {
+            'doc_title': doc_title,
+            'articles': articles
+        }
+    )

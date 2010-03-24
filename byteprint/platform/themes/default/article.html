@@ -1,9 +1,5 @@
 {% extends "default/base.html" %}
 
-{% if article %}
-{% block title %}{{ article.title }} | {{ block.super }}{% endblock %}
-{% endif %}
-
 {% block content %}
 <div id="yui-main">
     <div class="yui-b">
