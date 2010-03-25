@@ -19,7 +19,7 @@ class ArticleManager(models.Manager):
         return self.filter(is_published=True)
     
     def latest(self, count):
-        return self.all().order_by('-created')[:count]
+        return self.are_published().order_by('-created')[:count]
     
 
 class Article(models.Model):
