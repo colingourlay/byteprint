@@ -19,9 +19,7 @@ def articles_manage(request, article_id=None):
         quick_edit_article = utils.article_get(article_id)
         data = {
             'title': quick_edit_article.title,
-            'published': quick_edit_article.published,
-            'publish': quick_edit_article.publish,
-            'published': quick_edit_article.published,
+            'is_published': quick_edit_article.is_published,
             'show_comments': quick_edit_article.show_comments,
             'enable_comments': quick_edit_article.enable_comments
         }
@@ -30,8 +28,7 @@ def articles_manage(request, article_id=None):
             quick_edit_article_form = QuickEditArticleForm(request.POST)
             if quick_edit_article_form.is_valid():
                 quick_edit_article.title = quick_edit_article_form.cleaned_data['title']
-                quick_edit_article.published = quick_edit_article_form.cleaned_data['published']
-                quick_edit_article.publish = quick_edit_article_form.cleaned_data['publish']
+                quick_edit_article.is_published = quick_edit_article_form.cleaned_data['is_published']
                 quick_edit_article.show_comments = quick_edit_article_form.cleaned_data['show_comments']
                 quick_edit_article.enable_comments = quick_edit_article_form.cleaned_data['enable_comments']
                 quick_edit_article.save()
@@ -60,6 +57,11 @@ def article_create(request):
 @login_required
 def article_delete(request, article_id):
     utils.article_delete(article_id)
+    return redirect('articles_admin_articles_manage')
+
+@login_required
+def article_toggle(request, article_id, status):
+    article = utils.article_toggle(article_id, status)
     return redirect('articles_admin_articles_manage')
 
 @login_required

@@ -7,8 +7,8 @@
             {% if article %}
             <h1>{{ article.title }}</h1>
             {{ article.body }}
-            <p>Published on {{ article.published|date:"d M Y" }}</p>
-            {% if article.updated > article.published %}
+            <p>Published on {{ article.created|date:"d M Y" }}</p>
+            {% if article.updated > article.created %}
             <p>Updated on {{ article.updated|date:"d M Y" }}</p>
             {% endif %}
             {% endif %}

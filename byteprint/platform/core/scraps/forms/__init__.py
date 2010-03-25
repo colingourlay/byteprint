@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from platform.core.scraps.utils import get_blueprints
 
-BLUEPRINT_CHOICES = get_blueprints(two_tuple=True)
+BLUEPRINT_CHOICES = get_blueprints(two_tuple=True, families=True)
 
 class CreateScrapForm(forms.Form):
     blueprint_name = forms.ChoiceField(

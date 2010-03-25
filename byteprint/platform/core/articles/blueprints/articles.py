@@ -1,0 +1,29 @@
+from django import forms
+
+from platform.core.articles.models import Article
+from platform.core.scraps import Blueprint
+
+class LatestArticles(Blueprint):
+
+    name = 'articles-latest-articles'
+    family = 'Articles'
+    display_name = 'Latest Articles'
+    description = 'This scrap will display the latest articles to be published on your site. You can choose how many are displayed.'
+    preview = True
+    fields = {
+        'number': forms.IntegerField(
+            required = False,
+            min_value = 1,
+            label = "Number of Articles",
+            help_text = "Enter the number of articles you would like to be displayed. If you leave this blank, 5 articles will be shown by default."
+        )
+    }
+
+    def render(self, scrap_data):
+        number = scrap_data['number'] or 5
+        articles = Article.objects.latest(number)
+        output = "<ul>"
+        for article in articles:
+            output += "<li><a href=\"" + article.get_absolute_url() + "\">" + article.title + "</a></li>"
+        output += "</ul>"
+        return output

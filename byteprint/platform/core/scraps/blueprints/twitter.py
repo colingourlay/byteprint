@@ -6,9 +6,9 @@ class TwitterBlueprint(Blueprint):
 
     name = 'twitter'
     display_name = 'Twitter'
-    description = 'This Twitter scrap uses the official API javascript \
-        interfece and will display a predetermined number of posts for any \
-        specified user, provided they are in the Twitter pblic timeline.'
+    description = 'This scrap uses the official Twitter javascript \
+        API and will display any number of tweets for any \
+        user, provided they are in the Twitter public timeline.'
     preview = True
     fields = {
         'username': forms.CharField(

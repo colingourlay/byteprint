@@ -11,11 +11,14 @@ from platform.core.scraps import Blueprint
 from platform.core.scraps.models import Pile, Scrap
 from platform.core.public import utils as public_utils
 
-def get_blueprints(two_tuple=False):
+def get_blueprints(two_tuple=False, families=False):
     blueprints = []
     for blueprint in Blueprint.inventory:
         if two_tuple:
-            blueprints.append((blueprint.name, blueprint.display_name))
+            if families:
+                blueprints.append((blueprint.name, blueprint.family + " > " + blueprint.display_name))
+            else:
+                blueprints.append((blueprint.name, blueprint.display_name))
         else:
             blueprints.append(blueprint.name)
     return blueprints
@@ -93,11 +96,7 @@ def scrap_delete(scrap_id):
     scrap.delete()
 
 def scrap_has_preview(scrap):
-    blueprint = get_blueprint(scrap.blueprint_name)
-    try:
-        return blueprint.preview
-    except:
-        return False
+    return get_blueprint(scrap.blueprint_name).preview
 
 def scrap_render(scrap):
     blueprint = get_blueprint(scrap.blueprint_name)

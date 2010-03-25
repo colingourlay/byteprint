@@ -16,19 +16,21 @@ def are_comments_enabled_by_default():
 
 class ArticleManager(models.Manager):
     def are_published(self):
-        return self.filter(publish=True, published__lte=datetime.datetime.now())
+        return self.filter(is_published=True)
+    
+    def latest(self, count):
+        return self.all().order_by('-created')[:count]
     
 
 class Article(models.Model):
     title = models.TextField()
-    slug = AutoSlugField(populate_from='title', unique_with='published__month', always_update=True)
+    slug = AutoSlugField(populate_from='title', unique_with='created__month', always_update=True)
     body = models.TextField(blank=True)
     author = models.ForeignKey(User)
     #pile = models.ForeignKey(Pile)
-    created = models.DateTimeField(auto_now_add=True, verbose_name='date_created')
     updated = models.DateTimeField(auto_now=True, verbose_name='date_updated')
-    published = models.DateTimeField(auto_now_add=True, verbose_name='date_published')
-    publish = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, verbose_name='date_created')
+    is_published = models.BooleanField(default=False)
     enable_comments = models.BooleanField()
     show_comments = models.BooleanField(default=True)
     
@@ -45,9 +47,6 @@ class Article(models.Model):
     @permalink
     def get_absolute_url(self):
         return ('articles_public_article_detail', (), {
-            'year': self.published.year,
-            'month': self.published.month,
+            'year': self.created.year,
+            'month': self.created.month,
             'slug': self.slug})
-    
-    def is_published(self):
-        return self.publish and self.published <= datetime.datetime.now()

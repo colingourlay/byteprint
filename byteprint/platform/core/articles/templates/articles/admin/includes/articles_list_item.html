@@ -2,8 +2,7 @@
     {% if article.is_published %}
     <span class="left">{{ article|truncatewords:14 }}</span>
     {% else %}
-    <span class="left">{{ article|truncatewords:11 }}</span>
-    <span class="right disabled">(not published)</span>
+    <span class="left"><span class="disabled">[DRAFT]</span> {{ article|truncatewords:11 }}</span>
     {% endif %}
     <span class="right"></span>
     <div class="clear"></div>

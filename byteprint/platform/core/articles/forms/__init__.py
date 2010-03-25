@@ -13,13 +13,8 @@ class QuickEditArticleForm(forms.Form):
         label='Title',
         help_text='When you change the title of this article, a new slug will be generated automatically.'
     )
-    published = forms.DateTimeField(
-        label='Publication Date',
-        help_text='Your article will be published on this date if you have also checked the <strong>Publish</strong> checkbox.'
-    )
-    publish = forms.BooleanField(
+    is_published = forms.BooleanField(
         label='Publish',
-        help_text='Your article will be published unless the <strong>Publication Date</strong> is in the future.',
         required=False
     )
     show_comments = forms.BooleanField(

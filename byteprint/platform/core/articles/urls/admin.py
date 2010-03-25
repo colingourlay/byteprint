@@ -9,6 +9,16 @@ urlpatterns = patterns('platform.core.articles.views.admin',
         'article_delete',
         name='articles_admin_article_delete'
     ),
+    url(r'^(?P<article_id>\d+)/publish/$',
+        'article_toggle',
+        {'status': True},
+        name='articles_admin_article_publish'
+    ),
+    url(r'^(?P<article_id>\d+)/unpublish/$',
+        'article_toggle',
+        {'status': False},
+        name='articles_admin_article_unpublish'
+    ),
     url(r'^(?P<article_id>\d+)/$',
         'article_edit',
         name='articles_admin_article_edit'

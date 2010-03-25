@@ -12,9 +12,7 @@
             <h2>{{ article.title }}</h2>
             {% endif %}
             {{ article.body|truncatewords:50 }}
-            <p>Published on {{ article.published|date:"d M Y" }}</p>
-            {% empty %}
-            <p>None</p>
+            <p>Published on {{ article.created|date:"d M Y" }}</p>
             {% endfor %}
         </div>
     </div>

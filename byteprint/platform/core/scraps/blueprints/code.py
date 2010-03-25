@@ -4,9 +4,10 @@ from platform.core.scraps import Blueprint
 
 class CodeExample(Blueprint):
     
-    name = 'code-example'
+    name = 'general-code-example'
+    family = 'General'
     display_name = 'Code Example'
-    description = 'This scrap allows you to write HTML preformatted &lt;code&gt; \
+    description = 'This scrap allows you to write HTML preformatted <code> \
         elements in a syntax-highlighted text editor.'
     fields = {
         'code': forms.CharField(

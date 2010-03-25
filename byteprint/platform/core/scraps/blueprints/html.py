@@ -4,7 +4,8 @@ from platform.core.scraps import Blueprint
 
 class BareHTML(Blueprint):
 
-    name = 'bare-html'
+    name = 'general-bare-html'
+    family = 'General'
     display_name = 'HTML'
     description = 'This scrap allows you to write bare HTML, which will \
         appear on your site just as you made it.'
@@ -25,11 +26,11 @@ class BareHTML(Blueprint):
 
 class TinyMCEHTML(Blueprint):
 
-    name = 'tinymce-html'
+    name = 'general-tinymce-html'
+    family = 'General'
     display_name = 'HTML (TinyMCE)'
     description = 'This scrap enables the TinyMCE WYSIWYG editor for writing \
         HTML as you intend it to look on your site.'
-    preview = False
     fields = {
         'content': forms.CharField(
             widget = forms.Textarea(

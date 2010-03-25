@@ -23,6 +23,16 @@ class Blueprint(object):
     as well as rendering their content.
     """
     __metaclass__ = BlueprintInventory
+    
+    name = ""
+    family = "Other"
+    display_name = name
+    description = name
+    preview = False
+    fields = {}
+    
+    def render(self, scrap_data):
+        return ""
 
 from blueprints import *
 

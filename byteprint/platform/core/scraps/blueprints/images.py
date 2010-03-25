@@ -4,7 +4,8 @@ from platform.core.scraps import Blueprint
 
 class ImageFromURL(Blueprint):
 
-    name = 'image-from-url'
+    name = 'general-image-from-url'
+    family = 'General'
     display_name = 'Image (from URL)'
     description = "This scrap allows you to insert an image from anywhere on \
         the internet, referenced by a URI. It also allows you to specify the \
