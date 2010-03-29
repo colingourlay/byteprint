@@ -297,14 +297,14 @@ a.icon:hover {
 /* PAGE SECTIONS */
 #header {
     padding: 2px 15px 2px 18px;
-    background-color: #586F4D;
-    color: #AAA;
+    background-color: #435d37;
+    color: #FFF;
     margin-bottom: 15px;
     -webkit-box-shadow: #777 0px 0px 15px;
 }
 
     #header a {
-        color: #CCC;
+        color: #DDD;
         text-decoration: none;
     }
     
