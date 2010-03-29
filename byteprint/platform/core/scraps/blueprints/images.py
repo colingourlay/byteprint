@@ -2,7 +2,7 @@ from django import forms
 
 from platform.core.scraps import Blueprint
 
-class ImageFromURL(Blueprint):
+class GeneralImageFromURL(Blueprint):
 
     name = 'general-image-from-url'
     family = 'General'

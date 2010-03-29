@@ -2,7 +2,7 @@ from django import forms
 
 from platform.core.scraps import Blueprint
 
-class CodeExample(Blueprint):
+class GeneralCodeExample(Blueprint):
     
     name = 'general-code-example'
     family = 'General'

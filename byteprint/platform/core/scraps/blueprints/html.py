@@ -2,9 +2,9 @@ from django import forms
 
 from platform.core.scraps import Blueprint
 
-class BareHTML(Blueprint):
+class GeneralHTML(Blueprint):
 
-    name = 'general-bare-html'
+    name = 'general-html'
     family = 'General'
     display_name = 'HTML'
     description = 'This scrap allows you to write bare HTML, which will \

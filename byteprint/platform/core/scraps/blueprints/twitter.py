@@ -2,10 +2,11 @@ from django import forms
 
 from platform.core.scraps import Blueprint
 
-class TwitterBlueprint(Blueprint):
+class TwitterLatestTweets(Blueprint):
 
-    name = 'twitter'
-    display_name = 'Twitter'
+    name = 'twitter-latest-tweets'
+    display_name = 'Latest Tweets'
+    family = 'Twitter'
     description = 'This scrap uses the official Twitter javascript \
         API and will display any number of tweets for any \
         user, provided they are in the Twitter public timeline.'
