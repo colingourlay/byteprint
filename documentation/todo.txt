@@ -1,3 +1,0 @@
-Use Uploadify [http://www.uploadify.com] for multiple file uploads? It's flash, but it's a pretty swish swf.
-
-Change HttpResponseRedirect(reverse('some_url_name')) to redirect('some_url_name') in all apps.
