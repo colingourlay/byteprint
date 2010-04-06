@@ -26,7 +26,7 @@ class TwitterLatestTweets(Blueprint):
                 If you leave this blank, it will default to 1."
         ),
         'ul_id': forms.CharField(
-            required = True,
+            required = False,
             label = "Output <ul id=\"?\">",
             help_text = "Tweets are written into your HTML as an unordered \
                 list (between &lt;ul&gt; tags) with a unique id. In order to display \
@@ -38,7 +38,7 @@ class TwitterLatestTweets(Blueprint):
     def render(self, scrap_data):
         output = ""
         if scrap_data['username']:
-            count = 1
+            count = "1"
             if scrap_data['count']:
                 count = scrap_data['count']
             ul_id = "twitter_update_list"
