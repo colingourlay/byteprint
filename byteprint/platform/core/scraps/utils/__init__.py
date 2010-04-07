@@ -3,7 +3,7 @@ import re
 from django import forms
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
-from django.template import Context, Template, TemplateSyntaxError
+from django.template import Context
 from django.template.loader import get_template
 from django.utils.datastructures import SortedDict
 
@@ -98,25 +98,15 @@ def scrap_delete(scrap_id):
 def scrap_has_preview(scrap):
     return get_blueprint(scrap.blueprint_name).preview
 
-def scrap_render(scrap):
+def scrap_render(scrap, show_title=True):
     blueprint = get_blueprint(scrap.blueprint_name)
     if blueprint:
         try:
-            scrap_template_text = ""
-            if scrap.title:
-                scrap_template_text += "<h3>" + scrap.title + "</h3>"
-            scrap_template_text += blueprint().render(scrap.data_load())
-            if '{' in scrap_template_text:
-                scrap_template_text = re.sub(r'{%\s*pile\s"[\w-]+"\s*%}', '<!-- pile recursion is not allowed -->', scrap_template_text)
-                try:
-                    scrap_template = Template(scrap_template_text)
-                    site_context_dict = public_utils.get_site_context()
-                    scrap_output = scrap_template.render(Context(site_context_dict))
-                    return scrap_output, True
-                except TemplateSyntaxError, e:
-                    return "<!-- " + blueprint.display_name + " failed to render: --><!-- " + str(e) + " -->", False
-            else:
-                return scrap_template_text, True
+            rendered_scrap = ""
+            if scrap.title and show_title:
+                rendered_scrap += "<h3>" + scrap.title + "</h3>"
+            rendered_scrap += blueprint().render(scrap.data_load())
+            return rendered_scrap, True
         except:
             return "<!-- " + blueprint.display_name + " failed to render -->", False
     return "<!-- " + scrap.blueprint_name + " is not a blueprint -->", False

@@ -1,5 +1,9 @@
-from django import forms
+import re
 
+from django import forms
+from django.template import Context, Template, TemplateSyntaxError
+
+from platform.core.public import utils as public_utils
 from platform.core.scraps import Blueprint
 from platform.contrib.django_markup.markup import formatter
 
@@ -23,12 +27,6 @@ class HTML(Blueprint):
             help_text = "Enter the HTML you want to appear within the scrap. \
                 Any valid HTML is permitted, including &lt;script&gt; tags",
             initial = "<p>Replace this with your HTML</p>"
-        ),
-        'language': forms.CharField(
-            widget = forms.HiddenInput,
-            label = "",
-            initial = "html",
-            required = False
         )
     }
 
@@ -93,3 +91,38 @@ class FilteredMarkup(Blueprint):
         except ImportError:
             output += "<!-- Cannot render HTML: '" + scrap_data['filter'] + \
                 "' not found. -->"
+        return output
+        
+class DjangoTemplate(Blueprint):
+
+    name = 'text-django-template'
+    family = 'Text'
+    display_name = 'Django Template'
+    description = 'This scrap allows you to write HTML using the Django \
+        Template Language. The template will be compiled and rendered when the \
+        scrap is encountered in the code.'
+    preview = True
+    fields = {
+        'template': forms.CharField(
+            widget = forms.Textarea(
+                attrs = {
+                    'class':'monospaced'
+                }
+            ),
+            label = "Template",
+            help_text = "Enter the template code you want to be rendered in \
+                the page",
+            initial = "<p>Site title: {{ site_title }}.</p>"
+        )
+    }
+
+    def render(self, scrap_data):
+        output = re.sub(r'{%.*((pile)|(scrap)).*%}', '<!-- pile/scrap nesting is not allowed -->', scrap_data['template'])
+        try:
+            output_template = Template(output)
+            site_context_dict = public_utils.get_site_context()
+            output = output_template.render(Context(site_context_dict))
+        except TemplateSyntaxError, e:
+            print e
+            output = "<!-- " + self.display_name + " failed to render: --><!-- " + str(e) + " -->"
+        return output
