@@ -27,7 +27,7 @@ class Article(models.Model):
     slug = AutoSlugField(populate_from='title', unique_with='created__month', always_update=True)
     body = models.TextField(blank=True)
     author = models.ForeignKey(User)
-    #pile = models.ForeignKey(Pile)
+    pile = models.ForeignKey(Pile)
     updated = models.DateTimeField(auto_now=True, verbose_name='date_updated')
     created = models.DateTimeField(auto_now_add=True, verbose_name='date_created')
     is_published = models.BooleanField(default=False)
