@@ -70,6 +70,7 @@ a.button {
     line-height: 24px;
     height: 24px;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 a.button {
