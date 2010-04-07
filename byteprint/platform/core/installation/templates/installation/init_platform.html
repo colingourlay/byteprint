@@ -2,7 +2,6 @@
 
 {% block main %}
 <div class="installation">
-    <h1>Byteprint Installation</h1>
     {% if db_error %}
     <div class="paneHeader">
        <strong>Database Connection Error</strong>
@@ -13,12 +12,14 @@
         <p>Please check your database settings (stored in <code>platform/database.py</code>),restart your server, and then refresh this page.</p>
     </div>
     {% else %}
-    <p>Please complete the fields below, and click the <strong>Complete Installation</strong> button.</p>
+    <div class="pane">
+        <h2 class="center">Installation</h2>
+    </div>
     <form action='.' method='post' class="uniForm">
         {% csrf_token %}
         {% include "admin/includes/forms/non_field_errors.html" %}
         <div class="paneHeader">
-           <strong>Site Details</strong>
+            <strong>Site Details</strong>
         </div>
         <div class="paneBody">
             <fieldset class="blockLabels long">
@@ -28,7 +29,7 @@
             </fieldset>
         </div>
         <div class="paneHeader">
-           <strong>Admin User Details</strong>
+            <strong>Admin User Details</strong>
         </div>
         <div class="paneBody">
             <fieldset class="blockLabels long">                
@@ -47,7 +48,7 @@
             </fieldset>
         </div>
         <fieldset class="blockLabels long">
-            <div class="buttonHolder">
+            <div class="center">
                 <button type="submit" class="primaryAction">Complete Installation&nbsp;<span class="icon commit"></span></button>
             </div>
         </fieldset>

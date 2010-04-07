@@ -2,16 +2,12 @@
 
 {% block main %}
 <div class="installation">
-    <div class="paneHeader">
-       <strong>Installation Complete</strong>
+    <div class="pane">
+       <h2 class="center">Installation Complete</h2>
+    </div>   
+    <div class="pane center">
+        You can now <a class="button" href="/">Visit "{{ site_title }}"</a> or 
+        <a class="button" href="{% url admin %}">Log into the Admin site</a>
     </div>
-    <div class="paneBody">
-        <p class="big center pane">You're all set...</p>
-        <p class="center">
-            <a class="button" href="/">visit your site</a>
-            <a class="button" href="{% url admin %}">log into byteprint admin</a>
-        </p>
-    </div>
-
 </div>
 {% endblock %}

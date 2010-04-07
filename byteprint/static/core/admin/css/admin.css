@@ -82,6 +82,11 @@ a.button:hover {
     text-decoration: none;
 }
 
+hr {
+    border: 0 none;
+    border-bottom: 1px solid #DDD;
+}
+
 /* FORMS */
 fieldset.long input[type=text],
 fieldset.long input[type=password] {
@@ -573,13 +578,15 @@ a.icon:hover {
     
 /* INSTALLATION-SPECIFIC */
 .installation {
-    margin: 15px auto 0;
+    margin: 20px auto 0;
+    padding-top: 80px;
     width: 520px;
+    background: url("../img/login_280x60.png") no-repeat 120px 0;
 }
 /* LOGIN-SPECIFIC */
 .login {
     margin: 95px auto 0;
-    padding-top: 70px;
+    padding-top: 80px;
     width: 296px;
     background: url("../img/login_280x60.png") no-repeat 8px 0;
 }

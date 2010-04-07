@@ -1,9 +1,7 @@
 {% extends 'admin/_.html' %}
 
 {% block header %}
-<div id="header">
-    <a class="small" href="{% url public_homepage %}">&larr; Go to {{ site_title }}</a>
-</div>
+{# EMPTY #}
 {% endblock %}
 
 {% block main %}
@@ -35,6 +33,7 @@
             </div>
         </form>
     </div>
+    <p class="center"><br><a class="small" href="{% url public_homepage %}">&larr; Visit "{{ site_title }}"</a></p>
     {% endif %}
 </div>
 {% endblock %}
