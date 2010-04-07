@@ -475,12 +475,12 @@ a.icon:hover {
         width: 87px;
     }
     
-    #menu #root a#menu_dashboard,
+    #menu #root a#menu_hub,
     #menu dt a {
         background: no-repeat 6px 0;
     }
     
-    #menu #root a#menu_dashboard {
+    #menu #root a#menu_hub {
         background-image: url("../img/icons/32/home_bw.png");
     }
     

@@ -5,14 +5,14 @@ from django.template import RequestContext
 from platform.core.articles.forms import CreateArticleForm
 
 @login_required
-def dashboard(request):
+def hub(request):
     
     create_article_form = CreateArticleForm()
     
     return render_to_response(
-        'admin/dashboard.html',
+        'admin/hub.html',
         {
-            'h1': 'Dashboard',
+            'h1': 'The Hub',
             'create_article_form': create_article_form
         },
         RequestContext(request)

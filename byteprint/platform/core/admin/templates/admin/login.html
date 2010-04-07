@@ -7,7 +7,7 @@
 {% block main %}
 <div class="login">
     {% if user.is_authenticated %}
-    <p>You're logged in as {{ user.username }}. Please <a href="{% url logout %}">log out</a> or go to the <a href="{% url admin %}">dashboard</a>.</p>
+    <p>You're logged in as {{ user.username }}. Please <a href="{% url logout %}">log out</a> or go to the <a href="{% url admin %}">Hub</a>.</p>
     {% else %}
     {% if form.errors %}
     <p class="msg error">Sorry, that's not a valid username or

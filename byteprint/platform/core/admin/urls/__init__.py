@@ -6,7 +6,7 @@ urlpatterns = patterns('platform.core.admin.views',
     (r'^scraps/', include('platform.core.scraps.urls.admin')),
     (r'^articles/', include('platform.core.articles.urls.admin')),
     url(r'^$',
-        'dashboard',
+        'hub',
         name='admin'
     ),
     url(r'^login/$',
