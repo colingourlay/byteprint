@@ -2,7 +2,7 @@ from django import forms
 
 from platform.core.scraps import Blueprint
 
-class TwitterLatestTweets(Blueprint):
+class LatestTweets(Blueprint):
 
     name = 'twitter-latest-tweets'
     display_name = 'Latest Tweets'

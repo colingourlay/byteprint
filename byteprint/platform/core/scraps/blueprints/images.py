@@ -2,11 +2,11 @@ from django import forms
 
 from platform.core.scraps import Blueprint
 
-class GeneralImageFromURL(Blueprint):
+class ImageFromURL(Blueprint):
 
-    name = 'general-image-from-url'
-    family = 'General'
-    display_name = 'Image (from URL)'
+    name = 'images-from-url'
+    family = 'Images'
+    display_name = 'Image (From URL)'
     description = "This scrap allows you to insert an image from anywhere on \
         the internet, referenced by a URI. It also allows you to specify the \
         image's alt and title attributes."

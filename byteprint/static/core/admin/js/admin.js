@@ -66,7 +66,7 @@ function init_tinymce() {
             pdw_toggle_on : 1,
             pdw_toggle_toolbars : "2,3,4",
             height : '300',
-            width : '600',
+            width : '586',
         });
     }
 }

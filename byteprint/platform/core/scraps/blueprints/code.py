@@ -2,18 +2,19 @@ from django import forms
 
 from platform.core.scraps import Blueprint
 
-class GeneralCodeExample(Blueprint):
+class SourceListing(Blueprint):
     
-    name = 'general-code-example'
-    family = 'General'
-    display_name = 'Code Example'
-    description = 'This scrap allows you to write HTML preformatted <code> \
+    name = 'code-source-listing'
+    family = 'Code'
+    display_name = 'Source Listing'
+    description = 'This scrap allows you to write preformatted <code> \
         elements in a syntax-highlighted text editor.'
     fields = {
         'code': forms.CharField(
             widget = forms.Textarea(
                 attrs = {
-                    'id':'code_editor'
+                    'id':'code_editor',
+                    'class':'monospaced'
                 }
             ),
             label = "Code",

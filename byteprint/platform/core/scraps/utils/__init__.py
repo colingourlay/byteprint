@@ -16,7 +16,7 @@ def get_blueprints(two_tuple=False, families=False):
     for blueprint in Blueprint.inventory:
         if two_tuple:
             if families:
-                blueprints.append((blueprint.name, blueprint.family + " > " + blueprint.display_name))
+                blueprints.append((blueprint.name, blueprint.family + " | " + blueprint.display_name))
             else:
                 blueprints.append((blueprint.name, blueprint.display_name))
         else:

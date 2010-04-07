@@ -1,5 +1,6 @@
 /* COMMON ELEMENTS */
-.serif{font-family :"Georgia", "Times New Roman", serif;}
+.serif{font-family:"Georgia","Times New Roman",serif;}
+.monospaced {font-family:monospace;}
 .left{float:left;}
 .right{float:right;}
 .center{text-align:center;}
@@ -105,10 +106,6 @@ input.merge {
 
 input.merge.disabled {
     color: #BBB;
-}
-
-textarea#code_editor {
-    font-family: monospace;
 }
 
 /* PRESET CONTAINER WIDTHS */

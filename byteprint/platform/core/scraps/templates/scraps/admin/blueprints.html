@@ -7,7 +7,7 @@
         <ul class="pane_list blueprint_list">
             {% for blueprint in blueprints %}
             <li class="pane_list_item">
-                <span class="left"><strong>{{ blueprint.display_name }}</strong></span>
+                <span class="left"><strong>{{ blueprint.family }} | {{ blueprint.display_name }}</strong></span>
                 <span class="right small create"><a href="{% url scraps_admin_scrap_create blueprint_name=blueprint.name  %}">Create a Scrap</a></span>
                 <div class="clear"></div>
                 {% if blueprint.description %}
