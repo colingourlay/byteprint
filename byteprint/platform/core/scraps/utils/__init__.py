@@ -1,3 +1,4 @@
+from operator import attrgetter
 import re
 
 from django import forms
@@ -13,7 +14,7 @@ from platform.core.public import utils as public_utils
 
 def get_blueprints(two_tuple=False, families=False):
     blueprints = []
-    for blueprint in Blueprint.inventory:
+    for blueprint in sorted(Blueprint.inventory, key=attrgetter('family')):
         if two_tuple:
             if families:
                 blueprints.append((blueprint.name, blueprint.family + " | " + blueprint.display_name))
