@@ -67,9 +67,13 @@ def scrap_create(blueprint_name):
 def scrap_get(scrap_id):
     return get_object_or_404(Scrap, id=scrap_id)
 
-def scrap_update(scrap, data):
-    scrap.title = data['scrap_title_text']
-    scrap.data_dump(data)
+def scrap_update(scrap, post_dict):
+    blueprint = get_blueprint(scrap.blueprint_name)
+    scrap_data = {}
+    for key, value in blueprint.fields.items():
+        scrap_data[key] = post_dict[key]
+    scrap.data_dump(scrap_data)
+    scrap.title = post_dict['scrap_title_text']
     scrap.save()
 
 def scrap_get_edit_form(scrap):
