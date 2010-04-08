@@ -637,7 +637,8 @@ ul.pane_list li.pane_list_item {
     cursor: default;
 }
 
-ul.pane_list li.pane_list_item:hover {
+ul.pane_list li.pane_list_item:hover,
+ul.pane_list li.pane_list_item.current {
     background-color: #CBDABF;
 }
 

@@ -3,7 +3,7 @@
     "pk": 1,
     "fields": {
         "key": "site_subtitle",
-        "value": "A byteprint site",
+        "value": "Proudly powered by byteprint",
         "is_templatable": "True"
     }
 },{

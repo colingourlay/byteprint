@@ -12,7 +12,7 @@
         {% if articles %}
         <ul class="pane_list article_list">
             {% for article in articles %}
-            <li class="pane_list_item">
+            <li class="pane_list_item {% if article == quick_edit_article %}current{% endif %}">
                 {% include "articles/admin/includes/articles_list_item.html" %}
             </li>
             {% endfor %}
