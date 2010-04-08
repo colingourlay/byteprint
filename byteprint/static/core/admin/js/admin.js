@@ -51,9 +51,9 @@ function init_code_editor() {
 function init_tinymce() {
     if ($('#id_content').length != 0) {
         $('#id_content').tinymce({
-            script_url : '/content/platform/admin/tiny_mce/tiny_mce.js',
+            script_url : '/static/core/admin/tiny_mce/tiny_mce.js',
             theme : "advanced",
-            skin : "o2k7",
+            skin : "byteprint",
             plugins : "style,advimage,inlinepopups,media,pdw,contextmenu,visualchars,xhtmlxtras",
             theme_advanced_buttons1 : "bold,italic,strikethrough,|,justifyleft,justifycenter,justifyright,|,bullist,numlist,|,link,unlink,|,image,|,code,|,pdw_toggle",
             theme_advanced_buttons2 : "underline,|,justifyfull,formatselect,forecolor,|,outdent,indent,|,media,charmap",

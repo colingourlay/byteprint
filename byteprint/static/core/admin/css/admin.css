@@ -50,7 +50,7 @@ li {
 }
 
 li.milked {
-    background-image: url('../img/milked.png');
+    background-image: url('../img/tiles/milked.png');
 }
 
 button,
@@ -58,7 +58,7 @@ a.button {
     border: 1px solid #BBB;
     color: #333;
     background-color: #DDD;
-    background-image: url('../img/button_bg.png');
+    background-image: url('../img/tiles/button_bg.png');
     background-repeat: repeat-x;
     border-radius: 15px;
     -moz-border-radius: 15px;
@@ -79,7 +79,7 @@ a.button {
 
 button:hover,
 a.button:hover {
-    background-image: url('../img/button_bg_hover.png');
+    background-image: url('../img/tiles/button_bg_hover.png');
     text-decoration: none;
 }
 
@@ -187,11 +187,11 @@ a.icon:hover {
 }
 
 .icon.up {
-    background-image: url('../img/icon_arrow_up.png');
+    background-image: url('../img/icons/16/arrow_up.png');
 }
 
 .icon.down {
-    background-image: url('../img/icon_arrow_down.png');
+    background-image: url('../img/icons/16/arrow_down.png');
 }
 
 .icon.visible,
@@ -255,7 +255,7 @@ a.icon:hover {
 .paneHeader {
     border: 1px solid #BBB;
     background-color: #DDD;
-    background-image: url('../img/button_bg.png');
+    background-image: url('../img/tiles/button_bg.png');
     background-repeat: repeat-x;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -319,7 +319,7 @@ a.icon:hover {
         width: 32px;
         height: 32px;
         padding: 0 28px 18px 0;
-        background: url("../img/icons/32/logo_header_alt.png") no-repeat 0 2px;
+        background: url("../img/logos/header_alt.png") no-repeat 0 2px;
         margin: 0 14px 0 0;
     }
     
@@ -557,7 +557,7 @@ a.icon:hover {
     }
     
     #menu dd ul li.current {
-        background: #cbdabf url('../img/icon_menu_current.png') no-repeat 0 5px;
+        background: #cbdabf url('../img/icons/icon_menu_current.png') no-repeat 0 5px;
     }
     
         #menu dd ul li:hover a,
@@ -582,14 +582,14 @@ a.icon:hover {
     margin: 20px auto 0;
     padding-top: 80px;
     width: 520px;
-    background: url("../img/login_280x60.png") no-repeat 120px 0;
+    background: url("../img/logos/280x60.png") no-repeat 120px 0;
 }
 /* LOGIN-SPECIFIC */
 .login {
     margin: 95px auto 0;
     padding-top: 80px;
     width: 296px;
-    background: url("../img/login_280x60.png") no-repeat 8px 0;
+    background: url("../img/logos/280x60.png") no-repeat 8px 0;
 }
 
 .loginForm {
