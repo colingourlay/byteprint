@@ -164,11 +164,15 @@ a.button .icon:hover,
 }
 
 a.icon {
-    padding: 2px 8px 2px 8px;
+    padding: 2px 2px 2px 14px;
 }
 
 a.icon:hover {
     text-decoration: none;
+}
+
+a.icon span {
+    padding: 0 0 0 8px;
 }
 
 .iconText {

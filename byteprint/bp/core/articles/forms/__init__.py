@@ -11,7 +11,7 @@ class QuickEditArticleForm(forms.Form):
     title = forms.CharField(
         max_length=140,
         label='Title',
-        help_text='When you change the title of this article, a new slug will be generated automatically.'
+        help_text='When you change the title of this article, the URL slug will be updated.'
     )
     is_published = forms.BooleanField(
         label='Publish',
