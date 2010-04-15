@@ -11,8 +11,8 @@
             {% else %}
             <h2>{{ article.title }}</h2>
             {% endif %}
-            {{ article.body|truncatewords:50 }}
-            <p>Published on {{ article.created|date:"d M Y" }}</p>
+            <p><em>Published by {{ article.author }} on {{ article.created|date:"d M Y" }}</em></p>
+            {{ article.body }}
             {% endfor %}
         </div>
     </div>

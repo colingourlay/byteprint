@@ -52,19 +52,27 @@ def piles_list():
     return output
 
 @register.simple_tag
-def scrap(scrap_id):
+def scrap(scrap_id, show_title=True):
     output = ""
     try:
         scrap = Scrap.objects.get(id=scrap_id)
-        rendered_scrap, was_successful = scrap_render(scrap) 
+        rendered_scrap, was_successful = scrap_render(scrap, show_title=show_title) 
         output += rendered_scrap
     except:
         output = "<!-- scrap not found -->"
     return output
-    
+
 @register.simple_tag
-def scrap_debug(scrap_id):
-    output = scrap(scrap_id)
+def scrap_without_title(scrap_id):
+    return scrap(scrap_id, show_title=False)
+
+@register.simple_tag
+def scrap_debug(scrap_id, show_title=True):
+    output = scrap(scrap_id, show_title=show_title)
     output = re.sub('<!--', "<p class='negative'>", output)
     output = re.sub('-->', "</p>", output)
     return output
+
+@register.simple_tag
+def scrap_debug_without_title(scrap_id):
+    return scrap_debug(scrap_id, show_title=False)

@@ -30,7 +30,7 @@
 </div>
 {% else %}
 <div class="article_list_item_bottom">
-    <span class="left small">Permalink: <a href="{{ article.get_absolute_url }}">{{ article.get_absolute_url }}</a></span>
+    <span class="left small"><strong>Created:</strong> {{ article.created|date:"d/m/Y" }} | <strong>Permalink:</strong> <a href="{{ article.get_absolute_url }}">{{ article.get_absolute_url }}</a></span>
     <span class="right small">
         {# <a target="_blank" href="{% url articles_public_article_detail_id article_id=article.id %}" class="positive">{% if not article.is_published %}pre{% endif %}view</a> | #} 
         <a href="{% url articles_admin_article_quickedit article_id=article.id %}" class="neutral">quick edit</a>

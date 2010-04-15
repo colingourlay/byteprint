@@ -6,11 +6,11 @@
         <div id="mn" class="yui-g">
             {% if article %}
             <h1>{{ article.title }}</h1>
-            {{ article.body }}
-            <p>Published on {{ article.created|date:"d M Y" }}</p>
-            {% if article.updated > article.created %}
+            <p><em>Published by {{ article.author }} on {{ article.created|date:"d M Y" }}</em></p>
+            {% if article.updated.date > article.created.date %}
             <p>Updated on {{ article.updated|date:"d M Y" }}</p>
             {% endif %}
+            {{ article.body }}
             {% endif %}
         </div>
     </div>

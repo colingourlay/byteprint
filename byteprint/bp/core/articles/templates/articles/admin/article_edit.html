@@ -2,7 +2,27 @@
 
 {% block content %}
 <div class="w600 left">
-    {{ article }}
+    {% if article.pile.scraps %}
+    <div class="pane pane_list_container">
+        <ul class="pane_list article_scrap_list">
+            {% for scrap in article.pile.scraps %}
+            {% include "articles/admin/includes/pile_list_item.html" %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    <div class="pane">
+        <form id="createScrapForm" action="{% url articles_admin_article_scrap_create_httppost article_id=article.id %}" method="post">
+            {% csrf_token %}
+            <span class="left">
+                <h4>{% if article.pile.scraps %}Continue{% else %}Begin{% endif %} this article with a {{ create_scrap_form.blueprint_name }} scrap</h4>
+            </span>
+            <span class="right">
+                <button type="submit" class="primaryAction right">Add&nbsp;<span class="icon scrapAdd"></span></button>
+            </span>
+            <div class="clear"></div>
+        </form>
+    </div>
 </div>
 {% endblock %}
 

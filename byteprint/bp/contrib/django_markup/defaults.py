@@ -28,13 +28,9 @@ DEFAULT_MARKUP_FILTER = {
 # You can override this list within your settings: MARKUP_CHOICES
 
 DEFAULT_MARKUP_CHOICES = (
-    'none',
+    'linebreaks',
     'markdown',
     'restructuredtext',
     'textile',
     'creole',
-    'smartypants',
-    'linebreaks',
-    'lightbox',
-    'widont',
 )

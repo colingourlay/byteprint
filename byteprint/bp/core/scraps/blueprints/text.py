@@ -58,11 +58,11 @@ class WYSIWYG(Blueprint):
         output = scrap_data['content']
         return output
 
-class FilteredMarkup(Blueprint):
+class Markup(Blueprint):
 
-    name = 'text-markup-filter'
+    name = 'text-markup'
     family = 'Text'
-    display_name = 'Filtered Markup'
+    display_name = 'Markup'
     description = 'This scrap allows you to write text which will be passed \
         through a markup filter of your choice and rendered as HTML. Note: you \
         must install dependencies for each filter you wish to use.'
@@ -73,11 +73,11 @@ class FilteredMarkup(Blueprint):
             label = "Markup",
             initial = "Replace this with your markup"
         ),        
-        'filter': forms.ChoiceField(
-            label = "Markup Filter",
-            help_text = "Choose a filter to by applied to your markup.",
+        'formatter': forms.ChoiceField(
+            label = "Markup Formatter",
+            help_text = "Your markup will be converted to HTML using the formatter you select.",
             choices = formatter.choices(),
-            initial = "none"
+            initial = "linebreaks"
         )
     }
 
@@ -86,10 +86,10 @@ class FilteredMarkup(Blueprint):
         try:
             output += formatter(
                 scrap_data['markup'],
-                filter_name=scrap_data['filter']
+                filter_name=scrap_data['formatter']
             )
         except ImportError:
-            output += "<!-- Cannot render HTML: '" + scrap_data['filter'] + \
+            output += "<!-- Cannot render HTML: '" + scrap_data['formatter'] + \
                 "' not found. -->"
         return output
         

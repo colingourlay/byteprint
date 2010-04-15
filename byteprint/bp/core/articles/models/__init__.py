@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import permalink
 from django.template.defaultfilters import slugify
+from django.utils.safestring import mark_safe
 
 from bp.contrib.autoslug.fields import AutoSlugField
 from bp.core.config.models import Setting
@@ -24,10 +25,10 @@ class ArticleManager(models.Manager):
 class Article(models.Model):
     title = models.TextField()
     slug = AutoSlugField(populate_from='title', unique_with='created__month', always_update=True)
-    body = models.TextField(blank=True)
     author = models.ForeignKey(User)
     pile = models.ForeignKey(Pile)
-    updated = models.DateTimeField(auto_now=True, verbose_name='date_updated')
+    rendered_pile = models.TextField(blank=True)
+    updated = models.DateTimeField(auto_now_add=True, verbose_name='date_updated')
     created = models.DateTimeField(auto_now_add=True, verbose_name='date_created')
     is_published = models.BooleanField(default=False)
     enable_comments = models.BooleanField()
@@ -49,3 +50,6 @@ class Article(models.Model):
             'year': self.created.year,
             'month': self.created.month,
             'slug': self.slug})
+    
+    def body(self):
+        return mark_safe(self.rendered_pile)

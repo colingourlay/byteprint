@@ -73,26 +73,31 @@ def scrap_update(scrap, post_dict):
     for key, value in blueprint.fields.items():
         scrap_data[key] = post_dict[key]
     scrap.data_dump(scrap_data)
-    scrap.title = post_dict['scrap_title_text']
+    if 'scrap_title_text' in post_dict.keys():
+        scrap.title = post_dict['scrap_title_text']
     scrap.save()
 
-def scrap_get_edit_form(scrap):
+def scrap_get_edit_form(scrap, include_scrap_title=True):
     blueprint = get_blueprint(scrap.blueprint_name)
     fields = SortedDict()
-    fields['scrap_title_text'] = forms.CharField(
-        label = "Scrap Title",
-        help_text = "The title you enter here will appear above the scrap. \
-            If you do not want a title to appear, leave this field blank.",
-        initial = scrap.title,
-        required = False,
-    )
+    if include_scrap_title:
+        fields['scrap_title_text'] = forms.CharField(
+            label = "Scrap Title",
+            help_text = "The title you enter here will appear above the scrap. \
+                If you do not want a title to appear, leave this field blank.",
+            initial = scrap.title,
+            required = False,
+        )
     for key, value in blueprint.fields.items():
         fields[key] = value
     return type('EditScrapForm', (forms.BaseForm,), { 'base_fields': fields})
 
-def scrap_edit_form_instance(scrap):
-    ScrapEditForm = scrap_get_edit_form(scrap)
-    scrap_fields = dict({'scrap_title_text': scrap.title}.items() + scrap.data_load().items())
+def scrap_edit_form_instance(scrap, include_scrap_title=True):
+    ScrapEditForm = scrap_get_edit_form(scrap, include_scrap_title)
+    if include_scrap_title:
+        scrap_fields = dict({'scrap_title_text': scrap.title}.items() + scrap.data_load().items())
+    else:
+        scrap_fields = dict(scrap.data_load().items())
     return ScrapEditForm(scrap_fields)
 
 def scrap_delete(scrap_id):

@@ -28,7 +28,7 @@ class Scrap(models.Model):
     objects = ScrapManager()
     
     def __unicode__(self):
-        return self.name or self.blueprint_name
+        return self.title or self.blueprint_name
     
     def data_load(self):
         return pickle.loads(str(self.data))

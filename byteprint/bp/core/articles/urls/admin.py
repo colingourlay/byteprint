@@ -31,4 +31,30 @@ urlpatterns = patterns('bp.core.articles.views.admin',
         'articles_manage',
         name='articles_admin_articles_manage'
     ),
+    url(r'^(?P<article_id>\d+)/scraps/create/$',
+        'article_scrap_create',
+        name='articles_admin_article_scrap_create_httppost'
+    ),
+    url(r'^(?P<article_id>\d+)/scraps/(?P<scrap_id>\d+)/delete/$',
+        'article_scrap_delete',
+        name='articles_admin_article_scrap_delete'
+    ),
+    url(r'^(?P<article_id>\d+)/scraps/(?P<scrap_id>\d+)/reposition/(?P<position>\d+)/$',
+        'article_scrap_reposition',
+        name='articles_admin_article_scrap_reposition'
+    ),
+    url(r'^(?P<article_id>\d+)/scraps/(?P<scrap_id>\d+)/disable/$',
+        'article_scrap_toggle',
+        {'status': False},
+        name='articles_admin_article_scrap_disable'
+    ),
+    url(r'^(?P<article_id>\d+)/scraps/(?P<scrap_id>\d+)/enable/$',
+        'article_scrap_toggle',
+        {'status': True},
+        name='articles_admin_article_scrap_enable'
+    ),
+    url(r'^(?P<article_id>\d+)/scraps/(?P<scrap_id>\d+)/$',
+        'article_scrap_edit',
+        name='articles_admin_article_scrap_edit'
+    ),
 )

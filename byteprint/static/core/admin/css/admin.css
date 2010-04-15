@@ -16,6 +16,7 @@
 .neutral{color:blue;}
 .negative{color:red;}
 .disabled{color:#BBB;}
+.milked{background-image: url('../img/tiles/milked.png');}
 .display-none{display:none;}
 
 /* GLOBAL */
@@ -47,10 +48,6 @@ a:hover {
 
 li {
     margin-bottom: 4px;
-}
-
-li.milked {
-    background-image: url('../img/tiles/milked.png');
 }
 
 button,
@@ -765,4 +762,8 @@ ul.article_list li.pane_list_item ul li {
 
 ul.article_list li.pane_list_item:hover .article_list_item_bottom {
     visibility: visible;
+}
+
+ul.article_scrap_list li.pane_list_item {
+    width: 586px;
 }

@@ -1,0 +1,37 @@
+{% extends 'admin/main.html' %}
+
+{% block content %}
+<div class="w600 pane left">
+    {% for scrap in article.pile.scraps %}
+    {% if scrap == editable_scrap %}
+    <div class="paneHeader">
+        <strong>Editing Scrap: {{ scrap }}</strong>
+    </div>
+    <div class="paneBody">
+        <form action='.' method='post' class="uniForm">
+            {% csrf_token %}
+            {% include "admin/includes/forms/non_field_errors.html" %}
+            <fieldset class="blockLabels extralong">
+                {% for field in scrap_edit_form %}
+                {% include "admin/includes/forms/field.html" %}
+                {% endfor %}
+                <div class="buttonHolder">
+                    <a class="button" href="{% url articles_admin_article_edit article_id=article.id %}">Cancel&nbsp;<span class="icon revert"></span></a>
+                    <button type="submit" class="primaryAction">Save Changes&nbsp;<span class="icon commit"></span></button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    {% else %}
+    <div class="pane{% if not scrap.is_enabled %} milked{% endif %}">
+        {% scrap_debug_without_title scrap.id %}
+    </div>
+    {% endif %}
+    <div class="clear"></div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block jquery_document_ready %}
+
+{% endblock %}
