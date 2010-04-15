@@ -1,3 +1,5 @@
+import datetime
+
 from django.core.management.commands import syncdb
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -6,6 +8,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
+from bp.core.articles import utils as articles_utils
 from bp.core.config.models import Setting
 from bp.core.installation import is_installed
 from bp.core.installation.forms import InstallationForm
@@ -49,6 +52,11 @@ def install(request):
                 site_title = installation_form.cleaned_data['site_title']
                 site_title_setting = Setting.objects.add_templatable('site_title', site_title)
                 site_email_setting = Setting.objects.add('site_email', email)
+                # Reset the publish dates of the intitial article
+                initial_article = articles_utils.article_get("1")
+                initial_article.created = datetime.datetime.now()
+                initial_article.updated = initial_article.created
+                initial_article.save()
                 # Redirect the user to the admin interface
                 return installed(request)
     else:

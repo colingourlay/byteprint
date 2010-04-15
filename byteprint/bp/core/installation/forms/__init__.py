@@ -6,7 +6,7 @@ class InstallationForm(forms.Form):
         max_length=140,
         label='Site Title',
         help_text="The title of your published site. You can change this later.",
-        initial="My Site",
+        initial="My Byteprint Site",
     )
     username = forms.CharField(
         max_length=30,

@@ -8,6 +8,20 @@ body {
     margin: 20px 0;
 }
 
+h1, h2 {
+    border-bottom: 1px dotted #BBB;
+}
+
+a {
+    color: #6e8d61;
+    text-decoration: none;
+    border-bottom: 1px dotted #cbdabf;
+}
+
+a:hover {
+    border-bottom: 1px solid #cbdabf;
+}
+
 .doc {
     width: 840px;
     margin: 0 auto;
@@ -44,20 +58,10 @@ body {
     margin-top: 10px;
 }
 
-a {
-    color: #6e8d61;
-    text-decoration: none;
-    border-bottom: 1px dotted #cbdabf;
-}
-
-a:hover {
-    border-bottom: 1px solid #cbdabf;
-}
-
 .scrap {
     margin-bottom: 10px;
     padding: 6px;
-    background-color: #F5F5F5;
+    border: 1px solid #BBB;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
