@@ -1,7 +1,33 @@
+html {
+    background-color: #EEE;
+}
+
+body {
+    font-family :"Lucida Grande", Tahoma, Arial, "Bitstream Vera Sans", sans-serif;
+    font-size: 80%;
+    margin: 20px 0;
+}
+
+.doc {
+    width: 840px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #FFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
 #hd {
+    width: 820px;
+    margin: 10px auto;
     text-align: center;
-    border-bottom: 1px solid #E5E5E5;
-    margin: 10px 0;
+    background-color: #cbdabf;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 10px 0;
 }
 
 #hd .site_title {
@@ -11,33 +37,44 @@
     margin: 0;
 }
 
-#mn {
-    padding: 0 10px 0 0;
-}
-
-#sb {
-    border-left: 1px solid #E5E5E5;
-    padding: 0 0 0 10px;
-}
-
 #ft {
     text-align: center;
-    border-top: 1px solid #E5E5E5;
     padding: 10px 0 0;
-    margin: 10px 0;
+    border-top: 1px solid #E5E5E5;
+    margin-top: 10px;
 }
 
 a {
-    color: #44B;
+    color: #6e8d61;
     text-decoration: none;
+    border-bottom: 1px dotted #cbdabf;
 }
 
 a:hover {
-    text-decoration: underline
+    border-bottom: 1px solid #cbdabf;
 }
 
 .scrap {
     margin-bottom: 10px;
+    padding: 6px;
+    background-color: #F5F5F5;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+    .scrap h3 {
+        margin: 0 0 6px 0;
+        border-bottom: 1px solid #BBB;
+    }
+    
+.articles-latest-articles ul {
+    list-style-position: outside;
+    margin: 0;
+}
+
+.articles-latest-articles li {
+    list-style-type: none;
 }
 
 .twitter_timeline dd {
