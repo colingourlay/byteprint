@@ -1,7 +1,10 @@
-import os
+from django.views.generic.simple import direct_to_template
+from django.template import RequestContext
 
-from django.shortcuts import render_to_response
-
-def render_using_theme(template_name, context_instance, dictionary=None):
-    dictionary = dictionary or {}
-    return render_to_response(context_instance['theme'] + '/' + template_name, dictionary, context_instance)
+def direct_to_theme(request, template, extra_context={}):
+    template = RequestContext(request)['theme'] + '/' + template
+    return direct_to_template(
+        request,
+        template,
+        extra_context
+    )
