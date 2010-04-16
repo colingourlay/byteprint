@@ -4,27 +4,26 @@ from django.core.management.commands import syncdb
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
-from django.shortcuts import render_to_response
-from django.template import RequestContext
+from django.views.generic.simple import direct_to_template
 
 from bp.core.articles import utils as articles_utils
 from bp.core.config.models import Setting
 from bp.core.installation import is_installed
 from bp.core.installation.forms import InstallationForm
 
-def installed(request):
-    return render_to_response(
-        'installation/installed.html',
-        RequestContext(
-            request,
-            {
-                'version': settings.VERSION,
-            }
-        )
+INSTALL_TEMPLATE = 'installation/install.html'
+INSTALLED_TEMPLATE = 'installation/installed.html'
+
+def installed(request, template=INSTALLED_TEMPLATE):
+    return direct_to_template(
+        request,
+        template,
+        {
+            'version': settings.VERSION,
+        }
     )
 
-def install(request):
+def install(request, template=INSTALL_TEMPLATE):
     
     if is_installed():
         return installed(request)
@@ -62,14 +61,12 @@ def install(request):
     else:
         installation_form = InstallationForm()
 
-    return render_to_response(
-        'installation/install.html',
-        RequestContext(
-            request,
-            {
-                'form': installation_form,
-                'version': settings.VERSION,
-                'db_error': db_error,
-            }
-        )
+    return direct_to_template(
+        request,
+        template,
+        {
+            'form': installation_form,
+            'version': settings.VERSION,
+            'db_error': db_error,
+        }
     )

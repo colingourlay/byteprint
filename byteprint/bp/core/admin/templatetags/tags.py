@@ -1,3 +1,3 @@
-from django import template
+from django.template import Library
 
-register = template.Library()
+register = Library()

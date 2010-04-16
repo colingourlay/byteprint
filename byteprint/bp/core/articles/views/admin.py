@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from django.shortcuts import get_object_or_404, redirect, render_to_response
-from django.template import RequestContext
+from django.shortcuts import get_object_or_404, redirect
+from django.views.generic.simple import direct_to_template
 
 from bp.core.articles.forms import CreateArticleForm, QuickEditArticleForm
 from bp.core.articles.models import Article
@@ -11,9 +11,10 @@ from bp.core.scraps.forms import CreateScrapForm
 
 ARTICLE_EDIT_TEMPLATE = 'articles/admin/article_edit.html'
 ARTICLE_SCRAP_EDIT_TEMPLATE = 'articles/admin/article_scrap_edit.html'
+ARTICLES_MANAGE_TEMPLATE = 'articles/admin/articles_manage.html'
 
 @login_required
-def articles_manage(request, article_id=None):
+def articles_manage(request, article_id=None, template=ARTICLES_MANAGE_TEMPLATE):
     articles = Article.objects.all().order_by('-created')
     create_article_form = CreateArticleForm()
     quick_edit_article = None
@@ -36,16 +37,18 @@ def articles_manage(request, article_id=None):
                 quick_edit_article.enable_comments = quick_edit_article_form.cleaned_data['enable_comments']
                 quick_edit_article.save()
                 return redirect('articles_admin_articles_manage')
-    return render_to_response(
-        'articles/admin/articles_manage.html', {
+                
+    return direct_to_template(
+        request,
+        template,
+        {
             'menu_current': 'content_articles',
             'h1': 'Manage Articles',
             'articles': articles,
             'create_article_form': create_article_form,
             'quick_edit_article': quick_edit_article,
             'quick_edit_article_form': quick_edit_article_form
-        },
-        RequestContext(request)
+        }
     )
 
 @login_required
@@ -75,15 +78,16 @@ def article_edit(request, article_id, template=ARTICLE_EDIT_TEMPLATE):
     if request.method == 'POST':
         pass
     h1 = "Editing \"" + article.title + "\""
-    return render_to_response(
-        template, {
+    return direct_to_template(
+        request,
+        template,
+        {
             'menu_current': 'content_articles',
             'h1': h1,
             'article': article,
             'create_scrap_form': create_scrap_form,
             'msg': msg
-        },
-        RequestContext(request)
+        }
     )
 
 @login_required
@@ -116,16 +120,18 @@ def article_scrap_edit(request, article_id, scrap_id, template=ARTICLE_SCRAP_EDI
     else:
         scrap_edit_form = scraps_utils.scrap_edit_form_instance(scrap, False)
     h1 = "Editing \"" + article.title + "\""
-    return render_to_response(
-        template, {
+    
+    return direct_to_template(
+        request,
+        template,
+        {
             'menu_current': 'content_articles',
             'h1': h1,
             'article': article,
             'editable_scrap': scrap,
             'scrap_edit_form': scrap_edit_form,
             'msg': msg
-        },
-        RequestContext(request)
+        }
     )
     
 @login_required

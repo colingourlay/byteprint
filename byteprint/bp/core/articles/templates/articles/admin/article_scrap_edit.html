@@ -15,10 +15,8 @@
                 {% for field in scrap_edit_form %}
                 {% include "admin/includes/forms/field.html" %}
                 {% endfor %}
-                <div class="buttonHolder">
-                    <a class="button" href="{% url articles_admin_article_edit article_id=article.id %}">Cancel&nbsp;<span class="icon revert"></span></a>
-                    <button type="submit" class="primaryAction">Save Changes&nbsp;<span class="icon commit"></span></button>
-                </div>
+                {% url articles_admin_article_edit article_id=article.id as cancel_url %}
+                {% include "admin/includes/forms/buttons_cancel_save.html" %}
             </fieldset>
         </form>
     </div>

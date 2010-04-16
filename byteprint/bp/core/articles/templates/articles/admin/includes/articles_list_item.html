@@ -2,7 +2,7 @@
     {% if article.is_published %}
     <span class="left">{{ article|truncatewords:14 }}</span>
     {% else %}
-    <span class="left"><span class="disabled">[DRAFT]</span> {{ article|truncatewords:11 }}</span>
+    <span class="left"><span class="disabled">*DRAFT*</span> {{ article|truncatewords:11 }}</span>
     {% endif %}
     <span class="right">
         <a class="icon articleEdit" title="edit article" href="{% url articles_admin_article_edit article_id=article.id %}">&nbsp;</a>
@@ -21,10 +21,8 @@
             {% for field in quick_edit_article_form %}
             {% include "admin/includes/forms/field.html" %}
             {% endfor %}
-            <div class="buttonHolder">
-                <a class="button" href="{% url articles_admin_articles_manage %}">Cancel&nbsp;<span class="icon revert"></span></a>
-                <button type="submit" class="primaryAction">Save Changes&nbsp;<span class="icon commit"></span></button>
-            </div>
+            {% url articles_admin_articles_manage as cancel_url %}
+            {% include "admin/includes/forms/buttons_cancel_save.html" %}
         </fieldset>
     </form>
 </div>

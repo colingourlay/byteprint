@@ -14,7 +14,7 @@ def article_detail(request, article_id=None, year=None, month=None, slug=None):
     if article.is_published:
         return render_using_theme('article.html', RequestContext(request), {'article': article})
     elif request.user == article.author:
-        article.title = "[DRAFT] " + article.title
+        article.title = article.title + " *DRAFT*"
         return render_using_theme(
             'article.html',
             RequestContext(request),

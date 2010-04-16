@@ -8,7 +8,8 @@
             {% for field in form %}
             {% include "admin/includes/forms/field.html" %}
             {% endfor %}
-            {% include "admin/includes/forms/buttons.html" %}
+            {% url scraps_admin_manage as cancel_url %}
+            {% include "admin/includes/forms/buttons_cancel_save.html" %}
         </fieldset>
     </form>
 </div>

@@ -1,0 +1,8 @@
+{% comment %}
+This snippet depends on a {{ cancel_url }} variable being available in the context, which shouild be generated using the {% url_as_variable %} template tag.
+{% endcomment %}
+
+<div class="buttonHolder">
+    <a class="button" href="{{ cancel_url }}">Cancel&nbsp;<span class="icon revert"></span></a>
+    <button type="submit" class="primaryAction">Save Changes&nbsp;<span class="icon commit"></span></button>
+</div>
