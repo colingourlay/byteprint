@@ -11,6 +11,7 @@ STATIC_CORE_DIR = os.path.join(STATIC_DIR, 'core')
 STATIC_THEMES_DIR = os.path.join(STATIC_DIR, 'themes')
 STATIC_PLUGINS_DIR = os.path.join(STATIC_DIR, 'plugins')
 UPLOADS_DIR = os.path.join(STATIC_DIR, 'uploads')
+MEDIA_ROOT = STATIC_DIR
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -55,6 +56,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
 	'django.contrib.sessions',
+	'bp.contrib.filebrowser'
     'bp.core.admin',
     'bp.core.articles',
     'bp.core.config',

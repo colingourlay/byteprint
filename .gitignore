@@ -5,3 +5,4 @@ django-byteprint.tmproj
 apache
 .idea
 *.kpf
+byteprint/static/uploads/*
