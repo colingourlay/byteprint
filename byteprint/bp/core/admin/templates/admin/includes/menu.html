@@ -10,7 +10,7 @@
         <dd>
             <ul>
                 <li class="{% if menu_current == 'content_articles' %}current{% endif %}"><a id="menu_content_articles" href="{% url articles_admin_articles_manage %}">Articles</a></li>
-                <li class="{% if menu_current == 'content_pages' %}current{% endif %}"><a id="menu_content_pages" href="#">Pages</a></li>
+                <li class="{% if menu_current == 'content_pages' %}current{% endif %}"><a id="menu_content_pages" href="{% url articles_admin_pages_manage %}">Pages</a></li>
                 <li class="{% if menu_current == 'content_comments' %}current{% endif %}"><a id="menu_content_comments" href="#">Comments</a></li>
                 <li class="{% if menu_current == 'content_media' %}current{% endif %}"><a id="menu_content_media" href="{% url fb_browse %}">Media</a></li>
             </ul>

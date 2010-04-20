@@ -11,10 +11,10 @@
     </div>
     {% endif %}
     <div class="pane">
-        <form id="createScrapForm" action="{% url articles_admin_article_scrap_create_httppost article_id=article.id %}" method="post">
+        <form id="createScrapForm" action="{% if is_page %}{% url articles_admin_page_scrap_create_httppost article_id=article.id %}{% else %}{% url articles_admin_article_scrap_create_httppost article_id=article.id %}{% endif %}" method="post">
             {% csrf_token %}
             <span class="left">
-                <h4>{% if article.pile.scraps %}Continue{% else %}Begin{% endif %} this article with a {{ create_scrap_form.blueprint_name }} scrap</h4>
+                <h4>{% if article.pile.scraps %}Continue{% else %}Begin{% endif %} this {% if is_page %}page{% else %}article{% endif %} with a {{ create_scrap_form.blueprint_name }} scrap</h4>
             </span>
             <span class="right">
                 <button type="submit" class="primaryAction right">Add&nbsp;<span class="icon scrapAdd"></span></button>

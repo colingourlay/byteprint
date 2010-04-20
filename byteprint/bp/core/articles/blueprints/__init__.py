@@ -32,7 +32,7 @@ class ArticlesLatestArticles(Blueprint):
 
     def render(self, scrap_data):
         number = scrap_data['number'] or 5
-        articles = Article.objects.latest(number)
+        articles = Article.objects.latest_published_articles(number)
         output = "<ul>"
         for article in articles:
             output += "<li>"

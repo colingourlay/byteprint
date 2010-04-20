@@ -1,6 +1,6 @@
 <div class="pane">
-    <form action="{% url articles_admin_article_create %}" method="post" class="uniForm">
-    <h2><span class="left">Write A New Article</span><button type="submit" class="primaryAction right">Create Article&nbsp;<span class="icon articleAdd"></span></button><div class="clear"></div></h2>
+    <form action="{% if is_page %}{% url articles_admin_page_create %}{% else %}{% url articles_admin_article_create %}{% endif %}" method="post" class="uniForm">
+    <h2><span class="left">Write A New {% if is_page %}Page{% else %}Article{% endif %}</span><button type="submit" class="primaryAction right">Create {% if is_page %}Page{% else %}Article{% endif %}&nbsp;<span class="icon articleAdd"></span></button><div class="clear"></div></h2>
         {% csrf_token %}
         <fieldset class="blockLabels extralong">
             {% with create_article_form.title as field %}

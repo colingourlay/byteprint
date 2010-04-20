@@ -6,7 +6,7 @@
 </div>
 <div class="w600">
     <div class="paneHeader">
-        <strong>Articles</strong>
+        <strong>{% if is_page %}Pages{% else %}Articles{% endif %}</strong>
     </div>
     <div class="paneBody pane_list_container">
         {% if articles %}

@@ -5,14 +5,14 @@
     <span class="left"><span class="disabled">*DRAFT*</span> {{ article|truncatewords:11 }}</span>
     {% endif %}
     <span class="right">
-        <a class="icon articleEdit" title="edit article" href="{% url articles_admin_article_edit article_id=article.id %}">&nbsp;</a>
-        <a class="icon articleDelete" title="delete article" href="{% url articles_admin_article_delete article_id=article.id %}">&nbsp;</a>
+        <a class="icon articleEdit" title="edit article" href="{% if is_page %}{% url articles_admin_page_edit article_id=article.id %}{% else %}{% url articles_admin_article_edit article_id=article.id %}{% endif %}">&nbsp;</a>
+        <a class="icon articleDelete" title="delete article" href="{% if is_page %}{% url articles_admin_page_delete article_id=article.id %}{% else %}{% url articles_admin_article_delete article_id=article.id %}{% endif %}">&nbsp;</a>
     </span>
     <div class="clear"></div>
 </div>
 {% if article == quick_edit_article %}
 <div class="articleEditForm pane">
-    <form action="{% url articles_admin_article_quickedit article_id=article.id %}" method="post" class="uniForm">
+    <form action="{% if is_page %}{% url articles_admin_page_quickedit article_id=article.id %}{% else %}{% url articles_admin_article_quickedit article_id=article.id %}{% endif %}" method="post" class="uniForm">
         {% csrf_token %}
         {% with quick_edit_article_form as form %}
         {% include "admin/includes/forms/non_field_errors.html" %}
@@ -21,7 +21,11 @@
             {% for field in quick_edit_article_form %}
             {% include "admin/includes/forms/field.html" %}
             {% endfor %}
+            {% if is_page %}
+            {% url articles_admin_pages_manage as cancel_url %}
+            {% else %}
             {% url articles_admin_articles_manage as cancel_url %}
+            {% endif %}
             {% include "admin/includes/forms/buttons_cancel_save.html" %}
         </fieldset>
     </form>
@@ -31,7 +35,7 @@
     <span class="left small"><strong>Created:</strong> {{ article.created|date:"d/m/Y" }} | <strong>Permalink:</strong> <a href="{{ article.get_absolute_url }}">{{ article.get_absolute_url }}</a></span>
     <span class="right small">
         {# <a target="_blank" href="{% url articles_public_article_detail_id article_id=article.id %}" class="positive">{% if not article.is_published %}pre{% endif %}view</a> | #} 
-        <a href="{% url articles_admin_article_quickedit article_id=article.id %}" class="neutral">quick edit</a>
+        <a href="{% if is_page %}{% url articles_admin_page_quickedit article_id=article.id %}{% else %}{% url articles_admin_article_quickedit article_id=article.id %}{% endif %}" class="neutral">quick edit</a>
     </span>
     <div class="clear"></div>
 </div>

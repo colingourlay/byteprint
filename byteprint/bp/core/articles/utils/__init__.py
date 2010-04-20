@@ -10,10 +10,10 @@ from bp.core.scraps import utils as scraps_utils
 def article_get(article_id):
     return get_object_or_404(Article, id=article_id)
 
-def article_create(title, author):
+def article_create(title, author, is_page=False):
     pile = Pile(name="article", is_standalone=False)
     pile.save()
-    article = Article(title=title, author=author, pile=pile) or None
+    article = Article(title=title, author=author, pile=pile, is_page=is_page) or None
     article.save()
     pile.name = "article-%d" % article.id
     pile.save()

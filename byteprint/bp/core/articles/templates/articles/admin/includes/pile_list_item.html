@@ -1,9 +1,9 @@
 <li class="pane_list_item{% if not scrap.is_enabled %} milked disabled{% endif %}">
     <span class="left">
         {% if scrap.is_enabled %}
-        <a class="icon visible" title="disable scrap" href="{% url articles_admin_article_scrap_disable article_id=article.id scrap_id=scrap.id %}">&nbsp;</a>
+        <a class="icon visible" title="disable scrap" href="{% if is_page %}{% url articles_admin_page_scrap_disable article_id=article.id scrap_id=scrap.id %}{% else %}{% url articles_admin_article_scrap_disable article_id=article.id scrap_id=scrap.id %}{% endif %}">&nbsp;</a>
         {% else %}
-        <a class="icon hidden" title="enable scrap" href="{% url articles_admin_article_scrap_enable article_id=article.id scrap_id=scrap.id %}">&nbsp;</a>
+        <a class="icon hidden" title="enable scrap" href="{% if is_page %}{% url articles_admin_page_scrap_enable article_id=article.id scrap_id=scrap.id %}{% else %}{% url articles_admin_article_scrap_enable article_id=article.id scrap_id=scrap.id %}{% endif %}">&nbsp;</a>
         {% endif %}
         <span class="scrap_name" title="Blueprint: {{ scrap.blueprint_display_name }}">
             {% if scrap.title %}
@@ -17,14 +17,14 @@
         {% if forloop.last %}
         <span class="iconSpacer">&nbsp;</span>
         {% else %}
-        <a class="icon down" title="move scrap position down" href="{% url articles_admin_article_scrap_reposition article_id=article.id scrap_id=scrap.id position=scrap.next_pile_position %}">&nbsp;</a>
+        <a class="icon down" title="move scrap position down" href="{% if is_page %}{% url articles_admin_page_scrap_reposition article_id=article.id scrap_id=scrap.id position=scrap.next_pile_position %}{% else %}{% url articles_admin_article_scrap_reposition article_id=article.id scrap_id=scrap.id position=scrap.next_pile_position %}{% endif %}">&nbsp;</a>
         {% endif %}
         {% if forloop.first %}
         <span class="iconSpacer">&nbsp;</span>
         {% else %}
-        <a class="icon up" title="move scrap position up" href="{% url articles_admin_article_scrap_reposition article_id=article.id scrap_id=scrap.id position=scrap.prev_pile_position %}">&nbsp;</a>
+        <a class="icon up" title="move scrap position up" href="{% if is_page %}{% url articles_admin_page_scrap_reposition article_id=article.id scrap_id=scrap.id position=scrap.prev_pile_position %}{% else %}{% url articles_admin_article_scrap_reposition article_id=article.id scrap_id=scrap.id position=scrap.prev_pile_position %}{% endif %}">&nbsp;</a>
         {% endif %}
-        <a class="icon scrapEdit" title="edit scrap" href="{% url articles_admin_article_scrap_edit article_id=article.id scrap_id=scrap.id %}">&nbsp;</a>
-        <a class="icon scrapDelete" title="delete scrap" href="{% url articles_admin_article_scrap_delete article_id=article.id scrap_id=scrap.id %}">&nbsp;</a>
+        <a class="icon scrapEdit" title="edit scrap" href="{% if is_page %}{% url articles_admin_page_scrap_edit article_id=article.id scrap_id=scrap.id %}{% else %}{% url articles_admin_article_scrap_edit article_id=article.id scrap_id=scrap.id %}{% endif %}">&nbsp;</a>
+        <a class="icon scrapDelete" title="delete scrap" href="{% if is_page %}{% url articles_admin_page_scrap_delete article_id=article.id scrap_id=scrap.id %}{% else %}{% url articles_admin_article_scrap_delete article_id=article.id scrap_id=scrap.id %}{% endif %}">&nbsp;</a>
     </span>
 </li>

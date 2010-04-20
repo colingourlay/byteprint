@@ -15,12 +15,21 @@ def are_comments_enabled_by_default():
     return Setting.objects.get_boolean("article_comments_enabled_by_default")
 
 class ArticleManager(models.Manager):
-    def are_published(self):
-        return self.filter(is_published=True)
     
-    def latest(self, count):
-        return self.are_published().order_by('-created')[:count]
-    
+    def articles(self):
+        return self.filter(is_page=False)
+        
+    def published_articles(self):
+        return self.filter(is_published=True, is_page=False)
+ 
+    def latest_published_articles(self, count=1):
+        return self.filter(is_published=True, is_page=False).order_by('-created')[:count]
+
+    def pages(self):
+        return self.filter(is_page=True)
+        
+    def published_pages(self):
+        return self.filter(is_published=True, is_page=True)
 
 class Article(models.Model):
     title = models.TextField()
@@ -31,6 +40,7 @@ class Article(models.Model):
     updated = models.DateTimeField(auto_now_add=True, verbose_name='date_updated')
     created = models.DateTimeField(auto_now_add=True, verbose_name='date_created')
     is_published = models.BooleanField(default=False)
+    is_page = models.BooleanField(default=False)
     enable_comments = models.BooleanField()
     show_comments = models.BooleanField(default=True)
     
@@ -46,10 +56,13 @@ class Article(models.Model):
     
     @permalink
     def get_absolute_url(self):
-        return ('articles_public_article_detail', (), {
-            'year': self.created.year,
-            'month': self.created.month,
-            'slug': self.slug})
+        if self.is_page:
+            return ('articles_public_page_detail', (), {'slug': self.slug})
+        else: 
+            return ('articles_public_article_detail', (), {
+                'year': self.created.year,
+                'month': self.created.month,
+                'slug': self.slug})
     
     def body(self):
         return mark_safe(self.rendered_pile)
