@@ -46,3 +46,25 @@ class ArticlesLatestArticles(Blueprint):
             output += "</li>"
         output += "</ul>"
         return output
+
+class ArticlesAllPages(Blueprint):
+
+    name = 'articles-all-pages'
+    family = 'Articles'
+    display_name = 'Pages'
+    description = 'This scrap will display the all of the published pages \
+        on your site.'
+    preview = True
+    fields = {}
+
+    def render(self, scrap_data):
+        articles = Article.objects.published_pages()
+        output = "<ul>"
+        for article in articles:
+            output += "<li>"
+            output += "<a href=\"" + article.get_absolute_url() + "\">"
+            output += article.title
+            output += "</a>"
+            output += "</li>"
+        output += "</ul>"
+        return output
