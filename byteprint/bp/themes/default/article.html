@@ -2,11 +2,8 @@
 
 {% block content %}
 {% if article %}
-<h1>{{ article.title }}</h1>
-<p><em>Published by {{ article.author }} on {{ article.created|date:"d M Y" }}</em></p>
-{% if article.updated.date > article.created.date %}
-<p>Updated on {{ article.updated|date:"d M Y" }}</p>
-{% endif %}
+<h1><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h1>
+<p class="date"><em>Published by {{ article.author }} on {{ article.created|date:"d M Y" }}{% if article.updated.date > article.created.date %} (Updated on {{ article.updated|date:"d M Y" }}){% endif %}</em></p>
 {{ article.body }}
 {% endif %}
 {% endblock %}

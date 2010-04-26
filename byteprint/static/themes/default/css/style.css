@@ -1,25 +1,42 @@
 html {
-    background-color: #EEE;
+    background-color: #D4D8E4;
 }
 
 body {
     font-family :"Lucida Grande", Tahoma, Arial, "Bitstream Vera Sans", sans-serif;
     font-size: 80%;
     margin: 20px 0;
+    color: #222;
 }
 
 h1, h2 {
-    border-bottom: 1px dotted #BBB;
+    border-bottom: 1px solid #BBB;
 }
 
 a {
-    color: #6e8d61;
+    color: #7788B0;
     text-decoration: none;
-    border-bottom: 1px dotted #cbdabf;
+    border-bottom: 1px dashed #7788B0;
 }
 
 a:hover {
-    border-bottom: 1px solid #cbdabf;
+    border-bottom: 1px solid #7788B0;
+}
+
+h1 a,
+h2 a {
+    color: #222;
+    text-decoration: none;
+    border: none;
+}
+
+h1 a:hover,
+h2 a:hover {
+    border: none;
+}
+
+p.date {
+    color: #777;
 }
 
 .doc {
@@ -31,13 +48,14 @@ a:hover {
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
+    -webkit-box-shadow: 10px;
 }
 
 #hd {
     width: 820px;
     margin: 10px auto;
     text-align: center;
-    background-color: #cbdabf;
+    background-color: #7788B0;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -48,6 +66,8 @@ a:hover {
     font-size: 40px;
     line-height: 50px;
     font-weight: bold;
+    color: #fff;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     margin: 0;
 }
 
