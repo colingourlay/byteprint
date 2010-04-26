@@ -9,7 +9,7 @@
     <span class="left">
         <form class="left pileRenameForm" action="{% url scraps_admin_pile_rename pile_id=pile.id %}" method="post">
             {% csrf_token %}
-            <strong><input title="click to edit the pile name. press enter to save your changes" class="merge{% if not pile.is_enabled %} disabled{% endif %}" type="text" id="id_{{ pile.id }}-name" name="{{ pile.id }}-name" value="{{ pile.name }}" /></strong>
+            <strong><input title="click to edit the pile name. press enter to save your changes" class="merge{% if not pile.is_enabled %} faded{% endif %}" type="text" id="id_{{ pile.id }}-name" name="{{ pile.id }}-name" value="{{ pile.name }}" /></strong>
             <span class="display-none"><input type="submit" value="Rename pile" /></span>
         </form>
     </span>

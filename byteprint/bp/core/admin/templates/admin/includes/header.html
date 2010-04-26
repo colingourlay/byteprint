@@ -1,6 +1,6 @@
 <div id="header">
     <span class="left"><a class="root" href="{% url admin %}">&nbsp;</a></span>
     <span class="left" id="sitetitle"><a href="{% url public_homepage %}"><span class="title big">{{ site_title }}</span></a></span>
-    <span class="right" id="userinfo">Logged in as {{ user.username }} | <a href="{% url logout %}">Log Out</a></span>
+    <span class="right" id="userinfo">Logged in as <strong>{{ user.username }}</strong> | <a href="{% url logout %}">Log Out</a></span>
     <div class="clear"></div>
 </div>
