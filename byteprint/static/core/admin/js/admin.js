@@ -1,20 +1,41 @@
 function init_collapsible_menu() {
+    var menu = {
+        "content": $.jStorage.get("byteprint_menu_content", "closed"),
+        "design": $.jStorage.get("byteprint_menu_design", "closed"),
+        "settings": $.jStorage.get("byteprint_menu_settings", "closed")
+    };
     $('#menu dd').hide();
-    $('#menu dd ul li.current').parent().parent().show();
     $('#menu dt').addClass('closed');
+    if(menu.content == "open") {
+        $('#menu_content').parent().removeClass('closed');
+        $('#menu_content').parent().next().show();
+    }
+    if(menu.design == "open") {
+        $('#menu_design').parent().removeClass('closed');
+        $('#menu_design').parent().next().show();
+    } 
+    if(menu.settings == "open") {
+        $('#menu_settings').parent().removeClass('closed');
+        $('#menu_settings').parent().next().show();
+    }
+    $.jStorage.set("byteprint_" + $('#menu dd ul li.current').parent().parent().prev().find('a').attr('id'), "open");
+    $('#menu dd ul li.current').parent().parent().show();
     $('#menu dd ul li.current').parent().parent().prev().removeClass('closed');
     $('#menu dt .toggle').show();
+    $('#menu dt a').css('width', '62px');
     $('#menu dt .toggle').click(function(){
+        console.log($(this).prev().attr('id'));
         if ($(this).parent().hasClass('closed')) {
+            $.jStorage.set("byteprint_" + $(this).prev().attr('id'), "open");
             $(this).parent().removeClass('closed');
             $(this).parent().next().slideDown('fast');
         } else {
+            $.jStorage.deleteKey("byteprint_" + $(this).prev().attr('id'));
             $(this).parent().next().slideUp('fast', function() {
                 $(this).prev().addClass('closed');
             });
         }
     });
-    $('#menu dt a').css('width', '62px');
 }
 
 function init_keyboard_shortcuts() {
