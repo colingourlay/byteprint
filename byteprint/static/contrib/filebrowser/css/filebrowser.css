@@ -1,12 +1,14 @@
-.filebrowser table td { font-size: 10px; }
+.filebrowser table { background-color: #FFF; }
 .filebrowser table a { font-size: 11px; }
-.filebrowser thead th.sorted a { padding-right: 13px; }
+.filebrowser table th { font-size: 11px; border-color: #477025; background-color: #477025; color: #FFF; border-top: none; }
+.filebrowser table th a { color: #FFF; }
+.filebrowser table td { font-size: 10px; border-color: #BBB; }
 .filebrowser td { padding: 9px 10px 7px 10px !important; }
-.filebrowser td.fb_icon { padding: 6px 5px 5px 5px !important; }
+.filebrowser td.fb_icon { padding: 6px 5px 5px 5px !important; text-align: center; }
 
 table a.fb_deletelink, table a.fb_renamelink, table a.fb_selectlink, table a.fb_showversionslink {
     cursor: pointer;
-    display: block; padding: 0; margin: 0;
+    display: inline-block; padding: 0; margin: 0;
     width: 23px; height: 17px;
     background-color: transparent;
     background-position: 0 center;

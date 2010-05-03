@@ -71,7 +71,7 @@ a.button {
     border-radius: 15px;
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
-    -webkit-box-shadow: #E5E5E5 0px 4px 8px;
+    -webkit-box-shadow: #E5E5E5 0px 1px 2px;
     padding: 0 8px;
     font-weight: bold;
     font-size: 12px;
@@ -255,6 +255,14 @@ a.icon span {
 
 .icon.articleDelete {
     background-image: url('../img/icons/16/newspaper_delete.png');
+}
+
+.icon.folderAdd {
+    background-image: url('../img/icons/16/folder_add.png');
+}
+
+.icon.upload {
+    background-image: url('../img/icons/16/upload.png');
 }
 
 /* PANES */
@@ -791,3 +799,13 @@ ul.article_list li.pane_list_item:hover .article_list_item_bottom {
 ul.article_scrap_list li.pane_list_item {
     width: 586px;
 }
+
+/* FILEBROWSER */
+.breadcrumbs {
+    margin-bottom: 8px;
+}
+
+.filebrowser .paneHeader p {
+    line-height: 25px;
+    margin: 0;
+} 

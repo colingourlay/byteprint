@@ -2,7 +2,7 @@ from django.conf.urls.defaults import *
 from django.contrib.auth.views import login, logout_then_login
 
 urlpatterns = patterns('bp.core.admin.views',
-    (r'^filebrowser/', include('bp.contrib.filebrowser.urls')),
+    (r'^media/', include('bp.contrib.filebrowser.urls')),
     (r'^settings/', include('bp.core.config.urls.admin')),
     (r'^scraps/', include('bp.core.scraps.urls.admin')),
     (r'^articles/', include('bp.core.articles.urls.admin')),

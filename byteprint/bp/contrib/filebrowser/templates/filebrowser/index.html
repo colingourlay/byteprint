@@ -1,12 +1,8 @@
 {% extends "filebrowser/_.html" %}
 
-<!-- LOADING -->
-{% load i18n %}
-
 <!-- STYLESHEETS -->
 {% block head_css %}
     {{ block.super }}
-    {#<link rel="stylesheet" type="text/css" href="{% admin_media_prefix %}css/changelists.css" /> #}
     <link rel="stylesheet" type="text/css" href="{{ settings_var.URL_FILEBROWSER_MEDIA }}css/filebrowser.css" />
 {% endblock %}
 
@@ -29,52 +25,33 @@
     {% endifequal %}
     
     {{ media }}
-    
-    {% if not actions_on_top and not actions_on_bottom %}
-    <style>
-        #changelist table thead th:first-child { width: inherit; }
-    </style>
-    {% endif %}
 {% endblock %}
 
-<!-- COLTYPE/BODYCLASS -->
-{% block coltype %}flex{% endblock %}
-{% block bodyclass %}change-list filebrowser{% if query.pop %} popup{% endif %}{% endblock %}
-
 <!-- BREADCRUMBS -->
-{% block breadcrumbs %}{% include "filebrowser/include/breadcrumbs.html" %}{% endblock %}
+{% block breadcrumbs %}
+{% include "filebrowser/include/breadcrumbs.html" %}
+{% endblock %}
 
 <!-- CONTENT -->
 {% block content %}
-<div id="content-main">
-    {% block object-tools %}
-    <ul class="object-tools">
-        <li><a href="{% url fb_mkdir %}{% query_string '' 'p' %}">{% trans "New Folder" %}</a></li>
-        <li><a href="{% url fb_upload %}{% query_string '' 'p' %}" class="focus">{% trans "Upload" %}</a></li>
-    </ul>
-    {% endblock %}
-    <div class="module filtered" id="changelist">
-        <div class="changelist-content">
-            <div class="result-list-container">
-                {% if results_var.results_current %}
-                <div class="result-list">
-                    <table cellspacing="0">
-                        {% include "filebrowser/include/tableheader.html" %}
-                        <tbody>
-                        {% include "filebrowser/include/filelisting.html" %}
-                        </tbody>
-                    </table>
-                </div>
-                {% endif %}
-                {% pagination %}
-            </div>
-        </div>
-        <div id="changelist-filter">
-            {% include "filebrowser/include/toolbar.html" %}
-            <div class="module filter">
-                {% include "filebrowser/include/filter.html" %}
-            </div>
-        </div>
+<div class="filebrowser w800">
+    <div class="paneHeader">
+        <span class="left">
+        {% pagination %}
+        </span>
+        <span class="right">
+            <a class="button" href="{% url fb_mkdir %}{% query_string '' 'p' %}">Create Folder&nbsp;<span class="icon folderAdd">&nbsp;</span></a>
+            <a class="button" href="{% url fb_upload %}{% query_string '' 'p' %}">Upload Files&nbsp;<span class="icon upload">&nbsp;</span></a>
+        </span>
+        <div class="clear"></div>
     </div>
+    {% if results_var.results_current %}
+    <table cellspacing="0" width="800">
+        {% include "filebrowser/include/tableheader.html" %}
+        <tbody>
+        {% include "filebrowser/include/filelisting.html" %}
+        </tbody>
+    </table>
+    {% endif %}
 </div>
 {% endblock %}

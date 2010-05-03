@@ -23,12 +23,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 .uploadifyQueueItem {
-	font: 11px Verdana, Geneva, sans-serif;
-	border: 2px solid #E5E5E5;
-	background-color: #F5F5F5;
+	font-size: 11px;
+	background-color: #FFF;
 	margin-top: 5px;
 	padding: 10px;
-	width: 350px;
+	width: 564px;
 }
 .uploadifyError {
 	border: 2px solid #FBCBBC !important;
@@ -38,16 +37,13 @@ THE SOFTWARE.
 	float: right;
 }
 .uploadifyProgress {
-	background-color: #FFFFFF;
-	border-top: 1px solid #808080;
-	border-left: 1px solid #808080;
-	border-right: 1px solid #C5C5C5;
-	border-bottom: 1px solid #C5C5C5;
+	background-color: #FFF;
+	border: 1px solid #BBB;
 	margin-top: 10px;
 	width: 100%;
 }
 .uploadifyProgressBar {
-	background-color: #0099FF;
+	background-color: #477025;
 	width: 1px;
-	height: 3px;
+	height: 5px;
 }

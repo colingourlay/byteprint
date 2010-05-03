@@ -6,38 +6,30 @@
 <!-- STYLESHEETS -->
 {% block head_css %}
     {{ block.super }}
-    {# <link rel="stylesheet" type="text/css" href="{% admin_media_prefix %}css/forms.css" /> #}
     <link rel="stylesheet" type="text/css" href="{{ settings_var.URL_FILEBROWSER_MEDIA }}css/filebrowser.css" />
 {% endblock %}
 
-<!-- COLTYPE/BODYCLASS -->
-{% block coltype %}colM{% endblock %}
-{% block bodyclass %}change-form filebrowser{% if query.pop %} popup{% endif %}{% endblock %}
-
 <!-- BREADCRUMBS -->
-{% block breadcrumbs %}{% include "filebrowser/include/breadcrumbs.html" %}{% endblock %}
+{% block breadcrumbs %}
+{% include "filebrowser/include/breadcrumbs.html" %}
+{% endblock %}
 
 <!-- CONTENT -->
 {% block content %}
-<div id="content-main">
-    <form action="{% query_string '' 'p' %}" method="post">{% fb_csrf_token %}
-    <div>
-        {% if form.errors %}<p class="errornote">{% trans 'Please correct the following errors.' %}</p>{% endif %}
-        <fieldset class="module aligned">
-        <div class="form-row {% if form.dir_name.errors %}errors{% endif %}">
-            {% if form.dir_name.errors %}<ul class="errorlist">{{ form.dir_name.errors }}</ul>{% endif %}
-            <label class="required" for="id_dir_name">{{ form.dir_name.label }}</label>
-            {{ form.dir_name }}
-            <p class="help">
-                {{ form.dir_name.help_text|safe }}
-                {% if settings_var.CONVERT_FILENAME %}<br />{% trans "The Name will be converted to lowercase. Spaces will be replaced with underscores." %}{% endif %}
-            </p>
-        </div>
+<div class="pane w600">
+    <form action="{% query_string "" "p" %}" method="post" class="uniForm">
+        {% fb_csrf_token %}
+        <h2><span class="left">Create Folder</span><button type="submit" class="primaryAction right">Create&nbsp;<span class="icon folderAdd"></span></button><div class="clear"></div></h2>
+        <fieldset class="blockLabels extralong">
+            <div class="ctrlHolder{% if form.dir_name.errors %} error{% endif %}">
+                {% if form.dir_name.errors %}
+                <p id="{{ form.dir_name.name }}_errors" class="errorField">{{ form.dir_name.errors.0 }}</p>
+                {% endif %}
+                <label>{{ form.dir_name.label }}</label>{{ form.dir_name }}
+                <p class="formHint">{{ form.dir_name.help_text|safe }}{% if settings_var.CONVERT_FILENAME %}<br />The Name will be converted to lowercase. Spaces will be replaced with underscores.{% endif %}</p>
+            </div>
         </fieldset>
-        <div class="submit-row">
-            <input type="submit" value="{% trans 'Submit' %}" class="default" /><br class="clear" />
-        </div>
-    </div>
     </form>
+    <div class="clear"></div>
 </div>
 {% endblock %}
