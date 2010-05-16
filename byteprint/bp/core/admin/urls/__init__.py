@@ -7,6 +7,7 @@ urlpatterns = patterns('bp.core.admin.views',
     (r'^scraps/', include('bp.core.scraps.urls.admin')),
     (r'^articles/', include('bp.core.articles.urls.admin')),
     (r'^pages/', include('bp.core.articles.urls.pages.admin')),
+    (r'^importer/', include('bp.core.importer.urls.admin')),
     url(r'^$',
         'hub',
         name='admin'

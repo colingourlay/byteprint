@@ -20,10 +20,10 @@ class ArticleManager(models.Manager):
         return self.filter(is_page=False)
         
     def published_articles(self):
-        return self.filter(is_published=True, is_page=False)
+        return self.filter(is_published=True, is_page=False).order_by('-created')
  
     def latest_published_articles(self, count=1):
-        return self.filter(is_published=True, is_page=False).order_by('-created')[:count]
+        return self.published_articles()[:count]
 
     def pages(self):
         return self.filter(is_page=True)

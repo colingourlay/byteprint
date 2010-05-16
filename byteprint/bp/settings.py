@@ -56,10 +56,11 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
 	'django.contrib.sessions',
-	'bp.contrib.filebrowser'
+	'bp.contrib.filebrowser',
     'bp.core.admin',
     'bp.core.articles',
     'bp.core.config',
+    'bp.core.importer',
     'bp.core.public',
     'bp.core.scraps',
 )

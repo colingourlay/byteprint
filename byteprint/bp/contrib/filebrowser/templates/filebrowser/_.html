@@ -1,1 +1,36 @@
 {% extends "admin/main.html" %}
+
+{% block title %}
+{% if tinymce %}
+Media Browser
+{% else %}
+{{ block.super }}
+{% endif %}
+{% endblock %}
+
+{% block header %}
+{% if not tinymce %}
+{{ block.super }}
+{% endif %}
+{% endblock %}
+
+{% block grid_switch %}{% if not tinymce %}{{ block.super }}{% endif %}{% endblock %}
+
+{% block h1 %}
+{% if not tinymce %}
+{{ block.super }}
+{% endif %}
+{% endblock %}
+
+{% block sidebar %}
+{% if not tinymce %}
+{{ block.super }}
+{% endif %}
+{% endblock %}
+
+{% block body_js %}
+{{ block.super }}
+{% if tinymce %}
+<script src="{{ MEDIA_URL }}core/admin/tiny_mce/tiny_mce_popup.js"></script>
+{% endif %}
+{% endblock %}

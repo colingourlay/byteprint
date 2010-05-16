@@ -69,14 +69,35 @@ function init_code_editor() {
     }
 }
 
+function CustomFileBrowser(field_name, url, type, win) {
+    var cmsURL = "/admin/media/browse/?pop=2&tinymce=1";
+    cmsURL = cmsURL + "&type=" + type;
+    tinyMCE.activeEditor.windowManager.open({
+        file: cmsURL,
+        width: 815,  // Your dimensions may differ - toy around with them!
+        height: 500,
+        resizable: "yes",
+        scrollbars: "yes",
+        inline: "no",  // This parameter only has an effect if you use the inlinepopups plugin!
+        close_previous: "no"
+    }, {
+        window: win,
+        input: field_name,
+        editor_id: tinyMCE.selectedInstance.editorId
+    });
+    return false;
+}
+
 function init_tinymce() {
-    if ($('#id_content').length != 0) {
-        $('#id_content').tinymce({
+    if ($('textarea.wysiwyg').length != 0) {
+        $('textarea.wysiwyg').tinymce({
             script_url : '/static/core/admin/tiny_mce/tiny_mce.js',
             theme : "advanced",
             skin : "byteprint",
-            plugins : "style,advimage,inlinepopups,media,pdw,contextmenu,visualchars,xhtmlxtras",
-            theme_advanced_buttons1 : "bold,italic,strikethrough,|,justifyleft,justifycenter,justifyright,|,bullist,numlist,|,link,unlink,|,image,|,code,|,pdw_toggle",
+            plugins : "style,advimage,inlinepopups,media,contextmenu,visualchars,xhtmlxtras",
+            //plugins : "style,advimage,inlinepopups,media,pdw,contextmenu,visualchars,xhtmlxtras",
+            theme_advanced_buttons1 : "bold,italic,strikethrough,|,justifyleft,justifycenter,justifyright,|,bullist,numlist,|,link,unlink,|,image,|,code",
+            // theme_advanced_buttons1 : "bold,italic,strikethrough,|,justifyleft,justifycenter,justifyright,|,bullist,numlist,|,link,unlink,|,image,|,code,|,pdw_toggle",
             theme_advanced_buttons2 : "underline,|,justifyfull,formatselect,forecolor,|,outdent,indent,|,media,charmap",
             theme_advanced_buttons3 : "",
             theme_advanced_buttons4 : "",
@@ -84,10 +105,11 @@ function init_tinymce() {
             theme_advanced_toolbar_align : "left",
             theme_advanced_statusbar_location : "bottom",
             theme_advanced_resizing : true,
+            file_browser_callback: "CustomFileBrowser",
             pdw_toggle_on : 1,
             pdw_toggle_toolbars : "2,3,4",
             height : '300',
-            width : '586',
+            width : '586'
         });
     }
 }

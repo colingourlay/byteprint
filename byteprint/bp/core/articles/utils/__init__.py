@@ -17,8 +17,9 @@ def article_create(title, author, is_page=False):
     article.save()
     pile.name = "article-%d" % article.id
     pile.save()
-    scrap = scraps_utils.scrap_create("text-markup")
+    scrap = scraps_utils.scrap_create("text-wysiwyg")
     scraps_utils.scrap_repile(scrap.id, pile.id)
+    scraps_utils.scrap_toggle(scrap.id, True)
     return article
 
 def article_delete(article_id):

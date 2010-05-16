@@ -131,6 +131,10 @@ def browse(request):
     except (EmptyPage, InvalidPage):
         page = p.page(p.num_pages)
     
+    tinymce = False
+    if 'tinymce' in request.GET:
+        tinymce = True
+    
     return render_to_response('filebrowser/index.html', {
         'dir': path,
         'p': p,
@@ -143,7 +147,8 @@ def browse(request):
         'menu_current': 'content_media',
         'settings_var': get_settings_var(),
         'breadcrumbs': get_breadcrumbs(query, path),
-        'breadcrumbs_title': ""
+        'breadcrumbs_title': "",
+        'tinymce': tinymce
     }, context_instance=Context(request))
 browse = staff_member_required(never_cache(browse))
 

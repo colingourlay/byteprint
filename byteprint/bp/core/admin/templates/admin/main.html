@@ -1,7 +1,7 @@
 {% extends 'admin/_.html' %}
 
 {% block main %}
-<div id="main">
+<div id="{% block grid_switch %}main{% endblock %}">
     <div class="layout">
         <div class="main">
             {% block h1 %}
@@ -13,11 +13,13 @@
             {# CONTENT #}
             {% endblock %}
         </div>
+        {% block sidebar %}
         <div class="sidebar">
             {% block menu %}
             {% include "admin/includes/menu.html" %}
             {% endblock %}
         </div>
+        {% endblock %}
     </div>    
     <div class="clear"></div>
 </div>

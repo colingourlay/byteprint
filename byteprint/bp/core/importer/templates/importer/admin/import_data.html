@@ -1,0 +1,19 @@
+{% extends 'admin/main.html' %}
+{% block content %}
+<div class="w600 left">
+    <div class="pane">
+        <form id="createScrapForm" class="uniForm blockLabels" action="{% url importer_admin_import_data %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include "admin/includes/forms/non_field_errors.html" %}
+            <fieldset class="blockLabels extralong">
+                {% for field in form %}
+                {% include "admin/includes/forms/field.html" %}
+                {% endfor %}
+                <div class="buttonHolder">
+                    <button type="submit" class="primaryAction"> Import&nbsp;<span class="icon commit"></span></button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock %}

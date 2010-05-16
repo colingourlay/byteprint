@@ -78,6 +78,10 @@ def article_create(request, is_page=False):
         if article_create_form.is_valid():
             article_title = article_create_form.cleaned_data['title']
             article = utils.article_create(title=article_title, author=request.user, is_page=is_page)
+            if is_page:
+                return redirect('articles_admin_page_scrap_edit', article_id=article.id, scrap_id=article.pile.scraps()[0].id)
+            else:
+                return redirect('articles_admin_article_scrap_edit', article_id=article.id, scrap_id=article.pile.scraps()[0].id)
     if is_page:
         return redirect('articles_admin_pages_manage')
     else:

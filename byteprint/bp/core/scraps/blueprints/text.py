@@ -46,7 +46,8 @@ class WYSIWYG(Blueprint):
             widget = forms.Textarea(
                 attrs = {
                     'cols': 80,
-                    'rows': 40
+                    'rows': 40,
+                    'class': 'wysiwyg'
                 }
             ),
             label = "Content",
