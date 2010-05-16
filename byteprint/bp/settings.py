@@ -59,6 +59,7 @@ INSTALLED_APPS = (
 	'bp.contrib.filebrowser',
     'bp.core.admin',
     'bp.core.articles',
+    'bp.core.classification',
     'bp.core.config',
     'bp.core.importer',
     'bp.core.public',
