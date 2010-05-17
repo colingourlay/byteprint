@@ -33,7 +33,7 @@ class ArticleManager(models.Manager):
 
 class Article(models.Model):
     title = models.TextField()
-    slug = AutoSlugField(populate_from='title', unique_with='created__month', always_update=True)
+    slug = AutoSlugField(populate_from='title', unique_with='created__month', always_update=False)
     author = models.ForeignKey(User)
     pile = models.ForeignKey(Pile)
     rendered_pile = models.TextField(blank=True)
