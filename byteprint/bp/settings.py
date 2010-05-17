@@ -79,4 +79,9 @@ SECRET_KEY = 'vk%spllo^0y$iskqrr%6mpo_*7826_(!&x+gt#&^kjfw*1m2d_'
 LOGIN_URL = '/admin/login/'
 LOGIN_REDIRECT_URL ='/admin/'
 
+try:
+    from local_settings import *
+except ImportError:
+    pass
+
 VERSION = '0.1'
