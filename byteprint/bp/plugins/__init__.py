@@ -1,5 +1,6 @@
 import os
 
-__all__ = os.walk(os.path.dirname(__file__)).next()[1]
+__all__ = os.walk(os.path.dirname(__file__)).next()[1] or None
 
-from . import *
+if __all__:
+    from . import *
