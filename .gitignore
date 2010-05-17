@@ -6,3 +6,4 @@ apache
 .idea
 *.kpf
 byteprint/static/uploads/*
+byteprint/bp/local_settings.py
