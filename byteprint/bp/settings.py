@@ -64,6 +64,7 @@ INSTALLED_APPS = (
     'bp.core.importer',
     'bp.core.public',
     'bp.core.scraps',
+    'bp.plugins',
 )
 
 try:
