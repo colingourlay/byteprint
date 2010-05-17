@@ -1,6 +1,6 @@
 import os
 
-__all__ = os.walk(os.path.dirname(__file__)).next()[1] or None
+__all__ = os.walk(os.path.dirname(__file__)).next()[1]
 
-if __all__:
-    from . import *
+for plugin in __all__:
+    exec "from bp.plugins import %s" % plugin
