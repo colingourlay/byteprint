@@ -1,5 +1,4 @@
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 
 from bp.core.installation import is_installed
