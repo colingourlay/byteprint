@@ -12,11 +12,11 @@ Installation
 
 First, please ensure you have all the dependencies (python_dependencies.txt). This includes django 1.2 and PIL.
 
-*Quickstart*
+### Quickstart
 
 1. Navigate to the `/byteprint` directory in your terminal and enter following the command:
     
-    python manage.py runserver
+    `python manage.py runserver`
 
 3. Visit `http://127.0.0.1:8000` in your web browser.
 4. Enter your site details.
@@ -28,12 +28,12 @@ More advanced settings can be changed inside `/byteprint/bp/settings.py`, but I 
 Publishing Articles/Pages
 -------------------------
 
-To create a new article in the admin site, just enter a name for it and submit the form. You'll be taken into the first 'scrap' of the article, which by default is a WYSIWYG editor. If you access the article again from the main Articles page (use the left hand nav to get there), you can then start adding and rearranging scraps to build up your article. Click the edit button (which looks like a yellow note with a pencil) to edit any scrap. Currently, you can enable or disable the rendering of any scrap by clicking the 'eye' icon on the left of the scrap in 'pile' view. [NOTE: this format will change in the near future, joining both 'views' of the article into a single editing page] All articles and pages begin as drafts, so you'll have to manually publish them to see them on your site. To do this, hover over the article on the main article section, and click 'quick edit'. You then need to check the 'Publish' box, and save. Then have a look on your site!
+To create a new article in the admin site, just enter a name for it and submit the form. You'll be taken into the first **scrap** of the article, which by default is a WYSIWYG editor. If you access the article again from the main Articles page (use the left hand nav to get there), you can then start adding and rearranging scraps to build up your article. Click the edit button (which looks like a yellow note with a pencil) to edit any scrap. Currently, you can enable or disable the rendering of any scrap by clicking the 'eye' icon on the left of the scrap in 'pile' view. [NOTE: this format will change in the near future, joining both 'views' of the article into a single editing page] All articles and pages begin as drafts, so you'll have to manually publish them to see them on your site. To do this, hover over the article on the main article section, and click **quick edit**. You then need to check the **Publish** checkbox, and save. Then have a look on your site!
 
 Global Site Scrap Piles
 -----------------------
 
-Common site 'widgets', such as Recent Articles lists, and Pages' lists are all handled in exactly the same way as articles - they're scraps, and you can enable 'piles' of them anywhere in your site by placing a single tag in your Theme's template. [Note: the Theme system is still in development - have a look at the `byteprint/bp/themes` folder to see a rudimentary concept].
+Common site 'widgets', such as Recent Articles lists, and Pages lists are all handled in exactly the same way as articles - they're scraps, and you can enable 'piles' of them anywhere in your site by placing a single tag in your Theme's template. [Note: the Theme system is still in development - have a look at the `byteprint/bp/themes` folder to see a rudimentary concept].
 
 Scrap Blueprints (For Developers)
 ---------------------------------
@@ -45,4 +45,4 @@ Thanks
 
 Like a lot of open source software, byteprint doesn't reinvent the wheel where it doesn't need to. Some of the functionality has already been implemented by many other great minds in the django/python community, and fit in nicely with this type of project. I've listed all the people who have indirectly contributed to byteprint in the credits.txt file, but I'd also like to take the opportunity to thank them here.
 
-Although the interface for the site and admin look a bit shinier than most projects in their infancy, this is only becuase I get distracted by the look & feel rather than knuckling down and making it feature complete. byteprint is still under heavy development, but it exists prematurely here on github because I want you to be a part of that process.
+Although the interface for the site and admin look a bit shinier than most projects in their infancy, this is only becuase I get distracted by the look & feel rather than knuckling down and making it feature complete. byteprint is still under heavy development, but it exists prematurely here on github because I want you to be a part of that process. The 'public' site is lacking in features, and I plan to implement a tree-menu style way for organising pages (yes, it's going to ba a scrap too). Comments also don't work for now, but there's nothing stopping you putting a pile into your article template that's linked to a Disqus scrap, or whatever you want. Have fun, and please get involved if you want to see this project evolve.
