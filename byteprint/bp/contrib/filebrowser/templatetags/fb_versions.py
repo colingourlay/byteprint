@@ -16,7 +16,6 @@ from bp.contrib.filebrowser.base import FileObject
 
 register = Library()
 
-
 class VersionNode(Node):
     def __init__(self, src, version_prefix):
         self.src = Variable(src)
@@ -171,5 +170,3 @@ def version_setting(parser, token):
 register.tag(version)
 register.tag(version_object)
 register.tag(version_setting)
-
-

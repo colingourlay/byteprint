@@ -1,3 +1,5 @@
 python2.6
 django1.2
 PIL
+
++ whatever markup plugins you wish to enable for the HTML Markup scrap

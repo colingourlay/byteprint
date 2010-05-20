@@ -1,4 +1,17 @@
-Image Credits:
+File Browser (modified):
+Django Filebrowser (Patrick Kranzlmueller) - http://pypi.python.org/pypi/django-filebrowser/3.0
 
-* Farm Fresh Web Icons [http://www.fatcow.com/free-icons/]
-    Admin > Majority of icons across the site
+WYSIWYG Editor:
+TinyMCE - http://tinymce.moxiecode.com/
+
+Auto Slug Generation:
+django-autoslug (Andy Mikhailenko) - http://bitbucket.org/neithere/django-autoslug/
+
+Markup Filters:
+Django Markup - http://docs.mahner.org/django-markup/
+
+HTML Parsing:
+BeautifulSoup - http://www.crummy.com/software/BeautifulSoup/
+
+Image Credits:
+Farm Fresh Web Icons [http://www.fatcow.com/free-icons/]

@@ -2,7 +2,7 @@ from django import template
 
 register = template.Library()
 
-@register.filter
+@register.filter('object_type')
 def object_type(obj, type_string):
     """
     Checks the type of an object against a string
@@ -24,7 +24,7 @@ def object_type(obj, type_string):
         pass
     return False
 
-@register.filter
+@register.filter('field_type')
 def field_type(field, type_string):
     """
     Checks the type of a form field against a string
